@@ -1,0 +1,24 @@
+﻿html.ie7, .ie7 body, .ie7 .applicationHost,
+html.ie8, .ie8 body, .ie8 .applicationHost {
+    overflow-y: hidden;
+    min-width: 600px;
+}
+
+.not-supported-browser {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.browser-icons-wrapper {
+    display: inline;
+    margin: 0 auto;
+}
+
+.browser-group {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.ie7 .browser-group {
+    display: inline;
+}

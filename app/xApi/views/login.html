@@ -1,0 +1,37 @@
+﻿<section class="view xApi-login">
+    <header class="view-header"></header>
+
+    <form class="content container" data-bind="submit: report">
+        <div class="form-caption">
+            Your credentials for progress tracking
+        </div>
+        <hr />
+        <div class="form-description">
+            Please enter your credentials and click "Start and report my progress" to enable progress tracking. Otherwise, click "Do not report, just start".
+        </div>
+
+        <div class="form-row" data-bind="css: { error: !username.isValid() && showError() }">
+            <label class="form-label">Your name</label>
+            <div class="form-control-wrapper">
+                <input class="form-control" type="text" data-bind="value: username, valueUpdate: 'afterkeydown'" />
+                <span class="form-control-message" data-bind="visible: !username.isValid() && showError()">Fill in your name</span>
+            </div>
+        </div>
+
+        <div class="form-row" data-bind="css: { error: !email.isValid() && showError() }">
+            <label class="form-label">Your e-mail</label>
+            <div class="form-control-wrapper">
+                <input class="form-control" type="email" data-bind="value: email, valueUpdate: 'afterkeydown'" />
+                <span class="form-control-message" data-bind="visible: !email.isValid() && showError()">Enter a valid e-mail</span>
+            </div>
+        </div>
+        <div class="form-submit">
+            <label class="form-label"></label>
+            <div class="form-control-wrapper">
+                <button type="submit" class="button large success emphasize" data-bind="click: report">Start and report my progress</button>
+                <button type="button" class="button unstyled" data-bind="click: justStart">Do not report, just start</button>
+            </div>
+        </div>
+    </form>
+
+</section>

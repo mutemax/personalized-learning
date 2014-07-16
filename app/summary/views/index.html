@@ -1,0 +1,29 @@
+<section class="summary view" data-bind="css: { 'disabled': isClosing() || isClosed() }">
+    <header class="view-header">
+        <div class="course-progress" data-bind="progress: progress">
+        </div>
+        <button class="button success medium close-course" data-bind="click: close, css: { 'disabled': isClosing() || isClosed() }">Close course</button>
+    </header>
+
+    <div class="content container">
+        <h3>Learning objectives</h3>
+        <hr />
+        <ul class="unstyled" data-bind="foreach: objectives">
+            <li class="objective">
+                <div class="objective-title">
+                    <span data-bind="text: title"></span>
+                </div>
+                <div class="objective-progress">
+                    <div data-bind="progress: score"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ko if: isClosing() || isClosed() -->
+    <div class="loader-wrapper">
+        <div class="loader" data-bind="visible: !isClosed()"></div>
+    </div>
+    <!-- /ko -->
+
+</section>

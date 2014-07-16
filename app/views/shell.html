@@ -1,0 +1,18 @@
+﻿<section>
+    <div class="logo-header">
+        <!-- ko if: hasLogo -->
+        <img class="logo" data-bind="attr: { src: logoUrl }" />
+        <!-- /ko -->
+        <!-- ko ifnot: hasLogo -->
+        <div class="logo default"></div>
+        <!-- /ko -->
+    </div>
+    <h1 data-bind="text: title"></h1>
+
+    <div data-bind="if: activeItem.isComposing">
+        <div class="loader"></div>
+    </div>
+    <div data-bind="visible: !activeItem.isComposing() ">
+        <div data-bind="compose: { model: activeItem, compositionComplete: activeItem.compositionComplete }"></div>
+    </div>
+</section>

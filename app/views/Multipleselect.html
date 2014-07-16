@@ -1,0 +1,22 @@
+﻿<section>
+    <hr />
+    <!-- ko if: content -->
+    <div class="question-content">
+        <div data-bind="html: content"></div>
+    </div>
+    <!-- /ko -->
+    <div>
+        <ul class="unstyled">
+            <!-- ko foreach: options -->
+            <li>
+                <label class="checkbox" data-bind="click: toggleCheck, css: { checked: checked }">
+                    <span class="checkbox-image-wrapper">
+                        <span class="checkbox-image"></span>
+                    </span>
+                    <label class="checkbox-text" data-bind="text: text"></label>
+                </label>
+            </li>
+            <!-- /ko -->
+        </ul>
+    </div>
+</section>
