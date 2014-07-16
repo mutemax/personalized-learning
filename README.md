@@ -1,0 +1,4 @@
+adaptive
+========
+
+Personalized learning template
