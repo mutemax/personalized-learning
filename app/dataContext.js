@@ -40,6 +40,7 @@
                          var question;
 
                          switch (dq.type) {
+
                              case 0:
                                  question = new Multipleselect(dq.id, dq.title, dq.answers);;
                                  break;
@@ -60,6 +61,14 @@
                              promises.push(http.get('content/' + dobj.id + '/' + dq.id + '/content.html?v=' + Math.random(), { dataType: 'html' }).then(function (content) {
                                  question.content = content;
                              }));
+                         }
+
+                         if (dq.hasCorrectFeedback) {
+                             question.correctFeedback = 'content/' + dobj.id + '/' + dq.id + '/correctFeedback.html?v=' + Math.random();
+                         }
+
+                         if (dq.hasIncorrectFeedback) {
+                             question.incorrectFeedback = 'content/' + dobj.id + '/' + dq.id + '/incorrectFeedback.html?v=' + Math.random();
                          }
 
                          question.learningContents = _.map(dq.learningContents, function (item) {

@@ -62,16 +62,16 @@
         }
 
         var index, question;
-         _.each(readings, function (v, i) {
-            
+        _.each(readings, function (v, i) {
+
             if (v.id == questionId) {
                 question = v;
                 index = i;
             }
-         });
+        });
 
-        
-         var vm = factory.createQuestionViewModel(question);
+
+        var vm = factory.createQuestionViewModel(question);
 
         viewmodel.currentReading(vm);
         viewmodel.currentReadingIndex(index);
@@ -81,7 +81,7 @@
         viewmodel.nextReading(readings.length > index + 1 ? readings[index + 1].id : null);
         viewmodel.previousReading(index > 0 ? readings[index - 1].id : null);
 
-       
+
         if (viewmodel.nextReading()) {
             viewmodel.nextOrNotCompletedReading(viewmodel.nextReading());
         } else {
@@ -90,8 +90,8 @@
             }
         }
         
-        vm.learningContent.load().then(function () {
-            setTimeout(function () {            
+        Q.allSettled([vm.learningContent.load(), vm.correctFeedback.load(), vm.incorrectFeedback.load()]).then(function () {
+            setTimeout(function () {
                 viewmodel.isReady(true);
             }, 200);
         });
@@ -122,8 +122,7 @@
         app.trigger('studying:stop-reading');
     }
 
-    function submit() {
-
+    function submit() {        
         viewmodel.currentReading().submit();
         viewmodel.score(self.objective.score());
     }

@@ -79,6 +79,9 @@
                                 </span>
                             </div>
                         </div>
+                        <!-- ko if: incorrectFeedback -->
+                        <div class="question-feedback-description" data-bind="html: incorrectFeedback"></div>
+                        <!-- /ko -->
                         <!-- ko if: $parent.nextOrNotCompletedReading -->
                         <div class="question-feedback-action-container incorrect">
                             <div class="question-feedback-action-wrapper">
@@ -113,6 +116,9 @@
                                 </span>
                             </div>
                         </div>
+                        <!-- ko if: correctFeedback -->
+                        <div class="question-feedback-description" data-bind="html: correctFeedback"></div>
+                        <!-- /ko -->
                         <div class="question-feedback-action-container correct">
                             <!-- ko if: $parent.nextOrNotCompletedReading -->
                             <div class="question-feedback-action-wrapper">

@@ -161,6 +161,10 @@
     padding-left: 15px;
 }
 
+.question-feedback-description {
+    margin: 30px auto;
+}
+
 .question .question-feedback-action-container {
     display: table;
     margin: auto;

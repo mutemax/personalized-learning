@@ -29,9 +29,39 @@
                     .map(function (item) { return item.content; })
                     .value());
 
-
             }).catch(function (reason) {
                 console.error(reason);
+            });
+        }
+
+        this.correctFeedback = ko.observable();
+        this.correctFeedback.load = function () {
+            var that = this;
+
+            return Q.fcall(function() {
+                if (!question.correctFeedback) {
+                    return null;
+                }
+
+                return http.get(question.correctFeedback, { dataType: 'html' }).then(function (feedback) {
+                    that(feedback);
+                });
+            });
+
+        }
+
+        this.incorrectFeedback = ko.observable();
+        this.incorrectFeedback.load = function () {
+            var that = this;
+
+            return Q.fcall(function () {
+                if (!question.incorrectFeedback) {
+                    return null;
+                }
+
+                return http.get(question.incorrectFeedback, { dataType: 'html' }).then(function (feedback) {
+                    that(feedback);
+                });
             });
         }
     }
