@@ -3,13 +3,13 @@
     'entities/Multipleselect',
     'entities/FillInTheBlanks',
     'entities/DragAndDrop',
-    'entities/Multiplechoice',
+    'entities/Singleselect',
 
      'Q',
      '_',
      'plugins/http'],
 
-     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Multiplechoice, Q, _, http) {
+     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, Q, _, http) {
          "use strict";
 
          return {
@@ -51,7 +51,7 @@
                                  question = new DragAndDrop(dq.id, dq.title, dq.background, dq.dropspots);
                                  break;
                              case 3:
-                                 question = new Multiplechoice(dq.id, dq.title, dq.answers);;
+                                 question = new Singleselect(dq.id, dq.title, dq.answers);;
                                  break;
                              default:
                                  throw 'Unknow question type';

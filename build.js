@@ -45,7 +45,7 @@
 		'text!views/shell.html',
 		'text!views/notSupportedBrowser.html',
 		'text!views/Multipleselect.html',
-		'text!views/Multiplechoice.html',
+		'text!views/Singleselect.html',
 		'text!views/FillInTheBlanks.html',
 		'text!views/DragAndDrop.html',
 		'text!views/404.html',
@@ -65,11 +65,11 @@
 		'entities/Multipleselect',
         'viewmodels/Multipleselect',
 		'entities/course',
-        'viewmodels/Multiplechoice',
+        'viewmodels/Singleselect',
         'viewmodels/FillInTheBlanks',
         'viewmodels/factory',
         'viewmodels/DragAndDrop',
-        'entities/Multiplechoice',
+        'entities/Singleselect',
         'entities/FillInTheBlanks',
         'entities/DragAndDrop'
     ]

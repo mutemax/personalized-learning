@@ -1,13 +1,13 @@
 ﻿define(['entities/Multipleselect',
     'entities/FillInTheBlanks',
     'entities/DragAndDrop',
-    'entities/Multiplechoice',
+    'entities/Singleselect',
 
     './Multipleselect',
     './FillInTheBlanks',
     './DragAndDrop',
-    './Multiplechoice'
-], function (Multipleselect, FillInTheBlanks, DragAndDrop, Multiplechoice, MultipleselectViewModel, FillInTheBlanksViewModel, DragAndDropViewModel, MultiplechoiceViewModel) {
+    './Singleselect'
+], function (Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, MultipleselectViewModel, FillInTheBlanksViewModel, DragAndDropViewModel, SingleselectViewModel) {
 
     return {
         createQuestionViewModel: function (question) {
@@ -23,8 +23,8 @@
                 return new DragAndDropViewModel(question);
             }
 
-            if (question instanceof Multiplechoice) {
-                return new MultiplechoiceViewModel(question);
+            if (question instanceof Singleselect) {
+                return new SingleselectViewModel(question);
             }
 
             throw 'Unknown question type';
