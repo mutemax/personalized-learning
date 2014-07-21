@@ -16,12 +16,15 @@
         },
 
         anonymousCredentials: {
-            username: "",
-            password: ""
+            username: '',
+            password: ''
         },
 
         xApi: {
-            allowedVerbs: []
+            allowedVerbs: [],
+            lrs: {
+                uri: ''
+            }
         },
 
         timeout: 120000, //2 minutes
@@ -34,6 +37,12 @@
 
     function initialize(templateSettings) {
         $.extend(settingsModule.settings.xApi, templateSettings);
+
+        var lrsUrl = settingsModule.settings.xApi.lrs.uri;
+        if (lrsUrl.indexOf("/statements") == -1) {
+            settingsModule.settings.xApi.lrs.uri = lrsUrl + "/statements";
+        }
+
     }
 
 });
