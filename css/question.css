@@ -163,6 +163,8 @@
 
 .question-feedback-description {
     margin: 30px auto;
+    overflow: auto;
+    word-break: break-all;
 }
 
 .question .question-feedback-action-container {
