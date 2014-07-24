@@ -84,6 +84,21 @@ li {
     outline: none;
 }
 
+a {
+    outline: 0;
+    text-decoration: none;
+}
+
+    a:hover,
+    a:active {
+        outline: 0;
+    }
+
+    a:focus {
+        text-decoration: none;
+    }
+
+
 html, body {
     width: 100%;
     height: 100%;
