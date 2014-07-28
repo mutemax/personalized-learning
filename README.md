@@ -1,4 +1,4 @@
 Personalized learning template
 ========
 
-A template to crete a smart course that will give your learner a personalized advice.
+A template to create a smart course that will give your learner a personalized advice.
