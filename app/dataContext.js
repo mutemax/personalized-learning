@@ -38,19 +38,19 @@
                          dq.type = dq.type || 0;
 
                          var question;
-
+						 
                          switch (dq.type) {
 
-                             case 0:
+                             case "multipleSelect":
                                  question = new Multipleselect(dq.id, dq.title, dq.answers);;
                                  break;
-                             case 1:
+                             case "fillInTheBlank":
                                  question = new FillInTheBlanks(dq.id, dq.title, dq.answers);;
                                  break;
-                             case 2:
+                             case "dragAndDropText":
                                  question = new DragAndDrop(dq.id, dq.title, dq.background, dq.dropspots);
                                  break;
-                             case 3:
+                             case "singleSelectText":
                                  question = new Singleselect(dq.id, dq.title, dq.answers);;
                                  break;
                              default:
