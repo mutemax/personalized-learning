@@ -33,50 +33,50 @@
                  course.objectives = _.map(response.objectives, function (dobj) {
                      var objective = new Objective(dobj.id, dobj.title);
 
-                     objective.questions = _.map(dobj.questions, function (dq) {
+                     objective.questions = _.chain(dobj.questions)
+                         .map(function (dq) {
+                             var question;
 
-                         dq.type = dq.type || 0;
+                             switch (dq.type) {
 
-                         var question;
-						 
-                         switch (dq.type) {
+                                 case "multipleSelect":
+                                     question = new Multipleselect(dq.id, dq.title, dq.answers);;
+                                     break;
+                                 case "fillInTheBlank":
+                                     question = new FillInTheBlanks(dq.id, dq.title, dq.answers);;
+                                     break;
+                                 case "dragAndDropText":
+                                     question = new DragAndDrop(dq.id, dq.title, dq.background, dq.dropspots);
+                                     break;
+                                 case "singleSelectText":
+                                     question = new Singleselect(dq.id, dq.title, dq.answers);;
+                                     break;
+                                 default:
+                                     return undefined;
+                             }
 
-                             case "multipleSelect":
-                                 question = new Multipleselect(dq.id, dq.title, dq.answers);;
-                                 break;
-                             case "fillInTheBlank":
-                                 question = new FillInTheBlanks(dq.id, dq.title, dq.answers);;
-                                 break;
-                             case "dragAndDropText":
-                                 question = new DragAndDrop(dq.id, dq.title, dq.background, dq.dropspots);
-                                 break;
-                             case "singleSelectText":
-                                 question = new Singleselect(dq.id, dq.title, dq.answers);;
-                                 break;
-                             default:
-                                 throw 'Unknow question type';
-                         }
+                             if (dq.hasContent) {
+                                 promises.push(http.get('content/' + dobj.id + '/' + dq.id + '/content.html?v=' + Math.random(), { dataType: 'html' }).then(function (content) {
+                                     question.content = content;
+                                 }));
+                             }
 
-                         if (dq.hasContent) {
-                             promises.push(http.get('content/' + dobj.id + '/' + dq.id + '/content.html?v=' + Math.random(), { dataType: 'html' }).then(function (content) {
-                                 question.content = content;
-                             }));
-                         }
+                             if (dq.hasCorrectFeedback) {
+                                 question.correctFeedback = 'content/' + dobj.id + '/' + dq.id + '/correctFeedback.html?v=' + Math.random();
+                             }
 
-                         if (dq.hasCorrectFeedback) {
-                             question.correctFeedback = 'content/' + dobj.id + '/' + dq.id + '/correctFeedback.html?v=' + Math.random();
-                         }
+                             if (dq.hasIncorrectFeedback) {
+                                 question.incorrectFeedback = 'content/' + dobj.id + '/' + dq.id + '/incorrectFeedback.html?v=' + Math.random();
+                             }
 
-                         if (dq.hasIncorrectFeedback) {
-                             question.incorrectFeedback = 'content/' + dobj.id + '/' + dq.id + '/incorrectFeedback.html?v=' + Math.random();
-                         }
+                             question.learningContents = _.map(dq.learningContents, function (item) {
+                                 return 'content/' + dobj.id + '/' + dq.id + '/' + item.id + '.html?v=' + Math.random();
+                             });
 
-                         question.learningContents = _.map(dq.learningContents, function (item) {
-                             return 'content/' + dobj.id + '/' + dq.id + '/' + item.id + '.html?v=' + Math.random();
-                         });
-
-                         return question;
-                     });
+                             return question;
+                         })
+                     .compact()
+                     .value();
 
                      return objective;
                  });
