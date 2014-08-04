@@ -2,12 +2,14 @@
     'entities/FillInTheBlanks',
     'entities/DragAndDrop',
     'entities/Singleselect',
+    'entities/SingleselectImage',
 
     './Multipleselect',
     './FillInTheBlanks',
     './DragAndDrop',
-    './Singleselect'
-], function (Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, MultipleselectViewModel, FillInTheBlanksViewModel, DragAndDropViewModel, SingleselectViewModel) {
+    './Singleselect',
+    './SingleselectImage'
+], function (Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, MultipleselectViewModel, FillInTheBlanksViewModel, DragAndDropViewModel, SingleselectViewModel, SingleselectImageViewModel) {
 
     return {
         createQuestionViewModel: function (question) {
@@ -25,6 +27,10 @@
 
             if (question instanceof Singleselect) {
                 return new SingleselectViewModel(question);
+            }
+
+            if (question instanceof SingleselectImage) {
+                return new SingleselectImageViewModel(question);
             }
 
             throw 'Unknown question type';

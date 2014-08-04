@@ -15,6 +15,7 @@
 		'dataContext',
 		'eventManager',
 		'loader',
+        'imagePreview',
 		'xApi/viewmodels/login',
 		'xApi/verbs',
 		'xApi/utils/dateTimeConverter',
@@ -48,6 +49,7 @@
 		'text!views/Singleselect.html',
 		'text!views/FillInTheBlanks.html',
 		'text!views/DragAndDrop.html',
+        'text!views/SingleselectImage.html',
 		'text!views/404.html',
 		'text!summary/views/index.html',
 		'text!studying/views/studyadvice.html',
@@ -69,8 +71,10 @@
         'viewmodels/FillInTheBlanks',
         'viewmodels/factory',
         'viewmodels/DragAndDrop',
+        'viewmodels/SingleselectImage',
         'entities/Singleselect',
         'entities/FillInTheBlanks',
-        'entities/DragAndDrop'
+        'entities/DragAndDrop',
+        'entities/SingleselectImage'
     ]
 })

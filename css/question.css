@@ -403,3 +403,11 @@
         }
 
 /* #endregion*/
+
+
+/* #region Single select image question */
+.singleselectimage ul {
+    text-align: center;
+}
+
+/* #endregion */
