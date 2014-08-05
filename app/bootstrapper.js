@@ -1,9 +1,7 @@
-﻿define(['customBindings', 'durandal/system', 'plugins/router', 'plugins/http'], function(customBindings, system, router, http) {
+﻿define(['customBindings', 'durandal/system',  'plugins/http'], function(customBindings, system, http) {
     "use strict";
 
     customBindings.init();
-
-    router.updateDocumentTitle = function() {};
 
     system.defer = function(action) {
         var deferred = Q.defer();

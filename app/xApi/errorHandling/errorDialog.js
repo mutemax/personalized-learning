@@ -1,4 +1,4 @@
-﻿define(['plugins/dialog', 'plugins/router', 'durandal/app', 'text!./errorDialog.html', 'durandal/viewEngine'], function (dialog, router, app, dialogMarkup, viewEngine) {
+﻿define(['plugins/dialog', 'durandal/app', 'text!./errorDialog.html', 'durandal/viewEngine'], function (dialog, app, dialogMarkup, viewEngine) {
     "use strict";
 
     var errorDialog = new dialog.MessageBox();
@@ -8,8 +8,7 @@
     return errorDialog;
 
     function restartCourse() {
-        var rootUrl = location.toString().replace(location.hash, '').replace('#', '');
-        router.navigate(rootUrl, { replace: false, trigger: true });
+        location.reload();
     }
 
     function continueLearning() {

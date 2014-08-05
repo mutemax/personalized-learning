@@ -1,6 +1,10 @@
-define(['entities/course', 'browserDetector', 'knockout', '_', 'plugins/router'],
+define(['entities/course', 'browserDetector', 'knockout', '_'],
     function (course, browserDetector, ko, _, router) {
         "use strict";
+
+        var self = {
+            isCourseFinished: false
+        }
 
         var viewModel = {
             activate: activate,
@@ -20,6 +24,10 @@ define(['entities/course', 'browserDetector', 'knockout', '_', 'plugins/router']
                 return { title: objective.title, score: objective.score() };
             });
             viewModel.progress = course.score();
+
+            course.finish().then(function () {
+                self.isCourseFinished = true;
+            });
         }
 
         function close() {
@@ -27,20 +35,20 @@ define(['entities/course', 'browserDetector', 'knockout', '_', 'plugins/router']
                 return;
             }
 
-            router.reset();
-
             viewModel.isClosing(true);
-            course.finish().then(function () {
+
+            if (self.isCourseFinished) {
                 viewModel.isClosing(false);
                 window.close();
                 if (!browserDetector.isInternetExplorer) {
-                    _.delay(function () {
+                    _.delay(function() {
                         viewModel.isClosed(true);
                         window.alert('Thank you. It is now safe to close this page.');
                     }, 100);
                 }
-            });
+            } else {
+                setTimeout(close, 100);
+            }
         }
-
     }
 );
