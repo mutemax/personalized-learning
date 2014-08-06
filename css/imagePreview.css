@@ -56,6 +56,11 @@
 }
 
 .preview-image {
+    -webkit-box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.5);
+    -ms-box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.5);
+    -ms-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .preview-close {
