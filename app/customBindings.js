@@ -134,15 +134,22 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
                 init: function (element, valueAccessor, allBindingsAccessor) {
                     var allBindings = allBindingsAccessor();
                     var scope = ko.unwrap(allBindings.scope) || 'question';
+                    var $element = $(element);
 
-                    $(element).draggable({
+                    $element.draggable({
                         scope: scope,
                         revert: 'invalid',
                         appendTo: 'body',
                         helper: 'clone',
                         tolerance: 'pointer',
                         cursorAt: { left: 10, top: 15 },
-                        scroll: false
+                        scroll: false,
+                        start: function(){
+                            $element.css({visibility:'hidden'});
+                        },
+                        stop: function(){
+                            $element.css({visibility:'visible'});
+                        }
                     });
                 }
             };
