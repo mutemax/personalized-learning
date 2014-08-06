@@ -116,15 +116,10 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
                         scope: scope,
                         drop: function (e, ui) {
                             ui.draggable.css('left', '').css('top', '').appendTo(this);
-                        }
-                    });
-
-
-                    $(element).droppable({
-                        accept: '.drag-and-drop-text-draggable',
-                        scope: scope,
-                        drop: function (e, ui) {
-                            ui.draggable.css('left', '').css('top', '').appendTo(this);
+                            var text = ko.dataFor(ui.draggable.get(0));
+                            if(text.dropSpot){
+                                text.dropSpot.text(undefined);
+                            }
                         }
                     });
                 }
@@ -198,6 +193,7 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
 
                             if (ko.isWriteableObservable(value.text)) {
                                 value.text(text);
+                                text.dropSpot = value;
                             }
                         }
                     });
