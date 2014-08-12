@@ -35,7 +35,7 @@
                         button.show();
                     })
                     .appendTo(imageWrapper)
-            ;            
+            ;
 
             function updatePreviewImageSize() {
                 var browserWidth = $(window).innerWidth();
@@ -44,7 +44,15 @@
                 image.css('maxWidth', browserWidth - 50 + 'px').css('maxHeight', browserHeight - 50 + 'px');
             }
 
+            function closePreviewOnEsc(e) {
+                if (e.keyCode == 27) {
+                    button.trigger('click');
+                    $(window).off('keypress', closePreviewOnEsc);
+                }
+            }
+
             $(window).on('resize orientationchange', updatePreviewImageSize);
+            $(window).on('keypress', closePreviewOnEsc);
             updatePreviewImageSize();
 
             overlayWrapper

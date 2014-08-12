@@ -465,32 +465,31 @@ hr {
         margin: auto;
     }
 
-.radio-image {
-    display: block;
-}
+    .radio.image .radio-image-wrapper {
+        border: 3px solid transparent;
+        -ms-border-radius: 3px;
+        border-radius: 3px;
+    }
 
-.radio.image .radio-image-wrapper {
-    border: 3px solid transparent;
-    -ms-border-radius: 3px;
-    border-radius: 3px;
-}
+    .radio.image.checked .radio-image-wrapper {
+        border-color: #009bd5;
+    }
 
-.radio.image.checked .radio-image-wrapper {
-    border-color: #009bd5;
-}
+    .radio.image .radio-image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        display: block;
+        height: 150px;
+        width: 150px;
+    }
 
-.radio.image .radio-image {
-    border: 1px solid #ddd;
-    -ms-border-radius: 3px;
-    border-radius: 3px;
-    width: 150px;
-    height: 150px;
-}
-
-.radio.image.checked .radio-image {
-    -ms-border-radius: 0;
-    border-radius: 0;
-}
+    .radio.image.checked .radio-image {
+        -ms-border-radius: 0;
+        border-radius: 0;
+    }
 
 
 .view {
