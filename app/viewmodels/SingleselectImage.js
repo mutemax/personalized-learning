@@ -1,4 +1,4 @@
-﻿define(['./Question', 'imagePreview'], function (Question, imagePreview) {
+﻿define(['./Question'], function (Question) {
 
     var ctor = function (question) {
         var that = this;
@@ -18,10 +18,7 @@
             .map(function (option) {
                 return {
                     id: option.id,
-                    image: option.image,
-                    preview: function () {
-                        imagePreview.show(this.image);
-                    }
+                    image: option.image
                 }
             }).value();
 
