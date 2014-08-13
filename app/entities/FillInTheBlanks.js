@@ -8,7 +8,6 @@
 
         this.answer = function (userAnswers) {
             var numOfCorrect = 0;
-
             _.each(this.answers, function (option) {
                 if (_.find(userAnswers, function (answer) {
                     return option.group == answer.id && option.text == answer.text;

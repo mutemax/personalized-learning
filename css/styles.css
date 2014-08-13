@@ -475,15 +475,15 @@ hr {
         border-color: #009bd5;
     }
 
-    .radio.image .radio-image {
-        border: 1px solid #ddd;
-        border-radius: 3px;
+    .radio.image .preview-thumbnail {
         display: block;
         height: 150px;
         width: 150px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
     }
 
-    .radio.image.checked .radio-image {
+    .radio.image.checked .preview-thumbnail {
         -ms-border-radius: 0;
         border-radius: 0;
     }

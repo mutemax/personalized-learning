@@ -22,6 +22,8 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext'
             var rootView = 'viewmodels/shell';
             var modules = [];
 
+            bootstrapper.run();
+
             browserDetector.detect();
 
             if (!browserDetector.isSupportedMobile && !browserDetector.isSupportedBrowser) {

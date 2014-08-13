@@ -1,5 +1,10 @@
-﻿.preview-thumbnail {
+﻿.preview-thumbnail-wrapper {
     position: relative;
+}
+
+.preview-thumbnail {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 
 .preview-open {
@@ -20,7 +25,7 @@
     width: 40px;
 }
 
-.preview-thumbnail:hover .preview-open {
+.preview-thumbnail-wrapper:hover .preview-open {
     display: block;
 }
 
