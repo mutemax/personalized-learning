@@ -17,6 +17,9 @@
         that.resetAnswer = function () {
             that.isAnswered(false);
             that.isAnsweredCorrectly(false);
+            _.each(that.blanks, function (blank) {
+                blank.text(undefined);
+            });
 
         }
 

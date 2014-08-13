@@ -25,6 +25,14 @@
                 });
 
                 handler();
+            },
+            update: function (element, valueAccessor) {
+                var
+                    value = valueAccessor(),
+                    source = $('[data-group-id=' + value.groupId + ']')
+                ;
+
+                source.val(ko.unwrap(value.text));
             }
         };
 
