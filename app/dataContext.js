@@ -37,22 +37,34 @@
                      objective.questions = _.chain(dobj.questions)
                          .map(function (dq) {
                              var question;
-                             
+
                              switch (dq.type) {
                                  case "multipleSelect":
-                                     question = new Multipleselect(dq.id, dq.title, dq.answers);;
+                                     question = new Multipleselect(dq.id, dq.title, dq.answers);
                                      break;
                                  case "fillInTheBlank":
-                                     question = new FillInTheBlanks(dq.id, dq.title, dq.answers);;
+                                     var answers = [];
+                                     _.each(dq.answerGroups, function (group) {
+                                         _.each(group.answers, function (answer) {
+                                             if (answer.isCorrect) {
+                                                 answers.push({
+                                                     id: answer.id,
+                                                     groupId: group.id,
+                                                     text: answer.text
+                                                 });
+                                             }
+                                         });
+                                     });
+                                     question = new FillInTheBlanks(dq.id, dq.title, answers);
                                      break;
                                  case "dragAndDropText":
                                      question = new DragAndDrop(dq.id, dq.title, dq.background, dq.dropspots);
                                      break;
                                  case "singleSelectText":
-                                     question = new Singleselect(dq.id, dq.title, dq.answers);;
+                                     question = new Singleselect(dq.id, dq.title, dq.answers);
                                      break;
                                  case "singleSelectImage":
-                                     question = new SingleselectImage(dq.id, dq.title, dq.answers, dq.correctAnswerId);;
+                                     question = new SingleselectImage(dq.id, dq.title, dq.answers, dq.correctAnswerId);
                                      break;
 
                                  default:

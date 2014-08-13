@@ -246,6 +246,22 @@
     box-shadow: none;
 }
 
+.blankSelect {
+    max-width: 300px;
+    width: auto;
+    padding: 6px;
+    margin: 8px;
+    border: 1px solid #00adee;
+    border-radius: 3px;
+}
+
+    .blankSelect:hover {
+        -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 2px 0 #000000;
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    }
+
 /* #endregion */
 
 /* #region Drag and drop text question */

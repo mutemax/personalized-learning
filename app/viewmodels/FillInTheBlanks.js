@@ -9,7 +9,7 @@
         that.blanks = _.chain(question.answers)
             .map(function (option) {
                 return {
-                    id: option.group,
+                    groupId: option.groupId,
                     text: ko.observable()
                 }
             }).value();
@@ -17,13 +17,13 @@
         that.resetAnswer = function () {
             that.isAnswered(false);
             that.isAnsweredCorrectly(false);
-         
+
         }
 
         that.submit = function () {
             question.answer(_.map(that.blanks, function (blank) {
                 return {
-                    id: ko.unwrap(blank.id),
+                    groupId: ko.unwrap(blank.groupId),
                     text: ko.unwrap(blank.text) || ''
                 }
             }));

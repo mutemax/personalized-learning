@@ -58,14 +58,22 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
 
             ko.bindingHandlers.blank = {
                 init: function (element, valueAccessor) {
-                    var value = valueAccessor();
-
-                    $('[data-group-id=' + value.id + ']').on('blur', function () {
-                        if (ko.isWriteableObservable(value.text)) {
-                            value.text($(this).val().trim());
+                    var
+                        value = valueAccessor(),
+                        source = $('[data-group-id=' + value.groupId + ']'),
+                        handler = function () {
+                            if (ko.isWriteableObservable(value.text)) {
+                                value.text(source.val().trim());
+                            }
                         }
+                    ;
+
+                    source.on('blur change', handler);
+                    ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
+                        source.off('blur change', handler);
                     });
 
+                    handler();
                 }
             };
 

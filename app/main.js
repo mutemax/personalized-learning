@@ -14,7 +14,7 @@ define('Q', function () { return window.Q; });
 define('_', function () { return window._; });
 
 define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext', 'courseSettingsModule', 'bootstrapper', 'browserDetector', 'Q', 'modulesInitializer', 'publishSettingsModule'],
-    function (system, app, viewLocator, dataContext, courseSettingsModule, boostrapper, browserDetector, Q, modulesInitializer, publishSettingsModule) {
+    function (system, app, viewLocator, dataContext, courseSettingsModule, bootstrapper, browserDetector, Q, modulesInitializer, publishSettingsModule) {
         app.title = '';
 
         app.start().then(function () {
