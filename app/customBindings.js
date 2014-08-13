@@ -117,7 +117,7 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
                         drop: function (e, ui) {
                             ui.draggable.css('left', '').css('top', '').appendTo(this);
                             var text = ko.dataFor(ui.draggable.get(0));
-                            if(text.dropSpot){
+                            if (text.dropSpot) {
                                 text.dropSpot.text(undefined);
                             }
                         }
@@ -139,11 +139,11 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
                         tolerance: 'pointer',
                         cursorAt: { left: 10, top: 15 },
                         scroll: false,
-                        start: function(){
-                            $element.css({visibility:'hidden'});
+                        start: function () {
+                            $element.css({ visibility: 'hidden' });
                         },
-                        stop: function(){
-                            $element.css({visibility:'visible'});
+                        stop: function () {
+                            $element.css({ visibility: 'visible' });
                         }
                     });
                 }
@@ -234,6 +234,28 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
 
                 }
             };
+
+            ko.bindingHandlers.thumbnail = {
+                init: function (element, valueAccessor) {
+                    var
+                        value = valueAccessor(),
+                        src = ko.unwrap(value)
+                    ;
+
+                    var image = new Image();
+                    image.onload = function () {
+                        $(element).css({
+                            'background-image': 'url(' + src + ')',
+                            'background-position': '50% 50%',
+                            'background-repeat': 'no-repeat',
+                            'background-size': (this.width < $(element).width() && this.height < $(element).height()) ? 'auto' : 'cover'
+                        });
+                    }
+                    image.src = src;
+
+
+                }
+            }
 
         }
 

@@ -476,9 +476,6 @@ hr {
     }
 
     .radio.image .radio-image {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
         border: 1px solid #ddd;
         border-radius: 3px;
         display: block;
