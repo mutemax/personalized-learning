@@ -7,13 +7,18 @@
     function install() {
 
         ko.bindingHandlers.draggable = {
-            init: function (element) {
+            init: function (element, valueAccessor, allBindingsAccessor) {
+                var
+                    allBindings = allBindingsAccessor()
+                ;
+
                 $(element).draggable({
                     containment: 'body',
+                    scope: ko.unwrap(allBindings.scope) || 'default',
                     tolerance: 'pointer',
                     revert: true,
                     revertDuration: 0,
-                    start: function() {
+                    start: function () {
                         $(element).addClass('active');
                     },
                     stop: function () {
@@ -45,6 +50,7 @@
                     },
                     activeClass: 'active',
                     hoverClass: 'hover',
+                    scope: ko.unwrap(allBindings.scope) || 'default',
                     tolerance: 'pointer',
                     drop: function (event, ui) {
 
