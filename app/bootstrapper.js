@@ -43,7 +43,11 @@
 
                 if (key && handlers[key]) {
                     _.each(handlers[key], function (handler) {
-                        handler.apply(null, [view]);
+                        require('durandal/composition').current.complete(function () {
+                            _.defer(function () {
+                                handler.apply(null, [view]);
+                            }, 10);
+                        });
                     });
                 }
             }
@@ -60,6 +64,7 @@
 
         })();
         binder.bindingComplete.addHandler('views/FillInTheBlanks', require('views/helpers/FillInTheBlanks'));
+        binder.bindingComplete.addHandler('views/TextMatching', require('views/helpers/TextMatching'));
 
 
         require('_components/bindingHandlers/backgroundBindingHandler').install();
@@ -71,6 +76,7 @@
 
         require('viewmodels/bindingHandlers/DragAndDrop').install();
         require('viewmodels/bindingHandlers/FillInTheBlanks').install();
+        require('viewmodels/bindingHandlers/TextMatching').install();
     }
 
 });

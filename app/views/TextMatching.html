@@ -1,0 +1,59 @@
+﻿<section class="textmatching">
+    <hr />
+    <!-- ko if: content -->
+    <div class="question-content">
+        <div data-bind="html: content"></div>
+    </div>
+    <!-- /ko -->
+
+    <div>
+        <div class="text-matching-caption">
+            Drag items from right column to the left to match the pairs
+        </div>
+        <!-- ko foreach: sources-->
+        <div class="text-matching-row">
+            <div class="text-matching-column">
+                <div class="text-matching-source-wrapper">
+                    <div class="text-matching-source">
+                        <div class="text-matching-source-text-wrapper">
+                            <div class="text-matchig-source-text" data-bind="html: key"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-matching-column">
+                <div class="text-matching-target-placeholder-wrapper" data-bind="droppable: $data, accept: 1">
+                    <div class="text-matching-target-placeholder">
+                        <div class="text-matching-target-placeholder-text-wrapper">
+                            <div class="text-matching-target-placeholder-text">Drop here</div>
+                        </div>
+                    </div>
+                    <!-- ko if: value -->
+                    <!-- ko with: value -->
+                    <div class="text-matching-target" data-bind="draggable: {}">
+                        <div class="text-matching-target-text-wrapper">
+                            <div class="text-matching-target-text" data-bind="html: $data"></div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                    <!-- /ko -->
+                </div>
+            </div>
+            <div class="text-matching-column empty">&nbsp;</div>
+            <!-- ko with: $parent.targets()[$index()] -->
+            <div class="text-matching-column" data-bind="droppable: $data, accept: 1">
+                <!-- ko if: value -->
+                <!-- ko with: value -->
+                <div class="text-matching-target" data-bind="draggable: {}">
+                    <div class="text-matching-target-text-wrapper">
+                        <div class="text-matching-target-text" data-bind="html: $data"></div>
+                    </div>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+            </div>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+    </div>
+</section>

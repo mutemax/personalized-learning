@@ -9,7 +9,6 @@
             init: function (element) {
                 $(element).wrapInner('<div>');
                 $(element).append('<div class=\'loader\'>');
-                $(element).children(':first').hide();
             },
             update: function (element, valueAccessor) {
                 var value = valueAccessor();
@@ -20,9 +19,17 @@
                 var $loader = $(element).children('.loader');
                 if (ko.unwrap(value)) {
                     $loader.hide();
-                    $content.show();
+                    $content.css({
+                        visibility: 'visible',
+                        overflow: 'visible',
+                        height: 'auto'
+                    });
                 } else {
-                    $content.hide();
+                    $content.css({
+                        visibility: 'hidden',
+                        overflow: 'hidden',
+                        height: 0
+                    });
                     $loader.show();
                 }
 

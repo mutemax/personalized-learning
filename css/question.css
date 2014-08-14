@@ -439,3 +439,207 @@
 }
 
 /* #endregion */
+
+
+/* #region Text matching question */
+
+.text-matching-caption {
+    color: #009bd5;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+    .text-matching-caption:before {
+        background-color: transparent;
+        background-image: url("../images/sprite.png");
+        background-position: 0 -481px;
+        background-repeat: no-repeat;
+        content: "";
+        display: inline-block;
+        height: 19px;
+        margin-right: 10px;
+        margin-top: -3px;
+        vertical-align: middle;
+        width: 19px;
+    }
+
+.text-matching-row {
+    display: table;
+    padding: 10px 0;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.text-matching-column {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+    width: 30%;
+}
+
+    .text-matching-column.empty {
+        display: table-cell;
+        height: 100%;
+        width: 10%;
+    }
+
+.text-matching-source-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.text-matching-source {
+    background: none repeat scroll 0 0 #bcd8f0;
+    border: 2px solid #009bd5;
+    border-radius: 7px;
+    color: #333333;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+    .text-matching-source:after {
+        background-color: transparent;
+        background-image: url("../images/sprite.png");
+        background-position: 0 -440px;
+        background-repeat: no-repeat;
+        content: "";
+        height: 36px;
+        margin-top: -18px;
+        position: absolute;
+        right: -26px;
+        top: 50%;
+        width: 45px;
+    }
+
+.text-matching-source-text-wrapper {
+    display: table;
+    height: 100%;
+    padding: 15px 30px 15px 15px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.text-matchig-source-text {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+    white-space: pre-wrap;
+    width: 100%;
+    word-break: break-all;
+}
+
+
+.text-matching-target {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 2px solid #4cb9e2;
+    border-radius: 7px;
+    cursor: move;
+    display: block;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+    .text-matching-target:before {
+        background-color: transparent;
+        background-image: url("../images/sprite.png");
+        background-position: -38px -405px;
+        background-repeat: no-repeat;
+        color: #666666;
+        content: "";
+        height: 30px;
+        left: -22px;
+        margin-top: -15px;
+        position: absolute;
+        top: 50%;
+        width: 36px;
+    }
+
+    .text-matching-target.active {
+        border-color: #009bd5;
+        -webkit-box-shadow: 0 0 3px 0 rgba(65, 183, 216, 0.5);
+        -ms-box-shadow: 0 0 3px 0 rgba(65, 183, 216, 0.5);
+        box-shadow: 0 0 3px 0 rgba(65, 183, 216, 0.5);
+        z-index: 100;
+    }
+
+        .text-matching-target.active:before {
+            background-position: 0 -405px;
+        }
+
+.text-matching-target-text-wrapper {
+    display: table;
+    height: 100%;
+    padding: 15px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.text-matching-target-text {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+    white-space: pre-wrap;
+    width: 100%;
+    word-break: break-all;
+}
+
+
+.text-matching-target-placeholder-wrapper {
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+
+    .text-matching-target-placeholder-wrapper .text-matching-target {
+        border-color: #009bd5;
+    }
+
+        .text-matching-target-placeholder-wrapper .text-matching-target:before {
+            background-position: 0 -405px;
+        }
+
+
+.text-matching-target-placeholder {
+    display: none;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.text-matching-target-placeholder-wrapper.active .text-matching-target-placeholder {
+    display: block;
+}
+
+.text-matching-target-placeholder-text-wrapper {
+    border: 1px dashed #e1e1e1;
+    border-radius: 7px;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.text-matching-target-placeholder-wrapper.hover .text-matching-target-placeholder-text-wrapper {
+    border-color: #67c5e0;
+}
+
+.text-matching-target-placeholder-text {
+    color: #c2c2c2;
+    display: table-cell;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.text-matching-target-placeholder-wrapper.hover .text-matching-target-placeholder-text {
+    color: #79C8E6;
+}
+
+/* #endregion*/

@@ -5,12 +5,13 @@
     'entities/DragAndDrop',
     'entities/Singleselect',
     'entities/SingleselectImage',
+    'entities/TextMatching',
 
      'Q',
      '_',
      'plugins/http'],
 
-     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, Q, _, http) {
+     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Q, _, http) {
          "use strict";
 
          return {
@@ -66,7 +67,9 @@
                                  case "singleSelectImage":
                                      question = new SingleselectImage(dq.id, dq.title, dq.answers, dq.correctAnswerId);
                                      break;
-
+                                 case "textMatching":
+                                     question = new TextMatching(dq.id, dq.title, dq.answers, dq.correctAnswerId);
+                                     break;
                                  default:
                                      return undefined;
                              }

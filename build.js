@@ -22,6 +22,7 @@
         'entities/Objective',
         'entities/Singleselect',
         'entities/SingleselectImage',
+        'entities/TextMatching',
 
         'introduction/viewmodels/index',
         'text!introduction/views/index.html',
@@ -42,6 +43,7 @@
 
         'viewmodels/bindingHandlers/DragAndDrop',
         'viewmodels/bindingHandlers/FillInTheBlanks',
+        'viewmodels/bindingHandlers/TextMatching',
 
         'viewmodels/404',
 
@@ -55,8 +57,10 @@
         'viewmodels/shell',
         'viewmodels/Singleselect',
         'viewmodels/SingleselectImage',
+        'viewmodels/TextMatching',
 
         'views/helpers/FillInTheBlanks',
+        'views/helpers/TextMatching',
         'text!views/404.html',
         'text!views/DragAndDrop.html',
         'text!views/FillInTheBlanks.html',
@@ -66,6 +70,7 @@
         'text!views/shell.html',
         'text!views/Singleselect.html',
         'text!views/SingleselectImage.html',
+        'text!views/TextMatching.html',
 
         'xApi/configuration/settings',
         'xApi/entities/activity',

@@ -19,7 +19,7 @@
 
 
         }).catch(function (reason) {
-            alert(reason);
+            console.error(reason);
         });
     }
 
