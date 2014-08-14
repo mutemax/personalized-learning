@@ -44,9 +44,11 @@
             <div class="text-matching-column" data-bind="droppable: $data, accept: 1">
                 <!-- ko if: value -->
                 <!-- ko with: value -->
-                <div class="text-matching-target" data-bind="draggable: {}">
-                    <div class="text-matching-target-text-wrapper">
-                        <div class="text-matching-target-text" data-bind="html: $data"></div>
+                <div class="text-matching-target-wrapper">
+                    <div class="text-matching-target" data-bind="draggable: {}">
+                        <div class="text-matching-target-text-wrapper">
+                            <div class="text-matching-target-text" data-bind="html: $data"></div>
+                        </div>
                     </div>
                 </div>
                 <!-- /ko -->

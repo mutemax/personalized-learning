@@ -532,6 +532,11 @@
 }
 
 
+.text-matching-target-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
 .text-matching-target {
     background: none repeat scroll 0 0 #ffffff;
     border: 2px solid #4cb9e2;
