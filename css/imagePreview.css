@@ -25,6 +25,10 @@
     width: 40px;
 }
 
+    .preview-open.touch {
+        display: block;
+    }
+
 .preview-thumbnail-wrapper:hover .preview-open {
     display: block;
 }

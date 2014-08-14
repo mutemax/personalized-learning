@@ -24,9 +24,11 @@
                         'background-image': 'url(' + src + ')',
                         'background-size': (this.width > $(element).width() && this.height > $(element).height()) ? 'cover' : 'auto'
                     });
+                    
                     $('<button />')
                         .attr('type', 'button')
                         .addClass('preview-open')
+                        .addClass("ontouchstart" in document.documentElement ? 'touch' : '')
                         .click(function (e) {
                             showPreview(src);
                             e.preventDefault();
