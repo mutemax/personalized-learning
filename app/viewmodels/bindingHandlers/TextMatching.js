@@ -20,8 +20,8 @@
                             .clone()
                             .addClass('handle')
                             .css({
-                                width: $(this).width(),
-                                height: $(this).height()
+                                width: $(this).outerWidth(),
+                                height: $(this).outerHeight()
                             });
                     },
                     scope: ko.unwrap(allBindings.scope) || 'default',
