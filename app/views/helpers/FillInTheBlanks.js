@@ -6,7 +6,7 @@
             $(this).val(option).trigger('change');
         });
 
-        $(".blankSelect, .blankInput").on('keypress', function (e) {
+        $(".blankSelect, .blankInput", view).on('keypress', function (e) {
             if (e.which == 13 || e.keyCode == 13) {
                 e.preventDefault();
                 e.stopImmediatePropagation();
