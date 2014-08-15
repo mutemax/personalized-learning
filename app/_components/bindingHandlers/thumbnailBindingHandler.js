@@ -24,7 +24,7 @@
                         'background-image': 'url(' + src + ')',
                         'background-size': (this.width > $(element).width() && this.height > $(element).height()) ? 'cover' : 'auto'
                     });
-                    
+
                     $('<button />')
                         .attr('type', 'button')
                         .addClass('preview-open')
@@ -53,9 +53,13 @@
                 .addClass('preview-overlay')
                 .appendTo(overlayWrapper),
 
-            imageWrapper = $('<div />')
-                .addClass('preview-image-wrapper')
+            imageOuterWrapper = $('<div />')
+                .addClass('preview-image-outer-wrapper')
                 .appendTo(overlay),
+
+            imageInnerWrapper = $('<div />')
+                .addClass('preview-image-inner-wrapper')
+                .appendTo(imageOuterWrapper),
 
             button = $('<button />')
                 .addClass('preview-close')
@@ -69,7 +73,7 @@
                     });
                 })
                 .hide()
-                .appendTo(imageWrapper),
+                .appendTo(imageInnerWrapper),
 
             image = $('<img />')
                 .addClass('preview-image')
@@ -77,7 +81,7 @@
                 .on('load', function () {
                     button.show();
                 })
-                .appendTo(imageWrapper)
+                .appendTo(imageInnerWrapper)
         ;
 
         function updatePreviewImageSize() {
