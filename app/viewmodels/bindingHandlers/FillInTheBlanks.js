@@ -32,7 +32,17 @@
                     source = $('[data-group-id=' + value.groupId + ']')
                 ;
 
-                source.val(ko.unwrap(value.text));
+                var text = ko.unwrap(value.text);
+
+                if (source.is('select')) {
+                    if (typeof text == typeof undefined) {
+                        source.find('option:first').prop('selected', true);
+                    } else {
+                        source.val(text);
+                    }
+                } else {
+                    source.val(text);
+                }
             }
         };
 
