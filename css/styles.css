@@ -200,6 +200,7 @@ hr {
     -ms-border-radius: 3px;
     border-radius: 3px;
     background: #fff;
+    overflow-x: auto;
 }
 
 .pull-right {

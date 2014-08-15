@@ -13,16 +13,26 @@
                 ;
 
                 $(element).draggable({
+                    appendTo: '.application',
                     containment: 'body',
+                    helper: function () {
+                        return $(element)
+                            .clone()
+                            .addClass('handle')
+                            .css({
+                                width: $(this).width(),
+                                height: $(this).height()
+                            });
+                    },
                     scope: ko.unwrap(allBindings.scope) || 'default',
                     tolerance: 'pointer',
                     revert: true,
                     revertDuration: 0,
                     start: function () {
-                        $(element).addClass('active');
+                        $(element).hide();
                     },
                     stop: function () {
-                        $(element).removeClass('active');
+                        $(element).show();
                     }
                 });
             }

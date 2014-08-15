@@ -565,7 +565,7 @@
         width: 36px;
     }
 
-    .text-matching-target.active {
+    .text-matching-target.handle {
         border-color: #009bd5;
         -webkit-box-shadow: 0 0 3px 0 rgba(65, 183, 216, 0.5);
         -ms-box-shadow: 0 0 3px 0 rgba(65, 183, 216, 0.5);
@@ -573,7 +573,7 @@
         z-index: 100;
     }
 
-        .text-matching-target.active:before {
+        .text-matching-target.handle:before {
             background-position: 0 -405px;
         }
 
