@@ -98,6 +98,9 @@
                      .value();
 
                      return objective;
+                 })
+                 .filter(function (item) {
+                    return !_.isNull(item.questions) && !_.isUndefined(item.questions) && item.questions.length > 0;
                  });
 
                  if (response.hasIntroductionContent) {
