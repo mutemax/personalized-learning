@@ -19,7 +19,11 @@
                     }
                 ;
 
-                source.on('blur change', handler);
+                source
+                    .val(undefined)
+                    .on('blur change', handler)
+                ;
+
                 ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
                     source.off('blur change', handler);
                 });
