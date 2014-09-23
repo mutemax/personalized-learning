@@ -32,75 +32,71 @@
                  course.id = response.id;
                  course.title = response.title;
 
-                 course.objectives = _.map(response.objectives, function (dobj) {
+                 _.each(response.objectives, function (dobj) {
                      var objective = new Objective(dobj.id, dobj.title);
 
-                     objective.questions = _.chain(dobj.questions)
-                         .map(function (dq) {
-                             var question;
+                     _.each(dobj.questions, function (dq) {
+                         var question;
 
-                             switch (dq.type) {
-                                 case "multipleSelect":
-                                     question = new Multipleselect(dq.id, dq.title, dq.answers);
-                                     break;
-                                 case "fillInTheBlank":
-                                     var answers = [];
-                                     _.each(dq.answerGroups, function (group) {
-                                         _.each(group.answers, function (answer) {
-                                             if (answer.isCorrect) {
-                                                 answers.push({
-                                                     id: answer.id,
-                                                     groupId: group.id,
-                                                     text: answer.text
-                                                 });
-                                             }
-                                         });
+                         switch (dq.type) {
+                             case "multipleSelect":
+                                 question = new Multipleselect(dq.id, dq.title, dq.answers);
+                                 break;
+                             case "fillInTheBlank":
+                                 var answers = [];
+                                 _.each(dq.answerGroups, function (group) {
+                                     _.each(group.answers, function (answer) {
+                                         if (answer.isCorrect) {
+                                             answers.push({
+                                                 id: answer.id,
+                                                 groupId: group.id,
+                                                 text: answer.text
+                                             });
+                                         }
                                      });
-                                     question = new FillInTheBlanks(dq.id, dq.title, answers);
-                                     break;
-                                 case "dragAndDropText":
-                                     question = new DragAndDrop(dq.id, dq.title, dq.background, dq.dropspots);
-                                     break;
-                                 case "singleSelectText":
-                                     question = new Singleselect(dq.id, dq.title, dq.answers);
-                                     break;
-                                 case "singleSelectImage":
-                                     question = new SingleselectImage(dq.id, dq.title, dq.answers, dq.correctAnswerId);
-                                     break;
-                                 case "textMatching":
-                                     question = new TextMatching(dq.id, dq.title, dq.answers, dq.correctAnswerId);
-                                     break;
-                                 default:
-                                     return undefined;
-                             }
+                                 });
+                                 question = new FillInTheBlanks(dq.id, dq.title, answers);
+                                 break;
+                             case "dragAndDropText":
+                                 question = new DragAndDrop(dq.id, dq.title, dq.background, dq.dropspots);
+                                 break;
+                             case "singleSelectText":
+                                 question = new Singleselect(dq.id, dq.title, dq.answers);
+                                 break;
+                             case "singleSelectImage":
+                                 question = new SingleselectImage(dq.id, dq.title, dq.answers, dq.correctAnswerId);
+                                 break;
+                             case "textMatching":
+                                 question = new TextMatching(dq.id, dq.title, dq.answers, dq.correctAnswerId);
+                                 break;
+                             default:
+                                 return undefined;
+                         }
 
-                             if (dq.hasContent) {
-                                 promises.push(http.get('content/' + dobj.id + '/' + dq.id + '/content.html?v=' + Math.random(), { dataType: 'html' }).then(function (content) {
-                                     question.content = content;
-                                 }));
-                             }
+                         if (dq.hasContent) {
+                             promises.push(http.get('content/' + dobj.id + '/' + dq.id + '/content.html?v=' + Math.random(), { dataType: 'html' }).then(function (content) {
+                                 question.content = content;
+                             }));
+                         }
 
-                             if (dq.hasCorrectFeedback) {
-                                 question.correctFeedback = 'content/' + dobj.id + '/' + dq.id + '/correctFeedback.html?v=' + Math.random();
-                             }
+                         if (dq.hasCorrectFeedback) {
+                             question.correctFeedback = 'content/' + dobj.id + '/' + dq.id + '/correctFeedback.html?v=' + Math.random();
+                         }
 
-                             if (dq.hasIncorrectFeedback) {
-                                 question.incorrectFeedback = 'content/' + dobj.id + '/' + dq.id + '/incorrectFeedback.html?v=' + Math.random();
-                             }
+                         if (dq.hasIncorrectFeedback) {
+                             question.incorrectFeedback = 'content/' + dobj.id + '/' + dq.id + '/incorrectFeedback.html?v=' + Math.random();
+                         }
 
-                             question.learningContents = _.map(dq.learningContents, function (item) {
-                                 return 'content/' + dobj.id + '/' + dq.id + '/' + item.id + '.html?v=' + Math.random();
-                             });
+                         question.learningContents = _.map(dq.learningContents, function (item) {
+                             return 'content/' + dobj.id + '/' + dq.id + '/' + item.id + '.html?v=' + Math.random();
+                         });
 
-                             return question;
-                         })
-                     .compact()
-                     .value();
+                         objective.questions.push(question);
+                     });
 
-                     return objective;
-                 })
-                 .filter(function (item) {
-                    return !_.isNull(item.questions) && !_.isUndefined(item.questions) && item.questions.length > 0;
+                     if (objective.questions && objective.questions.length) {
+                         course.objectives.push(objective);
+                     }
                  });
 
                  if (response.hasIntroductionContent) {

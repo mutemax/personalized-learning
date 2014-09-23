@@ -4,6 +4,7 @@
     var ctor = function (id, title) {
         this.id = id;
         this.title = title;
+        this.questions = [];
 
         this.score = function () {
             var sum = _.reduce(this.questions, function (memo, question) {
