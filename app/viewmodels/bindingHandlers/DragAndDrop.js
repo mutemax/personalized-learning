@@ -51,7 +51,6 @@
                     revert: 'invalid',
                     appendTo: 'body',
                     helper: 'clone',
-                    tolerance: 'pointer',
                     cursorAt: { left: 10, top: 15 },
                     scroll: false,
                     start: function () {
@@ -89,21 +88,23 @@
                     })
                     .on('dragstop', function (event, ui) {
                         $(element).removeClass('active');
-
                         $(element).css('width', '');
                         $(element).css('height', '');
                     });
 
                 $(element).droppable({
-                    accept: '.drag-and-drop-text-draggable',
-                    scope: scope,
-                    out: function () {
-                        $(element).droppable('option', 'accept', '.drag-and-drop-text-draggable');
+                    accept: function (arg) {
+                        if ($(element).find(arg).length) {
+                            return true;
+                        }
+
+                        return $(element).find('.drag-and-drop-text-draggable').length == 0;
                     },
+                    tolerance: 'pointer',
+                    scope: scope,
                     drop: function (e, ui) {
                         var text = ko.dataFor(ui.draggable.get(0));
 
-                        $(element).droppable('option', 'accept', ui.draggable);
                         ui.draggable.css('left', '').css('top', '').appendTo(this);
 
                         if (ko.isWriteableObservable(value.text)) {
@@ -122,7 +123,6 @@
                 if (text) {
                     // I believe it will be used when we have to restore previously saved answer
                 } else {
-                    $(element).droppable('option', 'accept', '.drag-and-drop-text-draggable');
                     $(element).children('.drag-and-drop-text-draggable').css('left', '').css('top', '')
                         .appendTo($('.drag-and-drop-text-draggable-container'));
                     $(element).children('.drag-and-drop-text-draggable-container-message').hide();
