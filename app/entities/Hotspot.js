@@ -8,8 +8,13 @@
         this.spots = spots;
         this.score = 0;
 
-        this.answer = function (points) {
-            this.score = 100;
+        this.answer = function (marks) {
+            if (marks.length > 1) {
+                this.score = 100;
+            } else {
+                this.score = 0;
+            }
+
         };
     };
 

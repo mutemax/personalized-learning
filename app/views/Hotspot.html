@@ -6,6 +6,23 @@
     </div>
     <!-- /ko -->
 
-    <div data-bind="background : background">
+    <style>
+        .hotspot .mark {
+            background: none repeat scroll 0 0 red;
+            content: "";
+            height: 40px;
+            margin-left: -20px;
+            margin-top: -20px;
+            position: absolute;
+            width: 40px;
+        }
+    </style>
+
+    <div data-bind="background : background, area: { click: addMark }" style="position: relative;">
+        <ul data-bind="foreach:marks" class="unstyled">
+            <li class="mark" data-bind="style: { left: x + 'px', top: y + 'px' }, click: $parent.removeMark, clickBubble: false"></li>
+        </ul>
     </div>
+
+
 </section>

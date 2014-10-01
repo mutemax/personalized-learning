@@ -7,22 +7,29 @@
 
         that.id = question.id;
         that.title = question.title;
-        that.content = question.content;        
+        that.content = question.content;
         that.background = question.background;
 
         that.submit = function () {
-            question.answer();
+            question.answer(that.marks());
 
             that.isAnswered(true);
             that.isAnsweredCorrectly(question.score == 100);
         };
 
+        that.marks = ko.observableArray([]);
+        that.addMark = function (mark) {
+            that.marks.push(mark);
+        }
+
+        that.removeMark = function (mark) {
+            that.marks.remove(mark);
+        }
+
         that.resetAnswer = function () {
             that.isAnswered(false);
             that.isAnsweredCorrectly(false);
-            _.each(that.dropspots, function (dropspot) {
-                dropspot.text(undefined);
-            });
+            that.marks.removeAll();
         }
 
     };

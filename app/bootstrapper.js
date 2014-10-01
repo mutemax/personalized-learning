@@ -73,6 +73,7 @@
         require('_components/bindingHandlers/readystatechangeBindingHandler').install();
         require('_components/bindingHandlers/scrollElementBindingHandler').install();
         require('_components/bindingHandlers/thumbnailBindingHandler').install();
+        require('_components/bindingHandlers/areaBindingHandler').install();
 
         require('viewmodels/bindingHandlers/DragAndDrop').install();
         require('viewmodels/bindingHandlers/FillInTheBlanks').install();
