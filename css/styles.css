@@ -484,7 +484,8 @@ hr {
 
 
 .view {
-    margin: -85px 20px 40px;
+    margin: -85px 20px 0;
+    padding-bottom: 40px;
 }
 
 .view-header {
