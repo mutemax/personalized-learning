@@ -6,12 +6,13 @@
     'entities/Singleselect',
     'entities/SingleselectImage',
     'entities/TextMatching',
+    'entities/Hotspot',
 
      'Q',
      '_',
      'plugins/http'],
 
-     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Q, _, http) {
+     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Hotspot, Q, _, http) {
          "use strict";
 
          return {
@@ -68,6 +69,9 @@
                                  break;
                              case "textMatching":
                                  question = new TextMatching(dq.id, dq.title, dq.answers, dq.correctAnswerId);
+                                 break;
+                             case "hotspot":
+                                 question = new Hotspot(dq.id, dq.title, dq.background, dq.spots);
                                  break;
                              default:
                                  return undefined;
