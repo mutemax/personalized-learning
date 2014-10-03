@@ -1,0 +1,30 @@
+﻿<section>
+    <hr />
+    <!-- ko if: content -->
+    <div class="question-content">
+        <div data-bind="html: content"></div>
+    </div>
+    <!-- /ko -->
+
+    <div class="statement">
+        <div class="statement-headers-group">
+            <div class="statement-header"></div>
+            <div class="statement-header statement-option">True</div>
+            <div class="statement-header statement-option">False</div>
+        </div>
+
+        <!-- ko foreach: options -->
+        <div class="statement-item">
+            <div class="statement-label">
+                <span data-bind="text: text"></span>
+            </div>
+            <span class="statement-option radio-icon-wrapper">
+                <span class="radio-icon" data-bind="click: markAsTrue, css: { checked: state() === true }"></span>
+            </span>
+            <span class="statement-option radio-icon-wrapper">
+                <span class="radio-icon" data-bind="click: markAsFalse, css: { checked: state() === false }"></span>
+            </span>
+        </div>
+        <!-- /ko -->
+    </div>
+</section>
