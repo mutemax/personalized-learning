@@ -536,6 +536,7 @@ hr {
 .statement-label {
     padding: 10px;
     word-wrap: break-word;
+    white-space: pre-line;
 }
 
 /*#endregion Statement question type */
