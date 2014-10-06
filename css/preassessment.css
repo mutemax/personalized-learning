@@ -6,6 +6,8 @@
 
 .preassessment .question-content {
     margin-top: 10px;
+    word-wrap: break-word;
+    overflow: auto;
 }
 
 .preassessment .submit-wrapper {
