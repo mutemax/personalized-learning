@@ -6,25 +6,23 @@
     </div>
     <!-- /ko -->
 
-    <div class="statement">
-        <div class="statement-headers-group">
+    <ul class="statement">
+        <li class="statement-headers-group">
             <div class="statement-header"></div>
             <div class="statement-header statement-option">True</div>
             <div class="statement-header statement-option">False</div>
-        </div>
+        </li>
 
         <!-- ko foreach: statements -->
-        <div class="statement-item">
-            <div class="statement-label">
-                <span data-bind="text: text"></span>
-            </div>
+        <li class="statement-item">
+            <div class="statement-label"><span data-bind="text: text"></span></div>
             <span class="statement-option radio-icon-wrapper">
                 <span class="radio-icon" data-bind="click: markAsTrue, css: { checked: state() === true }"></span>
             </span>
             <span class="statement-option radio-icon-wrapper">
                 <span class="radio-icon" data-bind="click: markAsFalse, css: { checked: state() === false }"></span>
             </span>
-        </div>
+        </li>
         <!-- /ko -->
-    </div>
+    </ul>
 </section>

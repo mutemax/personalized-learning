@@ -31,16 +31,16 @@
                 <div class="content">
                     <h3>Recommended reading</h3>
                     <hr />
-                    <div class="objective-recommended-readings" data-bind="foreach: recommended">
-                        <div class="objective-recommended-reading">
+                    <ul class="objective-recommended-readings" data-bind="foreach: recommended">
+                        <li class="objective-recommended-reading">
                             <div class="objective-recommended-reading-title">
                                 <span data-bind="text: title"></span>
                             </div>
                             <div class="objective-recommended-reading-start">
                                 <button class="button info medium" data-bind="click: $parent.startRecommendedReading">Start</button>
                             </div>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
                 <!-- /ko -->
                 <!-- ko ifnot: isExpanded -->
