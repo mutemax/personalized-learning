@@ -9,6 +9,7 @@
         that.title = question.title;
         that.content = question.content;
         that.background = question.background;
+        that.singleAnswer = question.singleAnswer;
 
         that.submit = function () {
             question.answer(that.marks());
@@ -19,6 +20,9 @@
 
         that.marks = ko.observableArray([]);
         that.addMark = function (mark) {
+            if (question.singleAnswer) {
+                that.marks.removeAll();
+            }
             that.marks.push(mark);
         }
 

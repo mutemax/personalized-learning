@@ -2,9 +2,10 @@
 
     return {
         install: install
-    };
+    }
 
     function install() {
+
         ko.bindingHandlers.area = {
             init: function (element, valueAccessor) {
                 var
@@ -29,6 +30,7 @@
 
             }
         };
+
     }
 
 })

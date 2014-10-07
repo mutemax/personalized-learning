@@ -1,4 +1,4 @@
-﻿<section style="overflow: hidden;" class="hotspot">
+﻿<section class="hotspot">
     <hr />
     <!-- ko if: content -->
     <div class="question-content">
@@ -6,22 +6,23 @@
     </div>
     <!-- /ko -->
 
-    <style>
-        .hotspot .mark {
-            background: none repeat scroll 0 0 red;
-            content: "";
-            height: 40px;
-            margin-left: -20px;
-            margin-top: -20px;
-            position: absolute;
-            width: 40px;
-        }
-    </style>
 
-    <div data-bind="background : background, area: { click: addMark }" style="position: relative;">
+
+    <div class="hotspot-background" data-bind="background : background, area: { click: addMark }">
+        <!-- ko if: $parent.singleAnswer-->
         <ul data-bind="foreach:marks" class="unstyled">
-            <li class="mark" data-bind="style: { left: x + 'px', top: y + 'px' }, click: $parent.removeMark, clickBubble: false"></li>
+            <li class="pulsemark" data-bind="style: { left: x + 'px', top: y + 'px' }">
+                <div class="mark"></div>
+            </li>
         </ul>
+        <!-- /ko -->
+        <!-- ko ifnot: $parent.singleAnswer-->
+        <ul data-bind="foreach:marks" class="unstyled">
+            <li class="pulsemark multiple" data-bind="style: { left: x + 'px', top: y + 'px' }, click: $parent.removeMark, clickBubble: false">
+                <div class="mark"></div>
+            </li>
+        </ul>
+        <!-- /ko -->
     </div>
 
 

@@ -27,9 +27,9 @@
     width: 40px;
 }
 
-    .preview-open.touch {
-        display: block;
-    }
+.touch .preview-open {
+    display: block;
+}
 
 .preview-thumbnail-wrapper:hover .preview-open {
     display: block;
