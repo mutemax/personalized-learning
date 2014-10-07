@@ -6,17 +6,15 @@
     </div>
     <!-- /ko -->
 
-
-
     <div class="hotspot-background" data-bind="background : background, area: { click: addMark }">
-        <!-- ko if: $parent.singleAnswer-->
+        <!-- ko if: singleAnswer-->
         <ul data-bind="foreach:marks" class="unstyled">
             <li class="pulsemark" data-bind="style: { left: x + 'px', top: y + 'px' }">
                 <div class="mark"></div>
             </li>
         </ul>
         <!-- /ko -->
-        <!-- ko ifnot: $parent.singleAnswer-->
+        <!-- ko ifnot: singleAnswer-->
         <ul data-bind="foreach:marks" class="unstyled">
             <li class="pulsemark multiple" data-bind="style: { left: x + 'px', top: y + 'px' }, click: $parent.removeMark, clickBubble: false">
                 <div class="mark"></div>
@@ -24,6 +22,5 @@
         </ul>
         <!-- /ko -->
     </div>
-
 
 </section>
