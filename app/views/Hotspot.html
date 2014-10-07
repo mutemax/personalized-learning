@@ -10,14 +10,20 @@
         <!-- ko if: singleAnswer-->
         <ul data-bind="foreach:marks" class="unstyled">
             <li class="pulsemark" data-bind="style: { left: x + 'px', top: y + 'px' }">
-                <div class="mark"></div>
+                <div class="pin"></div>
+                <div class="mark">
+                    <span class="impulse"></span>
+                </div>
             </li>
         </ul>
         <!-- /ko -->
         <!-- ko ifnot: singleAnswer-->
         <ul data-bind="foreach:marks" class="unstyled">
             <li class="pulsemark multiple" data-bind="style: { left: x + 'px', top: y + 'px' }, click: $parent.removeMark, clickBubble: false">
-                <div class="mark"></div>
+                <div class="pin"></div>
+                <div class="mark">
+                    <span class="impulse"></span>
+                </div>
             </li>
         </ul>
         <!-- /ko -->
