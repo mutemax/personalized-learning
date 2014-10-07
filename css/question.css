@@ -117,10 +117,13 @@
 }
 
 .question .question-title {
+    word-wrap: break-word;
 }
 
 .question .question-content {
     margin: 20px 0;
+    word-wrap: break-word;
+    overflow: auto;
 }
 
 .question .question-submit-wrapper {

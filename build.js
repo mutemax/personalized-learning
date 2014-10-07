@@ -23,6 +23,7 @@
         'entities/Singleselect',
         'entities/SingleselectImage',
         'entities/TextMatching',
+        'entities/Statement',
 
         'introduction/viewmodels/index',
         'text!introduction/views/index.html',
@@ -58,6 +59,7 @@
         'viewmodels/Singleselect',
         'viewmodels/SingleselectImage',
         'viewmodels/TextMatching',
+        'viewmodels/Statement',
 
         'views/helpers/FillInTheBlanks',
         'views/helpers/TextMatching',
@@ -71,6 +73,7 @@
         'text!views/Singleselect.html',
         'text!views/SingleselectImage.html',
         'text!views/TextMatching.html',
+        'text!views/Statement.html',
 
         'xApi/configuration/settings',
         'xApi/entities/activity',

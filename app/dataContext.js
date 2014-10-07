@@ -6,12 +6,13 @@
     'entities/Singleselect',
     'entities/SingleselectImage',
     'entities/TextMatching',
+    'entities/Statement',
 
      'Q',
      '_',
      'plugins/http'],
 
-     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Q, _, http) {
+     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, Q, _, http) {
          "use strict";
 
          return {
@@ -68,6 +69,9 @@
                                  break;
                              case "textMatching":
                                  question = new TextMatching(dq.id, dq.title, dq.answers, dq.correctAnswerId);
+                                 break;
+                             case "statement":
+                                 question = new Statement(dq.id, dq.title, dq.answers);
                                  break;
                              default:
                                  return undefined;

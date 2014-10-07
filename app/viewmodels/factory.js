@@ -4,14 +4,16 @@
     'entities/Singleselect',
     'entities/SingleselectImage',
     'entities/TextMatching',
+    'entities/Statement',
 
     './Multipleselect',
     './FillInTheBlanks',
     './DragAndDrop',
     './Singleselect',
     './SingleselectImage',
-    './TextMatching'
-], function (Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, MultipleselectViewModel, FillInTheBlanksViewModel, DragAndDropViewModel, SingleselectViewModel, SingleselectImageViewModel, TextMatchingViewModel) {
+    './TextMatching',
+    './Statement'
+], function (Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, MultipleselectViewModel, FillInTheBlanksViewModel, DragAndDropViewModel, SingleselectViewModel, SingleselectImageViewModel, TextMatchingViewModel, StatementViewModel) {
 
     return {
         createQuestionViewModel: function (question) {
@@ -37,6 +39,10 @@
 
             if (question instanceof TextMatching) {
                 return new TextMatchingViewModel(question);
+            }
+
+            if (question instanceof Statement) {
+                return new StatementViewModel(question);
             }
 
             throw 'Unknown question type';
