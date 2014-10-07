@@ -1,6 +1,6 @@
-﻿define(['./Question'], function(Question) {
+﻿define(['./Question'], function (Question) {
 
-    var ctor = function(question) {
+    var ctor = function (question) {
         var that = this;
 
         Question.call(that, question);
@@ -8,14 +8,14 @@
         that.id = question.id;
         that.title = question.title;
         that.content = question.content;
-        that.options = _.chain(question.answers)
+        that.statements = _.chain(question.answers)
             .sample(question.answers.length)
-            .map(function(option) {
+            .map(function (statement) {
                 return {
-                    id: option.id,
-                    text: option.text,
+                    id: statement.id,
+                    text: statement.text,
                     state: ko.observable(null),
-                    markAsTrue: function() {
+                    markAsTrue: function () {
                         if (that.isAnswered()) {
                             return;
                         }
@@ -30,16 +30,23 @@
                 };
             }).value();
 
-        that.resetAnswer = function() {
+        that.resetAnswer = function () {
             that.isAnswered(false);
             that.isAnsweredCorrectly(false);
-            _.each(that.options, function(option) {
-                option.state(null);
+            _.each(that.statements, function (statement) {
+                statement.state(null);
             });
         };
 
-        that.submit = function() {
-            question.answer(that.options);
+        that.submit = function () {
+            question.answer(
+                _.map(that.statements, function (statement) {
+                    return {
+                        id: statement.id,
+                        state: statement.state()
+                    };
+                })
+            );
 
             that.isAnswered(true);
             that.isAnsweredCorrectly(question.score == 100);

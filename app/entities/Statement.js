@@ -10,10 +10,10 @@
             var that = this;
 
             that.score = _.every(that.answers, function (answer) {
-                var userAnswer = _.find(userAnswers, function(item) {
-                    return answer.id == item.id;
+                var userAnswer = _.find(userAnswers, function(statement) {
+                    return answer.id == statement.id;
                 });
-                return answer.isCorrect === userAnswer.state();
+                return answer.isCorrect === userAnswer.state;
             }) ? 100 : 0;
         };
     };
