@@ -1,9 +1,9 @@
 ﻿define(['_'], function (_) {
 
-    var ctor = function (id, title, singleAnswer, background, spots) {
+    var ctor = function (id, title, isMultiple, background, spots) {
         this.id = id;
         this.title = title;
-        this.singleAnswer = singleAnswer;
+        this.isMultiple = isMultiple;
 
         this.background = background;
         this.spots = spots;
@@ -16,13 +16,7 @@
             }
 
             var answerCorrect;
-            if (singleAnswer) {
-                answerCorrect = _.some(spots, function (spot) {
-                    return _.some(marks, function (mark) {
-                        return isMarkInSpot(mark, spot);
-                    });
-                });
-            } else {
+            if (isMultiple) {
                 var markedSpotsCount = 0;
                 var markersInSpotsCount = 0;
 
@@ -42,6 +36,13 @@
 
                 });
                 answerCorrect = markedSpotsCount === spots.length && markersInSpotsCount === marks.length;
+
+            } else {
+                answerCorrect = _.some(spots, function (spot) {
+                    return _.some(marks, function (mark) {
+                        return isMarkInSpot(mark, spot);
+                    });
+                });
             }
 
             this.score = answerCorrect ? 100 : 0;

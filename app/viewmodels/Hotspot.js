@@ -9,7 +9,7 @@
         that.title = question.title;
         that.content = question.content;
         that.background = question.background;
-        that.singleAnswer = question.singleAnswer;
+        that.isMultiple = question.isMultiple;
 
         that.submit = function () {
             question.answer(that.marks());
@@ -20,7 +20,7 @@
 
         that.marks = ko.observableArray([]);
         that.addMark = function (mark) {
-            if (question.singleAnswer) {
+            if (!question.isMultiple) {
                 that.marks.removeAll();
             }
             that.marks.push(mark);

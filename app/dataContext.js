@@ -71,7 +71,7 @@
                                  question = new TextMatching(dq.id, dq.title, dq.answers, dq.correctAnswerId);
                                  break;
                              case "hotspot":
-                                 question = new Hotspot(dq.id, dq.title, dq.singleAnswer, dq.background, dq.spots);
+                                 question = new Hotspot(dq.id, dq.title, dq.isMultiple, dq.background, dq.spots);
                                  break;
                              default:
                                  return undefined;
