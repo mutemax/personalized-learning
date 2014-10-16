@@ -11,7 +11,7 @@
 
         this.answer = function (marks) {
             if (!_.isArray(spots) || spots.length == 0) {
-                this.score = 0;
+                this.score = 100;
                 return;
             }
 
