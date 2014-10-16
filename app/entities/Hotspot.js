@@ -10,6 +10,12 @@
         this.score = 0;
 
         this.answer = function (marks) {
+            if (!_.isArray(spots) || spots.length == 0) {
+                this.score = 0;
+                return;
+            }
+
+
             if (!_.isArray(marks)) {
                 this.score = 0;
                 return;
