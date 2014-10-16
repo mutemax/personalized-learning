@@ -34,13 +34,15 @@
               },
               {
                   "type":"hotspot",
-                  "background":"http://staging.easygenerator.com/storage/image/84375092-117d-4522-a147-ede3cfdd0fd8.jpg",
-                  "spots":[
-                     [{"x":10, "y":10},{"x":100, "y":10},{"x":100, "y":100},{"x":10, "y":100}],
-                     [{"x":10, "y":210},{"x":100, "y":210},{"x":100, "y":300},{"x":10, "y":300}]
+                  "isMultiple" : false,
+               "background":"http://staging.easygenerator.com/storage/image/1b4d33f6-7a9b-4825-982c-942fa53807e1.jpg",
+               "spots":[
+                     [{"x":0, "y":0},{"x":300, "y":0},{"x":300, "y":300},{"x":0, "y":300}],
+                     [{"x":500, "y":100},{"x":900, "y":100},{"x":900, "y":400},{"x":500, "y":400}],
+                     [{"x":200, "y":600},{"x":700, "y":600},{"x":700, "y":720},{"x":200, "y":720}]
                   ],
                   "id":"aa3045126c6c4f2f92371d0357194cb2",
-                  "title":"Hotspot",
+                  "title":"Hotspot single answer",
                   "hasContent":true,
                   "learningContents":[
                      {
@@ -49,6 +51,21 @@
                   ],
                   "hasCorrectFeedback":true,
                   "hasIncorrectFeedback":true
+              },
+              {
+                  "type":"hotspot",
+                  "isMultiple" : true,
+                  "background":"http://staging.easygenerator.com/storage/image/1b4d33f6-7a9b-4825-982c-942fa53807e1.jpg",
+                  "spots":[
+                         [{"x":0, "y":0},{"x":300, "y":0},{"x":300, "y":300},{"x":0, "y":300}],
+                         [{"x":500, "y":100},{"x":900, "y":100},{"x":900, "y":400},{"x":500, "y":400}],
+                         [{"x":200, "y":600},{"x":700, "y":600},{"x":700, "y":720},{"x":200, "y":720}]
+                  ],
+                  "id":"aa3045126c6c4f2f92371d0357194c51",
+                  "title":"Hotspot multiple answers",
+                  "hasContent":false,
+                  "hasCorrectFeedback":false,
+                  "hasIncorrectFeedback":false
               }
            ]
        }
