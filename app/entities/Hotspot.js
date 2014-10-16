@@ -15,7 +15,6 @@
                 return;
             }
 
-
             if (!_.isArray(marks)) {
                 this.score = 0;
                 return;
@@ -23,25 +22,20 @@
 
             var answerCorrect;
             if (isMultiple) {
-                var markedSpotsCount = 0;
-                var markersInSpotsCount = 0;
 
-                _.each(spots, function (spot) {
-                    var counter = 0;
+                var spotsWithMarks = [];
+                var marksOnSpots = [];
 
-                    _.each(marks, function (mark) {
+                _.each(marks, function (mark) {
+                    _.each(spots, function (spot) {
                         if (isMarkInSpot(mark, spot)) {
-                            counter++;
+                            spotsWithMarks.push(spot);
+                            marksOnSpots.push(mark);
                         }
                     });
-
-                    if (counter > 0) {
-                        markedSpotsCount++;
-                        markersInSpotsCount += counter;
-                    }
-
                 });
-                answerCorrect = markedSpotsCount === spots.length && markersInSpotsCount === marks.length;
+
+                answerCorrect = _.uniq(spotsWithMarks).length === spots.length && _.uniq(marksOnSpots).length === marks.length;
 
             } else {
                 answerCorrect = _.some(spots, function (spot) {
