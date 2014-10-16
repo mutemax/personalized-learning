@@ -109,7 +109,7 @@ html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     font-size: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: scroll;
 }
 
@@ -394,7 +394,7 @@ hr {
 }
 
 .checkbox-icon, .radio-icon {
-    display: block;
+    display: inline-block;
     width: 32px;
     height: 32px;
     background: url(../images/sprite.png) 0 0 no-repeat;
@@ -416,7 +416,8 @@ hr {
         background-position: 0 -37px;
     }
 
-    .radio.checked .radio-icon {
+    .radio.checked .radio-icon,
+    .radio-icon.checked {
         background-position: -37px -37px;
     }
 
@@ -482,6 +483,63 @@ hr {
         border-radius: 0;
     }
 
+/*#region Statement question type */
+
+.statement {
+    display: table;
+    padding: 0 65px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.statement-headers-group {
+    display: table-header-group;
+}
+
+.statement-header {
+    display: table-cell;
+    font-size: 18px;
+    font-family: 'OpenSans-Semibold';
+    height: 50px;
+    vertical-align: middle;
+}
+
+.statement-item {
+    display: table-row;
+    height: 60px;
+}
+
+.statement-item:hover {
+    background-color: #f9f9f9;
+}
+
+.statement-label,
+.statement-option {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.statement-option .radio-icon {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.statement-header,
+.statement-option {
+    text-align: center;
+}
+
+.statement-option {
+    width: 100px;
+}
+
+.statement-label {
+    padding: 10px;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+/*#endregion Statement question type */
 
 .view {
     margin: -85px 20px 0;

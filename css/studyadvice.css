@@ -78,26 +78,29 @@
         content: "";
     }
 
-
-.studyadvice .objective-recommended-reading {
+.studyadvice .objective-recommended-readings {
     display: table;
     width: 100%;
+    table-layout: fixed;
+}
+
+.studyadvice .objective-recommended-reading {
+    display: table-row;
 }
 
 .studyadvice .objective-recommended-reading-title {
     display: table-cell;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    width: 100%;
+    padding: 25px 0;
     color: #3c3c3c;
     vertical-align: middle;
+    word-wrap: break-word;
 }
 
 .studyadvice .objective-recommended-reading-start {
     display: table-cell;
-    padding-left: 20px;
-    width: 1%;
+    width: 100px;
     vertical-align: middle;
+    text-align: right;
 }
 
 .studyadvice .mastered-objective {

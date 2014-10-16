@@ -2,10 +2,13 @@
     color: #000;
     font-size: 14px;
     font-family: 'OpenSans-Semibold';
+    word-wrap: break-word;
 }
 
 .preassessment .question-content {
     margin-top: 10px;
+    word-wrap: break-word;
+    overflow: auto;
 }
 
 .preassessment .submit-wrapper {
