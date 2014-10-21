@@ -8,6 +8,7 @@
         isSupportedMobile: null,
         isSupportedBrowser: null,
         isMobileDevice: null,
+        isChromeWithPageCoordsBug: null,
 
         detect: detect
     };
@@ -19,6 +20,14 @@
         browserDetector.isMobileDevice = isMobileDevice();
         browserDetector.isSupportedMobile = isSupportedMobile();
         browserDetector.isSupportedBrowser = isSupportedBrowser();
+        browserDetector.isChromeWithPageCoordsBug = isChromeWithPageCoordsBug();
+    }
+
+    function isChromeWithPageCoordsBug() {
+        if (ua.match(/(chrome)\/?\s*([\d\.]+)/i)) {
+            return window.navigator.appVersion.match(/Chrome\/(.*?) /)[1] == "38.0.2125.102";
+        }
+        return false;
     }
 
     function isInternetExplorer() {
