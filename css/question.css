@@ -523,6 +523,7 @@
     padding: 15px 30px 15px 15px;
     table-layout: fixed;
     width: 100%;
+    word-wrap: break-word;
 }
 
 .text-matchig-source-text {
@@ -531,7 +532,6 @@
     vertical-align: middle;
     white-space: pre-wrap;
     width: 100%;
-    word-break: break-all;
 }
 
 
@@ -586,6 +586,7 @@
     padding: 15px;
     table-layout: fixed;
     width: 100%;
+    word-wrap: break-word;
 }
 
 .text-matching-target-text {
@@ -594,7 +595,6 @@
     vertical-align: middle;
     white-space: pre-wrap;
     width: 100%;
-    word-break: break-all;
 }
 
 
