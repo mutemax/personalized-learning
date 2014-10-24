@@ -10,8 +10,7 @@
             init: function (element, valueAccessor) {
                 var
                     value = valueAccessor(),
-                    click = value ? value.click : undefined,
-                    offset, x, y
+                    click = value ? value.click : undefined
                 ;
 
                 $(element).on('click', handler);
@@ -20,9 +19,13 @@
                 });
 
                 function handler(e) {
-                    offset = $(element).offset();
-                    x = e.pageX - offset.left;
-                    y = e.pageY - offset.top;
+                    var
+                        offset = $(element).offset(),
+                        x = e.pageX - offset.left,
+                        y = e.pageY - offset.top,
+                        targetWidth = $(element).width(),
+                        targetHeight = $(element).height()
+                    ;
 
                     // workaround for specific version of Chrome with next bug:
                     // https://code.google.com/p/chromium/issues/detail?id=423802
@@ -32,7 +35,11 @@
                     }
 
                     if (typeof (click) == "function") {
-                        click({ x: x, y: y });
+                        var point = {
+                            x: Math.max(0, Math.min(x, targetWidth)),
+                            y: Math.max(0, Math.min(y, targetHeight))
+                        }
+                        click(point);
                     }
                 }
 
