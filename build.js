@@ -24,6 +24,7 @@
         'entities/SingleselectImage',
         'entities/TextMatching',
         'entities/Statement',
+        'entities/Hotspot',
 
         'introduction/viewmodels/index',
         'text!introduction/views/index.html',
@@ -45,6 +46,7 @@
         'viewmodels/bindingHandlers/DragAndDrop',
         'viewmodels/bindingHandlers/FillInTheBlanks',
         'viewmodels/bindingHandlers/TextMatching',
+        'viewmodels/bindingHandlers/Hotspot',
 
         'viewmodels/404',
 
@@ -60,6 +62,7 @@
         'viewmodels/SingleselectImage',
         'viewmodels/TextMatching',
         'viewmodels/Statement',
+        'viewmodels/Hotspot',
 
         'views/helpers/FillInTheBlanks',
         'views/helpers/TextMatching',
@@ -74,6 +77,7 @@
         'text!views/SingleselectImage.html',
         'text!views/TextMatching.html',
         'text!views/Statement.html',
+        'text!views/Hotspot.html',
 
         'xApi/configuration/settings',
         'xApi/entities/activity',

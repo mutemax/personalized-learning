@@ -1,0 +1,32 @@
+﻿<section class="hotspot">
+    <hr />
+    <!-- ko if: content -->
+    <div class="question-content">
+        <div data-bind="html: content"></div>
+    </div>
+    <!-- /ko -->
+
+    <div class="hotspot-background" data-bind="background : background, area: { click: addMark }">
+        <!-- ko ifnot: isMultiple-->
+        <ul data-bind="foreach:marks" class="unstyled">
+            <li class="pulsemark" data-bind="style: { left: x + 'px', top: y + 'px' }">
+                <div class="pin"></div>
+                <div class="mark">
+                    <span class="impulse"></span>
+                </div>
+            </li>
+        </ul>
+        <!-- /ko -->
+        <!-- ko if: isMultiple-->
+        <ul data-bind="foreach:marks" class="unstyled">
+            <li class="pulsemark multiple" data-bind="style: { left: x + 'px', top: y + 'px' }, click: $parent.removeMark, clickBubble: false">
+                <div class="pin"></div>
+                <div class="mark">
+                    <span class="impulse"></span>
+                </div>
+            </li>
+        </ul>
+        <!-- /ko -->
+    </div>
+
+</section>

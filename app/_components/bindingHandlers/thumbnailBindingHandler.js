@@ -28,7 +28,6 @@
                     $('<button />')
                         .attr('type', 'button')
                         .addClass('preview-open')
-                        .addClass("ontouchstart" in document.documentElement ? 'touch' : '')
                         .click(function (e) {
                             showPreview(src);
                             e.preventDefault();

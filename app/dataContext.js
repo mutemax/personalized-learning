@@ -7,12 +7,13 @@
     'entities/SingleselectImage',
     'entities/TextMatching',
     'entities/Statement',
+    'entities/Hotspot',
 
      'Q',
      '_',
      'plugins/http'],
 
-     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, Q, _, http) {
+     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, Hotspot, Q, _, http) {
          "use strict";
 
          return {
@@ -72,6 +73,9 @@
                                  break;
                              case "statement":
                                  question = new Statement(dq.id, dq.title, dq.answers);
+                                 break;
+                             case "hotspot":
+                                 question = new Hotspot(dq.id, dq.title, dq.isMultiple, dq.background, dq.spots);
                                  break;
                              default:
                                  return undefined;
