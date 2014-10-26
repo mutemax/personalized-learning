@@ -36,8 +36,10 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, section, summary, mark, audio, video {
     margin: 0;
+    outline: none;
     padding: 0;
-    outline: 0;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 /*html, div, article, aside,
@@ -509,9 +511,9 @@ hr {
     height: 60px;
 }
 
-.statement-item:hover {
-    background-color: #f9f9f9;
-}
+    .statement-item:hover {
+        background-color: #f9f9f9;
+    }
 
 .statement-label,
 .statement-option {
@@ -519,10 +521,10 @@ hr {
     vertical-align: middle;
 }
 
-.statement-option .radio-icon {
-    vertical-align: middle;
-    cursor: pointer;
-}
+    .statement-option .radio-icon {
+        vertical-align: middle;
+        cursor: pointer;
+    }
 
 .statement-header,
 .statement-option {
