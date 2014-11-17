@@ -35,11 +35,11 @@
 
     var defaultXapi = {
         lrs: {
-            uri: 'https://easydev.waxlrs.com/TCAPI/statements',
-            authenticationRequired: true,
+            uri: 'http://reports.easygenerator.com/xApi/statements',
+            authenticationRequired: false,
             credentials: {
-                username: 'RvSn9J4KbNpx37l6WSN6',
-                password: 'xS59aSths74X6fQUnG4H'
+                username: '',
+                password: ''
             }
         },
         allowedVerbs: ['started', 'stopped', 'mastered', 'passed', 'failed']
