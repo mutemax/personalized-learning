@@ -33,10 +33,27 @@
         xApiVersion: "1.0.0",
     };
 
+    var defaultXapi = {
+        lrs: {
+            uri: 'http://reports.easygenerator.com/xApi/statements',
+            authenticationRequired: false,
+            credentials: {
+                username: '',
+                password: ''
+            }
+        },
+        allowedVerbs: ['started', 'stopped', 'mastered', 'passed', 'failed']
+    };
+
+
     return settingsModule;
 
     function initialize(templateSettings) {
-        $.extend(settingsModule.settings.xApi, templateSettings);
+        if (templateSettings.selectedLrs != 'default') {
+            $.extend(settingsModule.settings.xApi, templateSettings);
+        } else {
+            $.extend(settingsModule.settings.xApi, defaultXapi);
+        }
 
         var lrsUrl = settingsModule.settings.xApi.lrs.uri;
         if (lrsUrl.indexOf("/statements") == -1) {

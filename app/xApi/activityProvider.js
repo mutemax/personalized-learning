@@ -11,18 +11,20 @@
 
             actor: null,
             activityName: '',
-            activityUrl: ''
+            activityUrl: '',
+            courseId: null
         };
 
         return activityProvider;
 
-        function initialize(actorName, actorEmail, activityName, activityUrl) {
+        function initialize(courseId, actorName, actorEmail, activityName, activityUrl) {
             rootCourseUrl = activityUrl != undefined ? activityUrl.split("?")[0].split("#")[0] : '';
             // TODO: Check if undefined activity url is possible
 
             activityProvider.actor = createActor(actorName, actorEmail);
             activityProvider.activityName = activityName;
             activityProvider.activityUrl = activityUrl;
+            activityProvider.courseId = courseId;
 
             subscriptions.push(eventManager.subscribeForEvent(eventManager.events.courseStarted).then(courseStartedHandler));
             subscriptions.push(eventManager.subscribeForEvent(eventManager.events.courseFinished).then(courseFinishedHandler));
@@ -64,8 +66,17 @@
             return activity;
         }
 
+        function createContext(contextSpec) {
+            contextSpec = contextSpec || {};
+            var contextExtensions = contextSpec.extensions || {};
+            contextExtensions["http://easygenerator/expapi/course/id"] = activityProvider.courseId;
+            contextSpec.extensions = contextExtensions;
+            return contextSpec;
+        }
+
         function createStatement(verb, result, activity, context) {
             var activityData = activity || createActivity(activityProvider.activityUrl, activityProvider.activityName);
+            context = context || createContext();
 
             var statement = new StatementModel({
                 actor: activityProvider.actor,

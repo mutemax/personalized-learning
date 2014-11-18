@@ -25,7 +25,7 @@
             settingsModule.initialize(courseSettingsModule.courseSettings.xApi);
             statementsQueueHandler.handle();
 
-            activityProvider.initialize(actor.name, actor.email, title, url);
+            activityProvider.initialize(course.id, actor.name, actor.email, title, url);
         });
     }
 
