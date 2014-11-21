@@ -40,12 +40,10 @@ define(['entities/course', 'browserDetector', 'knockout', '_'],
             if (self.isCourseFinished) {
                 viewModel.isClosing(false);
                 window.close();
-                if (!browserDetector.isInternetExplorer) {
-                    _.delay(function() {
-                        viewModel.isClosed(true);
-                        window.alert('Thank you. It is now safe to close this page.');
-                    }, 100);
-                }
+                _.delay(function () {
+                    viewModel.isClosed(true);
+                    window.alert('Thank you. It is now safe to close this page.');
+                }, 100);
             } else {
                 setTimeout(close, 100);
             }
