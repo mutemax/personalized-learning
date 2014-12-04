@@ -13,7 +13,7 @@
     function initialize() {
 
         var defer = Q.defer();
-        $.getJSON('publishSettings.js?v=' + Math.random()).then(function (json) {
+        $.getJSON('publishSettings.js').then(function (json) {
             $.extend(publishSettingsModule.publishSettings, json);
             defer.resolve(json);
         }).fail(function () {
