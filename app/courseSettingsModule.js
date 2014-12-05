@@ -17,7 +17,7 @@
     function initialize() {
 
         var defer = Q.defer();
-        $.getJSON('settings.js').then(function (json) {
+        $.getJSON('settings.js?_=' + new Date().getTime()).then(function (json) {
             $.extend(courseSettingsModule.courseSettings, json);
             defer.resolve(json);
         }).fail(function () {

@@ -26,7 +26,8 @@
              $.ajax({
                  url: 'content/data.js',
                  contentType: 'application/json',
-                 dataType: 'json'
+                 dataType: 'json',
+                 cache: false
              }).done(function (response) {
 
                  var promises = [];
