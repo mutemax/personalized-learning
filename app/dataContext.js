@@ -24,9 +24,10 @@
              var dfd = Q.defer();
 
              $.ajax({
-                 url: 'content/data.js?v=' + Math.random(),
+                 url: 'content/data.js',
                  contentType: 'application/json',
-                 dataType: 'json'
+                 dataType: 'json',
+                 cache: false
              }).done(function (response) {
 
                  var promises = [];
@@ -82,21 +83,21 @@
                          }
 
                          if (dq.hasContent) {
-                             promises.push(http.get('content/' + dobj.id + '/' + dq.id + '/content.html?v=' + Math.random(), { dataType: 'html' }).then(function (content) {
+                             promises.push(http.get('content/' + dobj.id + '/' + dq.id + '/content.html', { dataType: 'html' }).then(function (content) {
                                  question.content = content;
                              }));
                          }
 
                          if (dq.hasCorrectFeedback) {
-                             question.correctFeedback = 'content/' + dobj.id + '/' + dq.id + '/correctFeedback.html?v=' + Math.random();
+                             question.correctFeedback = 'content/' + dobj.id + '/' + dq.id + '/correctFeedback.html';
                          }
 
                          if (dq.hasIncorrectFeedback) {
-                             question.incorrectFeedback = 'content/' + dobj.id + '/' + dq.id + '/incorrectFeedback.html?v=' + Math.random();
+                             question.incorrectFeedback = 'content/' + dobj.id + '/' + dq.id + '/incorrectFeedback.html';
                          }
 
                          question.learningContents = _.map(dq.learningContents, function (item) {
-                             return 'content/' + dobj.id + '/' + dq.id + '/' + item.id + '.html?v=' + Math.random();
+                             return 'content/' + dobj.id + '/' + dq.id + '/' + item.id + '.html';
                          });
 
                          objective.questions.push(question);
@@ -108,7 +109,7 @@
                  });
 
                  if (response.hasIntroductionContent) {
-                     promises.push(http.get('content/content.html?v=' + Math.random(), { dataType: 'html' }).then(function (content) {
+                     promises.push(http.get('content/content.html', { dataType: 'html' }).then(function (content) {
                          course.content = content;
                      }));
                  }
