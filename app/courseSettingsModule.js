@@ -5,8 +5,8 @@
         courseSettings: {
             logo: { url: '' },
             xApi: {
-                enabled: false
-                
+                enabled: true,
+                selectedLrs: "default",
             }
         },
         initialize: initialize
