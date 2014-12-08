@@ -13,7 +13,6 @@
         requestSettings.type = 'POST';
         requestSettings.headers['Content-Type'] = 'application/json';
         requestSettings.contentType = 'application/json';
-        requestSettings.dataType = 'json';
         requestSettings.async = true;
 
         requestSettings.success = function (response) {
