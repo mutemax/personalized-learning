@@ -56,7 +56,7 @@
             return false;
         }
 
-        //IE 9+, Chrome 28+, Firefox 22+, Safari 5+ are supported
+        //Chrome 28+, Firefox 22+, Safari 5+ are supported
         var N = navigator.appName, tem,
             M = ua.match(/(chrome|safari|firefox|msie)\/?\s*([\d\.]+)/i) || [];
 
@@ -69,7 +69,6 @@
         var version = parseInt(M[1], 10);
 
         if (browser == "chrome" && version >= 28 ||
-            browser == "msie" && version >= 9 ||
             browser == "firefox" && version >= 22 ||
             browser == "safari" && version >= 533) {
             return true;

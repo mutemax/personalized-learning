@@ -42,6 +42,11 @@ menu, nav, section, summary, mark, audio, video {
     -webkit-tap-highlight-color: transparent;
 }
 
+img {
+    border: 0; 
+    -ms-interpolation-mode: bicubic;
+}
+
 /*html, div, article, aside,
 footer, header, menu, nav, section {
     -moz-user-select: none;
@@ -175,7 +180,6 @@ img {
     width: auto !important;
     vertical-align: middle;
 }
-
 
 hr {
     -moz-box-sizing: content-box;
