@@ -1,9 +1,9 @@
 ﻿{
     "name": "Personalized learning",
     "shortDescription": "A smart course that will give your learner a personalized advice",
-    "image": "images/main.png",
+    "thumbnail": "images/main.png",
     "previewImages": [
-        "iamges/previewImages/previewSummaryView.png"
+        "images/previewImages/previewSummaryView.png"
     ],
     "settingsUrl": "settings/settings.html"
 }
