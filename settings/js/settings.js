@@ -18,7 +18,7 @@ $(function () {
         trackingData: (function() {
             var data = {};
 
-            data.enableXAPI = ko.observable(false),
+            data.enableXAPI = ko.observable(true),
 
             data.lrsOptions = [
                 { key: 'default', text: 'easygenerator (recommended)' },
@@ -134,7 +134,7 @@ $(function () {
         url: settingsURL,
         dataType: "json",
         success: function (json) {
-            var defaultSettings = { logo: {}, xApi: { lrs: { credentials: {} } } };
+            var defaultSettings = { logo: {}, xApi: { enabled: true, selectedLrs: "default", lrs: { credentials: {} } } };
             var settings;
             try {
                 settings = JSON.parse(json.settings) || defaultSettings;
