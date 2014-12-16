@@ -233,19 +233,25 @@ input[type="text"] {
         background: url("../img/sprites_16.png") -42px -21px no-repeat;
     }
 
-.tabs-item-short-title {
-    display: none;
-}
-
 .settings-tab-container {
-    padding: 20px 16px;
-    background-color: #fff;
+    background-color: #f9fafc;
 }
 
     .settings-tab-container.track-and-trace .selector-preview-container {
         position: relative;
         padding-left: 40px;
     }
+
+.settings-tab-wrapper {
+    padding: 20px 16px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 0 0 #f4f5f7;
+}
+
+.tab-seperator {
+    height: 10px;
+}
 
 .tab-header-container {
     margin-bottom: 30px;
@@ -371,16 +377,18 @@ input[type="text"] {
     position: relative;
     margin-left: 17px;
     padding: 9px 18px;
+    cursor: default;
+    overflow: hidden;
 }
 
 .btn.grey.template-logo input {
     position: absolute;
-    width: 100%;
+    width: 200px;
     height: 100%;
     top: 0;
-    left: 0;
+    right: 0;
+    font-size: 100px;
     opacity: 0;
-    cursor: pointer;
 }
 
 .template-logo-wrapper {
@@ -397,7 +405,8 @@ input[type="text"] {
     }
 
 .template-logo {
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .template-logo-clear-wrapper {
@@ -942,14 +951,6 @@ input[type="text"] {
 /*#endregion*/
 
 @media (max-width: 800px) {
-    .tabs-item-long-title {
-        display: none;
-    }
-
-    .tabs-item-short-title {
-        display: block;
-    }
-
     .selector-items-container {
         min-width: 175px;
     }
