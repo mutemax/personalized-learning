@@ -181,6 +181,14 @@ img {
     vertical-align: middle;
 }
 
+img[style*='right'] {
+    margin-left: 20px;
+}
+
+img[style*='left'] {
+    margin-right: 20px;
+}
+
 hr {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
