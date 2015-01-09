@@ -3,7 +3,7 @@
         'text': '../js/require/text',
         'durandal': '../js/durandal',
         'plugins': '../js/durandal/plugins',
-        'transitions': '../js/durandal/transitions',
+        'transitions': '../js/durandal/transitions'
     },
     urlArgs: 'v=' + Math.random()
 });
@@ -27,7 +27,17 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext'
             browserDetector.detect();
 
             if (!browserDetector.isSupportedMobile && !browserDetector.isSupportedBrowser) {
-                rootView = browserDetector.isMobileDevice ? 'viewmodels/notSupportedMobileBrowser' : 'viewmodels/notSupportedBrowser';
+                $('html').css('height', '100%');
+
+                rootView = 'viewmodels/notSupportedBrowser';
+                var $body = $('body');
+
+                if (browserDetector.isIos || browserDetector.isAndroid) {
+                    $body.addClass('mobile');
+                    browserDetector.isIos ? $body.addClass('ios') : $body.addClass('android');
+                } else {
+                    browserDetector.isMac ? $body.addClass('mac') : $body.addClass('windows');
+                }
             } else {
                 startupModules.push(dataContext.initialize());
                 startupModules.push(courseSettingsModule.initialize());

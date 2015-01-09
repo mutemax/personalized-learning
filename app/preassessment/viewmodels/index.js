@@ -17,8 +17,8 @@
                 });
             });
 
-
-        }).catch(function (reason) {
+        })
+        ["catch"](function (reason) {
             console.error(reason);
         });
     }
