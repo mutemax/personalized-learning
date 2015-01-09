@@ -29,7 +29,8 @@
                     .map(function (item) { return item.content; })
                     .value());
 
-            }).catch(function (reason) {
+            })
+            ["catch"](function (reason) {
                 console.error(reason);
             });
         }

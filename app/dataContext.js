@@ -116,7 +116,8 @@
 
                  Q.allSettled(promises).then(function () {
                      dfd.resolve();
-                 }).catch(function (reason) {
+                 })
+                 ["catch"](function (reason) {
                      dfd.reject(reason);
                  });
 

@@ -4,21 +4,183 @@ html.ie8, .ie8 body, .ie8 .applicationHost {
     min-width: 600px;
 }
 
-.not-supported-browser {
-    padding-top: 100px;
-    text-align: center;
+body.mobile, body.mac, body.windows {
+    height: 100%;
+    background-color: white;
 }
 
-.browser-icons-wrapper {
-    display: inline;
-    margin: 0 auto;
+    body.mobile #applicationHost, body.mac #applicationHost, body.windows #applicationHost {
+        height: 100%;
+    }
+
+#not-supported-page {
+    height: 100%;
 }
 
-.browser-group {
-    display: inline-block;
-    white-space: nowrap;
+    #not-supported-page .bg-table {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+        #not-supported-page .bg-table .top-bg,
+        #not-supported-page .bg-table .bottom-bg {
+            height: 50%;
+        }
+
+        #not-supported-page .bg-table .toothed-bg {
+            height: 8px;
+            background-image: url('../images/tooth.png');
+            background-position: center center;
+            background-repeat: repeat-x;
+        }
+
+        #not-supported-page .bg-table .bottom-bg {
+            background-color: #f9fafc;
+        }
+
+    #not-supported-page .markup-table {
+        height: 100%;
+        width: 100%;
+        vertical-align: middle;
+        position: relative;
+    }
+
+        #not-supported-page .markup-table .eg-logo-wrapper {
+            vertical-align: top;
+        }
+
+            #not-supported-page .markup-table .eg-logo-wrapper .eg-logo {
+                height: 36px;
+                width: 200px;
+                margin: 30px 50px 0;
+                background-image: url('../images/eg-logo.png');
+            }
+
+        #not-supported-page .markup-table .content-cell {
+            width: 650px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #not-supported-page .markup-table .content-item {
+            color: #546677;
+            font-family: sans-serif;
+            font-size: 15px;
+            padding: 0;
+            border: 0;
+        }
+
+        #not-supported-page .markup-table .page-caption {
+            line-height: 1.2;
+            margin: 0;
+            text-align: center;
+            color: #469dd5;
+            font-family: sans-serif;
+            font-size: 37px;
+            font-style: normal;
+            font-weight: normal;
+            text-transform: none;
+            padding: 0;
+        }
+
+        #not-supported-page .markup-table .page-caption-description {
+            line-height: 1.7;
+            margin: 25px 40px 60px;
+            text-align: center;
+        }
+
+        #not-supported-page .markup-table .supported-browsers-group {
+            width: 100%;
+            margin-bottom: 50px;
+            border-collapse: separate;
+        }
+
+        #not-supported-page .markup-table .download-browser-link {
+            display: block;
+            height: 187px;
+            width: 183px;
+            margin: 0 auto;
+            background-image: url('../images/supported-browser-bg.png');
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            text-decoration: none;
+        }
+
+            #not-supported-page .markup-table .download-browser-link:hover .browser-title {
+                color: #469dd5;
+            }
+
+                #not-supported-page .markup-table .download-browser-link:hover .browser-title:after {
+                    width: 100%;
+                    -webkit-transition: width 0.15s linear;
+                    -moz-transition: width 0.15s linear;
+                    -o-transition: width 0.15s linear;
+                    transition: width 0.15s linear;
+                }
+
+            #not-supported-page .markup-table .download-browser-link img {
+                height: 128px;
+                width: 124px;
+                outline: 0;
+                border: none;
+                vertical-align: top;
+            }
+
+            #not-supported-page .markup-table .download-browser-link .browser-title {
+                line-height: 1;
+                position: relative;
+                color: #546677;
+                font-family: sans-serif;
+                font-size: 20px;
+                text-transform: capitalize;
+            }
+
+                #not-supported-page .markup-table .download-browser-link .browser-title:after {
+                    content: '';
+                    display: block;
+                    height: 1px;
+                    width: 0;
+                    position: absolute;
+                    left: 0;
+                    bottom: -5px;
+                    background: #469dd5;
+                }
+
+        #not-supported-page .markup-table .bottom-aligner {
+            height: 66px;
+        }
+
+body.mobile #not-supported-page .markup-table .eg-logo-wrapper .eg-logo {
+    margin: 30px auto 0;
 }
 
-.ie7 .browser-group {
-    display: inline;
+body.mobile #not-supported-page .markup-table .content-cell {
+    width: 640px;
+}
+
+body.ios #not-supported-page .chrome,
+body.ios #not-supported-page .firefox,
+body.ios #not-supported-page .ie,
+body.ios #not-supported-page .chrome-mobile {
+    display: none;
+}
+
+body.mac #not-supported-page .chrome,
+body.mac #not-supported-page .firefox,
+body.mac #not-supported-page .ie,
+body.mac #not-supported-page .chrome-mobile {
+    display: none;
+}
+
+body.android #not-supported-page .firefox,
+body.android #not-supported-page .ie,
+body.android #not-supported-page .safari,
+body.android #not-supported-page .chrome {
+    display: none;
+}
+
+body.windows #not-supported-page .safari,
+body.windows #not-supported-page .chrome-mobile {
+    display: none;
 }
