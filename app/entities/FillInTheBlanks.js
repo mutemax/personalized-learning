@@ -8,14 +8,15 @@
 
         this.answer = function (userAnswers) {
             var numOfCorrect = 0;
+
             _.each(this.answers, function (option) {
                 if (_.find(userAnswers, function (answer) {
-                    return option.group == answer.id && option.text == answer.text;
+                    return option.groupId == answer.groupId && option.text == answer.text;
                 })) {
                     numOfCorrect++;
                 }
             });
-            
+
             this.score = numOfCorrect == this.answers.length ? 100 : 0;
         };
     };
