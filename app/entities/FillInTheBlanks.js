@@ -7,10 +7,11 @@
         this.score = 0;
 
         this.answer = function (userAnswers) {
-            var numOfCorrect = 0;
+            var numOfCorrect = 0;            
+
             _.each(this.answers, function (option) {
-                if (_.find(userAnswers, function (answer) {
-                    return option.group == answer.id && option.text == answer.text;
+                if (_.find(userAnswers, function (answer) {                    
+                    return option.groupId == answer.groupId && option.text == answer.text;
                 })) {
                     numOfCorrect++;
                 }
