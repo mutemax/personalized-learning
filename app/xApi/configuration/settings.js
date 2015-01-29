@@ -35,7 +35,7 @@
 
     var defaultXapi = {
         lrs: {
-            uri: 'http://reports.easygenerator.com/xApi/statements',
+            uri: '//reports.easygenerator.com/xApi/statements',
             authenticationRequired: false,
             credentials: {
                 username: '',
