@@ -4,7 +4,6 @@
     var ua = navigator.userAgent.toLowerCase();
 
     var browserDetector = {
-        isInternetExplorer: false,
         isSupportedBrowser: null,
         isSupportedMobile: null,
         isChromeWithPageCoordsBug: null,
@@ -33,7 +32,6 @@
 
     function detect() {
         var browserInfo = getBrowserInfo();
-        browserDetector.isInternetExplorer = isInternetExplorer();
         browserDetector.isSupportedMobile = isSupportedMobile();
         browserDetector.isSupportedBrowser = isSupportedBrowser(browserInfo);
         browserDetector.isChromeWithPageCoordsBug = isChromeWithPageCoordsBug();
@@ -47,10 +45,6 @@
             return window.navigator.appVersion.match(/Chrome\/(.*?) /)[1] == "38.0.2125.102";
         }
         return false;
-    }
-
-    function isInternetExplorer() {
-        return ua.indexOf("MSIE ") > 0 || !!ua.match(/.*rv\:11\./);
     }
 
     function isIos() {
