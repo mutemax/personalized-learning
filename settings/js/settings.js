@@ -4,18 +4,25 @@
     );
 }
 
+function sendPostMessage(message) {
+    var editorWindow = window.parent;
+    editorWindow.postMessage(message, window.location.href);
+}
+
 $(function () {
     var
         courseId = getURLParameter('courseId'),
         templateId = getURLParameter('templateId'),
 
-        baseURL = location.protocol + "//" + location.host,
-        settingsURL = baseURL + "/api/course/" + courseId + "/template/" + templateId,
+        baseURL = location.protocol + '//' + location.host,
+        settingsURL = baseURL + '/api/course/' + courseId + '/template/' + templateId,
+
+        currentSettings = null,
 
         starterAccessType = 1;
 
     var viewModel = {
-        trackingData: (function() {
+        trackingData: (function () {
             var data = {};
 
             data.enableXAPI = ko.observable(true),
@@ -43,7 +50,7 @@ $(function () {
                 return lrsOption;
             });
 
-            data.customLrsEnabled = ko.computed(function() {
+            data.customLrsEnabled = ko.computed(function () {
                 return data.enableXAPI() && data.selectedLrs() != data.lrsOptions[0].key;
             });
 
@@ -52,7 +59,7 @@ $(function () {
             data.lapLogin = ko.observable();
             data.lapPassword = ko.observable();
 
-            data.credentialsEnabled = ko.computed(function() {
+            data.credentialsEnabled = ko.computed(function () {
                 return data.customLrsEnabled() && data.authenticationRequired();
             });
 
@@ -67,8 +74,6 @@ $(function () {
             return data;
         })(),
 
-        isSaved: ko.observable(false),
-        isFailed: ko.observable(false),
         advancedSettingsExpanded: ko.observable(false),
         toggleAdvancedSettings: function () {
             this.advancedSettingsExpanded(!this.advancedSettingsExpanded());
@@ -77,7 +82,7 @@ $(function () {
         logo: (function () {
             var logo = {};
 
-            logo.url = ko.observable('').extend({ throttle: 300 });
+            logo.url = ko.observable('');
             logo.hasLogo = ko.computed(function () {
                 return logo.url() != '';
             });
@@ -96,7 +101,28 @@ $(function () {
     };
 
     viewModel.saveChanges = function () {
-        var settings = {
+        var settings = initSettings();
+
+        if (JSON.stringify(currentSettings) === JSON.stringify(settings)) {
+            return;
+        }
+
+        sendPostMessage({ type: 'startSave' });
+
+        $.post(settingsURL, { settings: JSON.stringify(settings) })
+            .done(function () {
+                currentSettings = settings;
+                sendPostMessage({ type: 'finishSave', data: { success: true, message: 'All changes are saved' } });
+            })
+            .fail(function () {
+                sendPostMessage({ type: 'finishSave', data: { success: false, message: 'Changes have NOT been saved. Please reload the page and change the settings again. Contact support@easygenerator.com if problem persists.' } });
+            });
+    };
+
+    $(window).on('blur', viewModel.saveChanges);
+
+    function initSettings() {
+        return {
             logo: {
                 url: viewModel.hasStarterPlan() ? viewModel.logo.url() : ''
             },
@@ -111,56 +137,16 @@ $(function () {
                         password: viewModel.trackingData.lapPassword()
                     }
                 },
-                allowedVerbs: $.map(viewModel.trackingData.statements, function(value, key) {
+                allowedVerbs: $.map(viewModel.trackingData.statements, function (value, key) {
                     return value() ? key : undefined;
                 })
             }
         };
+    }
 
-        viewModel.isFailed(false);
-        viewModel.isSaved(false);
+    //#region Ajax
 
-        $.post(settingsURL, { settings: JSON.stringify(settings) })
-            .done(function () {
-                viewModel.isSaved(true);
-            })
-            .fail(function () {
-                viewModel.isFailed(true);
-            });
-    };
-
-    $.ajax({
-        cache: false,
-        url: settingsURL,
-        dataType: "json",
-        success: function (json) {
-            var defaultSettings = { logo: {}, xApi: { enabled: true, selectedLrs: "default", lrs: { credentials: {} } } };
-            var settings;
-            try {
-                settings = JSON.parse(json.settings) || defaultSettings;
-            } catch (e) {
-                settings = defaultSettings;
-            }
-            viewModel.trackingData.enableXAPI(settings.xApi.enabled || false);
-            var defaultLrs = settings.xApi.enabled ? 'custom' : 'default';
-            viewModel.trackingData.selectedLrs(settings.xApi.selectedLrs || defaultLrs);
-            viewModel.trackingData.lrsUrl(settings.xApi.lrs.uri || '');
-            viewModel.trackingData.authenticationRequired(settings.xApi.lrs.authenticationRequired || false);
-            viewModel.trackingData.lapLogin(settings.xApi.lrs.credentials.username || '');
-            viewModel.trackingData.lapPassword(settings.xApi.lrs.credentials.password || '');
-
-            if (settings.xApi.allowedVerbs) {
-                $.each(viewModel.trackingData.statements, function(key, value) {
-                    value($.inArray(key, settings.xApi.allowedVerbs) > -1);
-                });
-            }
-
-            viewModel.logo.url(settings.logo.url || '');
-        },
-
-    });
-
-    $.ajax({
+    var userInfoDeffered = $.ajax({
         url: baseURL + '/api/identify',
         type: 'POST',
         contentType: 'application/json',
@@ -177,6 +163,46 @@ $(function () {
             viewModel.hasStarterPlan(false);
         }
     });
+
+
+    $.ajax({
+        cache: false,
+        url: settingsURL,
+        dataType: 'json',
+        success: function (json) {
+            var defaultSettings = { logo: {}, xApi: { enabled: true, selectedLrs: 'default', lrs: { credentials: {} } } };
+            var settings;
+            try {
+                settings = JSON.parse(json.settings) || defaultSettings;
+            } catch (e) {
+                settings = defaultSettings;
+            }
+            viewModel.trackingData.enableXAPI(settings.xApi.enabled || false);
+            var defaultLrs = settings.xApi.enabled ? 'custom' : 'default';
+            viewModel.trackingData.selectedLrs(settings.xApi.selectedLrs || defaultLrs);
+            viewModel.trackingData.lrsUrl(settings.xApi.lrs.uri || '');
+            viewModel.trackingData.authenticationRequired(settings.xApi.lrs.authenticationRequired || false);
+            viewModel.trackingData.lapLogin(settings.xApi.lrs.credentials.username || '');
+            viewModel.trackingData.lapPassword(settings.xApi.lrs.credentials.password || '');
+
+            if (settings.xApi.allowedVerbs) {
+                $.each(viewModel.trackingData.statements, function (key, value) {
+                    value($.inArray(key, settings.xApi.allowedVerbs) > -1);
+                });
+            }
+
+            viewModel.logo.url(settings.logo.url || '');
+        },
+        complete: function () {
+            userInfoDeffered.complete(function () {
+                currentSettings = initSettings();
+            });
+        }
+    });
+
+    //#endregion Ajax
+
+    //#region Binding Handlers
 
     ko.bindingHandlers.fadeVisible = {
         init: function (element, valueAccessor) {
@@ -215,27 +241,27 @@ $(function () {
     };
 
     ko.bindingHandlers.switchToggle = {
-        init: function(element, valueAccessor) {
+        init: function (element, valueAccessor) {
             var switchToggle = ko.bindingHandlers.switchToggle,
                 viewModel = switchToggle.viewModel(element, valueAccessor),
                 value = ko.unwrap(valueAccessor().value());
 
             viewModel.setInitialValue(value);
 
-            switchToggle.onClick(element, function() {
+            switchToggle.onClick(element, function () {
                 viewModel.toggle();
 
                 var currentValue = ko.unwrap(valueAccessor().value());
                 valueAccessor().value(!currentValue);
             });
         },
-        update: function(element, valueAccessor) {
+        update: function (element, valueAccessor) {
             var viewModel = ko.bindingHandlers.switchToggle.viewModel(element, valueAccessor),
                 value = ko.unwrap(valueAccessor().value());
 
             viewModel.updateValue(value);
         },
-        viewModel: function(element) {
+        viewModel: function (element) {
             var $element = $(element),
                 $wrapper = $('.switch-toggle-wrapper', $element);
 
@@ -282,11 +308,11 @@ $(function () {
                 toggle: toggle
             }
         },
-        onClick: function(element, handler) {
+        onClick: function (element, handler) {
             var $element = $(element),
                 isMouseDownFired = false;
 
-            $element.mousedown(function(event) {
+            $element.mousedown(function (event) {
                 if (event.which != 1)
                     return;
 
@@ -294,7 +320,7 @@ $(function () {
                 handler();
             });
 
-            $element.click(function() {
+            $element.click(function () {
                 if (isMouseDownFired) {
                     isMouseDownFired = false;
                     return;
@@ -317,7 +343,7 @@ $(function () {
             indicatorHolder: 'dropdown-indicator-holder',
             indicator: 'dropdown-indicator'
         },
-        init: function(element, valueAccessor) {
+        init: function (element, valueAccessor) {
             var $element = $(element),
                 cssClasses = ko.bindingHandlers.dropdown.cssClasses;
 
@@ -343,7 +369,7 @@ $(function () {
                 .addClass(cssClasses.optionsList)
                 .appendTo($element);
 
-            $currentItemElement.on('click', function(e) {
+            $currentItemElement.on('click', function (e) {
                 if ($element.hasClass(cssClasses.disabled)) {
                     return;
                 }
@@ -352,19 +378,19 @@ $(function () {
                 e.stopPropagation();
             });
 
-            var collapseHandler = function() {
+            var collapseHandler = function () {
                 $currentItemElement.removeClass(cssClasses.expanded);
             };
 
             $('html').bind('click', collapseHandler);
             $(window).bind('blur', collapseHandler);
 
-            ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+            ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
                 $('html').unbind('click', collapseHandler);
                 $(window).unbind('blur', collapseHandler);
             });
         },
-        update: function(element, valueAccessor) {
+        update: function (element, valueAccessor) {
             var $element = $(element),
                 cssClasses = ko.bindingHandlers.dropdown.cssClasses,
 
@@ -387,7 +413,7 @@ $(function () {
 
             $optionsListElement.empty();
 
-            $.each(options, function(index, option) {
+            $.each(options, function (index, option) {
                 if (option[optionsValue] == currentValue) {
                     $currentItemTextElement.text(option[optionsText]);
                     return;
@@ -397,7 +423,7 @@ $(function () {
                     .addClass(cssClasses.optionItem)
                     .appendTo($optionsListElement)
                     .text(option[optionsText])
-                    .on('click', function(e) {
+                    .on('click', function (e) {
                         value(option[optionsValue]);
                         $element.trigger('change');
                     });
@@ -434,9 +460,11 @@ $(function () {
         }
     };
 
-    ko.applyBindings(viewModel, $("#settingsForm")[0]);
+    //#endregion Binding handlers
 
-    //----------------Upload logo functionality------------------
+    ko.applyBindings(viewModel, $('#settingsForm')[0]);
+
+    //#region Upload logo functionality
     var
         uploadImageApiUrl = baseURL + '/storage/image/upload',
         maxFileSize = 10, //MB
@@ -477,10 +505,6 @@ $(function () {
             })()
         };
 
-    if (window.top.navigator.userAgent.match(/MSIE 9/i)) {
-        initFrame();
-    }
-
     function processFile() {
         if (!this.files) {
             imageUploadButton.submit();
@@ -509,7 +533,7 @@ $(function () {
         imageUploadStatus.loading();
 
         var formData = new FormData();
-        formData.append("file", file);
+        formData.append('file', file);
 
         $.ajax({
             url: uploadImageApiUrl,
@@ -527,35 +551,18 @@ $(function () {
         });
     }
 
-    function initFrame() {
-        $('#logoForm').attr('action', uploadImageApiUrl);
-        $('#logoFrame').on('readystatechange', function () {
-            if (this.readyState != "complete") {
-                return;
-            }
-
-            try {
-                var response = this.contentDocument.body.innerHTML;
-                handleResponse(response);
-            } catch (e) {
-                imageUploadStatus.fail(somethingWentWrongMessage);
-                imageUploadButton.enable();
-            }
-        });
-    }
-
     function handleResponse(response) {
         try {
             if (!response) {
-                throw "Response is empty";
+                throw 'Response is empty';
             }
 
-            if (typeof response != "object") {
+            if (typeof response != 'object') {
                 response = JSON.parse(response);
             }
 
             if (!response || !response.success || !response.data) {
-                throw "Request is not success";
+                throw 'Request is not success';
             }
 
             viewModel.logo.url(response.data.url);
@@ -566,5 +573,5 @@ $(function () {
             imageUploadButton.enable();
         }
     }
-
+    //#endregion Upload logo functionality
 });
