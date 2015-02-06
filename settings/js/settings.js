@@ -82,7 +82,7 @@ $(function () {
         logo: (function () {
             var logo = {};
 
-            logo.url = ko.observable('').extend({ throttle: 300 });
+            logo.url = ko.observable('');
             logo.hasLogo = ko.computed(function () {
                 return logo.url() != '';
             });
@@ -107,13 +107,15 @@ $(function () {
             return;
         }
 
+        sendPostMessage({ type: 'startSave' });
+
         $.post(settingsURL, { settings: JSON.stringify(settings) })
             .done(function () {
                 currentSettings = settings;
-                sendPostMessage({ success: true, message: 'All changes are seved' });
+                sendPostMessage({ type: 'finishSave', data: { success: true, message: 'All changes are saved' } });
             })
             .fail(function () {
-                sendPostMessage({ error: true, message: 'Changes have NOT been saved. Please reload the page and change the settings again. Contact support@easygenerator.com if problem persists.' });
+                sendPostMessage({ type: 'finishSave', data: { success: false, message: 'Changes have NOT been saved. Please reload the page and change the settings again. Contact support@easygenerator.com if problem persists.' } });
             });
     };
 
