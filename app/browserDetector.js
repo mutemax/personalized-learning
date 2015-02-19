@@ -86,7 +86,7 @@
 
         //Mac OS only Safary
         if (isMac()) {
-            if (ua.indexOf('opera') != -1 || ua.indexOf("opr") == -1 || ua.indexOf('firefox') != -1 || ua.indexOf('chrome') != -1) {
+            if (ua.indexOf('opera') != -1 || ua.indexOf("opr") != -1 || ua.indexOf('firefox') != -1) {
                 return false;
             }
             return true;
