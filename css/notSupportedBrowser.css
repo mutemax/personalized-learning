@@ -96,6 +96,10 @@ body.mobile, body.mac, body.windows {
             border-collapse: separate;
         }
 
+        #not-supported-page .supported-browser-item {
+            width: 200px;
+        }
+
         #not-supported-page .markup-table .download-browser-link {
             display: block;
             height: 187px;
@@ -160,6 +164,7 @@ body.mobile #not-supported-page .markup-table .content-cell {
 }
 
 body.ios #not-supported-page .chrome,
+body.ios #not-supported-page .chrome-mac,
 body.ios #not-supported-page .firefox,
 body.ios #not-supported-page .ie,
 body.ios #not-supported-page .chrome-mobile {
@@ -176,11 +181,13 @@ body.mac #not-supported-page .chrome-mobile {
 body.android #not-supported-page .firefox,
 body.android #not-supported-page .ie,
 body.android #not-supported-page .safari,
-body.android #not-supported-page .chrome {
+body.android #not-supported-page .chrome,
+body.android #not-supported-page .chrome-mac {
     display: none;
 }
 
 body.windows #not-supported-page .safari,
+body.windows #not-supported-page .chrome-mac,
 body.windows #not-supported-page .chrome-mobile {
     display: none;
 }
