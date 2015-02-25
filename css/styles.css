@@ -197,7 +197,7 @@ hr {
     margin-bottom: 20px;
     height: 0;
     border: 0;
-    border-top: 1px solid #dadddf;
+    border-top: 1px solid #9ad3d6;
     border-bottom: 1px solid #fcfdfd;
 }
 .question-number
@@ -299,7 +299,7 @@ hr {
     overflow: hidden;
     -ms-border-radius: 3px;
     border-radius: 3px;
-    background-color: #d5d5d7;
+    background-color: #dff1f5;
 }
 
 .progress-bar-value {
@@ -367,7 +367,16 @@ hr {
         .button.info.disabled:hover {
             background-color: #00ADEF;
         }
-
+    .finish{
+        width: 219px;
+        height: 58px;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        text-align: center;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding-top: 17px;
+    }
 
     .button.success {
         background-color: #7dc9cd;
@@ -476,7 +485,7 @@ hr {
 }
 
 .checkbox.checked, .radio.checked {
-    background-color: #f1f1f1;
+    background-color: #e5f4f5;
 }
 
     .checkbox.checked .checkbox-icon {
