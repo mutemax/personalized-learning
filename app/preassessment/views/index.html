@@ -5,9 +5,11 @@
     <form data-bind="submit: submit">
         <ul class="unstyled">
             <!-- ko foreach: questions -->
+
+            <div class="question-number"><div class="round" data-bind="text: $index() + 1"></div></div>
             <li class="content container">
                 <div class="question-title">
-                    <span data-bind="text: $index() + 1"></span>.&nbsp;<span data-bind="text: title"></span>
+                    <span data-bind="text: title"></span>
                 </div>
                 <!-- ko compose: { model: $data, mode: 'templated' } -->
                 <!-- /ko -->
