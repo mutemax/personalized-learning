@@ -1,14 +1,17 @@
 ﻿<section>
     <div class="logo-header">
+        <div class="logo-container">
         <!-- ko if: hasLogo -->
         <img class="logo" data-bind="attr: { src: logoUrl }" />
         <!-- /ko -->
         <!-- ko ifnot: hasLogo -->
         <div class="logo default"></div>
         <!-- /ko -->
+        </div>
     </div>
+    <div class="title-container">
     <h1 data-bind="text: title"></h1>
-
+    </div>
     <div data-bind="if: activeItem.isComposing">
         <div class="loader"></div>
     </div>

@@ -143,15 +143,16 @@ h1, h2 {
 }
 
 h1 {
-    margin-top: 5px;
+
     padding: 75px 0;
-    padding-top: 65px;
+    padding-top: 170px;
     padding-bottom: 85px;
-    background-color: #fff;
-    color: #3c3c3c;
-    text-transform: uppercase;
+    width: 820px;
+    margin: auto;
+    color: #ffffff;
     font-size: 32px;
-    font-family: 'MyriadWebProRegular';
+    font-family: 'Lato', sans-serif;
+    height: 380px;
 }
 
 h2 {
@@ -200,12 +201,18 @@ hr {
     border-bottom: 1px solid #fcfdfd;
 }
 
+.title-container{
+    background-image: url(../images/header-bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 .container {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 40px auto 0;
-    max-width: 1200px;
+    max-width: 960px;
 }
 
 .content {
@@ -215,6 +222,7 @@ hr {
     border-radius: 3px;
     background: #fff;
     overflow-x: auto;
+    line-height: 2;
 }
 
 .pull-right {
@@ -319,8 +327,10 @@ hr {
 
 
     .button.success {
-        background-color: #02daaf;
+        background-color: #7dc9cd;
         color: #fff;
+        height: 60px;
+        width: 260px;
     }
 
         .button.success:hover {
@@ -563,9 +573,9 @@ hr {
 .view-header {
     position: relative;
     margin: 0 auto 40px;
-    max-width: 1200px;
+    max-width: 960px;
     height: 85px;
-    background: #fff;
+
 }
 
     .view-header h2 {
