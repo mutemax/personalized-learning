@@ -5,29 +5,37 @@
 }
 
 .studyadvice .objective-to-learn {
-    text-align: center;
     background-color: #ffffff;
     border-radius: 5px;
     border-bottom: 3px solid #9ad3d6;
+    height: 152px;
 }
 
 .studyadvice .objective-title {
-    margin: 20px 0;
+    margin: 20px 30px;
+    width: 830px;
     color: #555555;
-    text-align: center;
     font-size: 14px;
     font-family: 'OpenSans';
 }
 
+.learning-objective{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+
 .studyadvice .objective-progress {
-    margin: 0 auto;
     width: 350px;
+    display: inline-block;
 }
 
 .studyadvice .objective-action-wrapper {
-    position: relative;
-    margin-top: 10px;
-    height: 40px;
+    position: absolute;
+    margin-top: -66px;
+    margin-left: 880px;
+
+    width: 80px;
 }
 
 .objective-action {

@@ -9,13 +9,11 @@
         <li>
             <div class="container">
                 <div class="objective-to-learn">
-                    <h3>Learning objective</h3>
-
-
-                    <div class="objective-title" data-bind="text: title"></div>
-                    <div class="objective-progress">
+                    <span class="learning-objective" >Learning objective</span>
+                    <div class="objective-progress learning-objective">
                         <div data-bind="progress: score"></div>
                     </div>
+                    <div class="objective-title" data-bind="text: title"></div>
                     <div class="objective-action-wrapper">
                         <div class="objective-action">
                             <!-- ko ifnot: isExpanded -->
