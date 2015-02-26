@@ -20,7 +20,7 @@
                             <button class="button expand" data-bind="click: expand"> </button>
                             <!-- /ko -->
                             <!-- ko if: isExpanded -->
-                            <button class="button collapse" data-bind="click: collapse">Hide recommended reading</button>
+                            <button class="button collapse" data-bind="click: collapse"></button>
                             <!-- /ko -->
                         </div>
 
@@ -28,8 +28,8 @@
 
                 </div>
                 <!-- ko if: isExpanded -->
-                <div class="content">
-                    <h3>Recommended reading</h3>
+                <div class="content blue-background">
+                   <div class="reading-title">Recommended reading</div>
 
                     <ul class="objective-recommended-readings" data-bind="foreach: recommended">
                         <li class="objective-recommended-reading">
@@ -37,7 +37,7 @@
                                 <span data-bind="text: title"></span>
                             </div>
                             <div class="objective-recommended-reading-start">
-                                <button class="button info medium" data-bind="click: $parent.startRecommendedReading">Start</button>
+                                <button class="button start" data-bind="click: $parent.startRecommendedReading">Start</button>
                             </div>
                         </li>
                     </ul>

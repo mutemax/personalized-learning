@@ -9,6 +9,7 @@
     border-radius: 5px;
     border-bottom: 3px solid #9ad3d6;
     height: 152px;
+    width: 960px;
 }
 
 .studyadvice .objective-title {
@@ -45,7 +46,6 @@
 
 .studyadvice .button.expand, .studyadvice .button.collapse {
     padding: 10px 0 8px;
-    border-bottom: 2px solid transparent;
     -ms-border-radius: 0;
     border-radius: 0;
     text-transform: uppercase;
@@ -62,7 +62,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-repeat: no-repeat;
-    ;
+
 }
 
 
@@ -80,7 +80,13 @@
     }
 
 .studyadvice .button.collapse {
-    color: #999999;
+    width: 67px;
+    height: 150px;
+    display: inline-block;
+    background-color: #e9fbff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-repeat: no-repeat;
 }
 
     .studyadvice .button.collapse:hover {
@@ -95,6 +101,14 @@
         background: url(../images/sprite.png) -15px -389px no-repeat;
         content: "";
     }
+.blue-background{
+    background-color: #e9fbff;
+    margin-top: -3px;
+}
+
+.reading-title{
+    color: #ef4535;
+}
 
 .studyadvice .objective-recommended-readings {
     display: table;
@@ -112,6 +126,8 @@
     color: #3c3c3c;
     vertical-align: middle;
     word-wrap: break-word;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
 }
 
 .studyadvice .objective-recommended-reading-start {
@@ -120,6 +136,14 @@
     vertical-align: middle;
     text-align: right;
 }
+
+.start{
+    height: 42px;
+    width: 118px;
+    border: 1px solid #cd5a48;
+    text-transform: uppercase;
+}
+
 
 .studyadvice .mastered-objective {
     display: table;
@@ -166,6 +190,8 @@
     padding-left: 20px;
     width: 370px;
 }
+
+
 
 
 @media (max-width: 640px) {
