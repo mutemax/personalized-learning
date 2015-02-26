@@ -18,12 +18,20 @@
 .question .navigation {
     display: table;
     margin-top: 10px;
-    width: 100%;
+    margin-left: -13px;
     line-height: 1;
+    width: 135px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #dedede;
 }
 
 .question .objective-wrapper .navigation {
     margin-top: 13px;
+    width: 135px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #dedede;
 }
 
 .question .navigation > div {
@@ -44,7 +52,7 @@
     -ms-border-radius: 0;
     border-radius: 0;
     background: transparent;
-    color: #3c3c3c;
+    color: #ffffff;
     text-transform: uppercase;
     font-size: 16px;
     font-family: 'OpenSans-Semibold';
@@ -52,51 +60,57 @@
 }
 
     .question .button.back:hover {
-        border-bottom-color: #00adee;
+        border-bottom-color: #dff1f5;
+        color: #dff1f5;
+
     }
 
     .question .button.back:before {
+
         position: absolute;
         top: -2px;
         left: 0;
         display: inline-block;
         width: 28px;
         height: 20px;
-        background: url(../images/sprite.png) 0 -111px no-repeat;
+        background: url(../images/newSprite.png) 0 -157px no-repeat;
         content: "";
         vertical-align: middle;
     }
 
     .question .button.back:hover:before {
-        background-position: 0 -136px;
+        background-position: 0 -179px;
     }
 
 .question .button.previous {
     width: 24px;
     height: 24px;
-    background: url(../images/sprite.png) 0 -161px no-repeat;
+    margin-left: 10px;
+    background: url(../images/newSprite.png) 0 -53px no-repeat;
 }
 
     .question .button.previous:hover {
-        background-position: 0 -185px;
+        background-position: 0 -131px;
     }
 
     .question .button.previous.disabled {
-        background-position: 0 -209px;
+        background-position: 0 -53px;
+        margin-left: 10px;
     }
 
 .question .button.next {
     width: 24px;
     height: 24px;
-    background: url(../images/sprite.png) 0 -238px no-repeat;
+    background: url(../images/newSprite.png) 0 -79px no-repeat;
+    margin-right: 10px;
 }
 
     .question .button.next:hover {
-        background-position: 0 -262px;
+        background-position: 0 -105px;
     }
 
     .question .button.next.disabled {
-        background-position: 0 -286px;
+        background-position: 0 -1px;
     }
 
 
