@@ -52,23 +52,24 @@
     </ul>
     <!-- /ko -->
     <!-- ko if: learntObjectives.length -->
-    <div class="container">
-        <h3>you have already mastered the following learning objectives:</h3>
+    <div class="container content">
+        <div class="mastered-objective-image-wrapper">
+            <div class="mastered-objective-image"></div>
+        </div>
+        <div class="objectives">You have already mastered the following learning objectives:</div>
 
+        <hr>
         <ul class="unstyled" data-bind="foreach: learntObjectives">
             <li class="mastered-objective">
                 <div>
                     <div class="mastered-objective-title-with-image">
-                        <div class="mastered-objective-image-wrapper">
-                            <div class="mastered-objective-image"></div>
-                        </div>
                         <div class="mastered-objective-title">
                             <div data-bind="text: title"></div>
                         </div>
                     </div>
                 </div>
                 <div class="mastered-objective-progress">
-                    <div data-bind="progress: score"></div>
+                    <div class="mastered-objective-round" data-bind="text: score+'%'"></div>
                 </div>
             </li>
         </ul>

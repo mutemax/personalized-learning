@@ -23,6 +23,9 @@
 .learning-objective{
     margin-left: 30px;
     margin-top: 30px;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    color:#a4a4a4;
 }
 
 
@@ -147,8 +150,9 @@
 
 .studyadvice .mastered-objective {
     display: table;
-    margin-bottom: 40px;
-    width: 100%;
+
+    width: 940px;
+
 }
 
     .studyadvice .mastered-objective:last-child {
@@ -156,29 +160,33 @@
     }
 
     .studyadvice .mastered-objective > div {
-        display: table-cell;
+        display: inline-block;
         vertical-align: middle;
     }
 
 
 .studyadvice .mastered-objective-title-with-image {
     display: table;
-    width: 100%;
+    width: 720px;
+    font-size: 18px;
 }
 
     .studyadvice .mastered-objective-title-with-image > div {
-        display: table-cell;
+        display: inline-block;
         vertical-align: middle;
     }
 
 .studyadvice .mastered-objective-image-wrapper {
-    width: 1%;
+    width: 45px;
+    float: left;
+    clear: both;
+
 }
 
 .studyadvice .mastered-objective-image {
-    width: 32px;
-    height: 32px;
-    background: url(../images/sprite.png) 0 -74px no-repeat;
+    width: 45px;
+    height: 45px;
+    background: url(../images/newSprite.png) 0 -202px no-repeat;
 }
 
 .studyadvice .mastered-objective-title {
@@ -188,7 +196,27 @@
 
 .studyadvice .mastered-objective-progress {
     padding-left: 20px;
-    width: 370px;
+}
+.objectives
+{
+    margin-left: 15px;
+    margin-top: 3px;
+    clear: both;
+    display: inline-block;
+    font-size: 20px;
+    color:#61b0ba;
+}
+.mastered-objective-round
+{
+    width: 77px;
+    height: 77px;
+    border: 1px solid #47cb91;
+    border-radius: 50%;
+    padding: 12px;
+    font-size: 22px;
+    display: inline-block;
+    margin-left: 70px;
+    color: #47cb91;
 }
 
 

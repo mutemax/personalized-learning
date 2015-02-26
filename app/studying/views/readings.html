@@ -7,17 +7,20 @@
     <div class="container objective-wrapper">
         <div class="navigation-wrapper">
             <h3>Questions</h3>
+
             <div class="navigation">
                 <div>
                     <!-- ko if: previousReading() && isReady() -->
-                    <button class="button previous" title="previous question" data-bind="click: goToPreviousReading"></button>
+                    <button class="button previous" title="previous question"
+                            data-bind="click: goToPreviousReading"></button>
                     <!-- /ko -->
                     <!-- ko ifnot: previousReading() && isReady() -->
                     <button class="button previous disabled" disabled="disabled"></button>
                     <!-- /ko -->
                 </div>
                 <div>
-                    <span data-bind="text: currentReadingIndex() + 1"></span>&nbsp;of&nbsp;<span data-bind="text:numberOfReadings"></span>
+                    <span data-bind="text: currentReadingIndex() + 1"></span>&nbsp;of&nbsp;<span
+                        data-bind="text:numberOfReadings"></span>
                 </div>
                 <div>
                     <!-- ko if: nextReading() && isReady() -->
@@ -31,11 +34,12 @@
         </div>
 
         <div class="objective">
-            <h3>Learning objective</h3>
-            <div class="objective-title" data-bind="text: title"></div>
+            <span class="learning-objective">Learning objective</span>
             <div class="objective-progress-wrapper">
                 <div data-bind="progress: score"></div>
             </div>
+            <div class="objective-title" data-bind="text: title"></div>
+
         </div>
 
     </div>
@@ -45,7 +49,7 @@
             <!-- ko if: learningContent().length > 0 -->
             <div class="content container">
                 <h3>Learning content</h3>
-                <hr />
+                <hr/>
                 <div>
                     <!-- ko foreach: learningContent -->
                     <div data-bind="html: $data"></div>
@@ -57,6 +61,7 @@
             <div class="container">
                 <div class="content">
                     <h4 class="question-title" data-bind="text: title"></h4>
+
                     <div data-bind="css: { 'disabled': isAnswered() }, overlay: isAnswered">
                         <!-- ko compose: $data -->
                         <!-- /ko -->
@@ -85,20 +90,28 @@
                         <!-- ko if: $parent.nextOrNotCompletedReading -->
                         <div class="question-feedback-action-container incorrect">
                             <div class="question-feedback-action-wrapper">
-                                <button class="button success large emphasize" data-bind="click: resetAnswer">Try again</button>
+                                <button class="button success large emphasize" data-bind="click: resetAnswer">Try
+                                    again
+                                </button>
                             </div>
                             <div class="question-feedback-action-wrapper">
-                                <button class="button default large emphasize" data-bind="click: $parent.goToNextOrNotCompletedReading">Next question</button>
+                                <button class="button default large emphasize"
+                                        data-bind="click: $parent.goToNextOrNotCompletedReading">Next question
+                                </button>
                             </div>
                         </div>
                         <!-- /ko -->
                         <!-- ko ifnot: $parent.nextOrNotCompletedReading -->
                         <div class="question-feedback-action-container incorrect">
                             <div class="question-feedback-action-wrapper">
-                                <button class="button success large emphasize" data-bind="click: resetAnswer">Try again</button>
+                                <button class="button success large emphasize" data-bind="click: resetAnswer">Try
+                                    again
+                                </button>
                             </div>
                             <div class="question-feedback-action-wrapper">
-                                <button class="button default large emphasize" data-bind="click: $root.goToStudyAdvice">Read study advice</button>
+                                <button class="button default large emphasize" data-bind="click: $root.goToStudyAdvice">
+                                    Read study advice
+                                </button>
                             </div>
                         </div>
                         <!-- /ko -->
@@ -122,12 +135,16 @@
                         <div class="question-feedback-action-container correct">
                             <!-- ko if: $parent.nextOrNotCompletedReading -->
                             <div class="question-feedback-action-wrapper">
-                                <button class="button success large emphasize" data-bind="click: $parent.goToNextOrNotCompletedReading">Next question</button>
+                                <button class="button success large emphasize"
+                                        data-bind="click: $parent.goToNextOrNotCompletedReading">Next question
+                                </button>
                             </div>
                             <!-- /ko -->
                             <!-- ko ifnot: $parent.nextOrNotCompletedReading -->
                             <div class="question-feedback-action-wrapper">
-                                <button class="button success large emphasize" data-bind="click: $parent.goToStudyAdvice">Read study advice</button>
+                                <button class="button success large emphasize"
+                                        data-bind="click: $parent.goToStudyAdvice">Read study advice
+                                </button>
                             </div>
                             <!-- /ko -->
                         </div>
@@ -142,18 +159,21 @@
                     <div class="navigation">
                         <div>
                             <!-- ko if: previousReading() && isReady() -->
-                            <button class="button previous" title="previous question" data-bind="click: goToPreviousReading"></button>
+                            <button class="button previous" title="previous question"
+                                    data-bind="click: goToPreviousReading"></button>
                             <!-- /ko -->
                             <!-- ko ifnot: previousReading() && isReady() -->
                             <button class="button previous disabled" disabled="disabled"></button>
                             <!-- /ko -->
                         </div>
                         <div>
-                            <span data-bind="text: currentReadingIndex() + 1"></span>&nbsp;of&nbsp;<span data-bind="text:numberOfReadings"></span>
+                            <span data-bind="text: currentReadingIndex() + 1"></span>&nbsp;of&nbsp;<span
+                                data-bind="text:numberOfReadings"></span>
                         </div>
                         <div>
                             <!-- ko if: nextReading() && isReady() -->
-                            <button class="button next" title="next question" data-bind="click: goToNextReading"></button>
+                            <button class="button next" title="next question"
+                                    data-bind="click: goToNextReading"></button>
                             <!-- /ko -->
                             <!-- ko ifnot: nextReading() && isReady() -->
                             <button class="button next disabled" disabled="disabled"></button>

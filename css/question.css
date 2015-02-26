@@ -117,6 +117,8 @@
 .question .objective {
     margin-right: 140px;
     text-align: left;
+    width: 730px;
+    line-height: 2;
 }
 
 .question .objective-title {
@@ -128,6 +130,8 @@
 
 .question .objective-progress-wrapper {
     width: 350px;
+    display: inline-block;
+    margin-left: 30px;
 }
 
 .question .question-title {
