@@ -2,7 +2,19 @@
     position: relative;
     color: #000;
 }
-
+.summary-title{
+    width: 900px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    border-bottom: 2px solid #9ad3d6;
+    color:#9ad3d6;
+}
+.summary .progress-text-wrapper
+{
+    color: #9ad3d6;
+    display: table-row;
+    font-size: 18px;
+}
     .summary .button.close-course {
         position: absolute;
         right: 0;
@@ -38,12 +50,12 @@
 
         .summary .objective > div {
             display: table-cell;
-            vertical-align: middle;
         }
 
 
 .summary .objective-title {
-    color: #3c3c3c;
+    font-size: 18px;
+    width:560px;
 }
 
 .summary .objective-progress {

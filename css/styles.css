@@ -384,10 +384,12 @@ hr {
         color: #fff;
         height: 60px;
         width: 260px;
+        opacity: 0.8;
     }
 
         .button.success:hover {
-            background-color: #04c09b;
+            background-color: #7dc9cd;
+            opacity: 1;
         }
 
         .button.success.disabled:hover {

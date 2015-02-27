@@ -2,12 +2,13 @@
     <header class="view-header">
         <div class="course-progress" data-bind="progress: progress">
         </div>
-        <button class="button success medium close-course" data-bind="click: close, css: { 'disabled': isClosing() || isClosed() }">Close course</button>
+        <button class="button finish medium close-course" data-bind="click: close, css: { 'disabled': isClosing() || isClosed() }">Close course</button>
     </header>
 
     <div class="content container">
-        <h3>Learning objectives</h3>
-        <hr />
+        <div class="summary-title">
+        <span>Learning objectives</span>
+        </div>
         <ul class="unstyled" data-bind="foreach: objectives">
             <li class="objective">
                 <div class="objective-title">
