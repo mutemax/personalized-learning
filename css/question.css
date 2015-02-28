@@ -122,10 +122,12 @@
 }
 
 .question .objective-title {
+
     margin: 15px 0;
-    color: #555555;
-    font-size: 14px;
-    font-family: 'OpenSans';
+    color: #3e3d40;
+    font-size: 20px;
+    font-family: 'latoRegular';
+    line-height: 1.8;
 }
 
 .question .objective-progress-wrapper {
@@ -136,6 +138,11 @@
 
 .question .question-title {
     word-wrap: break-word;
+    font-family: 'latoRegular';
+    font-size: 20px;
+    line-height: 1.8;
+    color: #3e3d40;
+    border-bottom: 3px solid #9ad3d6;
 }
 
 .question .question-content {

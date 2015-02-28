@@ -23,6 +23,33 @@
 }
 
 
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'latoLight';
+    src: url('./font/Lato-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'latoRegular';
+    src: url('./font/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'latoLightItalic';
+    src: url('./font/Lato-LightItalic.ttf') format('truetype');
+}
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'latoSemiBold';
+    src: url('./font/Lato-Semibold.ttf') format('truetype');
+}
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -151,7 +178,7 @@ h1 {
     margin: auto;
     color: #ffffff;
     font-size: 32px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'latoLight', sans-serif;
     height: 380px;
 }
 
@@ -267,6 +294,9 @@ hr {
     overflow-x: auto;
     line-height: 2;
     max-width: 960px;
+    color: #3e3d40;
+    font-family: 'latoRegular' sans-serif;
+    font-size: 18px;
 }
 
 .pull-right {
@@ -505,6 +535,9 @@ hr {
     white-space: pre-wrap;
     -ms-word-wrap: break-word;
     word-wrap: break-word;
+    font-family: 'latoRegular';
+    font-size: 18px;
+    color: #3e3d40;
 }
 
 .disabled .checkbox:hover, .disabled.checkbox:hover, .disabled .radio:hover, .disabled.radio:hover {

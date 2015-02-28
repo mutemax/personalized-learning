@@ -1,8 +1,9 @@
 ﻿.preassessment .question-title {
-    color: #000;
-    font-size: 14px;
-    font-family: 'OpenSans-Semibold';
+    color: #3e3d40;
+    font-size: 20px;
+    font-family: 'latoRegular' sans-serif;
     word-wrap: break-word;
+    border-bottom: 3px solid #9ad3d6;
 }
 
 .preassessment .question-content {
