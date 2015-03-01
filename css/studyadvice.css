@@ -155,7 +155,7 @@
 
 .studyadvice .mastered-objective {
     display: table;
-
+margin-top: 30px;
     width: 940px;
 
 }
@@ -197,6 +197,8 @@
 .studyadvice .mastered-objective-title {
     padding-left: 15px;
     color: #3c3c3c;
+
+
 }
 
 .studyadvice .mastered-objective-progress {
