@@ -7,7 +7,9 @@
     padding-bottom: 20px;
     font-size: 20px;
     border-bottom: 2px solid #9ad3d6;
-    color:#9ad3d6;
+    color:#61b0b4;
+    font-family: 'latoSemiBold';
+
 }
 .summary .progress-text-wrapper
 {
@@ -31,7 +33,7 @@
 
 
         .summary .course-progress .progress-bar-value {
-            background-color: #00adee;
+            background-color: #47cb91;
         }
 
     .summary .objective {
@@ -56,6 +58,9 @@
 .summary .objective-title {
     font-size: 18px;
     width:560px;
+    font-family: "latoRegular";
+    color:#3e3d40;
+    line-height: 2;
 }
 
 .summary .objective-progress {

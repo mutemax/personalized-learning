@@ -339,7 +339,7 @@ hr {
     -webkit-user-select: none;
     user-select: none;
     min-height: 10px;
-    background-color: #02daaf;
+    background-color: #47cb91;
     color: #fff;
     text-align: center;
     font-weight: bold;
@@ -538,6 +538,7 @@ hr {
     font-family: 'latoRegular';
     font-size: 18px;
     color: #3e3d40;
+    vertical-align: baseline;
 }
 
 .disabled .checkbox:hover, .disabled.checkbox:hover, .disabled .radio:hover, .disabled.radio:hover {
