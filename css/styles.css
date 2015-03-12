@@ -27,27 +27,31 @@
     font-weight: normal;
     font-style: normal;
     font-family: 'latoLight';
-    src: url('./font/Lato-Light.ttf') format('truetype');
+    src: url('./font/Lato-Light-webfont.eot');
+    src: url('./font/Lato-Light-webfont.eot') format('embedded-opentype'),url('./font/Lato-Light-webfont.ttf') format('truetype'),url('./font/Lato-Light-webfont.svg#latoLight') format('svg');
 }
 
 @font-face {
     font-weight: normal;
     font-style: normal;
     font-family: 'latoRegular';
-    src: url('./font/Lato-Regular.ttf') format('truetype');
+     src: url('./font/Lato-Regular-webfont.eot');
+    src: url('./font/Lato-Regular-webfont.eot') format('embedded-opentype'),url('./font/Lato-Regular-webfont.ttf') format('truetype'),url('./font/Lato-Regular-webfont.svg#latoRegular') format('svg');
 }
 
 @font-face {
     font-weight: normal;
     font-style: normal;
     font-family: 'latoLightItalic';
-    src: url('./font/Lato-LightItalic.ttf') format('truetype');
+   src: url('./font/Lato-Regular-webfont.eot');
+    src: url('./font/Lato-LightItalic-webfont.eot') format('embedded-opentype'),url('./font/Lato-LightItalic-webfont.ttf') format('truetype'),url('./font/Lato-LightItalic-webfont.svg#latoLightItalic') format('svg');
 }
 @font-face {
     font-weight: normal;
     font-style: normal;
     font-family: 'latoSemiBold';
-    src: url('./font/Lato-Semibold.ttf') format('truetype');
+    src: url('./font/Lato-Regular-webfont.eot');
+    src: url('./font/Lato-Bold-webfont.eot') format('embedded-opentype'),url('./font/Lato-Bold-webfont.ttf') format('truetype'),url('./font/Lato-Bold-webfont.svg#latoSemiBold') format('svg');
 }
 
 
@@ -170,16 +174,18 @@ h1, h2 {
 }
 
 h1 {
-
-    padding: 75px 0;
-    padding-top: 170px;
+    vertical-align:middle;
     padding-bottom: 85px;
     width: 820px;
     margin: auto;
     color: #ffffff;
-    font-size: 32px;
+    font-size: 38px;
     font-family: 'latoLight', sans-serif;
     height: 380px;
+    letter-spacing:1px;
+    line-height:1.5;
+    display:table-cell;
+    vertical-align:middle;
 }
 
 h2 {
@@ -231,7 +237,7 @@ hr {
 {
     width: 960px;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
     position: relative;
 }
@@ -270,29 +276,37 @@ hr {
 }
 
 
-.title-container{
+.title-background{
     background-image: url(../images/header-bg.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;
+    display:table;
+}
+.title {
+    width:860px;
+    margin:auto;
+
 }
 
 .container {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 20px auto 0;
+    margin: 30px auto 0;
     width: 960px;
 }
 
+.introduction .content {
+    border-bottom:3px solid #9ad3d6;
+}
 .content {
-    padding: 30px 20px;
-    border-bottom: 1px solid #DADDDF;
+    padding: 30px 30px;
+    border-bottom: 2px solid #DADDDF;
     -ms-border-radius: 3px;
-    border-radius: 3px;
+    border-radius:5px;
     background: #fff;
-    overflow-x: auto;
-    line-height: 2;
+    line-height: 32px;
     max-width: 960px;
     color: #3e3d40;
     font-family: 'latoRegular' sans-serif;
@@ -344,6 +358,7 @@ hr {
     text-align: center;
     font-weight: bold;
     cursor: default;
+    border-radius:5px;
 }
 
     .progress-bar-value:empty {
@@ -481,6 +496,7 @@ hr {
     display: table;
     margin-top: 10px;
     padding: 10px;
+    padding-left:0;
     width: 100%;
     -ms-border-radius: 3px;
     border-radius: 3px;
@@ -489,6 +505,8 @@ hr {
 
     .checkbox:hover, .radio:hover {
         background-color: #f9f9f9;
+        margin-left:-10px;
+        padding-left:10px;
     }
 
 
@@ -503,7 +521,7 @@ hr {
 }
 
 .checkbox-icon, .radio-icon {
-    display: inline-block;
+    display: table-cell;
     width: 32px;
     height: 32px;
     background: url(../images/sprite.png) 0 0 no-repeat;
@@ -519,6 +537,8 @@ hr {
 
 .checkbox.checked, .radio.checked {
     background-color: #e5f4f5;
+    padding-left:10px;
+    margin-left:-10px;
 }
 
     .checkbox.checked .checkbox-icon {
@@ -531,7 +551,7 @@ hr {
     }
 
 .checkbox-text, .radio-text {
-    padding-left: 14px;
+    padding-left: 10px;
     white-space: pre-wrap;
     -ms-word-wrap: break-word;
     word-wrap: break-word;
@@ -567,6 +587,7 @@ hr {
         text-align: center;
         width: 100%;
         margin-top: 2px;
+        margin-left:55px;
     }
 
     .radio.image .radio-icon {
@@ -673,9 +694,10 @@ hr {
         left: 0;
         color: #c0c1c2;
         text-align: left;
-        text-transform: uppercase;
-        font-size: 16px;
-        font-family: 'OpenSans-Semibold';
+        text-transform: inherit ;
+        font-size: 25px;
+        font-family: 'latoSemiBold';
+        letter-spacing:0.6px
     }
 
 

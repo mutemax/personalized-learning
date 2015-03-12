@@ -3,6 +3,9 @@
     right: 0;
     bottom: 10px;
 }
+.finish:hover {
+    background-color:rgba(255,255,255,0.2);
+}
 
 .studyadvice .objective-to-learn {
     background-color: #ffffff;
@@ -76,16 +79,15 @@
 
     .studyadvice .button.expand:after {
         display: inline-block;
-        margin-left: 10px;
         width: 40px;
         height: 40px;
-        background: url(../images/down-arrow.png) no-repeat;
+        background: url(../images/newSprite.png) 0px -272px no-repeat;
         content: "";
     }
 
 .studyadvice .button.collapse {
     width: 67px;
-    height: 150px;
+    height: 100px;
     display: inline-block;
     background-color: #e9fbff;
     border-top-left-radius: 5px;
@@ -99,7 +101,6 @@
 
     .studyadvice .button.collapse:after {
         display: inline-block;
-        margin-left: 10px;
         width: 40px;
         height: 21px;
         background: url(../images/newSprite.png) 0px -250px no-repeat;
@@ -107,7 +108,9 @@
     }
 .blue-background{
     background-color: #e9fbff;
-    margin-top: -3px;
+    margin-top: -5px;
+    border-top-left-radius:0;
+
 }
 
 .reading-title{
@@ -150,14 +153,16 @@
     width: 118px;
     border: 1px solid #cd5a48;
     text-transform: uppercase;
+    color:#cd5a48
 }
-
+    .start:hover {
+    background-color:rgba(255,255,255,0.4);    
+    }
 
 .studyadvice .mastered-objective {
     display: table;
-margin-top: 30px;
+    margin-top: 30px;
     width: 940px;
-
 }
 
     .studyadvice .mastered-objective:last-child {
@@ -219,11 +224,12 @@ margin-top: 30px;
     height: 77px;
     border: 1px solid #47cb91;
     border-radius: 50%;
-    padding: 12px;
+    padding-top: 21px;
     font-size: 22px;
     display: inline-block;
-    margin-left: 70px;
+    margin-left: 83px;
     color: #47cb91;
+    text-align:center;
 }
 
 

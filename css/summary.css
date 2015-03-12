@@ -16,6 +16,10 @@
     color: #9ad3d6;
     display: table-row;
     font-size: 18px;
+    line-height:2;
+}
+.view-header .progress-text-wrapper {
+    color:white;
 }
     .summary .button.close-course {
         position: absolute;
@@ -52,9 +56,8 @@
 
         .summary .objective > div {
             display: table-cell;
+            vertical-align:middle;
         }
-
-
 .summary .objective-title {
     font-size: 18px;
     width:560px;
