@@ -9,9 +9,7 @@
         <!-- ko foreach: options -->
         <li class="radio image" data-bind="click: $parent.selectOption, css: { checked: $data == $parent.selectedOption() }">
             <div class="radio-image-wrapper" data-bind="thumbnail: image"></div>
-            <div class="radio-icon-wrapper">
-                <span class="radio-icon"></span>
-            </div>
+            
         </li>
         <!-- /ko -->
     </ul>

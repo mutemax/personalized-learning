@@ -46,7 +46,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext'
 
             return Q.all(startupModules).then(function () {
                 _.each(publishSettingsModule.publishSettings.modules, function (module) {
-                    modules[module.name] = true;
+                    modules['../includedModules/' + module.name] = true;
                 });
                 modulesInitializer.register(modules);
 

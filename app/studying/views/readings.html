@@ -4,186 +4,196 @@
             <button class="button back" data-bind="click: goToStudyAdvice">Study advice</button>
         </div>
     </header>
-    <div class="container objective-wrapper">
-        <div class="navigation-wrapper">
-            <h3>Questions</h3>
+    <div class="container-content-wrapper">
+        <div class="container objective-wrapper">
+            <div class="navigation-wrapper">
+                <h3>Questions</h3>
 
-            <div class="navigation">
-                <div>
-                    <!-- ko if: previousReading() && isReady() -->
-                    <button class="button previous" title="previous question"
-                            data-bind="click: goToPreviousReading"></button>
-                    <!-- /ko -->
-                    <!-- ko ifnot: previousReading() && isReady() -->
-                    <button class="button previous disabled" disabled="disabled"></button>
-                    <!-- /ko -->
-                </div>
-                <div>
-                    <span data-bind="text: currentReadingIndex() + 1"></span>&nbsp;of&nbsp;<span
-                        data-bind="text:numberOfReadings"></span>
-                </div>
-                <div>
-                    <!-- ko if: nextReading() && isReady() -->
-                    <button class="button next" title="next question" data-bind="click: goToNextReading"></button>
-                    <!-- /ko -->
-                    <!-- ko ifnot: nextReading() && isReady() -->
-                    <button class="button next disabled" disabled="disabled"></button>
-                    <!-- /ko -->
+                <div class="navigation">
+                    <div>
+                        <!-- ko if: previousReading() && isReady() -->
+                        <button class="button previous" title="previous question"
+                                data-bind="click: goToPreviousReading"></button>
+                        <!-- /ko -->
+                        <!-- ko ifnot: previousReading() && isReady() -->
+                        <button class="button previous disabled" disabled="disabled"></button>
+                        <!-- /ko -->
+                    </div>
+                    <div>
+                        <span data-bind="text: currentReadingIndex() + 1"></span>&nbsp;/&nbsp;<span data-bind="text:numberOfReadings"></span>
+                    </div>
+                    <div>
+                        <!-- ko if: nextReading() && isReady() -->
+                        <button class="button next" title="next question" data-bind="click: goToNextReading"></button>
+                        <!-- /ko -->
+                        <!-- ko ifnot: nextReading() && isReady() -->
+                        <button class="button next disabled" disabled="disabled"></button>
+                        <!-- /ko -->
+                    </div>
                 </div>
             </div>
+
+            <div class="objective">
+
+                <div class="learning-objective-wrapper">
+                    <div class="learning-objective">Learning objective</div>
+                    <div class="objective-progress-wrapper">
+                        <div data-bind="progress: score"></div>
+                    </div>
+                </div>
+
+
+                <div class="objective-title" data-bind="text: title"></div>
+
+            </div>
+
         </div>
 
-        <div class="objective">
-            <span class="learning-objective">Learning objective</span>
-            <div class="objective-progress-wrapper">
-                <div data-bind="progress: score"></div>
-            </div>
-            <div class="objective-title" data-bind="text: title"></div>
+        <div data-bind="readystatechange: isReady">
+            <div data-bind="with: currentReading">
 
-        </div>
+                <!-- ko if: learningContent().length > 0 -->
+                <div class="content container">
+                    <h3>Learning content</h3>
 
-    </div>
-    <div data-bind="readystatechange: isReady">
-        <div data-bind="with: currentReading">
-
-            <!-- ko if: learningContent().length > 0 -->
-            <div class="content container">
-                <h3>Learning content</h3>
-
-                <div>
-                    <!-- ko foreach: learningContent -->
-                    <div data-bind="html: $data"></div>
-                    <!-- /ko -->
+                    <div>
+                        <!-- ko foreach: learningContent -->
+                        <div data-bind="html: $data"></div>
+                        <!-- /ko -->
+                    </div>
                 </div>
-            </div>
-            <!-- /ko -->
+                <!-- /ko -->
 
-            <div class="container">
-                <div class="content">
-                    <h4 class="question-title" data-bind="text: title"></h4>
+                <div class="container">
+                    <div class="content">
+                        <h4 class="question-title" data-bind="text: title"></h4>
 
-                    <div data-bind="css: { 'disabled': isAnswered() }, overlay: isAnswered">
-                        <!-- ko compose: $data -->
-                        <!-- /ko -->
-                    </div>
-                    <!-- ko ifnot: isAnswered -->
-                    <div class="question-submit-wrapper">
-                        <button class="button success emphasize" data-bind="click: $root.submit">Submit</button>
-                    </div>
-                    <!-- /ko -->
-                    <!-- ko if: isAnswered -->
-                    <!-- ko ifnot: isAnsweredCorrectly -->
-                    <div class="question-feedback-wraper" data-bind="scrollElement: isAnswered">
-                        <div class="question-feedback">
-                            <div>
-                                <span class="question-feedback-image incorrect"></span>
-                            </div>
-                            <div>
-                                <span class="question-feedback-text">
-                                    Incorrect answer
-                                </span>
-                            </div>
+                        <div data-bind="css: { 'disabled': isAnswered() }, overlay: isAnswered">
+                            <!-- ko compose: $data -->
+                            <!-- /ko -->
                         </div>
-                        <!-- ko if: incorrectFeedback -->
-                        <div class="question-feedback-description" data-bind="html: incorrectFeedback"></div>
-                        <!-- /ko -->
-                        <!-- ko if: $parent.nextOrNotCompletedReading -->
-                        <div class="question-feedback-action-container incorrect">
-                            <div class="question-feedback-action-wrapper">
-                                <button class="button success large emphasize" data-bind="click: resetAnswer">Try
-                                    again
-                                </button>
-                            </div>
-                            <div class="question-feedback-action-wrapper">
-                                <button class="button default large emphasize"
-                                        data-bind="click: $parent.goToNextOrNotCompletedReading">Next question
-                                </button>
-                            </div>
+                        <!-- ko ifnot: isAnswered -->
+                        <div class="question-submit-wrapper">
+                            <button class="button success emphasize" data-bind="click: $root.submit">Submit</button>
                         </div>
                         <!-- /ko -->
-                        <!-- ko ifnot: $parent.nextOrNotCompletedReading -->
-                        <div class="question-feedback-action-container incorrect">
-                            <div class="question-feedback-action-wrapper">
-                                <button class="button success large emphasize" data-bind="click: resetAnswer">Try
-                                    again
-                                </button>
+                        <!-- ko if: isAnswered -->
+                        <!-- ko ifnot: isAnsweredCorrectly -->
+                        <div class="question-feedback-wraper" data-bind="scrollElement: isAnswered">
+                            <div class="question-feedback">
+                                <div>
+                                    <span class="question-feedback-image incorrect"></span>
+                                </div>
+                                <div>
+                                    <span class="question-feedback-text">
+                                        Incorrect answer
+                                    </span>
+                                </div>
                             </div>
-                            <div class="question-feedback-action-wrapper">
-                                <button class="button default large emphasize" data-bind="click: $root.goToStudyAdvice">
-                                    Read study advice
-                                </button>
-                            </div>
-                        </div>
-                        <!-- /ko -->
-                    </div>
-                    <!-- /ko -->
-                    <!-- ko if: isAnsweredCorrectly -->
-                    <div class="question-feedback-wraper" data-bind="scrollElement: isAnswered">
-                        <div class="question-feedback">
-                            <div>
-                                <span class="question-feedback-image correct"></span>
-                            </div>
-                            <div>
-                                <span class="question-feedback-text">
-                                    Correct answer
-                                </span>
-                            </div>
-                        </div>
-                        <!-- ko if: correctFeedback -->
-                        <div class="question-feedback-description" data-bind="html: correctFeedback"></div>
-                        <!-- /ko -->
-                        <div class="question-feedback-action-container correct">
+                            <!-- ko if: incorrectFeedback -->
+                            <div class="question-feedback-description" data-bind="html: incorrectFeedback"></div>
+                            <!-- /ko -->
                             <!-- ko if: $parent.nextOrNotCompletedReading -->
-                            <div class="question-feedback-action-wrapper">
-                                <button class="button success large emphasize"
-                                        data-bind="click: $parent.goToNextOrNotCompletedReading">Next question
-                                </button>
+                            <div class="question-feedback-action-container incorrect">
+                                <div class="question-feedback-action-wrapper">
+                                    <button class="button success large emphasize" data-bind="click: resetAnswer">
+                                        Try
+                                        again
+                                    </button>
+                                </div>
+                                <div class="question-feedback-action-wrapper">
+                                    <button class="button default large emphasize"
+                                            data-bind="click: $parent.goToNextOrNotCompletedReading">
+                                        Next question
+                                    </button>
+                                </div>
                             </div>
                             <!-- /ko -->
                             <!-- ko ifnot: $parent.nextOrNotCompletedReading -->
-                            <div class="question-feedback-action-wrapper">
-                                <button class="button success large emphasize"
-                                        data-bind="click: $parent.goToStudyAdvice">Read study advice
-                                </button>
+                            <div class="question-feedback-action-container incorrect">
+                                <div class="question-feedback-action-wrapper">
+                                    <button class="button success large emphasize" data-bind="click: resetAnswer">
+                                        Try
+                                        again
+                                    </button>
+                                </div>
+                                <div class="question-feedback-action-wrapper">
+                                    <button class="button default large emphasize" data-bind="click: $root.goToStudyAdvice">
+                                        Read study advice
+                                    </button>
+                                </div>
                             </div>
                             <!-- /ko -->
                         </div>
+                        <!-- /ko -->
+                        <!-- ko if: isAnsweredCorrectly -->
+                        <div class="question-feedback-wraper" data-bind="scrollElement: isAnswered">
+                            <div class="question-feedback">
+                                <div>
+                                    <span class="question-feedback-image correct"></span>
+                                </div>
+                                <div>
+                                    <span class="question-feedback-text">
+                                        Correct answer
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- ko if: correctFeedback -->
+                            <div class="question-feedback-description" data-bind="html: correctFeedback"></div>
+                            <!-- /ko -->
+                            <div class="question-feedback-action-container correct">
+                                <!-- ko if: $parent.nextOrNotCompletedReading -->
+                                <div class="question-feedback-action-wrapper">
+                                    <button class="button success large emphasize"
+                                            data-bind="click: $parent.goToNextOrNotCompletedReading">
+                                        Next question
+                                    </button>
+                                </div>
+                                <!-- /ko -->
+                                <!-- ko ifnot: $parent.nextOrNotCompletedReading -->
+                                <div class="question-feedback-action-wrapper">
+                                    <button class="button success large emphasize"
+                                            data-bind="click: $parent.goToStudyAdvice">
+                                        Read study advice
+                                    </button>
+                                </div>
+                                <!-- /ko -->
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                        <!-- /ko -->
+
                     </div>
-                    <!-- /ko -->
-                    <!-- /ko -->
-
-                </div>
 
 
-                <div class="navigation-wrapper clearfix" data-bind="with: $parent">
-                    <div class="navigation">
-                        <div>
-                            <!-- ko if: previousReading() && isReady() -->
-                            <button class="button previous" title="previous question"
-                                    data-bind="click: goToPreviousReading"></button>
-                            <!-- /ko -->
-                            <!-- ko ifnot: previousReading() && isReady() -->
-                            <button class="button previous disabled" disabled="disabled"></button>
-                            <!-- /ko -->
-                        </div>
-                        <div>
-                            <span data-bind="text: currentReadingIndex() + 1"></span>&nbsp;of&nbsp;<span
-                                data-bind="text:numberOfReadings"></span>
-                        </div>
-                        <div>
-                            <!-- ko if: nextReading() && isReady() -->
-                            <button class="button next" title="next question"
-                                    data-bind="click: goToNextReading"></button>
-                            <!-- /ko -->
-                            <!-- ko ifnot: nextReading() && isReady() -->
-                            <button class="button next disabled" disabled="disabled"></button>
-                            <!-- /ko -->
+                    <div class="navigation-wrapper clearfix" data-bind="with: $parent">
+                        <div class="navigation">
+                            <div>
+                                <!-- ko if: previousReading() && isReady() -->
+                                <button class="button previous" title="previous question"
+                                        data-bind="click: goToPreviousReading"></button>
+                                <!-- /ko -->
+                                <!-- ko ifnot: previousReading() && isReady() -->
+                                <button class="button previous disabled" disabled="disabled"></button>
+                                <!-- /ko -->
+                            </div>
+                            <div>
+                                <span data-bind="text: currentReadingIndex() + 1"></span>&nbsp;/&nbsp;<span data-bind="text:numberOfReadings"></span>
+                            </div>
+                            <div>
+                                <!-- ko if: nextReading() && isReady() -->
+                                <button class="button next" title="next question"
+                                        data-bind="click: goToNextReading"></button>
+                                <!-- /ko -->
+                                <!-- ko ifnot: nextReading() && isReady() -->
+                                <button class="button next disabled" disabled="disabled"></button>
+                                <!-- /ko -->
+                            </div>
                         </div>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="clearfix"></div>
             </div>
         </div>
     </div>
-
 </section>

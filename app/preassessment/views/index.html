@@ -6,13 +6,16 @@
         <ul class="unstyled">
             <!-- ko foreach: questions -->
 
-            <div class="question-number"><div class="round" data-bind="text: $index() + 1"></div></div>
-            <li class="content container">
-                <div class="question-title">
-                    <span data-bind="text: title"></span>
+           
+            <li >
+                <div class="question-number-wrapper" data-bind="text: $index() + 1"></div>
+                <div class="content container">
+                    <div class="question-title">
+                        <span data-bind="text: title"></span>
+                    </div>
+                    <!-- ko compose: { model: $data, mode: 'templated' } -->
+                    <!-- /ko -->
                 </div>
-                <!-- ko compose: { model: $data, mode: 'templated' } -->
-                <!-- /ko -->
             </li>
             <!-- /ko -->
             <li>

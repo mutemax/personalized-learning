@@ -8,17 +8,23 @@
     border: none;
     max-height: 50px;
     max-width: 300px;
-}
-.logo-container{
-    width: 960px;
-    margin: auto;
-}
-
-
-    .logo.default {
-        background-image: url(../images/logo.png);
+    background-image: url(../images/logo.png);
         background-repeat: no-repeat;
         display: block;
         height: 37px;
-        margin: 5px 0px;
+        margin: 5px;
+}
+
+.container-content-wrapper {
+    max-width: 970px;
+    padding-left:5px;
+    padding-right:5px;
+    margin: auto;
+}
+@media (max-width: 640px) {
+    .container-content-wrapper {
+        width:100%
+    
     }
+
+}

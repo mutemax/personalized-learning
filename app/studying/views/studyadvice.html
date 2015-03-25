@@ -9,20 +9,29 @@
         <li>
             <div class="container">
                 <div class="objective-to-learn">
-                    <span class="learning-objective" >Learning objective</span>
-                    <div class="objective-progress learning-objective">
-                        <div data-bind="progress: score"></div>
-                    </div>
-                    <div class="objective-title" data-bind="text: title"></div>
+
+                    
+                    <div class="objective-to-learn-content-wrapper">
+                        <div class="objective-to-learn-progress-wrapper">
+                            <div class="learning-objective">Learning objective</div>
+                            <div class="objective-progress learning-objective">
+                                <div data-bind="progress: score"></div>
+                            </div>
+                        </div>
+                            <div class="objective-title" data-bind="text: title"></div>
+                        </div>
+
+
+
                     <div class="objective-action-wrapper">
-                        <div class="objective-action">
+                        
                             <!-- ko ifnot: isExpanded -->
                             <button class="button expand" data-bind="click: expand"> </button>
                             <!-- /ko -->
                             <!-- ko if: isExpanded -->
                             <button class="button collapse" data-bind="click: collapse"></button>
                             <!-- /ko -->
-                        </div>
+                       
 
                     </div>
 
@@ -53,21 +62,13 @@
     <!-- /ko -->
     <!-- ko if: learntObjectives.length -->
     <div class="container content">
-        <div class="mastered-objective-image-wrapper">
-            <div class="mastered-objective-image"></div>
-        </div>
+        
         <div class="objectives">You have already mastered the following learning objectives:</div>
 
         <hr>
         <ul class="unstyled" data-bind="foreach: learntObjectives">
             <li class="mastered-objective">
-                <div>
-                    <div class="mastered-objective-title-with-image">
-                        <div class="mastered-objective-title">
-                            <div data-bind="text: title"></div>
-                        </div>
-                    </div>
-                </div>
+                    <div class="mastered-objective-title" data-bind="text: title"></div>
                 <div class="mastered-objective-progress">
                     <div class="mastered-objective-round" data-bind="text: score+'%'"></div>
                 </div>

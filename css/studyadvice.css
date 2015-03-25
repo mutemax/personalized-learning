@@ -1,7 +1,7 @@
 ﻿.studyadvice .button.finish {
     position: absolute;
     right: 0;
-    bottom: 10px;
+    bottom: 15px;
 }
 .finish:hover {
     background-color:rgba(255,255,255,0.2);
@@ -11,39 +11,59 @@
     background-color: #ffffff;
     border-radius: 5px;
     border-bottom: 3px solid #9ad3d6;
-
-    width: 960px;
+    margin-top:10px;
+    display:table;
+    width:100%;
+    padding-top:30px;
+    padding-left:30px;
+}
+.objective-to-learn-content-wrapper {
+    display:table-cell;
+    width:85%
+}
+.objective-to-learn-progress-wrapper {
+    display:table;
 }
 
 .studyadvice .objective-title {
-    margin: 20px 30px;
-    width: 830px;
+    padding: 20px 0 20px 0;
     color: #3e3d40;
     font-size: 20px;
     font-family: 'latoRegular';
-    line-height: 1.8;
+    line-height: 36px;
+    word-break:break-all;
 }
 
 .learning-objective{
-    margin-left: 30px;
+  
     margin-top: 30px;
     font-family: 'latoLightItalic', sans-serif;
     font-size: 18px;
     color:#9e9e9e;
+    display:table-cell;
+    width:165px;
+}
+
+
+.objective-to-learn .progress-text-wrapper {
+    font-family:'latoLight';
+        font-size:18px;
 }
 
 
 .studyadvice .objective-progress {
     width: 350px;
-    display: inline-block;
 }
 
 .studyadvice .objective-action-wrapper {
-    position: absolute;
-    margin-top: -100px;
-    margin-left: 880px;
-
-    width: 80px;
+   position: relative;
+   right:0;
+   display:table-cell;
+   width:70px;
+    
+}
+.studyadvice li {
+    margin-bottom:30px
 }
 
 .objective-action {
@@ -67,8 +87,11 @@
     display: inline-block;
     background-color: #dff1f5;
     border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
     background-repeat: no-repeat;
+    position:absolute;
+    bottom:30px;
+    right:0;
 
 }
 
@@ -80,19 +103,21 @@
     .studyadvice .button.expand:after {
         display: inline-block;
         width: 40px;
-        height: 40px;
+        height: 30px;
         background: url(../images/newSprite.png) 0px -272px no-repeat;
         content: "";
     }
 
 .studyadvice .button.collapse {
     width: 67px;
-    height: 100px;
+    height: 112px;
     display: inline-block;
     background-color: #e9fbff;
     border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
     background-repeat: no-repeat;
+    position:absolute;
+    bottom:-5px;
+    right:0;
 }
 
     .studyadvice .button.collapse:hover {
@@ -105,12 +130,15 @@
         height: 21px;
         background: url(../images/newSprite.png) 0px -250px no-repeat;
         content: "";
+        margin-top:-10px;
     }
 .blue-background{
     background-color: #e9fbff;
     margin-top: -5px;
     border-top-left-radius:0;
-
+    -webkit-box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
+    -moz-box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
+    box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
 }
 
 .reading-title{
@@ -139,6 +167,7 @@
     font-family: 'latoRegular';
     font-size: 18px;
     line-height: 2;
+    padding-right:30px;
 }
 
 .studyadvice .objective-recommended-reading-start {
@@ -149,37 +178,29 @@
 }
 
 .start{
-    height: 42px;
+    height: 44px;
     width: 118px;
     border: 1px solid #cd5a48;
     text-transform: uppercase;
-    color:#cd5a48
+    color:#cd5a48;
+    border-radius:5px;
 }
     .start:hover {
-    background-color:rgba(255,255,255,0.4);    
+    background-color:#f0f0f1;  
+    border-color:#b8402d;  
     }
 
 .studyadvice .mastered-objective {
     display: table;
     margin-top: 30px;
-    width: 940px;
+    width:100%;
+   
 }
 
     .studyadvice .mastered-objective:last-child {
         margin-bottom: 0;
     }
 
-    .studyadvice .mastered-objective > div {
-        display: inline-block;
-        vertical-align: middle;
-    }
-
-
-.studyadvice .mastered-objective-title-with-image {
-    display: table;
-    width: 720px;
-    font-size: 18px;
-}
 
     .studyadvice .mastered-objective-title-with-image > div {
         display: inline-block;
@@ -193,31 +214,43 @@
 
 }
 
-.studyadvice .mastered-objective-image {
-    width: 45px;
-    height: 45px;
-    background: url(../images/newSprite.png) 0 -202px no-repeat;
-}
+
 
 .studyadvice .mastered-objective-title {
-    padding-left: 15px;
     color: #3c3c3c;
-
-
+    display: table-cell;
+        vertical-align: middle;
 }
 
 .studyadvice .mastered-objective-progress {
-    padding-left: 20px;
+    width:77px;
+    display:table-cell;
+    vertical-align:middle;
 }
 .objectives
 {
-    margin-left: 15px;
+    margin-left: 60px;
     margin-top: 3px;
     clear: both;
     display: inline-block;
     font-size: 20px;
     color:#61b0ba;
+    position:relative;
 }
+
+    .objectives:before {
+     width: 45px;
+    height: 45px;
+    background: url(../images/newSprite.png) 0 -202px no-repeat;
+    position:absolute;
+    content:'';
+    left:-60px;
+    top:-10px;
+    }
+
+
+
+
 .mastered-objective-round
 {
     width: 77px;
@@ -227,26 +260,7 @@
     padding-top: 21px;
     font-size: 22px;
     display: inline-block;
-    margin-left: 83px;
+    margin-left: 50px;
     color: #47cb91;
     text-align:center;
-}
-
-
-
-
-@media (max-width: 640px) {
-    .studyadvice .mastered-objective {
-        display: block;
-    }
-
-        .studyadvice .mastered-objective > div {
-            display: block;
-        }
-
-    .studyadvice .mastered-objective-progress {
-        margin-top: 20px;
-        padding-left: 46px;
-        width: 396px;
-    }
 }

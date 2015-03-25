@@ -5,13 +5,18 @@
     padding-bottom:10px;
     word-wrap: break-word;
     border-bottom: 3px solid #9ad3d6;
+    margin-bottom:40px;
 }
 
 .preassessment .question-content {
-    margin-top: 10px;
+    
     word-wrap: break-word;
     overflow: auto;
-    color:#9e9e9e;
+    color:#9e9e9e;    
+    font-family: 'latoLight';
+    font-size: 18px;
+    margin-bottom:40px;
+    margin-top:-20px;
 }
 
 .preassessment .submit-wrapper {
