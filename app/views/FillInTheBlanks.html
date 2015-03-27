@@ -1,7 +1,7 @@
 ﻿<section>
 
     <div class="question-content">
-        <div class='fill-in-the-blanks styled-content' data-bind="html: content"></div>
+        <div class='fill-in-the-blanks styled-content' data-bind="html: content,wrapElements:content"></div>
     </div>
     <!-- ko foreach: blanks -->
     <div  data-bind="blank: $data"></div>

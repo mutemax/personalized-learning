@@ -72,11 +72,13 @@
 
 
         require('_components/bindingHandlers/backgroundBindingHandler').install();
+        require('_components/bindingHandlers/wrapElementsBindingHandler').install()
         require('_components/bindingHandlers/overlayBindingHandler').install();
         require('_components/bindingHandlers/progressbarBindingHandler').install();
         require('_components/bindingHandlers/readystatechangeBindingHandler').install();
         require('_components/bindingHandlers/scrollElementBindingHandler').install();
         require('_components/bindingHandlers/thumbnailBindingHandler').install();
+        ;
 
         require('viewmodels/bindingHandlers/DragAndDrop').install();
         require('viewmodels/bindingHandlers/Hotspot').install();
