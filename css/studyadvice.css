@@ -32,6 +32,15 @@
     right: 0;
 }
 
+.objective-action-text {
+    display: inline-block;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    white-space: nowrap;
+}
+
 .studyadvice .button.expand, .studyadvice .button.collapse {
     padding: 10px 0 8px;
     border-bottom: 2px solid transparent;

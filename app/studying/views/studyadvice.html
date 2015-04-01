@@ -1,7 +1,7 @@
 ﻿<section class="studyadvice view">
     <header class="view-header">
-        <h2>Study advice</h2>
-        <a href="#summary" class="button success medium finish" data-bind="click: finish">Finish course</a>
+        <h2 data-translate-text="[study advice]">Study advice</h2>
+        <a href="#summary" class="button success medium finish" data-translate-text="[finish course]" data-bind="click: finish">Finish course</a>
     </header>
 
     <!-- ko if: objectivesToLearn.length -->
@@ -9,7 +9,7 @@
         <li>
             <div class="container">
                 <div class="objective-to-learn">
-                    <h3>Learning objective</h3>
+                    <h3 data-translate-text="[learning objective]">Learning objective</h3>
                     <div class="objective-title" data-bind="text: title"></div>
                     <div class="objective-progress">
                         <div data-bind="progress: score"></div>
@@ -17,10 +17,10 @@
                     <div class="objective-action-wrapper">
                         <div class="objective-action">
                             <!-- ko ifnot: isExpanded -->
-                            <button class="button expand" data-bind="click: expand">Show recommended reading</button>
+                            <button class="button expand" data-bind="click: expand"><span class="objective-action-text" data-translate-text="[show recommended reading]">Show recommended reading</span></button>
                             <!-- /ko -->
                             <!-- ko if: isExpanded -->
-                            <button class="button collapse" data-bind="click: collapse">Hide recommended reading</button>
+                            <button class="button collapse" data-bind="click: collapse"><span class="objective-action-text" data-translate-text="[hide recommended reading]">Hide recommended reading</span></button>
                             <!-- /ko -->
                         </div>
 
@@ -29,7 +29,7 @@
                 </div>
                 <!-- ko if: isExpanded -->
                 <div class="content">
-                    <h3>Recommended reading</h3>
+                    <h3 data-translate-text="[recommended reading]">Recommended reading</h3>
                     <hr />
                     <ul class="objective-recommended-readings" data-bind="foreach: recommended">
                         <li class="objective-recommended-reading">
@@ -37,7 +37,7 @@
                                 <span data-bind="text: title"></span>
                             </div>
                             <div class="objective-recommended-reading-start">
-                                <button class="button info medium" data-bind="click: $parent.startRecommendedReading">Start</button>
+                                <button class="button info medium" data-translate-text="[start]" data-bind="click: $parent.startRecommendedReading">Start</button>
                             </div>
                         </li>
                     </ul>
@@ -53,7 +53,7 @@
     <!-- /ko -->
     <!-- ko if: learntObjectives.length -->
     <div class="container">
-        <h3>you have already mastered the following learning objectives:</h3>
+        <h3 data-translate-text="[mastered objectives]">you have already mastered the following learning objectives:</h3>
         <hr />
         <ul class="unstyled" data-bind="foreach: learntObjectives">
             <li class="mastered-objective">

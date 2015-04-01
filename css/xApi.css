@@ -95,10 +95,29 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
 
     .xApi-login .form-submit button[type='submit'] {
         margin-right: 30px;
+        max-width: 300px;
+        padding-right: 30px;
     }
 
 
+    .xapi-start-text-wrapper {
+        display: inline-block;
+        max-width: 100%;
+        vertical-align: middle;
+    }
 
+        .xapi-start-text-wrapper:after {
+            content: "*";
+        }    
+
+    .xapi-start-text {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: 100%;
+    }
 
 .xapi-error-dialog {
     position: relative;
@@ -208,6 +227,7 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
 
             .xApi-login .form-submit button[type='submit'] {
                 margin: 0 auto;
+                max-width: none;
                 width: 100%;
             }
 }

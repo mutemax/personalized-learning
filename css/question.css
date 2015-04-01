@@ -257,6 +257,7 @@
     background-color: #fff;
     border: 1px solid #dadddf;
     border-radius: 3px;
+    white-space: nowrap;
 }
 
     .blankSelect:hover {
