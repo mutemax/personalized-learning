@@ -1,5 +1,5 @@
-﻿define(['durandal/app', './statementsQueue', './statementsQueueHandler', './configuration/settings', './entities/actor', './entities/activity', './entities/statement', './entities/result', './entities/score', './verbs', 'eventManager', 'Q'],
-    function (app, statementsQueue, statementsQueueHandler, settingsModule, ActorModel, ActivityModel, StatementModel, ResultModel, ScoreModel, verbs, eventManager, Q) {
+﻿define(['durandal/system', 'durandal/app', './statementsQueue', './statementsQueueHandler', './configuration/settings', './entities/actor', './entities/activity', './entities/statement', './entities/result', './entities/score', './verbs', 'eventManager', 'Q'],
+    function (system, app, statementsQueue, statementsQueueHandler, settingsModule, ActorModel, ActivityModel, StatementModel, ResultModel, ScoreModel, verbs, eventManager, Q) {
         "use strict";
 
         var subscriptions = [],
@@ -13,7 +13,8 @@
             activityName: '',
             activityUrl: '',
             courseId: null
-        };
+        },
+        sessionId = system.guid();
 
         return activityProvider;
 
@@ -71,6 +72,7 @@
             var contextExtensions = contextSpec.extensions || {};
             contextExtensions["http://easygenerator/expapi/course/id"] = activityProvider.courseId;
             contextSpec.extensions = contextExtensions;
+            contextSpec.registration = sessionId;
             return contextSpec;
         }
 
