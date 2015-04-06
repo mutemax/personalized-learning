@@ -54,7 +54,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext'
                         });
                     });
                 });
-            }).catch(function (e) {
+            })["catch"](function (e) {
                 console.error(e);
             });
 

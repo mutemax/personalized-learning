@@ -131,6 +131,7 @@ body {
     font-size: 14px;
     line-height: 1.42857;
     cursor: default;
+    word-wrap: break-word;
 }
 
 h1, h2, h3 {
@@ -291,10 +292,16 @@ hr {
     font-family: 'OpenSans';
     text-decoration: none;
     max-width: 300px;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
 }
+    
+    .button-text {
+        display: inline-block; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: bottom;
+        width: 100%;
+    }
 
     .button:hover {
         outline: none;
@@ -357,12 +364,13 @@ hr {
     }
 
     .button.unstyled {
+        max-width: 200px;
         padding: 0;
         background: transparent;
         color: #777777;
     }
 
-        .button.unstyled:hover {
+        .button.unstyled:hover .button-text {
             color: #555555;
             text-decoration: underline;
         }
@@ -547,7 +555,10 @@ hr {
 }
 
 .statement-option {
+    text-overflow: ellipsis;
+    white-space: nowrap;
     width: 100px;
+    overflow: hidden;
 }
 
 .statement-label {
@@ -584,7 +595,6 @@ hr {
         overflow: hidden;
         width: 100%;
         text-overflow: ellipsis;
-        padding-right: 325px;
     }
 
 

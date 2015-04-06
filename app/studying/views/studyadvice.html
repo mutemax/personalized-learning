@@ -1,7 +1,7 @@
 ﻿<section class="studyadvice view">
     <header class="view-header">
         <h2 data-translate-text="[study advice]">Study advice</h2>
-        <a href="#summary" class="button success medium finish" data-translate-text="[finish course]" data-bind="click: finish">Finish course</a>
+        <a href="#summary" class="button success medium finish" data-bind="click: finish"><span class="button-text" data-translate-text="[finish course]">Finish course</span></a>
     </header>
 
     <!-- ko if: objectivesToLearn.length -->
@@ -37,7 +37,7 @@
                                 <span data-bind="text: title"></span>
                             </div>
                             <div class="objective-recommended-reading-start">
-                                <button class="button info medium" data-translate-text="[start]" data-bind="click: $parent.startRecommendedReading">Start</button>
+                                <button class="button info medium" data-bind="click: $parent.startRecommendedReading"><span class="button-text" data-translate-text="[start]">Start</span></button>
                             </div>
                         </li>
                     </ul>
