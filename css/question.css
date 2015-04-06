@@ -130,7 +130,7 @@
     margin: 15px 0;
     color: #555555;
     font-size: 14px;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', Arial, sans-serif;
 }
 
 .question .objective-progress-wrapper {
@@ -245,7 +245,7 @@
 /* #region Fill in the blanks question */
 
 .blankInput {
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', Arial, sans-serif;
     font-size: 14px;
     padding: 7px;
     margin: 8px;
@@ -420,7 +420,7 @@
 .drag-and-drop-text-dropspot-tooltip-text {
     color: #ffffff;
     display: none;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', Arial, sans-serif;
     font-size: 12px;
     height: 18px;
     margin-top: -9px;

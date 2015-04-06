@@ -588,7 +588,7 @@ input[type="text"] {
     .preview-label.checkbox {
         display: inline;
         margin-left: 9px;
-        font-family: 'OpenSans';
+        font-family: 'OpenSans', Arial, sans-serif;
         vertical-align: top;
     }
 
@@ -600,7 +600,7 @@ input[type="text"] {
 .preview-text-input {
     width: 95%;
     padding: 10px;
-    font: 13px 'OpenSans';
+    font: 13px 'OpenSans', Arial, sans-serif;
     border: 1px solid #ddd;
     border-radius: 5px;
     color: #42515f;
@@ -852,7 +852,7 @@ input[type="text"] {
     border: none;
     outline: none;
     color: #42515f;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', Arial, sans-serif;
     font-weight: normal;
     word-spacing: 0;
 }

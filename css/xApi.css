@@ -170,7 +170,7 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
 
     .xapi-error-dialog .dialog-text {
         font-size: 13px;
-        font-family: 'OpenSans';
+        font-family: 'OpenSans', Arial, sans-serif;
         text-align: center;
         max-height: 55px;
         overflow: hidden;
@@ -201,7 +201,7 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
 .xapi-start-agreement {
     color: #777777;
     font-size: 12px;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', Arial, sans-serif;
     line-height: 20px;
     padding-top: 5px;
     text-align: center;
