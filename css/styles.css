@@ -275,9 +275,6 @@ hr {
     text-align: center;
 }
 
-
-
-
 .button {
     -moz-user-select: none;
     -ms-user-select: none;
@@ -623,4 +620,10 @@ hr {
     right: 0;
     top: 0;
     z-index: 1000;
+}
+
+@media (max-width: 750px) {
+    .button {
+        max-width: 235px;
+    }
 }
