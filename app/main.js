@@ -17,6 +17,10 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext'
     function (system, app, viewLocator, dataContext, courseSettingsModule, bootstrapper, browserDetector, Q, modulesInitializer, publishSettingsModule) {
         app.title = '';
 
+        app.configurePlugins({
+            widget: true
+        });
+
         app.start().then(function () {
             var startupModules = [];
             var rootView = 'viewmodels/shell';

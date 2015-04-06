@@ -1,6 +1,23 @@
 ﻿<section class="preassessment view">
     <header class="view-header">
         <h2>Pre-assessment</h2>
+        <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
+
+            <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
+            <div>answered</div>
+            <canvas class="progress-renderer"></canvas>
+        </div>
+    </header>
+    <header class="alternative-header ">
+        <div class="container-content-wrapper">
+            <h2>Pre-assessment</h2>
+            <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
+
+                <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
+                <div>answered</div>
+                <canvas class="progress-renderer"></canvas>
+            </div>
+        </div>
     </header>
     <form data-bind="submit: submit">
         <ul class="unstyled">

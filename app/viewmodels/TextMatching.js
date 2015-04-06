@@ -21,6 +21,18 @@
         that.targets = ko.observableArray(_.map(values, function (value) {
             return new Target(value);
         }));
+        that.isDirty = ko.computed(function () {
+            var value = 0;
+            _.each(that.targets(), function (blank) {
+                if (!blank.value()) {
+                    value++
+                }
+            })
+            return value == question.answers.length;
+        });
+
+
+
 
         that.resetAnswer = function () {
             that.isAnswered(false);

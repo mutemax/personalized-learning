@@ -7,11 +7,13 @@
 
         that.content = question.content;
         that.selectedOption = ko.observable();
+        that.isDirty = ko.observable(false);
         that.selectOption = function (option) {
             if (that.isAnswered()) {
                 return;
             }
             that.selectedOption(option);
+            that.isDirty(true);
         };
         that.options = _.chain(question.answers)
             .sample(question.answers.length)

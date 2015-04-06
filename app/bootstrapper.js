@@ -78,7 +78,8 @@
         require('_components/bindingHandlers/readystatechangeBindingHandler').install();
         require('_components/bindingHandlers/scrollElementBindingHandler').install();
         require('_components/bindingHandlers/thumbnailBindingHandler').install();
-        ;
+        require('_components/bindingHandlers/heightAnimationBindingHandler').install();
+        require('_components/bindingHandlers/showProgressBindingHandler').install();
 
         require('viewmodels/bindingHandlers/DragAndDrop').install();
         require('viewmodels/bindingHandlers/Hotspot').install();

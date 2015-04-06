@@ -3,9 +3,19 @@
 
     var viewModel = {
         activate: activate,
-        questions: [],
+        questions: ko.observableArray([]),
         submit: submit
     };
+
+    viewModel.progress = ko.computed(function () {
+            var value = 0;
+            _.each(viewModel.questions(), function (question) {
+                if (question.isDirty()) {
+                    value++
+                }
+            })
+            return(value)
+    });
 
     return viewModel;
 
@@ -16,7 +26,6 @@
                     viewModel.questions.push(factory.createQuestionViewModel(question));
                 });
             });
-
         })
         ["catch"](function (reason) {
             console.error(reason);
@@ -24,7 +33,7 @@
     }
 
     function submit() {
-        _.each(viewModel.questions, function (question) {
+        _.each(viewModel.questions(), function (question) {
             question.submit();
         });
 

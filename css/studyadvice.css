@@ -110,13 +110,13 @@
 
 .studyadvice .button.collapse {
     width: 67px;
-    height: 112px;
+    height: 117px;
     display: inline-block;
     background-color: #e9fbff;
     border-top-left-radius: 5px;
     background-repeat: no-repeat;
     position:absolute;
-    bottom:-5px;
+    bottom:-10px;
     right:0;
 }
 
@@ -139,6 +139,7 @@
     -webkit-box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
     -moz-box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
     box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
+    display:none;
 }
 
 .reading-title{

@@ -14,23 +14,32 @@
                 return {
                     id: statement.id,
                     text: statement.text,
+                    isChecked:ko.observable(false),
                     state: ko.observable(null),
                     markAsTrue: function () {
                         if (that.isAnswered()) {
                             return;
                         }
                         this.state(true);
-                    },
+                        this.isChecked(true);
+                     },
                     markAsFalse: function () {
                         if (that.isAnswered()) {
                             return;
                         }
                         this.state(false);
+                        this.isChecked(true);
                     }
                 };
             }).value();
-
-        that.resetAnswer = function () {
+        that.isDirty = ko.computed(function () {
+            var value = 0;
+            _.each(that.statements, function (statement) {
+                if (statement.isChecked()) { value++ }
+            })
+            return value == question.answers.length;
+        })
+         that.resetAnswer = function () {
             that.isAnswered(false);
             that.isAnsweredCorrectly(false);
             _.each(that.statements, function (statement) {

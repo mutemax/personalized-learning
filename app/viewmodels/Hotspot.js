@@ -10,6 +10,7 @@
         that.content = question.content;
         that.background = question.background;
         that.isMultiple = question.isMultiple;
+        that.isDirty = ko.observable(false);
 
         that.submit = function () {
             question.answer(that.marks());
@@ -24,6 +25,7 @@
                 that.marks.removeAll();
             }
             that.marks.push(mark);
+            that.isDirty(true);
         }
 
         that.removeMark = function (mark) {

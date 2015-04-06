@@ -446,8 +446,15 @@ hr {
     margin:20px;
    
 }
+
+.table-wrapper .image-wrapper {
+    margin:0;
+    overflow:visible;
+}
+
 .styled-content .image-wrapper img {
   border-radius: 10px;
+  max-width:100% ;
 }
 @media (max-width: 800px) {
     .styled-content cite {
@@ -959,6 +966,7 @@ hr {
 .view {
     margin: -180px 0;
     padding-bottom: 40px;
+
 }
 
 .view-header {

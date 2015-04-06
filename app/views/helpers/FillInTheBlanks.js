@@ -3,10 +3,15 @@
     return function (view) {
 
         $(".blankSelect", view).each(function () {
+            var option = $('<option />').text('Choose the answer...').prependTo(this);
+            $(this).val(option).trigger('change');
+        });
+
+        $(".blankSelect", view).each(function () {
             var self = this,
                 options = [];
-
-            _.each(self.options, function (option) {
+            
+            _.each(_.rest(self.options,1), function (option) {
                 options.push(option);
             });
 

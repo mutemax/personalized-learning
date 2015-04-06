@@ -7,10 +7,8 @@
     <!-- ko if: objectivesToLearn.length -->
     <ul class="unstyled" data-bind="foreach: objectivesToLearn">
         <li>
-            <div class="container">
+            <div class="container" data-bind="heightAnimation:{isExpanded:isExpanded}">
                 <div class="objective-to-learn">
-
-                    
                     <div class="objective-to-learn-content-wrapper">
                         <div class="objective-to-learn-progress-wrapper">
                             <div class="learning-objective">Learning objective</div>
@@ -18,27 +16,14 @@
                                 <div data-bind="progress: score"></div>
                             </div>
                         </div>
-                            <div class="objective-title" data-bind="text: title"></div>
-                        </div>
-
-
-
-                    <div class="objective-action-wrapper">
-                        
-                            <!-- ko ifnot: isExpanded -->
-                            <button class="button expand" data-bind="click: expand"> </button>
-                            <!-- /ko -->
-                            <!-- ko if: isExpanded -->
-                            <button class="button collapse" data-bind="click: collapse"></button>
-                            <!-- /ko -->
-                       
-
+                        <div class="objective-title" data-bind="text: title"></div>
                     </div>
-
+                    <div class="objective-action-wrapper">
+                        <button class="button" data-bind="click: toggleExpand, css: { expand: !isExpanded(), collapse: isExpanded }"> </button>
+                    </div>
                 </div>
-                <!-- ko if: isExpanded -->
-                <div class="content blue-background">
-                   <div class="reading-title">Recommended reading</div>
+                <div class="content blue-background" data-animate="">
+                    <div class="reading-title">Recommended reading</div>
 
                     <ul class="objective-recommended-readings" data-bind="foreach: recommended">
                         <li class="objective-recommended-reading">
@@ -51,10 +36,7 @@
                         </li>
                     </ul>
                 </div>
-                <!-- /ko -->
-                <!-- ko ifnot: isExpanded -->
 
-                <!-- /ko -->
             </div>
 
         </li>
