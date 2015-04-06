@@ -500,7 +500,7 @@ hr {
 .title-background{
     background-image: url(../images/header-bg.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: initial;
     width: 100%;
     display:table;
 }
