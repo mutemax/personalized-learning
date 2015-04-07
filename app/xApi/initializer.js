@@ -1,5 +1,5 @@
-﻿define(['entities/course', './activityProvider', './configuration/settings', './requestsTransport/requestSender', 'courseSettingsModule', './statementsQueueHandler', 'Q'],
-    function (course, activityProvider, settingsModule, requestSender, courseSettingsModule, statementsQueueHandler, Q) {
+﻿define(['entities/course', './activityProvider', './configuration/settings', './requestsTransport/requestSender', 'templateSettings', './statementsQueueHandler', 'Q'],
+    function (course, activityProvider, settingsModule, requestSender, templateSettings, statementsQueueHandler, Q) {
     "use strict";
 
     var initializer = {
@@ -22,7 +22,7 @@
             var actor = settingsModule.settings.actor;
 
             requestSender.initialize();
-            settingsModule.initialize(courseSettingsModule.courseSettings.xApi);
+            settingsModule.initialize(templateSettings.xApi);
             statementsQueueHandler.handle();
 
             activityProvider.initialize(course.id, actor.name, actor.email, title, url);
