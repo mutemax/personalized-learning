@@ -14,7 +14,7 @@
                 return {
                     id: statement.id,
                     text: statement.text,
-                    isChecked:ko.observable(false),
+                    isChecked: ko.observable(false),
                     state: ko.observable(null),
                     markAsTrue: function () {
                         if (that.isAnswered()) {
@@ -22,7 +22,7 @@
                         }
                         this.state(true);
                         this.isChecked(true);
-                     },
+                    },
                     markAsFalse: function () {
                         if (that.isAnswered()) {
                             return;
@@ -33,13 +33,15 @@
                 };
             }).value();
         that.isDirty = ko.computed(function () {
-            var value = 0;
+            var count = 0;
             _.each(that.statements, function (statement) {
-                if (statement.isChecked()) { value++ }
+                if (statement.isChecked()) {
+                    count++
+                }
             })
-            return value == question.answers.length;
+            return count === question.answers.length;
         })
-         that.resetAnswer = function () {
+        that.resetAnswer = function () {
             that.isAnswered(false);
             that.isAnsweredCorrectly(false);
             _.each(that.statements, function (statement) {

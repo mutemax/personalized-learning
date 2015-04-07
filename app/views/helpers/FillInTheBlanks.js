@@ -3,10 +3,9 @@
     return function (view) {
 
         $(".blankSelect", view).each(function () {
-            var option = $('<option />').text('Choose the answer...').prependTo(this);
+            var option = $('<option />').text('').prependTo(this);
             $(this).val(option).trigger('change');
         });
-
         $(".blankSelect", view).each(function () {
             var self = this,
                 options = [];
@@ -14,10 +13,8 @@
             _.each(_.rest(self.options,1), function (option) {
                 options.push(option);
             });
-
             $(self).wrap('<div class="select-wrapper"></div>');
             var $selectWrapper = $(self).parent('.select-wrapper');
-
             var valueWrapper = $('<div class="value"></div>').text('click to choose...').appendTo($selectWrapper);
 
             $selectWrapper.on('click', function () {

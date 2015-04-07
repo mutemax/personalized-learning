@@ -15,13 +15,13 @@
                 }
             }).value();
         that.isDirty = ko.computed(function () {
-            var value = 0;
+            var count = 0;
             _.each(that.blanks, function (blank) {
-                if (blank.text() && blank.text()!='Choose the answer...') {
-                    value++
+              if (blank.text()) {
+                    count++
                 }
             })
-            return value == question.answers.length;
+            return count == question.answers.length;
         });
         that.resetAnswer = function () {
             that.isAnswered(false);

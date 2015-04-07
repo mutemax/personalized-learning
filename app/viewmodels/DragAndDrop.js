@@ -24,19 +24,17 @@
             };
         });
         that.isDirty = ko.computed(function () {
-            var value = 0;
+            var count = 0;
             _.each(that.dropspots, function (dropspot) {
                 if (dropspot.text()) {
-                    value++
+                    count++
                 }
             })
-            return value == question.dropspots.length;
+            return count == question.dropspots.length;
         });
 
 
         that.submit = function () {
-
-
             var answer = [];
 
             _.each(that.dropspots, function (dropspot) {

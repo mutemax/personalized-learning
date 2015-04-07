@@ -8,13 +8,13 @@
     };
 
     viewModel.progress = ko.computed(function () {
-            var value = 0;
+        var count = 0;
             _.each(viewModel.questions(), function (question) {
                 if (question.isDirty()) {
-                    value++
+                    count++
                 }
             })
-            return(value)
+            return count;
     });
 
     return viewModel;

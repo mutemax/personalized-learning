@@ -22,18 +22,14 @@
             return new Target(value);
         }));
         that.isDirty = ko.computed(function () {
-            var value = 0;
+            var count = 0;
             _.each(that.targets(), function (blank) {
                 if (!blank.value()) {
-                    value++
+                    count++
                 }
             })
-            return value == question.answers.length;
+            return count == question.answers.length;
         });
-
-
-
-
         that.resetAnswer = function () {
             that.isAnswered(false);
             that.isAnsweredCorrectly(false);

@@ -12,7 +12,6 @@
         <div class="container-content-wrapper">
             <h2>Pre-assessment</h2>
             <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
-
                 <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
                 <div>answered</div>
                 <canvas class="progress-renderer"></canvas>
@@ -22,8 +21,6 @@
     <form data-bind="submit: submit">
         <ul class="unstyled">
             <!-- ko foreach: questions -->
-
-           
             <li >
                 <div class="question-number-wrapper" data-bind="text: $index() + 1"></div>
                 <div class="content container">

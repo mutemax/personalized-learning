@@ -9,7 +9,7 @@
         that.id = question.id;
         that.title = question.title;
         that.content = question.content;
-       
+
         that.options = _.chain(question.answers)
             .sample(question.answers.length)
             .map(function (option) {
@@ -26,18 +26,18 @@
                 }
             }).value();
         that.isDirty = ko.computed(function () {
-            var value = 0;
-            _.each(that.options, function (statement) {
-                if (statement.checked()) {
-                    value++
+            var count = 0;
+            _.each(that.options, function (option) {
+                if (option.checked()) {
+                    count++
                 }
             });
-            return value > 0;
+            return count > 0;
         });
         that.resetAnswer = function () {
             that.isAnswered(false);
             that.isAnsweredCorrectly(false);
-            _.each(that.options, function(option) {
+            _.each(that.options, function (option) {
                 option.checked(false);
             });
         }
@@ -55,6 +55,5 @@
             that.isAnsweredCorrectly(question.score == 100);
         };
     };
-
     return ctor;
 })
