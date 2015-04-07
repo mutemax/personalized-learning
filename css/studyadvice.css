@@ -40,10 +40,6 @@
 .objective-action-text {
     display: inline-block;
     max-width: 275px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: bottom;
-    white-space: nowrap;
 }
 
 .studyadvice .button.expand, .studyadvice .button.collapse {

@@ -87,3 +87,10 @@
         width: 350px;
     }
 }
+
+@media (max-width: 1024px) {
+    .summary .course-progress {
+        left: 0;
+        margin-left: 0;       
+    }
+}

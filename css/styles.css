@@ -290,9 +290,15 @@ hr {
     text-decoration: none;
     max-width: 300px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
+    
+    .button-text {
+        display: inline-block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: bottom;    
+    }
 
     .button:hover {
         outline: none;
@@ -354,20 +360,6 @@ hr {
         padding: 15px 20px;
     }
 
-    @-moz-document url-prefix() {
-        .button.medium, .button.large{
-            padding: 0;
-        }
-
-            .button.medium::-moz-focus-inner {
-                padding: 10px 20px;
-            }
-
-            .button.large::-moz-focus-inner {
-                padding: 15px 20px;
-            }
-    }
-    
     .button.unstyled {
         max-width: 200px;
         padding: 0;
@@ -375,7 +367,7 @@ hr {
         color: #777777;
     }
 
-        .button.unstyled:hover {
+        .button.unstyled:hover .button-text{
             color: #555555;
             text-decoration: underline;
         }

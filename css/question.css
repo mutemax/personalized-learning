@@ -64,22 +64,12 @@
     max-width: none;
     -ms-border-radius: 0;
     padding-bottom: 8px;
-    padding-left: 38px;
     text-transform: uppercase;
     width: 100%;
 }
 
-    @-moz-document url-prefix() {
-
-        .question .button.back {
-            padding-bottom: 0;
-            padding-left: 0;
-        }
-
-             .question .button.back::-moz-focus-inner {
-                padding-bottom: 8px;
-                padding-left: 38px;
-            }
+    .question .button.back .button-text {
+        padding-left: 38px;
     }
 
     .question .button.back:hover {
