@@ -17,10 +17,18 @@
                     <div class="objective-action-wrapper">
                         <div class="objective-action">
                             <!-- ko ifnot: isExpanded -->
-                            <button class="button expand" data-bind="click: expand"><span class="objective-action-text"><span class="button-text" data-translate-text="[show recommended reading]">Show recommended reading</span></span></button>
+                            <button class="button expand" data-bind="click: expand">
+                                <div class="objective-action-text-wrapper">
+                                    <span class="button-text" data-translate-text="[show recommended reading]">Show recommended reading</span>
+                                </div>
+                            </button>
                             <!-- /ko -->
                             <!-- ko if: isExpanded -->
-                            <button class="button collapse" data-bind="click: collapse"><span class="objective-action-text"><span class="button-text" data-translate-text="[hide recommended reading]">Hide recommended reading</span></span></button>
+                            <button class="button collapse" data-bind="click: collapse">
+                                <div class="objective-action-text-wrapper">
+                                    <span class="button-text" data-translate-text="[hide recommended reading]">Hide recommended reading</span>
+                                </div>
+                            </button>
                             <!-- /ko -->
                         </div>
 
