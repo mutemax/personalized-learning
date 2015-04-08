@@ -257,12 +257,8 @@
             });
 
             var defaultLanguage = getLanguage(defaultLanguageCode);
-            var customLanguage = new app.LanguageModel(customLanguageCode, app.localize(customLanguageCode), defaultLanguage ? defaultLanguage.resourcesUrl : null);
+            var customLanguage = new app.LanguageModel(customLanguageCode, app.localize(customLanguageCode), defaultLanguage ? defaultLanguage.resourcesUrl : null, languagesSettings ? languagesSettings.customTranslations : null);
 
-            if (languagesSettings && languagesSettings.customTranslations && !$.isEmptyObject(languagesSettings.customTranslations)) {
-                customLanguage.isLoaded = true;
-                customLanguage.setTranslations(languagesSettings.customTranslations);
-            }
             addLanguage(customLanguage);
 
             var selectedLanguageCode = (languagesSettings && languagesSettings.selected) ? languagesSettings.selected : defaultLanguageCode;
@@ -307,8 +303,10 @@
         }
     }
 
-    function LanguageModel(code, name, resourcesUrl) {
-        var that = this;
+    function LanguageModel(code, name, resourcesUrl, translations) {
+        var that = this,
+            _mappedTranslations = [],
+            _customTranslations = translations;
 
         that.code = code;
         that.name = name;
@@ -321,25 +319,33 @@
         that.getTranslations = getTranslations;
         that.getNotMappedTranslations = getNotMappedTranslations;
 
-        that._mappedTranslations = [];
-
-        return that;
+        if (translations) {
+            that.setTranslations(translations);
+        }
 
         function setTranslations(translations) {
-            that._mappedTranslations = map(translations);
+            _mappedTranslations = map(translations);
         }
 
         function getTranslations() {
-            return that._mappedTranslations;
+            return _mappedTranslations;
         }
 
         function getNotMappedTranslations() {
-            return unmap(that._mappedTranslations);
+            return unmap(_mappedTranslations);
         }
 
         function load() {
             return loadLanguageResources(that.resourcesUrl).then(function (resources) {
-                that.setTranslations(resources);
+                if (_customTranslations) {
+                    var translationsList = {};
+                    $.each(resources, function (key, value) {
+                        translationsList[key] = typeof _customTranslations[key] == "string" ? _customTranslations[key] : value;
+                    });
+                    that.setTranslations(translationsList);
+                } else {
+                    that.setTranslations(resources);
+                }
                 that.isLoaded = true;
             });
         }
