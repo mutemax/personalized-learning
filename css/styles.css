@@ -184,7 +184,7 @@ h1, h2 {
     letter-spacing:1px;
     line-height:57px;
     display:table-cell;
-    word-break:break-all;
+    word-wrap:break-word;
 }
 
 h2 {

@@ -88,6 +88,9 @@
      transform: translateY(0);
      height:80px;
      opacity:1;
+     -webkit-transform: translateZ(0);
+     transform: translateZ(0);
+     -moz-transform: translateZ(0);
 }
 
 @media (max-width: 640px) {
