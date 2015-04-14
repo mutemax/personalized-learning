@@ -6,7 +6,8 @@
         ko.bindingHandlers.showProgress = {
             init: function (element) {
                 var $element = $(element);
-                var $container = $('.alternative-header')
+                var $container = $('.alternative-header');
+                var $headerHeight = $('.title-background').height();
                 var position = -document.documentElement.clientWidth + 125 + 'px -308px ';
                 $element.css({
                     'background-position': position
@@ -19,10 +20,10 @@
                 };
                 function scroll() {
                     var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-                    if (scrolled > 400) {
+                    if (scrolled > $headerHeight) {
                         $container.addClass('show')
                     }
-                    if (scrolled < 400) {
+                    if (scrolled < $headerHeight) {
                         $container.removeClass('show')
                     }
                 };
