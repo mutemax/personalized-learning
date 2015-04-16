@@ -1,4 +1,4 @@
-﻿define(['knockout', 'controller', 'loader', 'courseSettingsModule', 'entities/course', 'modulesInitializer'], function (ko, controller, loader, courseSettingsModule, course, modulesInitializer) {
+﻿define(['knockout', 'controller', 'loader', 'templateSettings', 'entities/course', 'modulesInitializer'], function (ko, controller, loader, templateSettings, course, modulesInitializer) {
     "use strict";
 
     var viewModel = {
@@ -18,8 +18,8 @@
     return viewModel;
 
     function activate() {
-        return modulesInitializer.init().then(function() {
-            viewModel.logoUrl(courseSettingsModule.courseSettings.logo.url ? courseSettingsModule.courseSettings.logo.url : '');
+        return modulesInitializer.init().then(function () {
+            viewModel.logoUrl(templateSettings.logoUrl ? templateSettings.logoUrl : '');
             return controller.activate();
         });
     }

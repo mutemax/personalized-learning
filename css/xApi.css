@@ -34,6 +34,10 @@
         text-transform: uppercase;
         font-size: 14px;
         font-family: 'OpenSans-Semibold';
+        max-width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     .xApi-login .form-control {
@@ -95,10 +99,28 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
 
     .xApi-login .form-submit button[type='submit'] {
         margin-right: 30px;
+        padding-right: 30px;
     }
 
 
+    .xapi-start-text-wrapper {
+        display: inline-block;
+        max-width: 100%;
+        vertical-align: middle;
+    }
 
+        .xapi-start-text-wrapper:after {
+            content: "*";
+        }    
+
+    .xapi-start-text {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: 100%;
+    }
 
 .xapi-error-dialog {
     position: relative;
@@ -141,12 +163,17 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
         font-family: 'MyriadWebProRegular';
         text-align: center;
         text-transform: uppercase;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .xapi-error-dialog .dialog-text {
         font-size: 13px;
-        font-family: 'OpenSans';
+        font-family: 'OpenSans', Arial, sans-serif;
         text-align: center;
+        max-height: 55px;
+        overflow: hidden;
     }
 
     .xapi-error-dialog .dialog-buttons {
@@ -174,7 +201,7 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
 .xapi-start-agreement {
     color: #777777;
     font-size: 12px;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', Arial, sans-serif;
     line-height: 20px;
     padding-top: 5px;
     text-align: center;
@@ -208,6 +235,7 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
 
             .xApi-login .form-submit button[type='submit'] {
                 margin: 0 auto;
+                max-width: none;
                 width: 100%;
             }
 }

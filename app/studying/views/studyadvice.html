@@ -1,6 +1,6 @@
 ﻿<section class="studyadvice view">
     <header class="view-header">
-        <h2>Study advice</h2>
+        <h2 data-translate-text="[study advice]">Study advice</h2>
         <a href="#summary" class="button finish  " data-bind="click: finish">Finish course</a>
     </header>
 
@@ -11,7 +11,7 @@
                 <div class="objective-to-learn">
                     <div class="objective-to-learn-content-wrapper">
                         <div class="objective-to-learn-progress-wrapper">
-                            <div class="learning-objective">Learning objective</div>
+                            <div class="learning-objective" data-translate-text="[learning objective]">Learning objective</div>
                             <div class="objective-progress learning-objective">
                                 <div data-bind="progress: score"></div>
                             </div>
@@ -23,15 +23,14 @@
                     </div>
                 </div>
                 <div class="content blue-background" data-animate="">
-                    <div class="reading-title">Recommended reading</div>
-
+                    <div class="reading-title" data-translate-text="[recommended reading]">Recommended reading</div>
                     <ul class="objective-recommended-readings" data-bind="foreach: recommended">
                         <li class="objective-recommended-reading">
                             <div class="objective-recommended-reading-title">
                                 <span data-bind="text: title"></span>
                             </div>
                             <div class="objective-recommended-reading-start">
-                                <button class="button start" data-bind="click: $parent.startRecommendedReading">Start</button>
+                                <button class="button start" data-bind="click: $parent.startRecommendedReading" data-translate-text="[start]">Start</button>
                             </div>
                         </li>
                     </ul>
@@ -44,9 +43,7 @@
     <!-- /ko -->
     <!-- ko if: learntObjectives.length -->
     <div class="container content">
-        
-        <div class="objectives">You have already mastered the following learning objectives:</div>
-
+        <div class="objectives" data-translate-text="[mastered objectives]">You have already mastered the following learning objectives:</div>
         <hr>
         <ul class="unstyled" data-bind="foreach: learntObjectives">
             <li class="mastered-objective">

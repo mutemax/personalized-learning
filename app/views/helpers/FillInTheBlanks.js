@@ -1,4 +1,4 @@
-﻿define(['jquery'], function ($) {
+﻿define(['jquery', 'translation'], function ($, translation) {
 
     return function (view) {
 

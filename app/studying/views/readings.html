@@ -1,18 +1,18 @@
 ﻿<section class="view question">
     <header class="view-header">
         <div class="button-wrapper">
-            <button class="button back" data-bind="click: goToStudyAdvice">Study advice</button>
+            <button class="button back" data-bind="click: goToStudyAdvice"><span class="button-text" data-translate-text="[study advice]">Study advice</span></button>
         </div>
     </header>
     <div class="container-content-wrapper">
         <div class="container objective-wrapper">
             <div class="navigation-wrapper">
-                <h3>Questions</h3>
+                <h3 data-translate-text="[questions]">Questions</h3>
 
                 <div class="navigation">
                     <div>
                         <!-- ko if: previousReading() && isReady() -->
-                        <button class="button previous" title="previous question"
+                        <button class="button previous" data-translate-title="[previous question]"
                                 data-bind="click: goToPreviousReading"></button>
                         <!-- /ko -->
                         <!-- ko ifnot: previousReading() && isReady() -->
@@ -24,7 +24,7 @@
                     </div>
                     <div>
                         <!-- ko if: nextReading() && isReady() -->
-                        <button class="button next" title="next question" data-bind="click: goToNextReading"></button>
+                        <button class="button next" data-translate-title="[next question]" data-bind="click: goToNextReading"></button>
                         <!-- /ko -->
                         <!-- ko ifnot: nextReading() && isReady() -->
                         <button class="button next disabled" disabled="disabled"></button>
@@ -32,30 +32,23 @@
                     </div>
                 </div>
             </div>
-
             <div class="objective">
-
                 <div class="learning-objective-wrapper">
-                    <div class="learning-objective">Learning objective</div>
+                    <div class="learning-objective" data-translate-text="[learning objective]">Learning objective</div>
                     <div class="objective-progress-wrapper">
                         <div data-bind="progress: score"></div>
                     </div>
                 </div>
-
-
                 <div class="objective-title" data-bind="text: title"></div>
-
             </div>
 
         </div>
 
         <div data-bind="readystatechange: isReady">
             <div data-bind="with: currentReading">
-
                 <!-- ko if: learningContent().length > 0 -->
                 <div class="content container">
-                    <h3>Learning content</h3>
-
+                    <h3 data-translate-text="[learning content]">Learning content</h3>
                     <div>
                         <!-- ko foreach: learningContent -->
                         <div class="styled-content" data-bind="html: $data,wrapElements:content "></div>
@@ -74,7 +67,7 @@
                         </div>
                         <!-- ko ifnot: isAnswered -->
                         <div class="question-submit-wrapper">
-                            <button class="button success emphasize" data-bind="click: $root.submit">Submit</button>
+                            <button class="button success emphasize" data-translate-text="[submit]" data-bind="click: $root.submit">Submit</button>
                         </div>
                         <!-- /ko -->
                         <!-- ko if: isAnswered -->
@@ -85,7 +78,7 @@
                                     <span class="question-feedback-image incorrect"></span>
                                 </div>
                                 <div>
-                                    <span class="question-feedback-text">
+                                    <span class="question-feedback-text" data-translate-text="[incorrect answer]">
                                         Incorrect answer
                                     </span>
                                 </div>
@@ -102,8 +95,7 @@
                                     </button>
                                 </div>
                                 <div class="question-feedback-action-wrapper">
-                                    <button class="button default large emphasize"
-                                            data-bind="click: $parent.goToNextOrNotCompletedReading">
+                                    <button class="button default large emphasize" data-translate-text="[next question]" data-bind="click: $parent.goToNextOrNotCompletedReading">
                                         Next question
                                     </button>
                                 </div>
@@ -112,13 +104,13 @@
                             <!-- ko ifnot: $parent.nextOrNotCompletedReading -->
                             <div class="question-feedback-action-container incorrect">
                                 <div class="question-feedback-action-wrapper">
-                                    <button class="button success large emphasize" data-bind="click: resetAnswer">
+                                    <button class="button success large emphasize" data-translate-text="[try again]" data-bind="click: resetAnswer">
                                         Try
                                         again
                                     </button>
                                 </div>
                                 <div class="question-feedback-action-wrapper">
-                                    <button class="button default large emphasize" data-bind="click: $root.goToStudyAdvice">
+                                    <button class="button default large emphasize" data-translate-text="[read study advice]" data-bind="click: $root.goToStudyAdvice">
                                         Read study advice
                                     </button>
                                 </div>
@@ -153,7 +145,7 @@
                                 <!-- ko ifnot: $parent.nextOrNotCompletedReading -->
                                 <div class="question-feedback-action-wrapper">
                                     <button class="button success large emphasize"
-                                            data-bind="click: $parent.goToStudyAdvice">
+                                            data-bind="click: $parent.goToStudyAdvice" data-translate-text="[read study advice]">
                                         Read study advice
                                     </button>
                                 </div>
@@ -162,10 +154,7 @@
                         </div>
                         <!-- /ko -->
                         <!-- /ko -->
-
                     </div>
-
-
                     <div class="navigation-wrapper clearfix" data-bind="with: $parent">
                         <div class="navigation">
                             <div>

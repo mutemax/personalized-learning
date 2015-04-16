@@ -7,7 +7,7 @@
     <!-- /ko -->
 
     <div data-bind="overlay: isAnswered">
-        <div class="text-matching-caption">
+        <div class="text-matching-caption" data-translate-text="[text matching question hint]">
             Drag items from right column to the left to match the pairs
         </div>
         <!-- ko foreach: sources-->
@@ -25,7 +25,7 @@
                 <div class="text-matching-target-placeholder-wrapper" data-bind="droppable: $data, accept: 1, scope: $parent.id">
                     <div class="text-matching-target-placeholder">
                         <div class="text-matching-target-placeholder-text-wrapper">
-                            <div class="text-matching-target-placeholder-text">Drop here</div>
+                            <div class="text-matching-target-placeholder-text" data-translate-text="[text matching question drop here]">Drop here</div>
                         </div>
                     </div>
                     <!-- ko if: value -->

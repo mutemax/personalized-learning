@@ -1,6 +1,6 @@
 ﻿<section class="preassessment view">
     <header class="view-header">
-        <h2>Pre-assessment</h2>
+        <h2 data-translate-text="[pre-assessment]">Pre-assessment</h2>
         <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
 
             <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
@@ -10,7 +10,7 @@
     </header>
     <header class="alternative-header ">
         <div class="container-content-wrapper">
-            <h2>Pre-assessment</h2>
+            <h2 data-translate-text="[pre-assessment]">Pre-assessment</h2>
             <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
                 <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
                 <div>answered</div>
@@ -34,7 +34,7 @@
             <!-- /ko -->
             <li>
                 <div class="submit-wrapper">
-                    <button class="button success large emphasize">Submit</button>
+                    <button class="button success large emphasize" data-translate-text="[submit]">Submit</button>
                 </div>
             </li>
         </ul>

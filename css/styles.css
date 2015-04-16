@@ -163,6 +163,7 @@ body {
     font-size: 14px;
     line-height: 1.42857;
     cursor: default;
+    word-wrap: break-word;
 }
 
 h1, h2, h3 {
@@ -633,9 +634,6 @@ hr {
     font-family: 'latoRegular','OpenSans';
 }
 
-
-
-
 .button {
     -moz-user-select: none;
     -ms-user-select: none;
@@ -645,13 +643,23 @@ hr {
     padding: 0;
     border: 0 none;
     -ms-border-radius: 3px;
-    border-radius: 3px;
     background-color: transparent;
+    border-radius: 3px;
+    font-family: 'OpenSans', Arial, sans-serif;
     text-decoration: none;
+    max-width: 300px;
     white-space: nowrap;
     font-family: 'latoRegular','OpenSans';
     font-size: 16px;
 }
+    
+    .button-text {
+        display: inline-block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: bottom;    
+    }
 
     .button:hover {
         outline: none;
@@ -742,7 +750,6 @@ hr {
 .button.emphasize {
     text-transform: uppercase;
 }
-
 
 .loader {
     position: absolute;
@@ -982,6 +989,8 @@ hr {
 
 
 .statement-option {
+    text-overflow: ellipsis;
+    white-space: nowrap;
     width: 100px;
     padding-left: 10px;
 }
@@ -1105,5 +1114,10 @@ hr {
 
     checkbox, .radio {
         padding: 0;
+    }
+}
+@media (max-width: 750px) {
+    .button {
+        max-width: 235px;
     }
 }
