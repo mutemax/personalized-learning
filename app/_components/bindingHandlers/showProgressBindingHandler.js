@@ -50,8 +50,6 @@
                 ctx.beginPath();
                 ctx.arc(50, 50, 43, -0.5 * Math.PI, 1.5 * Math.PI);
                 ctx.stroke();
-
-
                 ctx.strokeStyle = '#7dc9cd';
                 ctx.beginPath();
                 ctx.arc(50, 50, 43, -0.5 * Math.PI, percentage * Math.PI);

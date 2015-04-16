@@ -53,7 +53,7 @@
     height:0;
     opacity:0;
     width:100%;
-    background-image:url(../images/header-bg.png);
+    background-image:url(../images/header-bg.jpg);
     position:fixed;
     top:0;
     left:0;
@@ -71,7 +71,7 @@
 .alternative-header .canvas-wrapper{
     right:25px;
     top:12px;
-    background-image:url(../images/header-bg.png);
+    background-image:url(../images/header-bg.jpg);
     border-radius:50%;
 }
 .alternative-header h2{

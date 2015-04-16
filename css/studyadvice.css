@@ -285,20 +285,23 @@
     .learning-objective {
         text-align: center;
         display: block;
-        width:100%;
+        width: 100%;
     }
 
     .studyadvice .objective-progress {
         width: 240px;
     }
+
     .studyadvice .objective-progres {
         padding: 25px 0 5px 0;
     }
+
     .studyadvice .objective-recommended-reading-title {
-        font-size:15px;
+        font-size: 15px;
     }
+
     .studyadvice .objective-to-learn {
-        padding-top:0;
-        padding-left:10px;
+        padding-top: 0;
+        padding-left: 10px;
     }
 }

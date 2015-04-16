@@ -534,7 +534,7 @@ hr {
 
 
 .title-background {
-    background-image: url(../images/header-bg.png);
+    background-image: url(../images/header-bg.jpg);
     background-repeat: no-repeat;
     background-size: initial;
     width: 100%;
@@ -1056,13 +1056,13 @@ hr {
     .styled-content {
         padding-left: 10px;
         padding-right: 10px;
-        font-size:12px;
+        font-size: 12px;
     }
 
     .content {
         padding: 30px 10px;
-        font-size:12px;
-        line-height:24px;
+        font-size: 12px;
+        line-height: 24px;
     }
 
     .statement-option {
@@ -1071,31 +1071,39 @@ hr {
     }
 
     .styled-content .table-wrapper table {
-        font-size:12px;
+        font-size: 12px;
     }
-    .styled-content .table-wrapper table thead{
-        font-size:12px;
-    }
-    .styled-content .table-wrapper table tbody{
-        font-size:12px;
-    }
+
+        .styled-content .table-wrapper table thead {
+            font-size: 12px;
+        }
+
+        .styled-content .table-wrapper table tbody {
+            font-size: 12px;
+        }
+
     .view-header h2 {
-        font-size:20px;
+        font-size: 20px;
     }
+
     .finish {
-        width:150px;
+        width: 150px;
     }
+
     .checkbox-icon, .radio-icon {
-        transform:scale(0.5);
-        -webkit-transform:scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
     }
+
     .statement {
-        padding:0px;
+        padding: 0px;
     }
+
     .button.medium {
-        padding:10px 15px;
+        padding: 10px 15px;
     }
+
     checkbox, .radio {
-        padding:0;
+        padding: 0;
     }
 }
