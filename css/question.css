@@ -1022,4 +1022,82 @@
         font-size: 12px;
         line-height: 18px;
     }
+
+    .text-matching-source-text-wrapper {
+        padding: 5px 15px 5px 5px;
+        font-size: 12px;
+    }
+
+    .text-matching-target-text-wrapper {
+        padding: 5px 5px 5px 15px;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .question .question-feedback-action-container {
+        display: block;
+    }
+
+        .question .question-feedback-action-container.incorrect .question-feedback-action-wrapper {
+            padding: 0 0;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .question .question-feedback-action-container.incorrect .question-feedback-action-wrapper {
+            display: block;
+        }
+
+    .checkbox-text, .radio-text {
+        font-size: 14px;
+    }
+
+    .select-wrapper {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .question .button.back {
+        font-size: 20px;
+    }
+
+    .blankInput {
+        font-size: 12px;
+        line-height: 20px;
+        padding-top: 0px;
+    }
+
+    .text-matching-source:after {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        right: -25px;
+    }
+
+    .text-matching-target:before {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        left: -19px;
+    }
+
+    .question .navigation-wrapper {
+        float: none;
+        margin: auto;
+    }
+
+    .question .objective-progress-wrapper {
+        display: block;
+        width: 280px;
+    }
+
+    .question .objective {
+        margin: auto;
+    }
+
+    .question h3 {
+        margin-left: -10px;
+    }
+
+    .question .objective-title {
+        font-size: 15px;
+    }
 }
