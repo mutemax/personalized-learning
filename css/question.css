@@ -660,6 +660,7 @@
     border: 1px dashed #e1e1e1;
     border-radius: 7px;
     display: table;
+    table-layout: fixed;
     height: 100%;
     width: 100%;
 }
@@ -673,8 +674,12 @@
     display: table-cell;
     height: 100%;
     text-align: center;
+    padding: 0 20px;
     vertical-align: middle;
     width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .text-matching-target-placeholder-wrapper.hover .text-matching-target-placeholder-text {
