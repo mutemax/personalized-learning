@@ -652,38 +652,38 @@ hr {
     font-family: 'latoRegular','OpenSans';
     font-size: 16px;
 }
-    
-    .button-text {
-        display: inline-block;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        vertical-align: bottom;    
+
+.button-text {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
+.button:hover {
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button.disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.button.info {
+    background-color: #00adee;
+    color: #fff;
+}
+
+    .button.info:hover {
+        background-color: #009bd5;
     }
 
-    .button:hover {
-        outline: none;
-        text-decoration: none;
-        cursor: pointer;
+    .button.info.disabled:hover {
+        background-color: #00ADEF;
     }
-
-    .button.disabled {
-        opacity: 0.6;
-        cursor: default;
-    }
-
-    .button.info {
-        background-color: #00adee;
-        color: #fff;
-    }
-
-        .button.info:hover {
-            background-color: #009bd5;
-        }
-
-        .button.info.disabled:hover {
-            background-color: #00ADEF;
-        }
 
 .finish {
     width: 221px;
@@ -695,6 +695,9 @@ hr {
     text-transform: uppercase;
     padding-top: 17px;
     border-radius: 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 5px;
 }
 
 .button.success {
@@ -704,6 +707,7 @@ hr {
     padding: 10px;
     min-width: 260px;
     border-radius: 5px;
+    overflow: hidden;
 }
 
     .button.success:hover {
@@ -993,6 +997,7 @@ hr {
     white-space: nowrap;
     width: 100px;
     padding-left: 10px;
+    overflow:hidden;
 }
 
 .statement-label {
@@ -1020,10 +1025,15 @@ hr {
         bottom: 15px;
         left: 0;
         color: #ffffff;
-        text-transform: inherit;
+        text-transform: capitalize;
         font-size: 25px;
         font-family: 'latoSemiBold','OpenSans';
         letter-spacing: 0.3px;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 50%;
+        text-align: left;
     }
 
 
@@ -1116,6 +1126,7 @@ hr {
         padding: 0;
     }
 }
+
 @media (max-width: 750px) {
     .button {
         max-width: 235px;

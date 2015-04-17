@@ -15,6 +15,6 @@
         "allowedVerbs":["started","stopped","mastered","passed","failed"]
     },
     "languages": {
-        "selected": "en"
+        "selected": "ua"
     }
 }

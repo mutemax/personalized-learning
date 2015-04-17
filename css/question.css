@@ -564,13 +564,15 @@
     top: 50%;
     font-size: 18px;
     font-family: 'latoRegular','OpenSans';
-    height: 18px;
+    height: 22px;
     margin-top: -12px;
     white-space: nowrap;
     text-align: center;
     width: 100%;
     color: #ffffff;
     display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -852,6 +854,10 @@
     text-align: center;
     vertical-align: middle;
     width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
 }
 
 .text-matching-target-placeholder-wrapper.hover .text-matching-target-placeholder-text {
@@ -1011,3 +1017,9 @@
 
 
 /* #endregion */
+@media screen and (max-width:320px) {
+    .text-matching-target {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}

@@ -4,7 +4,7 @@
         <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
 
             <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
-            <div>answered</div>
+            <div class="answered" data-translate-text="[answered]">answered</div>
             <canvas class="progress-renderer"></canvas>
         </div>
     </header>
@@ -13,7 +13,7 @@
             <h2 data-translate-text="[pre-assessment]">Pre-assessment</h2>
             <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
                 <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
-                <div>answered</div>
+                <div class="answered" data-translate-text="[answered]">answered</div>
                 <canvas class="progress-renderer"></canvas>
             </div>
         </div>
@@ -34,7 +34,7 @@
             <!-- /ko -->
             <li>
                 <div class="submit-wrapper">
-                    <button class="button success large emphasize" data-translate-text="[submit]">Submit</button>
+                    <button class="button success large emphasize" ><span class="button-text" data-translate-text="[submit]">submit</span></button>
                 </div>
             </li>
         </ul>

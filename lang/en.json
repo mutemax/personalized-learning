@@ -40,5 +40,8 @@
     "[tracking and tracing error]": "Something is wrong",
     "[tracking and tracing error hint]": "If you continue without restarting, your learning results will not be reported.",
     "[tracking and tracing restart course]": "Restart course",
-    "[tracking and tracing continue anyway]": "Continue anyway"
+    "[tracking and tracing continue anyway]": "Continue anyway",
+    "[answered]": "answered",
+    "[overall progress]": "overall progress"
+
 }

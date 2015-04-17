@@ -89,7 +89,7 @@
                             <!-- ko if: $parent.nextOrNotCompletedReading -->
                             <div class="question-feedback-action-container incorrect">
                                 <div class="question-feedback-action-wrapper">
-                                    <button class="button success large emphasize" data-bind="click: resetAnswer">
+                                    <button class="button success large emphasize" data-translate-text="[try again]" data-bind="click: resetAnswer">
                                         Try
                                         again
                                     </button>
@@ -125,7 +125,7 @@
                                     <span class="question-feedback-image correct"></span>
                                 </div>
                                 <div>
-                                    <span class="question-feedback-text">
+                                    <span class="question-feedback-text" data-translate-text="[correct answer]">
                                         Correct answer
                                     </span>
                                 </div>
@@ -137,7 +137,7 @@
                                 <!-- ko if: $parent.nextOrNotCompletedReading -->
                                 <div class="question-feedback-action-wrapper">
                                     <button class="button success large emphasize"
-                                            data-bind="click: $parent.goToNextOrNotCompletedReading">
+                                            data-bind="click: $parent.goToNextOrNotCompletedReading" data-translate-text="[next question]">
                                         Next question
                                     </button>
                                 </div>
@@ -159,7 +159,7 @@
                         <div class="navigation">
                             <div>
                                 <!-- ko if: previousReading() && isReady() -->
-                                <button class="button previous" title="previous question"
+                                <button class="button previous" data-translate-title="[previous question]"
                                         data-bind="click: goToPreviousReading"></button>
                                 <!-- /ko -->
                                 <!-- ko ifnot: previousReading() && isReady() -->
@@ -171,7 +171,7 @@
                             </div>
                             <div>
                                 <!-- ko if: nextReading() && isReady() -->
-                                <button class="button next" title="next question"
+                                <button class="button next" data-translate-title="[next question]"
                                         data-bind="click: goToNextReading"></button>
                                 <!-- /ko -->
                                 <!-- ko ifnot: nextReading() && isReady() -->

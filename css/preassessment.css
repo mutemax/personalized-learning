@@ -2,21 +2,20 @@
     color: #3e3d40;
     font-size: 20px;
     font-family: 'latoRegular','OpenSans';
-    padding-bottom:10px;
+    padding-bottom: 10px;
     word-wrap: break-word;
     border-bottom: 3px solid #9ad3d6;
-    margin-bottom:40px;
+    margin-bottom: 40px;
 }
 
 .preassessment .question-content {
-    
     word-wrap: break-word;
     overflow: auto;
-    color:#9e9e9e;    
+    color: #9e9e9e;
     font-family: 'latoLight','OpenSans';
     font-size: 18px;
-    margin-bottom:40px;
-    margin-top:-20px;
+    margin-bottom: 40px;
+    margin-top: -20px;
 }
 
 .preassessment .submit-wrapper {
@@ -24,90 +23,111 @@
     text-align: center;
     padding: 0 20px;
 }
+
 .canvas-wrapper {
-    width:100px;
-    height:100px;
-    background-color:transparent;
-    position:absolute;
-    top:75px;
-    right:0;
-    text-align:center;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    position: absolute;
+    top: 75px;
+    right: 0;
+    text-align: center;
 }
-.canvas-wrapper div{
-    color:white;
-    font-size:12px;
+
+    .canvas-wrapper div {
+        color: white;
+        font-size: 12px;
+    }
+
+.answered {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 82px;
+    text-align: center;
+    padding-left: 22px;
 }
+
 .canvas-wrapper .progress {
-    margin-top:32px;
-    font-size:24px;
-    color:#7dc9cd;
-
+    margin-top: 32px;
+    font-size: 24px;
+    color: #7dc9cd;
 }
-.canvas-wrapper canvas{
-    position:absolute;
-    right:0;
-    top:0;
 
+.canvas-wrapper canvas {
+    position: absolute;
+    right: 0;
+    top: 0;
 }
+
 .alternative-header {
-    height:0;
-    opacity:0;
-    width:100%;
-    background-image:url(../images/header-bg.jpg);
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:251;
-    -webkit-background-size:initial;
-    -webkit-background-position:0 170px;
-    background-size:initial;
-    background-position:0 -296px;
+    height: 0;
+    opacity: 0;
+    width: 100%;
+    background-image: url(../images/header-bg.jpg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 251;
+    -webkit-background-size: initial;
+    -webkit-background-position: 0 170px;
+    background-size: initial;
+    background-position: 0 -296px;
     -webkit-box-shadow: 0px 5px 8px 0px rgba(189,189,190,1);
     -moz-box-shadow: 0px 5px 8px 0px rgba(189,189,190,1);
     box-shadow: 0px 5px 8px 0px rgba(189,189,190,1);
-    transition:transform 0.5s;
+    transition: transform 0.5s;
     transform: translateY(-120px);
 }
-.alternative-header .canvas-wrapper{
-    right:25px;
-    top:12px;
-    background-image:url(../images/header-bg.jpg);
-    border-radius:50%;
-}
-.alternative-header h2{
+
+    .alternative-header .canvas-wrapper {
+        right: 25px;
+        top: 12px;
+        background-image: url(../images/header-bg.jpg);
+        border-radius: 50%;
+    }
+
+    .alternative-header h2 {
         color: #ffffff;
-        text-transform: inherit ;
+        text-transform: inherit;
         font-size: 25px;
         font-family: 'latoSemiBold','OpenSans';
-        letter-spacing:0.3px;
-        text-align:left;
-        margin-top:40px;
+        letter-spacing: 0.3px;
+        text-align: left;
+        margin-top: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 50%;
+        text-align: left;
+    }
 
-}
-.alternative-header.show {
-     transform: translateY(0);
-     height:80px;
-     opacity:1;
-     -webkit-transform: translateZ(0);
-     transform: translateZ(0);
-     -moz-transform: translateZ(0);
-}
+    .alternative-header.show {
+        transform: translateY(0);
+        height: 80px;
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -moz-transform: translateZ(0);
+    }
 
 @media (max-width: 640px) {
     .preassessment .submit-wrapper .button {
         width: 100%;
     }
 }
+
 @media screen and (max-width:320px) {
     .alternative-header h2 {
-        font-size:20px;
-    
+        font-size: 20px;
     }
+
     .preassessment .question-title {
-        font-size:16px;
-        margin-bottom:20px;
+        font-size: 16px;
+        margin-bottom: 20px;
     }
+
     .preassessment .question-content {
-        margin-bottom:20px;
+        margin-bottom: 20px;
     }
 }

@@ -50,7 +50,7 @@
     -ms-user-select: none;
     user-select: none;
     width: 100%;
-    z-index: 100;
+    z-index: 251;
 }
 
 .preview-overlay {
