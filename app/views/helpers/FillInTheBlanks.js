@@ -15,7 +15,7 @@
             });
             $(self).wrap('<div class="select-wrapper"></div>');
             var $selectWrapper = $(self).parent('.select-wrapper');
-            var valueWrapper = $('<div class="value"></div>').text('click to choose...').appendTo($selectWrapper);
+            var valueWrapper = $('<div class="value"></div>').text(translation.getTextByKey("[fill in the blank choose answer]")).appendTo($selectWrapper);
 
             $selectWrapper.on('click', function () {
                 show($selectWrapper, options, function (newValue) {
@@ -58,7 +58,7 @@
                                     .text(option.text);
                             }).value())
                     )
-                    .appendTo('.container');
+                    .appendTo($element.closest('.container'));
 
             var handler = function () {
                 container.remove();

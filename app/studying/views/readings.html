@@ -48,7 +48,7 @@
             <div data-bind="with: currentReading">
                 <!-- ko if: learningContent().length > 0 -->
                 <div class="content container">
-                    <h3 data-translate-text="[learning content]">Learning content</h3>
+                    <h3 class="learning-content" data-translate-text="[learning content]">Learning content</h3>
                     <div>
                         <!-- ko foreach: learningContent -->
                         <div class="styled-content" data-bind="html: $data,wrapElements:content "></div>

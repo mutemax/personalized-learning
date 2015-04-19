@@ -1126,9 +1126,3 @@ hr {
         padding: 0;
     }
 }
-
-@media (max-width: 750px) {
-    .button {
-        max-width: 235px;
-    }
-}
