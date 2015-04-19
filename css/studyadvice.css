@@ -153,6 +153,7 @@
 
 .studyadvice .objective-recommended-readings {
     display: table;
+    table-layout: fixed;
     width: 100%;
     table-layout: fixed;
 }
@@ -178,7 +179,9 @@
     width: 100px;
     vertical-align: middle;
     text-align: right;
+    width: 180px;
 }
+
 
 .start {
     height: 44px;

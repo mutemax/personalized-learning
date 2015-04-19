@@ -1,5 +1,5 @@
-define(['entities/course', 'browserDetector', 'knockout', '_'],
-    function (course, browserDetector, ko, _, router) {
+define(['entities/course', 'browserDetector', 'knockout', '_', 'translation'],
+    function (course, browserDetector, ko, _, translation) {
         "use strict";
 
         var self = {
@@ -42,7 +42,7 @@ define(['entities/course', 'browserDetector', 'knockout', '_'],
                 window.close();
                 _.delay(function () {
                     viewModel.isClosed(true);
-                    window.alert('Thank you. It is now safe to close this page.');
+                    window.alert(translation.getTextByKey('[thank you message]'));
                 }, 100);
             } else {
                 setTimeout(close, 100);

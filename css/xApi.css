@@ -100,6 +100,7 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
     .xApi-login .form-submit button[type='submit'] {
         margin-right: 30px;
         padding-right: 30px;
+        max-width: 325px;
     }
 
 
@@ -207,7 +208,7 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
     text-align: center;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 800px) {
     .xApi-login .form-caption {
         text-align: center;
     }
