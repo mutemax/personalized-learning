@@ -11,7 +11,7 @@
 
             _.each(this.answers, function (option) {
                 if (_.find(userAnswers, function (answer) {
-                    return option.groupId.toLowerCase() == answer.groupId && option.text == answer.text.toLowerCase();
+                    return option.groupId.toLowerCase() == answer.groupId.toLowerCase() && option.text.toLowerCase() == answer.text.toLowerCase();
                 })) {
                     numOfCorrect++;
                 }
