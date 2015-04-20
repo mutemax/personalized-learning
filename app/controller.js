@@ -1,4 +1,4 @@
-﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'courseSettingsModule', 'entities/course', 'durandal/composition'], function (app, activator, ko, loader, courseSettingsModule, course, composition) {
+﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'templateSettings', 'entities/course', 'durandal/composition'], function (app, activator, ko, loader, templateSettings, course, composition) {
     "use strict";
 
     var self = {
@@ -23,7 +23,7 @@
             self.lifecycle.unshift('introduction/viewmodels/index');
         }
 
-        if (courseSettingsModule.courseSettings.xApi && courseSettingsModule.courseSettings.xApi.enabled) {
+        if (templateSettings.xApi && templateSettings.xApi.enabled) {
             self.lifecycle.unshift('xApi/viewmodels/login');
         }
 

@@ -1,8 +1,8 @@
-﻿define(['jquery'], function ($) {
+﻿define(['jquery', 'translation'], function ($, translation) {
 
     return function (view) {
         $(".blankSelect", view).each(function () {
-            var option = $('<option />').text('Choose the answer...').prependTo(this);
+            var option = $('<option />').text(translation.getTextByKey('[fill in the blank choose answer]')).prependTo(this);
             $(this).val(option).trigger('change');
         });
 

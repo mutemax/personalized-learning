@@ -54,6 +54,9 @@ gulp.task('build-app', ['clean'], function () {
     gulp.src(['js/require/require.js'])
        .pipe(gulp.dest(output + '/js/require'));
 
+    gulp.src('lang/*.json')
+       .pipe(gulp.dest(output + '/lang'));
+    
     gulp.src('manifest.json')
         .pipe(gulp.dest(output));
 
@@ -85,10 +88,6 @@ gulp.task('build-settings', ['clean'], function () {
       .pipe(minifyCss())
       .pipe(gulp.dest(output + '/settings/css'));
 
-    gulp.src('settings/img/**')
+    return gulp.src('settings/img/**')
       .pipe(gulp.dest(output + '/settings/img'));
-
-    return gulp.src(['settings/js/settings.js'])
-      .pipe(uglify())
-      .pipe(gulp.dest(output + '/settings/js'));
 });

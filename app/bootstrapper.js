@@ -38,6 +38,9 @@
         };
 
         var binder = require('durandal/binder');
+        binder.binding = function (obj, view) {
+            require('localization').localize(view);
+        };
         binder.bindingComplete = (function () {
 
             var handlers = {};
@@ -69,7 +72,6 @@
         })();
         binder.bindingComplete.addHandler('views/FillInTheBlanks', require('views/helpers/FillInTheBlanks'));
         binder.bindingComplete.addHandler('views/TextMatching', require('views/helpers/TextMatching'));
-
 
         require('_components/bindingHandlers/backgroundBindingHandler').install();
         require('_components/bindingHandlers/overlayBindingHandler').install();
