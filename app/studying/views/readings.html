@@ -67,7 +67,7 @@
                         </div>
                         <!-- ko ifnot: isAnswered -->
                         <div class="question-submit-wrapper">
-                            <button class="button success emphasize" data-translate-text="[submit]" data-bind="click: $root.submit">Submit</button>
+                            <button class="button success emphasize" data-bind="click: $root.submit"><span data-translate-text="[submit]" class="button-text">Submit</span></button>
                         </div>
                         <!-- /ko -->
                         <!-- ko if: isAnswered -->
@@ -89,14 +89,17 @@
                             <!-- ko if: $parent.nextOrNotCompletedReading -->
                             <div class="question-feedback-action-container incorrect">
                                 <div class="question-feedback-action-wrapper">
-                                    <button class="button success large emphasize" data-translate-text="[try again]" data-bind="click: resetAnswer">
-                                        Try
-                                        again
+                                    <button class="button success large emphasize" data-bind="click: resetAnswer">
+                                        <span data-translate-text="[try again]" class="button-text">
+                                            Try again
+                                        </span>
                                     </button>
                                 </div>
                                 <div class="question-feedback-action-wrapper">
-                                    <button class="button default large emphasize" data-translate-text="[next question]" data-bind="click: $parent.goToNextOrNotCompletedReading">
-                                        Next question
+                                    <button class="button default large emphasize" data-bind="click: $parent.goToNextOrNotCompletedReading">
+                                        <span data-translate-text="[next question]" class="button-text">
+                                            Next question
+                                        </span>
                                     </button>
                                 </div>
                             </div>
@@ -104,14 +107,18 @@
                             <!-- ko ifnot: $parent.nextOrNotCompletedReading -->
                             <div class="question-feedback-action-container incorrect">
                                 <div class="question-feedback-action-wrapper">
-                                    <button class="button success large emphasize" data-translate-text="[try again]" data-bind="click: resetAnswer">
-                                        Try
-                                        again
+                                    <button class="button success large emphasize" data-bind="click: resetAnswer">
+                                        <span data-translate-text="[try again]" class="button-text">
+                                            Next question
+                                        </span>
                                     </button>
                                 </div>
                                 <div class="question-feedback-action-wrapper">
-                                    <button class="button default large emphasize" data-translate-text="[read study advice]" data-bind="click: $root.goToStudyAdvice">
-                                        Read study advice
+                                    <button class="button default large emphasize" data-bind="click: $root.goToStudyAdvice">
+                                        <span data-translate-text="[read study advice]" class="button-text">
+                                            Read study advice
+                                        </span>
+
                                     </button>
                                 </div>
                             </div>
@@ -137,16 +144,20 @@
                                 <!-- ko if: $parent.nextOrNotCompletedReading -->
                                 <div class="question-feedback-action-wrapper">
                                     <button class="button success large emphasize"
-                                            data-bind="click: $parent.goToNextOrNotCompletedReading" data-translate-text="[next question]">
-                                        Next question
+                                            data-bind="click: $parent.goToNextOrNotCompletedReading">
+                                        <span data-translate-text="[next question]" class="button-text">
+                                            Next question
+                                        </span>
                                     </button>
                                 </div>
                                 <!-- /ko -->
                                 <!-- ko ifnot: $parent.nextOrNotCompletedReading -->
                                 <div class="question-feedback-action-wrapper">
                                     <button class="button success large emphasize"
-                                            data-bind="click: $parent.goToStudyAdvice" data-translate-text="[read study advice]">
-                                        Read study advice
+                                            data-bind="click: $parent.goToStudyAdvice">
+                                        <span data-translate-text="[read study advice]" class="button-text">
+                                            Read study advice
+                                        </span>
                                     </button>
                                 </div>
                                 <!-- /ko -->
