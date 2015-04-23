@@ -62,7 +62,7 @@
     function isSupportedMobile() {
         if (isIos()) {
             var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
-            if (parseInt(v[1], 10) >= 6 && ua.indexOf("opera") == -1 && ua.indexOf("opr") == -1 && ua.indexOf("firefox") == -1 && ua.indexOf("chrome") == -1 && ua.indexOf('crios') == -1) {
+            if (parseInt(v[1], 10) >= 6 && ua.indexOf("opera") == -1 && ua.indexOf("opr") == -1 && ua.indexOf("firefox") == -1 ) {
                 return true;
             }
         }

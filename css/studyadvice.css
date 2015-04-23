@@ -193,6 +193,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     padding-left: 10px;
+    padding-right:10px;
 }
 
     .start:hover {
@@ -311,5 +312,8 @@
     .studyadvice .objective-to-learn {
         padding-top: 0;
         padding-left: 10px;
+    }
+    .studyadvice .objective-recommended-reading-start {
+        width:110px;
     }
 }
