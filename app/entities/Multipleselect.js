@@ -1,13 +1,17 @@
-﻿define([], function () {
+﻿define(['_', 'entities/Question'], function (_, Question) {
 
-    var ctor = function (id, title, answers) {
-        this.id = id;
-        this.title = title;        
-        this.answers = answers;
-        this.score = 0;
+    var ctor = function (id, title, type, answers) {
+        var that = this,
+            _protected = {
+                answer: answer
+            };
 
-        this.answer = function (answerIds) {
-            var correctAnswers = _.filter(this.answers, function (answer) {
+        Question.call(that, id, title, type, _protected);
+
+        that.answers = answers;
+        
+        function answer(answerIds) {
+            var correctAnswers = _.filter(that.answers, function (answer) {
                 return answer.isCorrect === true;
             });
 
@@ -16,9 +20,9 @@
             });
 
             if (_.difference(correctAnswerIds, answerIds).length === 0 && _.difference(answerIds, correctAnswerIds).length === 0) {
-                this.score = 100;
+                that.score = 100;
             } else {
-                this.score = 0;
+                that.score = 0;
             }
         };
     };

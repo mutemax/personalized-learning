@@ -43,7 +43,7 @@
 
                          switch (dq.type) {
                              case "multipleSelect":
-                                 question = new Multipleselect(dq.id, dq.title, dq.answers);
+                                 question = new Multipleselect(dq.id, dq.title, dq.type, dq.answers);
                                  break;
                              case "fillInTheBlank":
                                  var answers = [];
@@ -58,25 +58,25 @@
                                          }
                                      });
                                  });
-                                 question = new FillInTheBlanks(dq.id, dq.title, answers);
+                                 question = new FillInTheBlanks(dq.id, dq.title, dq.type, answers);
                                  break;
                              case "dragAndDropText":
-                                 question = new DragAndDrop(dq.id, dq.title, dq.background, dq.dropspots);
+                                 question = new DragAndDrop(dq.id, dq.title, dq.type, dq.background, dq.dropspots);
                                  break;
                              case "singleSelectText":
-                                 question = new Singleselect(dq.id, dq.title, dq.answers);
+                                 question = new Singleselect(dq.id, dq.title, dq.type, dq.answers);
                                  break;
                              case "singleSelectImage":
-                                 question = new SingleselectImage(dq.id, dq.title, dq.answers, dq.correctAnswerId);
+                                 question = new SingleselectImage(dq.id, dq.title, dq.type, dq.answers, dq.correctAnswerId);
                                  break;
                              case "textMatching":
-                                 question = new TextMatching(dq.id, dq.title, dq.answers, dq.correctAnswerId);
+                                 question = new TextMatching(dq.id, dq.title, dq.type, dq.answers, dq.correctAnswerId);
                                  break;
                              case "statement":
-                                 question = new Statement(dq.id, dq.title, dq.answers);
+                                 question = new Statement(dq.id, dq.title, dq.type, dq.answers);
                                  break;
                              case "hotspot":
-                                 question = new Hotspot(dq.id, dq.title, dq.isMultiple, dq.background, dq.spots);
+                                 question = new Hotspot(dq.id, dq.title, dq.type, dq.isMultiple, dq.background, dq.spots);
                                  break;
                              default:
                                  return undefined;
