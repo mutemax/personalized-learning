@@ -10,8 +10,7 @@
             singleSelectImage: "singleSelectImage",
             textMatching: "textMatching",
             hotspot: "hotspot",
-            statement: "statement",
-            informationContent: "informationContent"
+            statement: "statement"
         }
     };
 

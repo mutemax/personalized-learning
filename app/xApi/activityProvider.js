@@ -294,12 +294,6 @@
         }
 
         function getFillInQuestionActivityAndResult(question, answer, objective) {
-            var formattedAnswer = _.map(question.answers, function(option) {
-                var answerOption = _.find(answer, function(item) {
-                    return item.id = option.group;
-                });
-            });
-
             return {
                 result: new ResultModel({
                     score: new ScoreModel(question.score / 100),
@@ -323,7 +317,6 @@
         }
 
         function getHotSpotQuestionActivityAndResult(question, answer, objective) {
-
             return {
                 result: new ResultModel({
                     score: new ScoreModel(question.score / 100),

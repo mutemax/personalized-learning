@@ -8,12 +8,13 @@
     'entities/TextMatching',
     'entities/Statement',
     'entities/Hotspot',
+    'constants',
 
      'Q',
      '_',
      'plugins/http'],
 
-     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, Hotspot, Q, _, http) {
+     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, Hotspot, constants, Q, _, http) {
          "use strict";
 
          return {
@@ -42,10 +43,10 @@
                          var question;
 
                          switch (dq.type) {
-                             case "multipleSelect":
+                             case constants.questionTypes.multipleSelect:
                                  question = new Multipleselect(dq.id, dq.title, dq.type, dq.answers);
                                  break;
-                             case "fillInTheBlank":
+                             case constants.questionTypes.fillInTheBlank:
                                  var answers = [];
                                  _.each(dq.answerGroups, function (group) {
                                      _.each(group.answers, function (answer) {
@@ -60,22 +61,22 @@
                                  });
                                  question = new FillInTheBlanks(dq.id, dq.title, dq.type, answers);
                                  break;
-                             case "dragAndDropText":
+                             case constants.questionTypes.dragAndDrop:
                                  question = new DragAndDrop(dq.id, dq.title, dq.type, dq.background, dq.dropspots);
                                  break;
-                             case "singleSelectText":
+                             case constants.questionTypes.singleSelectText:
                                  question = new Singleselect(dq.id, dq.title, dq.type, dq.answers);
                                  break;
-                             case "singleSelectImage":
+                             case constants.questionTypes.singleSelectImage:
                                  question = new SingleselectImage(dq.id, dq.title, dq.type, dq.answers, dq.correctAnswerId);
                                  break;
-                             case "textMatching":
+                             case constants.questionTypes.textMatching:
                                  question = new TextMatching(dq.id, dq.title, dq.type, dq.answers, dq.correctAnswerId);
                                  break;
-                             case "statement":
+                             case constants.questionTypes.statement:
                                  question = new Statement(dq.id, dq.title, dq.type, dq.answers);
                                  break;
-                             case "hotspot":
+                             case constants.questionTypes.hotspot:
                                  question = new Hotspot(dq.id, dq.title, dq.type, dq.isMultiple, dq.background, dq.spots);
                                  break;
                              default:
