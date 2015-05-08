@@ -1,15 +1,19 @@
-﻿define(['_'], function (_) {
+﻿define(['_', 'entities/Question'], function (_, Question) {
 
-    var ctor = function (id, title, answers) {
-        this.id = id;
-        this.title = title;
-        this.answers = answers;
-        this.score = 0;
+    var ctor = function (id, title, type, answers) {
+        var that = this,
+            _protected = {
+                answer: answer
+            };
 
-        this.answer = function (userAnswers) {
+        Question.call(that, id, title, type, _protected);
+
+        that.answers = answers;
+
+        function answer(userAnswers) {
             var numOfCorrect = 0;
 
-            _.each(this.answers, function (option) {
+            _.each(that.answers, function (option) {
                 if (_.find(userAnswers, function (answer) {
                     return option.groupId == answer.groupId && option.text == answer.text;
                 })) {
@@ -17,7 +21,7 @@
                 }
             });
 
-            this.score = numOfCorrect == this.answers.length ? 100 : 0;
+            that.score = numOfCorrect == that.answers.length ? 100 : 0;
         };
     };
 

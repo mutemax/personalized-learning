@@ -29,6 +29,7 @@
         'started': 'Started',
         'stopped': 'Stopped',
         'passed': 'Passed',
+        'answered': 'Answered',
         'mastered': 'Mastered',
         'failed': 'Failed',
 

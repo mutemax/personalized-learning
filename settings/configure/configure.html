@@ -134,6 +134,16 @@
                                     </div>
                                     <div class="statements-container">
                                         <div class="switcher statement">
+                                            <div class="switch-toggle-slider" data-bind="switchToggle: { value: statements.answered }">
+                                                <div class="switch-toggle-wrapper">
+                                                    <div class="switch-toggle-on"></div>
+                                                    <div class="switch-toogle-blob"></div>
+                                                    <div class="switch-toggle-off"></div>
+                                                </div>
+                                            </div>
+                                            <div class="switcher-text" data-bind="localize: 'answered'"></div>
+                                        </div>
+                                        <div class="switcher statement">
                                             <div class="switch-toggle-slider" data-bind="switchToggle: { value: statements.mastered }">
                                                 <div class="switch-toggle-wrapper">
                                                     <div class="switch-toggle-on"></div>

@@ -1,22 +1,25 @@
-﻿define(['_'], function (_) {
+﻿define(['_', 'entities/Question'], function (_, Question) {
 
-    var ctor = function (id, title, isMultiple, background, spots) {
-        this.id = id;
-        this.title = title;
-        this.isMultiple = isMultiple;
+    var ctor = function (id, title, type, isMultiple, background, spots) {
+        var that = this,
+            _protected = {
+                answer: answer
+            };
 
-        this.background = background;
-        this.spots = spots;
-        this.score = 0;
+        Question.call(that, id, title, type, _protected);
 
-        this.answer = function (marks) {
-            if (!_.isArray(spots) || spots.length == 0) {
-                this.score = 100;
+        that.isMultiple = isMultiple;
+        that.background = background;
+        that.spots = spots;
+
+        function answer(marks) {
+            if (!_.isArray(that.spots) || that.spots.length == 0) {
+                that.score = 100;
                 return;
             }
 
             if (!_.isArray(marks)) {
-                this.score = 0;
+                that.score = 0;
                 return;
             }
 
@@ -27,7 +30,7 @@
                 var marksOnSpots = [];
 
                 _.each(marks, function (mark) {
-                    _.each(spots, function (spot) {
+                    _.each(that.spots, function (spot) {
                         if (isMarkInSpot(mark, spot)) {
                             spotsWithMarks.push(spot);
                             marksOnSpots.push(mark);
@@ -35,17 +38,17 @@
                     });
                 });
 
-                answerCorrect = _.uniq(spotsWithMarks).length === spots.length && _.uniq(marksOnSpots).length === marks.length;
+                answerCorrect = _.uniq(spotsWithMarks).length === that.spots.length && _.uniq(marksOnSpots).length === marks.length;
 
             } else {
-                answerCorrect = _.some(spots, function (spot) {
+                answerCorrect = _.some(that.spots, function (spot) {
                     return _.some(marks, function (mark) {
                         return isMarkInSpot(mark, spot);
                     });
                 });
             }
 
-            this.score = answerCorrect ? 100 : 0;
+            that.score = answerCorrect ? 100 : 0;
         };
     };
 
