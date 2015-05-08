@@ -104,6 +104,7 @@
             started: ko.observable(true),
             stopped: ko.observable(true),
             mastered: ko.observable(true),
+            answered: ko.observable(true),
             passed: ko.observable(true),
             failed: ko.observable(true)
         };

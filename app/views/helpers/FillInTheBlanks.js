@@ -2,7 +2,7 @@
 
     return function (view) {
         $(".blankSelect", view).each(function () {
-            var option = $('<option />').text(translation.getTextByKey('[fill in the blank choose answer]')).prependTo(this);
+            var option = $('<option />').text(translation.getTextByKey('[fill in the blank choose answer]')).val('').prependTo(this);
             $(this).val(option).trigger('change');
         });
 

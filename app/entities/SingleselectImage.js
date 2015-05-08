@@ -1,13 +1,18 @@
-﻿define([], function () {
+﻿define(['entities/Question'], function (Question) {
 
-    var ctor = function (id, title, answers, correctAnswerId) {
-        this.id = id;
-        this.title = title;
-        this.answers = answers;
-        this.score = 0;
+    var ctor = function(id, title, type, answers, correctAnswerId) {
+        var that = this,
+            _protected = {
+                answer: answer
+            };
 
-        this.answer = function (answerId) {
-            this.score = answerId == correctAnswerId ? 100 : 0;
+        Question.call(that, id, title, type, _protected);
+
+        that.answers = answers;
+        that.correctAnswerId = correctAnswerId;
+
+        function answer(answerId) {
+            that.score = answerId == that.correctAnswerId ? 100 : 0;
         };
     };
 

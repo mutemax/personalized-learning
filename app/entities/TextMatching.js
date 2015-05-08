@@ -1,15 +1,18 @@
-﻿define([], function () {
+﻿define(['_', 'entities/Question'], function (_, Question) {
 
-    var TextMatching = function (id, title, answers) {
-        this.id = id;
-        this.title = title;
-        this.answers = answers;
+    var TextMatching = function (id, title, type, answers) {
+        var that = this,
+            _protected = {
+                answer: answer
+            };
 
-        this.score = 0;
+        Question.call(that, id, title, type, _protected);
 
-        this.answer = function (pairs) {
+        that.answers = answers;
+
+        function answer(pairs) {
             var correct = 0;
-            _.each(this.answers, function (answer) {
+            _.each(that.answers, function (answer) {
                 if (_.find(pairs, function (pair) {
                     return pair.id == answer.id && pair.value == answer.value;
                 })) {
@@ -17,7 +20,7 @@
                 }
 
             });
-            this.score = correct == this.answers.length ? 100 : 0;
+            that.score = correct == that.answers.length ? 100 : 0;
         }
     };
 
