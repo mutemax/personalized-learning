@@ -42,7 +42,7 @@
                 password: ''
             }
         },
-        allowedVerbs: ['started', 'stopped', 'mastered', 'passed', 'failed']
+        allowedVerbs: ['started', 'stopped', 'mastered', 'answered', 'passed', 'failed']
     };
 
 
