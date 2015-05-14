@@ -1,28 +1,30 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-    <title>Template settings</title>
+    <title>Template configure settings</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/settings.css" rel="stylesheet" />
+
+    <link href="../css/settings.css" rel="stylesheet" />
+    <script src="../api.js"></script>
+
     <!-- build:js js/vendor.min.js -->
     <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/jquery.spinner.min.js"></script>
     <script src="js/vendor/knockout.min.js"></script>
     <!-- endbuild -->
-    <!-- build:js js/api.js -->
-    <script src="js/api.js"></script>
-    <!-- endbuild -->
-    <!-- build:js js/settings.min.js -->
+    <!-- build:js js/configure.min.js -->
     <script src="js/localize.js"></script>
     <script src="js/knockoutBindings.js"></script>
     <script src="js/models.js"></script>
-    <script src="js/settings.js"></script>
+    <script src="js/configure.js"></script>
     <!-- endbuild -->
 </head>
+
 <body>
     <div class="settings-container">
+        <!-- ko ifnot: isError -->
         <div class="settings-tabs-container" data-bind="tabs: {}">
             <ul class="settings-tabs-wrapper unstyled">
                 <li class="settings-tabs-item track-and-trace" data-tab-link="track-and-trace" data-bind="localize: 'results tracking'"></li>
@@ -31,24 +33,24 @@
             <div class="settings-tab-container track-and-trace" data-tab="track-and-trace">
                 <div class="settings-tab-wrapper track-and-trace-settings" data-bind="with: trackingData">
                     <div class=" tab-header-container">
-                    <img src="img/track.png" />
-                    <div class="tab-header-wrapper">
-                        <h1 class="tab-header-title" data-bind="localize: 'track and trace settings'"></h1>
-                        <div class="tab-header-content">
-                            <div class="switcher">
-                                <div class="switcher-text" data-bind="css: { disabled: enableXAPI() }, localize: 'disabled'"></div>
-                                <div class="switch-toggle-slider" data-bind="switchToggle: { value: enableXAPI }">
-                                    <div class="switch-toggle-wrapper">
-                                        <div class="switch-toggle-on"></div>
-                                        <div class="switch-toogle-blob"></div>
-                                        <div class="switch-toggle-off"></div>
+                        <img src="img/track.png" />
+                        <div class="tab-header-wrapper">
+                            <h1 class="tab-header-title" data-bind="localize: 'track and trace settings'"></h1>
+                            <div class="tab-header-content">
+                                <div class="switcher">
+                                    <div class="switcher-text" data-bind="css: { disabled: enableXAPI() }, localize: 'disabled'"></div>
+                                    <div class="switch-toggle-slider" data-bind="switchToggle: { value: enableXAPI }">
+                                        <div class="switch-toggle-wrapper">
+                                            <div class="switch-toggle-on"></div>
+                                            <div class="switch-toogle-blob"></div>
+                                            <div class="switch-toggle-off"></div>
+                                        </div>
                                     </div>
+                                    <div class="switcher-text" data-bind="css: { disabled: !enableXAPI() }, localize: 'enabled'"></div>
                                 </div>
-                                <div class="switcher-text" data-bind="css: { disabled: !enableXAPI() }, localize: 'enabled'"></div>
                             </div>
                         </div>
                     </div>
-                </div>
                     <div class="tab-content-container">
                         <div class="tab-content-title-container" data-bind="click: toggleAdvancedSettings" style="display: inline-block">
                             <div class="tab-content-title" data-bind="css: { expanded: advancedSettingsExpanded(),  collapsed: !advancedSettingsExpanded() }, localize: 'advanced settings'"></div>
@@ -132,6 +134,16 @@
                                     </div>
                                     <div class="statements-container">
                                         <div class="switcher statement">
+                                            <div class="switch-toggle-slider" data-bind="switchToggle: { value: statements.answered }">
+                                                <div class="switch-toggle-wrapper">
+                                                    <div class="switch-toggle-on"></div>
+                                                    <div class="switch-toogle-blob"></div>
+                                                    <div class="switch-toggle-off"></div>
+                                                </div>
+                                            </div>
+                                            <div class="switcher-text" data-bind="localize: 'answered'"></div>
+                                        </div>
+                                        <div class="switcher statement">
                                             <div class="switch-toggle-slider" data-bind="switchToggle: { value: statements.mastered }">
                                                 <div class="switch-toggle-wrapper">
                                                     <div class="switch-toggle-on"></div>
@@ -205,6 +217,11 @@
                 </div>
             </div>
         </div>
+        <!-- /ko -->
+        <!-- ko if: isError -->
+        <div class="settings-tab-wrapper" data-bind="localize: 'settings are not initialize'"></div>
+        <!-- /ko -->
     </div>
 </body>
+
 </html>

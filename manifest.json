@@ -5,7 +5,9 @@
     "previewImages": [
         "images/previewImages/previewPersonilized.jpg"
     ],
-    "settingsUrl": "settings/settings.html",
+    "settingsUrls": {
+        "configure": "settings/configure/configure.html"
+    },
     "languages": [
         {
             "code": "nl",
