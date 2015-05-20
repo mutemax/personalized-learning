@@ -6,7 +6,7 @@
             events = {
                 courseStarted: "course:started",
                 courseFinished: "course:finished",
-                answersSubmitted: "answer:submitted",
+                questionAnswered: "question:answered",
                 learningContentExperienced: "learningContent:experienced"
             },
 
@@ -32,8 +32,8 @@
                 return executeAfterSubscribersDone(events.courseFinished, data, callback);
             },
 
-            answersSubmitted = function (data) {
-                app.trigger(events.answersSubmitted, data);
+            questionAnswered = function (data) {
+                app.trigger(events.questionAnswered, data);
             },
 
             learningContentExperienced = function (data) {
@@ -74,7 +74,7 @@
 
             courseStarted: courseStarted,
             courseFinished: courseFinished,
-            answersSubmitted: answersSubmitted,
+            questionAnswered: questionAnswered,
             learningContentExperienced: learningContentExperienced
         };
     }
