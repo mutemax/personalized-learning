@@ -1,6 +1,8 @@
 ﻿.xApi-login {
 }
-
+    .xApi-login .content {
+        border-color:#9ad3d6;
+    }
     .xApi-login .form-caption {
         color: #555555;
         text-align:center;
@@ -45,15 +47,18 @@
 
         .xApi-login .form-control::-moz-placeholder {
             color: #c8d1d7;
+            text-align:center;
             opacity: 1;
         }
 
         .xApi-login .form-control:-ms-input-placeholder {
             color: #c8d1d7;
+            text-align:center;
         }
 
         .xApi-login .form-control::-webkit-input-placeholder {
             color: #c8d1d7;
+            text-align:center;
         }
 
 
