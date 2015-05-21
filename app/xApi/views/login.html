@@ -9,7 +9,7 @@
             
             <div class="form-row" data-bind="css: { error: !username.isValid() && showError() }">
                 <div class="form-control-wrapper">
-                    <input class="form-control" data-translate-placeholder="[tracking and tracing name field]" placeholder="Your name" type="text" data-bind="value: username, valueUpdate: 'afterkeydown'" />
+                    <input class="form-control" data-translate-placeholder="[tracking and tracing name field]" placeholder="Your name" type="text" data-bind="value: username, valueUpdate: 'afterkeydown',backgroundBinding:content" />
                     <span class="form-control-message" data-bind="visible: !username.isValid() && showError()" data-translate-text="[tracking and tracing name is not valid]">Fill in your name</span>
                 </div>
             </div>

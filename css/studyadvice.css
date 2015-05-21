@@ -11,7 +11,7 @@
 .studyadvice .objective-to-learn {
     background-color: #ffffff;
     border-radius: 5px;
-    border-bottom: 3px solid #9ad3d6;
+    border-bottom: 4px solid #9ad3d6;
     margin-top: 10px;
     display: table;
     width: 100%;
@@ -63,6 +63,7 @@
     right: 0;
     display: table-cell;
     width: 70px;
+    overflow:hidden;
 }
 
 .studyadvice li {
@@ -85,21 +86,20 @@
 }
 
 .studyadvice .button.expand {
-    width: 67px;
-    height: 77px;
+    width: 73px;
+    height: 73px;
     display: inline-block;
-    background-color: #dff1f5;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
+    border-radius:50%;
+    background-color: #73c1bd;
     background-repeat: no-repeat;
     position: absolute;
-    bottom: 30px;
+    bottom: -36px;
     right: 0;
 }
 
 
     .studyadvice .button.expand:hover {
-        background-color: #e9fbff;
+        background-color: #73c1bd;
     }
 
     .studyadvice .button.expand:after {
@@ -111,14 +111,14 @@
     }
 
 .studyadvice .button.collapse {
-    width: 67px;
-    height: 117px;
+    width: 73px;
+    height: 73px;
     display: inline-block;
-    background-color: #e9fbff;
-    border-top-left-radius: 5px;
+    border-radius:50%;
+    background-color: #73c1bd;
     background-repeat: no-repeat;
     position: absolute;
-    bottom: -10px;
+    bottom: -36px;
     right: 0;
 }
 
@@ -186,9 +186,9 @@
 .start {
     height: 44px;
     width: 118px;
-    border: 1px solid #cd5a48;
+    border: 2px solid #43aaa3;
     text-transform: uppercase;
-    color: #cd5a48;
+    color: #43aaa3;
     border-radius: 5px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -223,6 +223,10 @@
     clear: both;
 }
 
+
+.mastered-objective-holder {
+    border: 3px solid #9ad3d6
+}
 
 
 .studyadvice .mastered-objective-title {
@@ -261,13 +265,13 @@
 .mastered-objective-round {
     width: 77px;
     height: 77px;
-    border: 1px solid #47cb91;
+    border: 5px solid #3e9b95;
     border-radius: 50%;
-    padding-top: 21px;
+    padding-top: 19px;
     font-size: 22px;
     display: inline-block;
     margin-left: 50px;
-    color: #47cb91;
+    color: #3e9b95;
     text-align: center;
     line-height: 30px;
 }

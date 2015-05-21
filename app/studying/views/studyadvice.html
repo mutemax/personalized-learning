@@ -45,12 +45,12 @@
     </ul>
     <!-- /ko -->
     <!-- ko if: learntObjectives.length -->
-    <div class="container content">
+    <div class="container mastered-objective-holder content">
         <div class="objectives" data-translate-text="[mastered objectives]">You have already mastered the following learning objectives:</div>
         <hr>
         <ul class="unstyled" data-bind="foreach: learntObjectives">
             <li class="mastered-objective">
-                    <div class="mastered-objective-title" data-bind="text: title"></div>
+                <div class="mastered-objective-title" data-bind="text: title"></div>
                 <div class="mastered-objective-progress">
                     <div class="mastered-objective-round" data-bind="text: score+'%'"></div>
                 </div>

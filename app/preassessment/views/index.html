@@ -1,20 +1,23 @@
 ﻿<section class="preassessment view">
     <header class="view-header">
         <h2 data-translate-text="[pre-assessment]">Pre-assessment</h2>
-        <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
-
-            <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
-            <div class="answered" data-translate-text="[answered]">answered</div>
-            <canvas class="progress-renderer"></canvas>
+        <div class="canvas-wrapper" >
+            <span class='progress' data-bind="text:progress()"></span>
+            <span data-translate-text="[of]">of</span>
+            <span class='progress' data-bind="text:questions().length"></span>
+            <span class="answered" data-translate-text="[answered]">answered</span>
+            <div data-bind="showProgress:{progress:progress,questions:questions}"></div>
         </div>
     </header>
     <header class="alternative-header ">
         <div class="container-content-wrapper">
             <h2 data-translate-text="[pre-assessment]">Pre-assessment</h2>
             <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
-                <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
-                <div class="answered" data-translate-text="[answered]">answered</div>
-                <canvas class="progress-renderer"></canvas>
+                <span class='progress' data-bind="text:progress()"></span>
+                <span data-translate-text="[of]">of</span>
+                <span class='progress' data-bind="text:questions().length"></span>
+                <span class="answered" data-translate-text="[answered]">answered</span>
+                <div data-bind="showProgress:{progress:progress,questions:questions}"></div>
             </div>
         </div>
     </header>

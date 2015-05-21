@@ -1,5 +1,15 @@
 ﻿.xApi-login {
 }
+
+.placeholderChanger {
+    position:absolute;
+    width:10px;
+    height:10px;
+    background-color:black;
+    content:'';
+    bottom:0;
+}
+
     .xApi-login .content {
         border-color:#9ad3d6;
     }
@@ -33,7 +43,7 @@
         color: #3c3c3c;
         font-size: 22px;
         width: 100%;
-        font-family:'robotoCondensed-regular'
+        font-family:'robotoCondensed-regular','Opensans'
     }
 
         .xApi-login .form-control:hover {
@@ -72,13 +82,14 @@
         }
 
     .xApi-login .form-row.error .form-control-message {
-        color: #da0202;
+        color: #f16162;
         font-size: 12px;
     }
 
     .xApi-login .form-control-wrapper {
         max-width:380px;
         margin:auto;
+        position:relative;
     }
 
     .xApi-login .form-submit button[type='submit'] {
