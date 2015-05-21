@@ -41,6 +41,7 @@
                 if (source.is('select')) {
                     if (typeof text == typeof undefined) {
                         source.find('option:first').prop('selected', true);
+                        $('.value').text('choose the answer...');
                     } else {
                         source.val(text);
                     }

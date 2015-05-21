@@ -1,21 +1,40 @@
 ﻿<section class="preassessment view">
     <header class="view-header">
         <h2 data-translate-text="[pre-assessment]">Pre-assessment</h2>
+        <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
+
+            <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
+            <div class="answered" data-translate-text="[answered]">answered</div>
+            <canvas class="progress-renderer"></canvas>
+        </div>
+    </header>
+    <header class="alternative-header ">
+        <div class="container-content-wrapper">
+            <h2 data-translate-text="[pre-assessment]">Pre-assessment</h2>
+            <div class="canvas-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
+                <div class='progress' data-bind="text:progress()+ '/' + questions().length"></div>
+                <div class="answered" data-translate-text="[answered]">answered</div>
+                <canvas class="progress-renderer"></canvas>
+            </div>
+        </div>
     </header>
     <form data-bind="submit: submit">
         <ul class="unstyled">
             <!-- ko foreach: questions -->
-            <li class="content container">
-                <div class="question-title">
-                    <span data-bind="text: $index() + 1"></span>.&nbsp;<span data-bind="text: title"></span>
+            <li >
+                <div class="question-number-wrapper" data-bind="text: $index() + 1"></div>
+                <div class="content container">
+                    <div class="question-title">
+                        <span data-bind="text: title"></span>
+                    </div>
+                    <!-- ko compose: { model: $data, mode: 'templated' } -->
+                    <!-- /ko -->
                 </div>
-                <!-- ko compose: { model: $data, mode: 'templated' } -->
-                <!-- /ko -->
             </li>
             <!-- /ko -->
             <li>
                 <div class="submit-wrapper">
-                    <button class="button info large emphasize"><span class="button-text" data-translate-text="[submit]">Submit</span></button>
+                    <button class="button success large emphasize" ><span class="button-text" data-translate-text="[submit]">submit</span></button>
                 </div>
             </li>
         </ul>

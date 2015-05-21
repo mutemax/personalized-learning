@@ -23,10 +23,18 @@
                 text: dropspot.text
             };
         });
+        that.isDirty = ko.computed(function () {
+            var count = 0;
+            _.each(that.dropspots, function (dropspot) {
+                if (dropspot.text()) {
+                    count++
+                }
+            })
+            return count == question.dropspots.length;
+        });
+
 
         that.submit = function () {
-
-
             var answer = [];
 
             _.each(that.dropspots, function (dropspot) {

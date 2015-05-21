@@ -1,18 +1,30 @@
 ﻿<section>
     <div class="logo-header">
-        <!-- ko if: hasLogo -->
-        <img class="logo" data-bind="attr: { src: logoUrl }" />
-        <!-- /ko -->
-        <!-- ko ifnot: hasLogo -->
-        <div class="logo default"></div>
-        <!-- /ko -->
+        <div class="container-content-wrapper">
+            <div class="logo-container">
+                <div class="logo"></div>
+            </div>
+        </div>
     </div>
-    <h1 data-bind="text: title"></h1>
 
-    <div data-bind="if: activeItem.isComposing">
-        <div class="loader"></div>
+
+    <div class="title-background">
+        <div class="container-content-wrapper">
+            <div class="title">
+                <h1 data-bind="text: title"></h1>
+            </div>
+
+        </div>
     </div>
-    <div data-bind="visible: !activeItem.isComposing() ">
-        <div data-bind="compose: { model: activeItem, compositionComplete: activeItem.compositionComplete }"></div>
+
+
+
+    <div class="container-content-wrapper">
+        <div data-bind="if: activeItem.isComposing">
+            <div class="loader"></div>
+        </div>
+         <div data-bind="visible: !activeItem.isComposing() ">
+            <div data-bind="compose: { model: activeItem, compositionComplete: activeItem.compositionComplete }"></div>
+        </div>
     </div>
 </section>

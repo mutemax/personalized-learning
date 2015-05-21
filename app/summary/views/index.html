@@ -2,24 +2,27 @@
     <header class="view-header">
         <div class="course-progress" data-bind="progress: progress">
         </div>
-        <button class="button success medium close-course" data-bind="click: close, css: { 'disabled': isClosing() || isClosed() }"><span class="button-text" data-translate-text="[close course]">Close course</span></button>
+        <h2 data-translate-text="[overall progress]">Overall progress</h2>
+        <button class="button finish medium close-course" data-bind="click: close, css: { 'disabled': isClosing() || isClosed() }" data-translate-text="[close course]">Close course</button>
     </header>
-
-    <div class="content container">
-        <h3 data-translate-text="[learning objective]">Learning objectives</h3>
-        <hr />
-        <ul class="unstyled" data-bind="foreach: objectives">
-            <li class="objective">
-                <div class="objective-title">
-                    <span data-bind="text: title"></span>
-                </div>
-                <div class="objective-progress">
-                    <div data-bind="progress: score"></div>
-                </div>
-            </li>
-        </ul>
+    <div class="container-content-wrapper">
+        <div class="content container">
+            <div class="summary-title">
+                <span data-translate-text="[learning objective]">Learning objectives</span>
+            </div>
+            <ul class="unstyled" data-bind="foreach: objectives">
+                <li class="objective">
+                    <div class="objective-title">
+                        <span data-bind="text: title"></span>
+                    </div>
+                    <div class="empty-div "></div>
+                    <div class="objective-progress">
+                        <div data-bind="progress: score"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-
     <!-- ko if: isClosing() || isClosed() -->
     <div class="loader-wrapper">
         <div class="loader" data-bind="visible: !isClosed()"></div>

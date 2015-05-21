@@ -1,8 +1,8 @@
 ﻿<section class="textmatching">
-    <hr />
+
     <!-- ko if: content -->
     <div class="question-content">
-        <div data-bind="html: content"></div>
+        <div class='styled-content' data-bind="html: content,wrapElements:content"></div>
     </div>
     <!-- /ko -->
 
@@ -58,4 +58,5 @@
         </div>
         <!-- /ko -->
     </div>
+
 </section>

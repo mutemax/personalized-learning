@@ -42,5 +42,7 @@
     "[tracking and tracing error]": "Er is iets mis",
     "[tracking and tracing error hint]": "Als je doorgaat zullen je leerresultaten niet worden vastgelegd. Probeer opnieuw te starten. Neem contact op met de docent als dit niet werkt.",
     "[tracking and tracing restart course]": "Herstart cursus",
-    "[tracking and tracing continue anyway]": "Ga door"
+    "[tracking and tracing continue anyway]": "Ga door",
+    "[answered]": "beantwoord",
+    "[overall progress]": "Totale voortgang"
 }

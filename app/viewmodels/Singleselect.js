@@ -7,6 +7,9 @@
 
         that.content = question.content;
         that.selectedOption = ko.observable();
+        that.isDirty = ko.computed(function () {
+            return !!that.selectedOption();
+        });
         that.selectOption = function (option) {
             if (that.isAnswered()) {
                 return;

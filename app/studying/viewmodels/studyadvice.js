@@ -39,12 +39,10 @@
                         })
                         .value(),
                     isExpanded: ko.observable(false),
-                    expand: function () {
-                        this.isExpanded(true);
+                    toggleExpand: function(){
+                        this.isExpanded(!this.isExpanded());
                     },
-                    collapse: function () {
-                        this.isExpanded(false);
-                    }
+                   
                 };
 
                 if (objectiveViewModel.recommended.length) {

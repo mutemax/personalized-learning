@@ -3,52 +3,80 @@
     color: #000;
 }
 
-    .summary .button.close-course {
-        position: absolute;
-        right: 0;
-        bottom: 10px;
+.summary-title {
+    padding-bottom: 20px;
+    font-size: 20px;
+    border-bottom: 2px solid #9ad3d6;
+    color: #61b0b4;
+    font-family: 'latoSemiBold','OpenSans';
+}
+
+.summary .progress-text-wrapper {
+    color: #9ad3d6;
+    display: table-row;
+    font-size: 18px;
+    line-height: 2;
+}
+
+.view-header .progress-text-wrapper {
+    color: white;
+    font-size: 28px;
+}
+
+.summary .content {
+    border-bottom-color: #9ad3d6;
+}
+
+.summary .button.close-course {
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+}
+
+.summary .course-progress {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -175px;
+    width: 350px;
+}
+
+
+    .summary .course-progress .progress-bar-value {
+        background-color: #47cb91;
     }
 
-    .summary .course-progress {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        margin-left: -175px;
-        width: 350px;
+.summary .objective {
+    display: table;
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+    .summary .objective:first-child {
+        margin-top: 25px;
     }
 
-
-        .summary .course-progress .progress-bar-value {
-            background-color: #00adee;
-        }
-
-    .summary .objective {
-        display: table;
-        margin-bottom: 60px;
-        width: 100%;
+    .summary .objective:last-child {
+        margin-bottom: 0;
     }
 
-        .summary .objective:first-child {
-            margin-top: 25px;
-        }
-
-        .summary .objective:last-child {
-            margin-bottom: 0;
-        }
-
-        .summary .objective > div {
-            display: table-cell;
-            vertical-align: middle;
-        }
-
+    .summary .objective > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: justify;
+    }
 
 .summary .objective-title {
-    color: #3c3c3c;
+    font-size: 18px;
+    width: 59%;
+    font-family: "latoRegular",'OpenSans';
+    color: #3e3d40;
+    line-height: 36px;
 }
 
 .summary .objective-progress {
     padding-left: 20px;
-    width: 370px;
+    width: 32%;
     color: #3c3c3c;
     text-align: center;
     font-size: 14px;
@@ -71,6 +99,11 @@
     opacity: 0.5;
 }
 
+.empty-div {
+    display: table-cell;
+    width: 7%;
+}
+
 
 @media (max-width: 640px) {
     .summary .objective {
@@ -79,6 +112,8 @@
 
         .summary .objective > div {
             display: block;
+            text-align: center;
+            margin: auto;
         }
 
     .summary .objective-progress {
@@ -87,10 +122,15 @@
         width: 350px;
     }
 }
+@media screen and (max-width:320px) {
+    .summary .objective-progress {
+        width: 280px;
+    }
 
-@media (max-width: 1024px) {
     .summary .course-progress {
-        left: 0;
-        margin-left: 0;       
+        left: 35px;
+        top: 0;
+        margin-left: 0;
+        width: 250px;
     }
 }

@@ -2,21 +2,16 @@
 }
 
     .xApi-login .form-caption {
-        color: #3c3c3c;
-        text-transform: uppercase;
-        font-family: 'OpenSans-Semibold';
-    }
-
-    .xApi-login .form-description {
-        margin: 25px 0;
-        color: #777777;
-        font-size: 14px;
+        color: #555555;
+        text-align:center;
+        font-size:30px;
+        margin-bottom:40px;
     }
 
     .xApi-login .form-row {
         min-height: 125px;
-        max-width: 460px;
-        text-align: left;
+        max-width: 380px;
+        margin:auto;
     }
 
         .xApi-login .form-row.form-submit {
@@ -27,58 +22,38 @@
             color: #da0202;
         }
 
-    .xApi-login .form-label {
-        display: inline-block;
-        margin-bottom: 10px;
-        color: #999999;
-        text-transform: uppercase;
-        font-size: 14px;
-        font-family: 'OpenSans-Semibold';
-        max-width: 100%;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
-
     .xApi-login .form-control {
         display: block;
         padding: 20px 10px;
-        border: 1px solid #dadddf;
-        border-radius: 2px;
+        border: 0;
+        border-bottom:1px solid #c8d1d7;
         background-image: none;
         color: #3c3c3c;
-        font-size: 14px;
+        font-size: 22px;
         width: 100%;
+        font-family:'robotoCondensed-regular'
     }
 
         .xApi-login .form-control:hover {
-            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px rgba(0, 0, 0, 0.2);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px rgba(0, 0, 0, 0.2);
-            /*-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;
-transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
+            border-color: #49b8e7;
         }
 
 
         .xApi-login .form-control:focus {
-            outline: none;
-            border-color: rgba(0, 155, 213, 1);
-            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px rgba(0, 155, 213, 1);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px rgba(0, 155, 213, 1);
-            /*-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;
-transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
+            border-color: #49b8e7;
         }
 
         .xApi-login .form-control::-moz-placeholder {
-            color: #999;
+            color: #c8d1d7;
             opacity: 1;
         }
 
         .xApi-login .form-control:-ms-input-placeholder {
-            color: #999;
+            color: #c8d1d7;
         }
 
         .xApi-login .form-control::-webkit-input-placeholder {
-            color: #999;
+            color: #c8d1d7;
         }
 
 
@@ -96,18 +71,29 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
         font-size: 12px;
     }
 
+    .xApi-login .form-control-wrapper {
+        max-width:380px;
+        margin:auto;
+    }
 
     .xApi-login .form-submit button[type='submit'] {
-        margin-right: 30px;
+        margin:auto;
         padding-right: 30px;
-        max-width: 325px;
+        display:block;
+        margin-bottom:20px;
+        width:100%;
     }
+.xApi-login .do-not-report-button {
+    display:block;
+    margin:auto;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
 
 
     .xapi-start-text-wrapper {
         display: inline-block;
         max-width: 100%;
-        vertical-align: middle;
     }
 
         .xapi-start-text-wrapper:after {
@@ -200,12 +186,15 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
         }
 
 .xapi-start-agreement {
-    color: #777777;
+    color: #8c8c8e;
     font-size: 12px;
-    font-family: 'OpenSans', Arial, sans-serif;
+    font-family: 'robotoSlab-light', Arial, sans-serif;
     line-height: 20px;
     padding-top: 5px;
     text-align: center;
+    max-width:460px;
+    margin:auto;
+    border-top:1px solid #edf1f1;
 }
 
 @media (max-width: 800px) {

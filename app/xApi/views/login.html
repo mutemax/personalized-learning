@@ -6,23 +6,16 @@
             <div class="form-caption" data-translate-text="[tracking and tracing header]">
                 Your credentials for progress tracking
             </div>
-            <hr />
-            <div class="form-description" data-translate-text="[tracking and tracing hint]">
-                Please enter your credentials and click "Start and report my progress" to enable progress tracking. Otherwise, click "Do not report, just start".
-            </div>
-
+            
             <div class="form-row" data-bind="css: { error: !username.isValid() && showError() }">
-                <label class="form-label" data-translate-text="[tracking and tracing name field]">Your name</label>
                 <div class="form-control-wrapper">
-                    <input class="form-control" type="text" data-bind="value: username, valueUpdate: 'afterkeydown'" />
+                    <input class="form-control" data-translate-placeholder="[tracking and tracing name field]" placeholder="Your name" type="text" data-bind="value: username, valueUpdate: 'afterkeydown'" />
                     <span class="form-control-message" data-bind="visible: !username.isValid() && showError()" data-translate-text="[tracking and tracing name is not valid]">Fill in your name</span>
                 </div>
             </div>
-
             <div class="form-row" data-bind="css: { error: !email.isValid() && showError() }">
-                <label class="form-label" data-translate-text="[tracking and tracing email field]">Your e-mail</label>
                 <div class="form-control-wrapper">
-                    <input class="form-control" type="email" data-bind="value: email, valueUpdate: 'afterkeydown'" />
+                    <input class="form-control" data-translate-placeolder="tracking and tracing email field" placeholder="E-mail" type="email" data-bind="value: email, valueUpdate: 'afterkeydown'" />
                     <span class="form-control-message" data-bind="visible: !email.isValid() && showError()" data-translate-text="[tracking and tracing email is not valid]">Enter a valid e-mail</span>
                 </div>
             </div>
@@ -34,12 +27,13 @@
                             <span class="xapi-start-text" data-translate-text="[tracking and tracing start]">Start and report my progress</span>
                         </div>
                     </button>
-                    <button type="button" class="button unstyled" data-bind="click: justStart"><span class="button-text" data-translate-text="[tracking and tracing skip reporting]">Do not report, just start</span></button>
+                    <button type="button" class="button do-not-report-button unstyled" data-bind="click: justStart"><span class="button-text" data-translate-text="[tracking and tracing skip reporting]">Do not report, just start</span></button>
                 </div>
             </div>
+            <div class="xapi-start-agreement">
+                * By clicking the button "<span data-translate-text="[tracking and tracing start]">Start and report my progress</span>" you agree to the fact that your results and scores will be stored. These results will only be visible to the organizer (author) of your course.
+            </div>
         </div>
-        <div class="xapi-start-agreement">
-            * By clicking the button "<span data-translate-text="[tracking and tracing start]">Start and report my progress</span>" you agree to the fact that your results and scores will be stored. These results will only be visible to the organizer (author) of your course.
-        </div>
+       
     </form>
 </section>
