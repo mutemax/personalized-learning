@@ -614,6 +614,13 @@ hr {
     z-index: 1000;
 }
 
+/*#region hotspot on an image*/
+.tl-wrapper{
+    font: 16px 'OpenSans';
+    color: #fff;
+}
+/*#endregion hotspot on an image*/
+
 @media (max-width: 750px) {
     .button {
         max-width: 235px;
