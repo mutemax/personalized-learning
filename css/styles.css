@@ -42,6 +42,14 @@
     font-family: 'robotoSlab-regular';
     src: url('./font/robotoslab-regular.woff') format('woff'), url('./font/robotoslab-regular.ttf') format('truetype'), url('./font/robotoslab-regular.svg#robotoSlab-regular.') format('svg');
 }
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'twcenmt';
+    src: url('./font/twcenmt-condensed.woff') format('woff'), url('./font/twcenmt-condensed.ttf') format('truetype'), url('./font/twcenmt-condensed#rtwcenmt-condensed.') format('svg');
+}
+
+
 
 
 html, body, div, span, applet, object, iframe,
@@ -905,25 +913,15 @@ hr {
         margin-top: -30px;
     }
 
-    .radio.image .radio-icon {
-        background: url(../images/newSprite.png) -1px -340px no-repeat;
-    }
-
-
     .radio.image .radio-image-wrapper {
         border: 3px solid #ebebeb;
         -ms-border-radius: 3px;
         border-radius: 6px;
     }
 
-    .radio.image.checked .radio-image-wrapper {
-        border-color: #9ad3d6;
-        box-shadow: 0 0 15px 5px rgba(154,211,214,.75);
-    }
-
-    .radio.image .radio-image-wrapper:hover {
-        border-color: #9ad3d6;
-        box-shadow: 0 0 15px 5px rgba(154,211,214,.75);
+    .radio.image .radio-image-wrapper:hover, .radio.image.checked .radio-image-wrapper {
+        border-color: #88d8b5;
+        box-shadow:  0 0 15px 5px rgba(136,216,181,.75)
     }
 
 

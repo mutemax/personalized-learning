@@ -321,7 +321,7 @@
     border-bottom-left-radius: 6px;
     margin-right: 30px;
     position: relative;
-    font-family: 'latoLight','OpenSans';
+    font-family: 'robotoSlab-regular','OpenSans';
     font-size: 18px;
     letter-spacing: 0.2px;
     line-height: 29px;
@@ -503,10 +503,10 @@
     -o-min-width: 200px;
     -webkit-min-width: 200px;
     min-width: 200px;
-    border: 1px solid #e0e8ec;
-    border-bottom-width: 3px;
-    -ms-border-radius: 3px;
-    border-radius: 3px;
+    border: 0px solid #e0e8ec;
+    border-bottom-width: 2px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
     display: inline-block;
     background-color: #f4f6f7;
     padding: 6px 10px;
