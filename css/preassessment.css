@@ -33,10 +33,10 @@
     width: 240px;
     background-color: transparent;
     position: absolute;
-    top: 75px;
     right: 0;
-    text-align: center;
     color:#f4f4f4;
+    bottom:10px;
+    text-align:left;
 }
 
     .canvas-wrapper div {
@@ -53,7 +53,6 @@
 }
 
 .canvas-wrapper .progress {
-    margin-top: 32px;
     font-size: 14px;
 }
 
@@ -85,7 +84,6 @@
 
     .alternative-header .canvas-wrapper {
         right: 25px;
-        top: 12px;
         background-image: url(../images/header-bg.jpg);
         border-radius: 50%;
     }

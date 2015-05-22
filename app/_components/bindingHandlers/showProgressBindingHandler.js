@@ -9,7 +9,7 @@
 
                 $element
                   .addClass('progress')
-                  .append($('<div>').addClass('progress-bar-wrapper').append($('<div>').addClass('progress-bar').append($('<div>').addClass('progress-bar-value'))))
+                  .append($('<div>').append($('<div>').addClass('progress-bar').append($('<div>').addClass('progress-bar-value'))))
                   .append($('<div>').addClass('progress-text-wrapper'));
                 var $container = $('.alternative-header');
                 var $headerHeight = $('.title-background').height();

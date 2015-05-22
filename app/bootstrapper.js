@@ -83,10 +83,11 @@
         require('_components/bindingHandlers/heightAnimationBindingHandler').install();
         require('_components/bindingHandlers/showProgressBindingHandler').install();
 
+
         require('viewmodels/bindingHandlers/DragAndDrop').install();
         require('viewmodels/bindingHandlers/Hotspot').install();
         require('viewmodels/bindingHandlers/FillInTheBlanks').install();
         require('viewmodels/bindingHandlers/TextMatching').install();
     }
 
-});
+}); 

@@ -16,13 +16,15 @@
         <!-- ko foreach: statements -->
         <li class="statement-item">
             <span class="statement-option radio-icon-wrapper">
-                <span class="radio-icon" data-bind="click: markAsTrue, css: { checked: state() === true }"></span>
+                <span class="radio-icon-wrapper">
+                    <span class="radio radio-icon" data-bind="click: markAsTrue, css: { checked: state() === true }"></span>
+                </span>
             </span>
             <span class="statement-option radio-icon-wrapper">
-                <span class="radio-icon" data-bind="click: markAsFalse, css: { checked: state() === false }"></span>
+                <span class="radio radio-icon" data-bind="click: markAsFalse, css: { checked: state() === false }"></span>
             </span>
             <div class="statement-label"><span data-bind="text: text"></span></div>
-          
+
         </li>
         <!-- /ko -->
 
