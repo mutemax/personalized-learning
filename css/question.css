@@ -1,4 +1,4 @@
-﻿.question.disabled .loader-wrapper {
+.question.disabled .loader-wrapper {
     z-index: 500;
     background-color: white;
     opacity: 0.5;
@@ -749,6 +749,10 @@
         position: absolute;
         width: 50px;
     }
+
+.learning-content-container.content{
+    overflow: visible;
+}
 
 @-moz-keyframes pulsate {
     0% {

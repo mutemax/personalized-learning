@@ -17,9 +17,12 @@ define(['durandal/composition'], function (composition) {
                     case 'hotspot': 
                         var hotspotOnImage = new HotspotOnImage($(html)[0]);
                         $element.html(hotspotOnImage.element);
+                        $element.css('overflow-x', 'visible');
                         break;
                     default:
+                        $element.css('overflow-x', 'auto');
                         $element.html(html);
+                        break;
                 }
             }
         };
