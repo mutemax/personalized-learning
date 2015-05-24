@@ -11,43 +11,42 @@
                 $canvas.appendTo($element)
             },
             update: function (element, valueAccessor) {
-                var value = ko.unwrap(valueAccessor()) || 0;
-                var $canvas= $(element).children('canvas')[0];
-                var ctx = $canvas.getContext('2d');
+                var value = ko.unwrap(valueAccessor()) || 0,
+                $element = $(element),
+                $canvas = $(element).children('canvas')[0],
+                ctx = $canvas.getContext('2d'),
+                progressBarcolor,
+                percentage = (value / 100) * 2 - 0.5;
 
-                var percentage = value /50 - 0.5;
+                if (value < 36) {
+                    progressBarcolor = "#f16162";
+                    $element.addClass('fail');
+                }
+                if (35 < value) {
+                    progressBarcolor = "#eda646"
+                }
+                if (value === 100) {
+                    progressBarcolor = "#3e9c96";
+                    $element.addClass('success');
+                }
 
-
-                console.log(value)
-
-                ctx.lineWidth = 3;
-                ctx.strokeStyle = '#878a8b';
+                ctx.lineWidth = 4;
+                ctx.strokeStyle = '#f0f0f0';
 
                 ctx.beginPath();
                 ctx.arc(50, 50, 43, -0.5 * Math.PI, 1.5 * Math.PI);
                 ctx.stroke();
-                ctx.strokeStyle = '#7dc9cd';
+
+                ctx.shadowColor = 'grey';
+                ctx.shadowBlur = 1;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 1;
+                ctx.stroke()
+
+                ctx.strokeStyle = progressBarcolor;
                 ctx.beginPath();
                 ctx.arc(50, 50, 43, -0.5 * Math.PI, percentage * Math.PI);
                 ctx.stroke();
-
-
-                //ctx.strokeStyle = '#7dc9cd';
-                //ctx.beginPath();
-                //ctx.arc(50, 50, 43, -0.5 * Math.PI, percentage * Math.PI);
-                //ctx.stroke();
-
-                //$canvas.width = 100;
-                //var ctx = $canvas.getContext('2d');
-                //ctx.lineWidth = 3;
-                //ctx.strokeStyle = '#878a8b';
-                //ctx.beginPath();
-                //ctx.arc(50, 50, 43, -0.5 * Math.PI, 1.5 * Math.PI);
-                //ctx.stroke();
-                //ctx.strokeStyle = '#7dc9cd';
-                //ctx.beginPath();
-                //ctx.arc(50, 50, 43, -0.5 * Math.PI, percentage * Math.PI);
-                //ctx.stroke();
             }
         }
     }

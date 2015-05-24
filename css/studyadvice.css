@@ -32,27 +32,21 @@
     padding: 20px 0 20px 0;
     color: #3e3d40;
     font-size: 20px;
-    font-family: 'latoRegular','OpenSans';
+    font-family: 'robotoSlab-regular','OpenSans';
     line-height: 36px;
     word-break: break-word;
 }
 
 .learning-objective {
     margin-top: 30px;
-    font-family: 'latoLightItalic', 'OpenSans';
+    font-family: 'roboto-regular', 'OpenSans';
     font-size: 18px;
+    font-weight:200;
     color: #9e9e9e;
     display: table-cell;
     width: 165px;
     word-break:break-word;
 }
-
-
-.objective-to-learn .progress-text-wrapper {
-    font-family: 'latoLight','OpenSans';
-    font-size: 18px;
-}
-
 
 .studyadvice .objective-progress {
     width: 350px;
@@ -146,7 +140,7 @@
 
 .reading-title {
     color: #ef4535;
-    font-family: 'latoSemiBold','OpenSans';
+    font-family: 'roboto-regular','OpenSans';
     font-size: 20px;
 }
 
@@ -170,7 +164,7 @@
     color: #3c3c3c;
     vertical-align: middle;
     word-wrap: break-word;
-    font-family: 'latoRegular','OpenSans';
+    font-family: 'robotoSlab-regular','OpenSans';
     font-size: 18px;
     line-height: 2;
     padding-right: 30px;

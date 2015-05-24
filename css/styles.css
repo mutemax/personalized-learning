@@ -263,7 +263,7 @@ hr {
 
 .styled-content h1 {
     font-size: 26px;
-    font-family: 'latoSemiBold','OpenSans';
+    font-family: 'roboto-regular','OpenSans';
     text-align: justify;
     margin: 35px 0 20px;
     line-height: 40px;
@@ -271,7 +271,7 @@ hr {
 
 .styled-content h2 {
     font-size: 24px;
-    font-family: 'latoSemiBold','OpenSans';
+    font-family: 'roboto-regular','OpenSans';
     text-align: justify;
     margin: 35px 0 20px;
     text-transform: none;
@@ -280,7 +280,7 @@ hr {
 
 .styled-content h3 {
     font-size: 20px;
-    font-family: 'latoSemiBold','OpenSans';
+    font-family: 'roboto-regular','OpenSans';
     text-align: justify;
     margin: 35px 0 20px;
     text-transform: none;
@@ -426,7 +426,7 @@ hr {
     }
 
     .styled-content .table-wrapper table tbody th {
-        font-family: 'latoSemiBold','OpenSans';
+        font-family: 'roboto-regular','OpenSans';
         color: #9ad3d6;
     }
 
@@ -502,7 +502,7 @@ hr {
     border-radius: 50%;
     padding: 4px;
     color: #ef4535;
-    font-family: 'latoRegular','OpenSans';
+    font-family: 'roboto-regular','OpenSans';
     position: relative;
     text-align: center;
 }
@@ -533,7 +533,7 @@ hr {
 .title-background {
     background-image: url(../images/header-bg.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: initial;
     background-position: 0 -175px;
     width: 100%;
     display: table;
@@ -594,13 +594,10 @@ hr {
     line-height: 1;
 }
 
-.progress-bar-wrapper {
-}
-
 .progress-bar {
     overflow: hidden;
     -ms-border-radius: 2px;
-    border-radius: 2px;
+    border-radius:5px;
     background-color: #dadada;
 }
 
@@ -623,10 +620,12 @@ hr {
     }
 
 .progress-text-wrapper {
-    display: table-cell;
-    width: 50px;
     text-align: center;
-    font-family: 'latoRegular','OpenSans';
+    font-family: 'robotoSlab-light','OpenSans';
+    line-height:2;
+    width:50px;
+    color:#9e9e9e;
+    font-size:18px;
 }
 
 .button {
@@ -643,8 +642,8 @@ hr {
     font-family: 'OpenSans', Arial, sans-serif;
     text-decoration: none;
     white-space: nowrap;
-    font-family: 'latoRegular','OpenSans';
-    font-size: 16px;
+    font-family: 'roboto-regular','OpenSans';
+    font-size: 18px;
 }
 
 .button-text {
@@ -697,11 +696,12 @@ hr {
 .button.success {
     background-color: #50b2ac;
     color: #fff;
-    height: 60px;
+    height: 56px;
     padding: 10px;
-    min-width: 260px;
+    min-width: 340px;
     border-radius: 5px;
     overflow: hidden;
+    border:2px solid #43aaa3;
 }
 
     .button.success:hover {
@@ -960,7 +960,7 @@ hr {
 .statement-header {
     display: table-cell;
     font-size: 18px;
-    font-family: 'latoLightItalic','OpenSans';
+    font-family: 'robotoSlab-light','OpenSans';
     font-size: 20px;
     height: 50px;
     vertical-align: middle;
@@ -1031,7 +1031,7 @@ hr {
         color: #ffffff;
         text-transform: capitalize;
         font-size: 25px;
-        font-family: 'latoSemiBold','OpenSans';
+        font-family: 'roboto-regular','OpenSans';
         letter-spacing: 0.3px;
         overflow: hidden;
         text-overflow: ellipsis;

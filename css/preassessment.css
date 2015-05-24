@@ -29,7 +29,7 @@
     padding: 0 20px;
 }
 
-.canvas-wrapper {
+.header-progressbar-wrapper {
     width: 240px;
     background-color: transparent;
     position: absolute;
@@ -37,30 +37,23 @@
     color:#f4f4f4;
     bottom:10px;
     text-align:left;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
-    .canvas-wrapper div {
-        color: white;
-        font-size: 12px;
-    }
-
-.answered {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 82px;
-    text-align: center;
-}
-
-.canvas-wrapper .progress {
+.header-progressbar-wrapper .progress-text {
     font-size: 14px;
 }
 
-.canvas-wrapper canvas {
+.header-progressbar-wrapper canvas {
     position: absolute;
     right: 0;
     top: 0;
 }
+
+    .header-progressbar-wrapper .progress-bar {
+        border-radius:2px;
+    }
 
 .alternative-header {
     height: 0;
@@ -82,17 +75,15 @@
     transform: translateY(-120px);
 }
 
-    .alternative-header .canvas-wrapper {
+    .alternative-header .header-progressbar-wrapper {
         right: 25px;
-        background-image: url(../images/header-bg.jpg);
-        border-radius: 50%;
     }
 
     .alternative-header h2 {
         color: #ffffff;
         text-transform: inherit;
         font-size: 25px;
-        font-family: 'latoSemiBold','OpenSans';
+        font-family: 'roboto-regular','OpenSans';
         letter-spacing: 0.3px;
         text-align: left;
         margin-top: 40px;

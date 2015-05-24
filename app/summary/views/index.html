@@ -17,7 +17,10 @@
                     </div>
                     <div class="empty-div "></div>
                     <div class="objective-progress">
-                        <div data-bind="circleProgress: score"></div>
+                        <div class="circle-canvas-wrapper" data-bind="circleProgress: score">
+                            <div data-bind="text:score+'%'"></div>
+                        </div>
+                        
                     </div>
                 </li>
             </ul>

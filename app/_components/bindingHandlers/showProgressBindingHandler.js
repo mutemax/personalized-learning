@@ -6,23 +6,15 @@
         ko.bindingHandlers.showProgress = {
             init: function (element) {
                 var $element = $(element);
-
                 $element
                   .addClass('progress')
                   .append($('<div>').append($('<div>').addClass('progress-bar').append($('<div>').addClass('progress-bar-value'))))
-                  .append($('<div>').addClass('progress-text-wrapper'));
                 var $container = $('.alternative-header');
                 var $headerHeight = $('.title-background').height();
                 var position = -document.documentElement.clientWidth + 125 + 'px -308px ';
                 $element.css({
                     'background-position': position
                 })
-                function resize() {
-                    position = -document.documentElement.clientWidth + 125 + 'px -308px ';
-                    $element.css({
-                        'background-position': position
-                    })
-                };
                 function scroll() {
                     var scrolled = window.pageYOffset || document.documentElement.scrollTop;
                     if (scrolled > $headerHeight) {
@@ -32,11 +24,9 @@
                         $container.removeClass('show')
                     }
                 };
-                $(window).on('resize', resize);
                 $(window).on('scroll', scroll);
                 ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
                     $(window).off('scroll', scroll);
-                    $(window).off('resize', resize);
                 });
             },
             update: function (element, valueAccessor) {
@@ -47,27 +37,6 @@
                 var percentage = progress / amountOfQuestions*100;
                 
                 $(element).find('.progress-bar-value').css('width', percentage + '%');
-                
-
-                //var value = valueAccessor();
-                //var progress = value.progress();
-                //var questions = value.questions()
-                //var amountOfQuestions = questions.length;
-                //var percentage = progress / amountOfQuestions * 2 - 0.5;
-                //var $element = $(element);
-                //var $canvas = ($element.children('canvas'))[0];
-
-                //$canvas.width = 100;
-                //var ctx = $canvas.getContext('2d');
-                //ctx.lineWidth = 3;
-                //ctx.strokeStyle = '#878a8b';
-                //ctx.beginPath();
-                //ctx.arc(50, 50, 43, -0.5 * Math.PI, 1.5 * Math.PI);
-                //ctx.stroke();
-                //ctx.strokeStyle = '#7dc9cd';
-                //ctx.beginPath();
-                //ctx.arc(50, 50, 43, -0.5 * Math.PI, percentage * Math.PI);
-                //ctx.stroke();
             }
         }
     }

@@ -6,16 +6,9 @@
 .summary-title {
     padding-bottom: 20px;
     font-size: 20px;
-    border-bottom: 2px solid #9ad3d6;
+    border-bottom: 3px solid #9ad3d6;
     color: #61b0b4;
-    font-family: 'latoSemiBold','OpenSans';
-}
-
-.summary .progress-text-wrapper {
-    color: #9ad3d6;
-    display: table-row;
-    font-size: 18px;
-    line-height: 2;
+    font-family: 'roboto-regular','OpenSans';
 }
 
 .view-header .progress-text-wrapper {
@@ -41,11 +34,6 @@
     width: 350px;
 }
 
-
-    .summary .course-progress .progress-bar-value {
-        background-color: #47cb91;
-    }
-
 .summary .objective {
     display: table;
     margin-bottom: 60px;
@@ -68,15 +56,14 @@
 
 .summary .objective-title {
     font-size: 18px;
-    width: 59%;
-    font-family: "latoRegular",'OpenSans';
+    font-family: "robotoSlab-regular",'OpenSans';
     color: #3e3d40;
     line-height: 36px;
 }
 
 .summary .objective-progress {
     padding-left: 20px;
-    width: 32%;
+    width: 100px;
     color: #3c3c3c;
     text-align: center;
     font-size: 14px;
@@ -103,6 +90,29 @@
     display: table-cell;
     width: 7%;
 }
+
+.circle-canvas-wrapper {
+    width:100px;
+    position:relative;
+    height:100px;
+}
+    .circle-canvas-wrapper div {
+        position:absolute;
+        top:50%;
+        width:100%;
+        font-size:25px;
+        margin-top:-12px;
+        text-align:center;
+        font-family:'twcenmt';
+        color:#eda646;
+    }
+    .circle-canvas-wrapper.fail div {
+        color:#f16162;
+    }
+    .circle-canvas-wrapper.success div {
+        color:#3e9c96;
+    }
+
 
 
 @media (max-width: 640px) {
