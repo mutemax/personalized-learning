@@ -11,10 +11,6 @@
                   .append($('<div>').append($('<div>').addClass('progress-bar').append($('<div>').addClass('progress-bar-value'))))
                 var $container = $('.alternative-header');
                 var $headerHeight = $('.title-background').height();
-                var position = -document.documentElement.clientWidth + 125 + 'px -308px ';
-                $element.css({
-                    'background-position': position
-                })
                 function scroll() {
                     var scrolled = window.pageYOffset || document.documentElement.scrollTop;
                     if (scrolled > $headerHeight) {

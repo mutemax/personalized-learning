@@ -1,0 +1,180 @@
+﻿.checkbox, .radio {
+    background-color: rgba(200,209,215,.2);
+    border: 1px solid rgba(200,209,215,.2);
+    border-radius: 5px;
+    margin: 10px -10px 0 -10px;
+    padding: 10px;
+    display: block;
+    -ms-border-radius: 5px;
+}
+
+    .checkbox:hover, .radio:hover {
+        border-color: #cce9dc;
+        background: #f9f9f9;
+        box-shadow: 0 0 50px 30px #e7f7f0 inset;
+        cursor: pointer;
+    }
+
+        .radio:hover .radio-icon, .checkbox:hover .checkbox-icon {
+            box-shadow: 0 0 1px 1px rgba(136,216,181,.75)inset;
+        }
+
+.checkbox-icon-wrapper, .checkbox-text, .radio-icon-wrapper, .radio-text {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.checkbox-icon-wrapper, .radio-icon-wrapper {
+    width: 40px;
+}
+
+.checkbox-icon, .radio-icon {
+    display: table-cell;
+    width: 40px;
+    height: 40px;
+}
+
+.checkbox-icon {
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+.radio-icon {
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.checkbox.checked, .radio.checked {
+    background-color: #e7f7f0;
+}
+
+    .checkbox.checked .checkbox-icon {
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjNBMDAxQzgwMjE5MTFFNTgxOThEMzA3RjEwOEZERkEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjNBMDAxQzkwMjE5MTFFNTgxOThEMzA3RjEwOEZERkEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2M0EwMDFDNjAyMTkxMUU1ODE5OEQzMDdGMTA4RkRGQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2M0EwMDFDNzAyMTkxMUU1ODE5OEQzMDdGMTA4RkRGQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PoqRvogAAAEsUExURYfWtIfXtJDbuobVs/7//4TSsIbVsvz+/f3+/rvp1YLPrXrCo3e9nnnAobzp1YHNrL/q137IqILOrIPQr3e7nbPizY/Yt4HMq/n7+oTRr4XUsXvEpPb6+Nzw56XNvL3l07vl05fZvN7s5pTEsKvQwOTz7drx5/X59/j8+qrexujy7sjg1pLYun3GppHLsXi6ncTo2IDLquz38o3Xt5jHs4XTsdLl3XW6nIvXtsXe07vZzI7Yt4nIrN7x6PT6+N7x6cXo2X27oKziyq/Sw87r3p/bwPv9/H/KqYfVtOLz7KXfxajPvqHKuHe+n3a6nHa8nsbe1J3JtpDDrXrBorbVyLXWx3i/oHm/oIzXt4nWtNvy6IPQro7Cq8Dbz9fv5XvDo+Pz7PH59f///4jYtf9UinMAAAEeSURBVHja7NVXUwIxEADgzYU7jiaiFAEVG/aCigIWFMGOvXfZ+///wQ0zMgd6lwzP7EMyk3yTh81mA16fZklD83mhz1KKftDUoAaWYvRg95CdTRdVIDucxdNtOWTjZUTcM2SQLTbIzSzrMhhfIzf8vpSSwPUsuaHbtM7c4cuucJNfv84JnnySO8oHksw9PbxGzryxuXb4/HrQ3IGccPW7Qfb/zcS/0YzRAmTIeUZDdmeHxojYHwOIeWieenoDh7vWd+ZJ4v6cSWP10Q9ORWFEKhNC0nn4cNHh7JClIiub2Iyt4AC4lZlxfHkt3MfVH9eRR75auEcsRcMgK1weDp4vRBMgr3DwB0IJrvIUYEPnvU7RgsqtWbnZq34fPwIMANsWPJpWQHAAAAAAAElFTkSuQmCC')  no-repeat 50% 50%;
+    }
+
+
+    .radio.checked .radio-icon,.radio-icon.checked {
+        background-color: #88d8b5;
+        position: relative;
+    }
+
+       .radio-icon.checked:before ,.radio.checked .radio-icon:before {
+            width: 20px;
+            height: 20px;
+            content: '';
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+            -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+            -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+        }
+
+.checkbox-text, .radio-text {
+    padding-left: 10px;
+    white-space: pre-wrap;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'robotoSlab-regular','OpenSans';
+    font-size: 18px;
+    color: #3a4046;
+    vertical-align: middle;
+    cursor: pointer;
+    word-break: break-all;
+}
+
+.disabled .checkbox:hover, .disabled.checkbox:hover, .disabled .radio:hover, .disabled.radio:hover {
+    background-color: #fff;
+}
+
+.disabled .checkbox.checked:hover, .disabled.checkbox.checked:hover, .disabled .radio.checked:hover, .disabled.radio.checked:hover {
+    background-color: #f1f1f1;
+}
+
+.radio.image {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    margin: 10px 15px;
+}
+
+    .radio.image:hover {
+        background: transparent;
+    }
+
+    .radio.image.checked {
+        background: transparent;
+        position: relative;
+    }
+
+        .radio.image.checked:before {
+            position: absolute;
+            content: '';
+            left: 3px;
+            top: 3px;
+            z-index: 100;
+            border-style: solid;
+            border-width: 65px 65px 0 0;
+            border-color: transparent;
+            border-top-color: rgba(33,33,33,.5);
+            z-index: 100;
+        }
+
+        .radio.image.checked:after {
+            z-index: 100;
+            display: block;
+            position: absolute;
+            top: 18px;
+            left: 9px;
+            width: 24px;
+            height: 20px;
+            content: '';
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY1QzQ3MkUwN0FGNTExRTQ5QTlFQzlEMzg4MjYwMzg3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjY1QzQ3MkUxN0FGNTExRTQ5QTlFQzlEMzg4MjYwMzg3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NjVDNDcyREU3QUY1MTFFNDlBOUVDOUQzODgyNjAzODciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NjVDNDcyREY3QUY1MTFFNDlBOUVDOUQzODgyNjAzODciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4A++JzAAACJElEQVR42qyTv2taURTHfUZj0sYUUZqkqSGELukasKP+ARmyOHUo2bKEQOmQIYPtFqhDO+kU8wMUAqaTISAZBIuCWkQLGsQiNQ9dVFBE1Kf9XrnK5faJv3LgO3jPuZ/vO+dcFd1uVzGLmBAqlYq53W5fhEIh7eD0iQwEURTfdTqdB5yJzWbTF4vF9E9lIGSz2W1Jkn4TeF8w8SKnmhmeSqU2AP/FwlutVtrj8ZiRn5/JAGNYwcx/cvCMw+HYA5yMSD01PBwO6zCGOxaOTv64XC4rwC97X48Op4I7nc7FRqNxw8Pdbvd7QFcG8GmWbLPZ1IBfsnC8npzX692ncM0APqmBxWJR1ev17xw87/P5DmThrEEkElnGwq4A2CVFMi9GWavVbDzc7/cfIrcKLfwH7xvE43EDFnZLL/7FP/IDAbLwarX6kYVDj4FA4BNya0PhNFSY6TV/GcAjAiYqlUr75IzN4xWdIPcKWqR1Q2PebrfvYDRhzkTESL4UCoU90hV7Ho1GP+PeOvRsFLzXAaSzWq075XL5njfhvlxMJBKnqH89LlxBZ6cmJiaT6W2xWPwhY9JTOp3+hjoj9Ly/o5HBLJJ08kKv17/J5XIuHp7JZBzIb7DwiQxo8Ry0DG0mk8mvfTgMzzQazSbOl1j4xAaMCQEZg8HgcT6fPzcYDFv4reXh4xgIckWCICjp29bSRdagOmolmdqRCx4WStoNqZGoJo5/AgwAmDqrar7sbBwAAAAASUVORK5CYII=);
+        }
+
+    .radio.image .radio-icon-wrapper {
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin-top: 2px;
+        margin-left: 105px;
+        display: none;
+    }
+
+    .radio.image .radio-icon {
+        margin: auto;
+        position: absolute;
+        margin-top: -30px;
+    }
+
+    .radio.image .radio-image-wrapper {
+        border: 3px solid #ebebeb;
+        -ms-border-radius: 3px;
+        border-radius: 6px;
+    }
+
+    .radio.image .radio-image-wrapper:hover, .radio.image.checked .radio-image-wrapper {
+        border-color: #88d8b5;
+        box-shadow:  0 0 15px 5px rgba(136,216,181,.75)
+    }
+
+
+
+.image .radio-icon {
+    height: 45px;
+    width: 45px;
+}
+
+.radio.image .preview-thumbnail {
+    display: block;
+    height: 200px;
+    width: 250px;
+    border-radius: 3px;
+}
+
+.radio.image.checked .preview-thumbnail {
+    -ms-border-radius: 0;
+    border-radius: 0;
+}
