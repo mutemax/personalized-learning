@@ -189,7 +189,7 @@ h2 {
     color: #3c3c3c;
     text-transform: uppercase;
     font-size: 16px;
-    font-family: 'OpenSans-Semibold';
+    font-family: 'robotoSlab-regular';
 }
 
 h3 {
@@ -197,14 +197,14 @@ h3 {
     text-transform: uppercase;
     font-weight: normal;
     font-size: 14px;
-    font-family: 'OpenSans-Semibold';
+    font-family: 'robotoSlab-regular';
 }
 
 h4 {
     color: #3c3c3c;
     font-weight: normal;
     font-size: 14px;
-    font-family: 'OpenSans-Semibold';
+    font-family: 'robotoSlab-regular';
 }
 
 img {
@@ -779,7 +779,7 @@ hr {
         cursor: pointer;
     }
 
-        .radio:hover .radio-icon, .checkbox:hover .checkbox-icon, .statement-item:hover .radio-icon {
+        .radio:hover .radio-icon, .checkbox:hover .checkbox-icon {
             box-shadow: 0 0 1px 1px rgba(136,216,181,.75)inset;
         }
 
@@ -817,12 +817,12 @@ hr {
     }
 
 
-    .radio.checked .radio-icon {
+    .radio.checked .radio-icon,.radio-icon.checked {
         background-color: #88d8b5;
         position: relative;
     }
 
-        .radio.checked .radio-icon:before {
+       .radio-icon.checked:before ,.radio.checked .radio-icon:before {
             width: 20px;
             height: 20px;
             content: '';
