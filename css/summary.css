@@ -3,6 +3,14 @@
     color: #000;
 }
 
+.header-progress-text {
+    font-family: 'robotoSlab-light';
+    font-weight: bold;
+    font-size: 26px;
+    color: #e2e2e2;
+    padding-top: 10px;
+}
+
 .summary-title {
     padding-bottom: 20px;
     font-size: 20px;
@@ -18,6 +26,9 @@
 
 .summary .content {
     border-bottom-color: #9ad3d6;
+    -webkit-box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
+    box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
 }
 
 .summary .button.close-course {
@@ -92,25 +103,29 @@
 }
 
 .circle-canvas-wrapper {
-    width:100px;
-    position:relative;
-    height:100px;
+    width: 100px;
+    position: relative;
+    height: 100px;
+    margin: auto;
 }
+
     .circle-canvas-wrapper div {
-        position:absolute;
-        top:50%;
-        width:100%;
-        font-size:25px;
-        margin-top:-12px;
-        text-align:center;
-        font-family:'twcenmt';
-        color:#eda646;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        font-size: 25px;
+        margin-top: -12px;
+        text-align: center;
+        font-family: 'twcenmt';
+        color: #eda646;
     }
+
     .circle-canvas-wrapper.fail div {
-        color:#f16162;
+        color: #f16162;
     }
+
     .circle-canvas-wrapper.success div {
-        color:#3e9c96;
+        color: #3e9c96;
     }
 
 
@@ -131,16 +146,8 @@
         padding-left: 0;
         width: 350px;
     }
-}
-@media screen and (max-width:320px) {
-    .summary .objective-progress {
-        width: 280px;
-    }
 
-    .summary .course-progress {
-        left: 35px;
-        top: 0;
-        margin-left: 0;
-        width: 250px;
+    .circle-canvas-wrapper {
+        margin: auto;
     }
 }

@@ -2,6 +2,7 @@
     <header class="view-header">
         <div class="course-progress" data-bind="progress: progress">
         </div>
+        <div class="header-progress-text" data-bind="text:progress+'%'"></div>
         <h2 data-translate-text="[overall progress]">Overall progress</h2>
         <button class="button finish medium close-course" data-bind="click: close, css: { 'disabled': isClosing() || isClosed() }" data-translate-text="[close course]">Close course</button>
     </header>

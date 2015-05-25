@@ -271,8 +271,7 @@ hr {
 .title-background {
     background-image: url(../images/header-bg.jpg);
     background-repeat: no-repeat;
-    background-size: initial;
-    background-position: 0 -175px;
+    background-size: cover;
     width: 100%;
     display: table;
 }
@@ -543,75 +542,4 @@ hr {
     right: 0;
     top: 0;
     z-index: 1000;
-}
-
-@media screen and (max-width:320px) {
-    body {
-        width: 320px;
-        min-width: 100px;
-    }
-
-    .title h1 {
-        font-size: 19px;
-        line-height: 28px;
-        padding: 20px 10px 200px 10px;
-    }
-
-    .container-content-wrapper {
-        width: 320px;
-    }
-
-    .styled-content {
-        padding-left: 10px;
-        padding-right: 10px;
-        font-size: 12px;
-    }
-
-    .content {
-        padding: 30px 10px;
-        font-size: 12px;
-        line-height: 24px;
-    }
-
-    .statement-option {
-        width: 50px;
-        font-size: 12px;
-    }
-
-    .styled-content .table-wrapper table {
-        font-size: 12px;
-    }
-
-        .styled-content .table-wrapper table thead {
-            font-size: 12px;
-        }
-
-        .styled-content .table-wrapper table tbody {
-            font-size: 12px;
-        }
-
-    .view-header h2 {
-        font-size: 20px;
-    }
-
-    .finish {
-        width: 150px;
-    }
-
-    .checkbox-icon, .radio-icon {
-        transform: scale(0.5);
-        -webkit-transform: scale(0.5);
-    }
-
-    .statement {
-        padding: 0px;
-    }
-
-    .button.medium {
-        padding: 10px 15px;
-    }
-
-    checkbox, .radio {
-        padding: 0;
-    }
 }

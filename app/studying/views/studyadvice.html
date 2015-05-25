@@ -23,7 +23,7 @@
                         <button class="button" data-bind="click: toggleExpand, css: { expand: !isExpanded(), collapse: isExpanded }"> </button>
                     </div>
                 </div>
-                <div class="content blue-background" data-animate="">
+                <div class="content objective-recommended-reading-wrapper" data-animate="">
                     <div class="reading-title" data-translate-text="[recommended reading]">Recommended reading</div>
                     <ul class="objective-recommended-readings" data-bind="foreach: recommended">
                         <li class="objective-recommended-reading">
@@ -31,9 +31,9 @@
                                 <span data-bind="text: title"></span>
                             </div>
                             <div class="objective-recommended-reading-start">
-                                <button class="button start" data-bind="click: $parent.startRecommendedReading" >
-                                    <span class='button-text' data-translate-text ="[start]">Start</span>
-                                
+                                <button class="button start" data-bind="click: $parent.startRecommendedReading">
+                                    <span class='button-text' data-translate-text="[start]">Start</span>
+
                                 </button>
                             </div>
                         </li>

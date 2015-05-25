@@ -108,18 +108,3 @@
         width: 100%;
     }
 }
-
-@media screen and (max-width:320px) {
-    .alternative-header h2 {
-        font-size: 20px;
-    }
-
-    .preassessment .question-title {
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-
-    .preassessment .question-content {
-        margin-bottom: 20px;
-    }
-}

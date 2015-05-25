@@ -5,18 +5,18 @@
             <span class='progress-text' data-bind="text:progress()"></span>
             <span data-translate-text="[of]">of</span>
             <span class='progress-text' data-bind="text:questions().length"></span>
-            <span class="progress-text" data-translate-text="[answered]">answered</span>
-            <div data-bind="showProgress:{progress:progress,questions:questions}"></div>
+            <span class="progress-text answered" data-translate-text="[answered]">answered</span>
+            <div data-bind="questionProgress:{progress:progress,questions:questions}"></div>
         </div>
     </header>
-    <header class="alternative-header ">
+    <header class="alternative-header " data-bind="showAlternativeHeader:content">
         <div class="container-content-wrapper">
             <h2 data-translate-text="[pre-assessment]">Pre-assessment</h2>
-            <div class="header-progressbar-wrapper" data-bind="showProgress:{progress:progress,questions:questions}">
+            <div class="header-progressbar-wrapper" data-bind="questionProgress:{progress:progress,questions:questions}">
                 <span class='progress-text' data-bind="text:progress()"></span>
                 <span data-translate-text="[of]">of</span>
                 <span class='progress-text' data-bind="text:questions().length"></span>
-                <span class="progress-text" data-translate-text="[answered]">answered</span>
+                <span class="progress-text answered" data-translate-text="[answered]">answered</span>
 
             </div>
         </div>

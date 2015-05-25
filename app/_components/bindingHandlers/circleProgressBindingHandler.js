@@ -18,11 +18,11 @@
                 progressBarcolor,
                 percentage = (value / 100) * 2 - 0.5;
 
-                if (value < 36) {
+                if (value < 35) {
                     progressBarcolor = "#f16162";
                     $element.addClass('fail');
                 }
-                if (35 < value) {
+                if (34 < value) {
                     progressBarcolor = "#eda646"
                 }
                 if (value === 100) {
