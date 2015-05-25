@@ -6,22 +6,23 @@
             <div class="form-caption" data-translate-text="[tracking and tracing header]">
                 Your credentials for progress tracking
             </div>
-            
+
             <div class="form-row" data-bind="css: { error: !username.isValid() && showError() }">
                 <div class="form-control-wrapper">
-                    <div class="placeholder" data-bind="visible:!username()">
+
+                    <input class="form-control" type="text" data-bind="value: username, valueUpdate: 'afterkeydown', css: { empty: !username() }" />
+                    <div class="placeholder">
                         <span data-translate-text="[tracking and tracing name field]"></span>
                     </div>
-                    <input class="form-control"  type="text" data-bind="value: username, valueUpdate: 'afterkeydown',backgroundBinding:content" />
                     <span class="form-control-message" data-bind="visible: !username.isValid() && showError()" data-translate-text="[tracking and tracing name is not valid]">Fill in your name</span>
                 </div>
             </div>
             <div class="form-row" data-bind="css: { error: !email.isValid() && showError() }">
                 <div class="form-control-wrapper">
-                    <div class="placeholder" data-bind="visible:!email()">
+                    <input class="form-control" type="email" data-bind="value: email, valueUpdate: 'afterkeydown', css: { empty: !email() } " />
+                    <div class="placeholder">
                         <span data-translate-text="[tracking and tracing email field]"></span>
                     </div>
-                    <input class="form-control" type="email" data-bind="value: email, valueUpdate: 'afterkeydown'" />
                     <span class="form-control-message" data-bind="visible: !email.isValid() && showError()" data-translate-text="[tracking and tracing email is not valid]">Enter a valid e-mail</span>
                 </div>
             </div>
@@ -40,6 +41,6 @@
                 * By clicking the button Start and report my progress you agree to the fact that your results and scores will be stored. These results will only be visible to the organizer (author) of your course.
             </div>
         </div>
-       
+
     </form>
 </section>
