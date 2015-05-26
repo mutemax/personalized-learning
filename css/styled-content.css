@@ -68,7 +68,7 @@
         position: absolute;
         font: 50px Helvetica;
         font-weight: 700;
-        color: #7dc9cd;
+        color: #76cbe3;
         line-height: 35px;
         content: "\201C";
         margin-left: -35px;
@@ -179,10 +179,6 @@
         border-bottom-left-radius: 10px;
     }
 
-    .styled-content .table-wrapper table thead tr:last-child td:first-child, .styled-content .table-wrapper table thead tr:last-child th:first-child {
-        border-bottom-left-radius: 0;
-    }
-
     .styled-content .table-wrapper table tr:last-child th:first-child {
         border-bottom-left-radius: 10px;
     }
@@ -193,11 +189,11 @@
 
     .styled-content .table-wrapper table tbody th {
         font-family: 'roboto-regular','OpenSans';
-        color: #9ad3d6;
+        color: #43aaa3;
     }
 
     .styled-content .table-wrapper table thead th {
-        background: #9ad3d6;
+        background: #a8c4da;
     }
 
     .styled-content .table-wrapper table tbody td {
@@ -221,7 +217,7 @@
             width: 15px;
             content: "\2022 ";
             left: -22px;
-            color: #9ad3d6;
+            color: #76cbe3;
         }
 
 .styled-content ol {
