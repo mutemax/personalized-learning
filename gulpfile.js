@@ -1,13 +1,15 @@
-﻿﻿var gulp = require('gulp'),
-    del = require('del'),
-    durandal = require('gulp-durandal'),
-    minifyCss = require('gulp-minify-css'),
-    uglify = require('gulp-uglify'),
-    eventStream = require('event-stream'),
-    useref = require('gulp-useref'),
-    gulpif = require('gulp-if'),
-    output = ".output",
-    buildVersion = +new Date();
+﻿var gulp = require('gulp'),
+   del = require('del'),
+   durandal = require('gulp-durandal'),
+   less = require('gulp-less'),
+   minifyCss = require('gulp-minify-css'),
+   csso = require('gulp-csso'),
+   uglify = require('gulp-uglify'),
+   eventStream = require('event-stream'),
+   useref = require('gulp-useref'),
+   gulpif = require('gulp-if'),
+   output = ".output",
+   buildVersion = +new Date();
 
 function addBuildVersion() {
     return eventStream.map(function (file, callback) {
@@ -33,20 +35,26 @@ function removeDebugBlocks() {
     });
 };
 
-gulp.task('build', ['clean', 'build-app', 'build-settings'], function () {
+gulp.task('build', ['clean', 'css', 'build-app', 'build-settings'], function () {
 });
 
 gulp.task('clean', function (cb) {
     del([output], cb);
 });
 
+gulp.task('css', function () {
+    gulp.src(['./css/styles.less'])
+       .pipe(csso())
+       .pipe(less())
+       .pipe(gulp.dest('./css/'));
+});
+
 gulp.task('build-app', ['clean'], function () {
     var assets = useref.assets();
 
-    gulp.src('index.html')        
+    gulp.src('index.html')
         .pipe(assets)
         .pipe(gulpif('*.js', uglify()))
-        .pipe(gulpif('*.css', minifyCss()))
         .pipe(assets.restore())
         .pipe(useref())
         .pipe(addBuildVersion())
@@ -66,7 +74,7 @@ gulp.task('build-app', ['clean'], function () {
 
     gulp.src('lang/*.json')
        .pipe(gulp.dest(output + '/lang'));
-    
+
     gulp.src('manifest.json')
         .pipe(gulp.dest(output));
 

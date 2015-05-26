@@ -1,0 +1,120 @@
+﻿.button {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    display: inline-block;
+    padding: 0;
+    border: 0 none;
+    -ms-border-radius: 3px;
+    background-color: transparent;
+    border-radius: 3px;
+    font-family: 'OpenSans', Arial, sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: 'roboto-regular','OpenSans';
+    font-size: 18px;
+}
+
+.button-text {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
+.button:hover {
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button.disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.button.info {
+    background-color: #00adee;
+    color: #fff;
+}
+
+    .button.info:hover {
+        background-color: #009bd5;
+    }
+
+    .button.info.disabled:hover {
+        background-color: #00ADEF;
+    }
+
+.finish {
+    width: 221px;
+    height: 60px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding-top: 17px;
+    border-radius: 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+}
+
+.button.success {
+    background-color: #50b2ac;
+    color: #fff;
+    height: 60px;
+    padding: 10px;
+    min-width: 340px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 2px solid #43aaa3;
+}
+
+    .button.success:hover {
+        background-color: #60b5b9;
+    }
+
+    .button.success.disabled:hover {
+        background-color: #01DAAF;
+    }
+
+.button.default {
+    background-color: #C9C9C9;
+    color: #fff;
+}
+
+    .button.default:hover {
+        background-color: #BABABA;
+    }
+
+    .button.default.disabled:hover {
+        background-color: #C9C9C9;
+    }
+
+
+.button.medium {
+    padding: 10px 20px;
+}
+
+.button.large {
+    padding: 10px 20px;
+}
+
+.button.unstyled {
+    padding: 0;
+    background: transparent;
+    color: #777777;
+}
+
+    .button.unstyled:hover {
+        color: #555555;
+        text-decoration: underline;
+    }
+
+.button.emphasize {
+    text-transform: uppercase;
+}
