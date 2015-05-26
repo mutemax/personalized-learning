@@ -206,7 +206,9 @@
 
 .styled-content ul {
     list-style: none;
-    margin-left: 20px;
+    margin: 0 0 20px;
+    line-height: 30px;
+    padding-left: 60px;
 }
 
     .styled-content ul li {
@@ -221,6 +223,17 @@
             left: -22px;
             color: #9ad3d6;
         }
+
+.styled-content ol {
+    margin: 0 0 20px;
+    line-height: 30px;
+    padding-left: 60px;
+}
+
+    .styled-content ol li {
+        list-style-position: outside;
+    }
+
 
 .styled-content u {
     text-decoration: none;

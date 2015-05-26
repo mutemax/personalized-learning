@@ -18,8 +18,8 @@
                     </div>
                     <div class="empty-div "></div>
                     <div class="objective-progress">
-                        <div class="circle-canvas-wrapper" data-bind="circleProgress: score">
-                            <div data-bind="text:score+'%'"></div>
+                        <div class="circle-canvas-wrapper" data-bind="circleProgress: score,style: { color: score==100  ? '#3e9c96' :  score < 35 ? '#f16162' :'#eda646' }">
+                            <div data-bind=" text:score+'%'"></div>
                         </div>
                         
                     </div>

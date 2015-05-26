@@ -216,6 +216,9 @@
     display: table;
     margin: auto;
 }
+    .question .question-feedback-action-container button {
+        height:60px;
+    }
 
     .question .question-feedback-action-container .question-feedback-action-wrapper {
         display: table-cell;

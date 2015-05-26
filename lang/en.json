@@ -32,7 +32,7 @@
     "[home]": "Home",
     "[thank you message]": "Thank you, you can close the page now", 
     "[tracking and tracing header]": "Your credentials for tracking progress",
-    "[tracking and tracing hint]": "Please enter your credentials and click \"Start and report my results \"to enable result tracking. Otherwise, click \"Do not report, just start\".",
+    "[tracking and tracing hint]": "Please enter your credentials and click \"Start and report my progress\" to enable result tracking. Otherwise, click \"Do not report, just start\".",
     "[tracking and tracing name field]": "Name",
     "[tracking and tracing email field]": "E-mail",
     "[tracking and tracing name is not valid]": "Fill in your name",

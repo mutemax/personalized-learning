@@ -20,14 +20,12 @@
 
                 if (value < 35) {
                     progressBarcolor = "#f16162";
-                    $element.addClass('fail');
                 }
                 if (34 < value) {
                     progressBarcolor = "#eda646"
                 }
                 if (value === 100) {
                     progressBarcolor = "#3e9c96";
-                    $element.addClass('success');
                 }
 
                 ctx.lineWidth = 4;

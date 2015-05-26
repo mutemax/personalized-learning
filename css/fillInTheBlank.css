@@ -2,6 +2,10 @@
     color: #3e3d40 !important;
 }
 
+    .fill-in-the-blanks.styled-content {
+        font-family:'robotoSlab-regular';
+    }
+
 
 .blankInput {
     font-family: 'roboto-regular','OpenSans';
@@ -114,7 +118,7 @@
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
         top: -6px;
-        left: 179px;
+        left: 183px;
         border-top: 2px solid #c0bece;
         border-left: 2px solid #c0bece;
         z-index: -1;
