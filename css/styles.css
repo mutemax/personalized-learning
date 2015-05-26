@@ -1,3 +1,13 @@
+/*checkbox and radiobutton region*/
+/*checkbox and radiobutton background color*/
+/*checkbox and radiobutton border width*/
+/*checkbox and radiobutton border style*/
+/*checkbox and radiobutton border color*/
+/*checkbox and radiobutton border color*/
+/*checkbox and radiobutton hover border color*/
+/*checkbox and radiobutton hover background color*/
+/*checkbox and radiobutton checked background color*/
+/*radiobutton checked background color*/
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -1407,7 +1417,6 @@
   display: table-row;
   height: 60px;
   background-color: rgba(200, 209, 215, 0.2);
-  border: 1px solid rgba(200, 209, 215, 0.2);
 }
 .statement-option:first-child {
   border-top-left-radius: 5px;
@@ -2075,7 +2084,7 @@
 .checkbox,
 .radio {
   background-color: rgba(200, 209, 215, 0.2);
-  border: 1px solid rgba(200, 209, 215, 0.2);
+  border: 1px rgba(200, 209, 215, 0.2) solid;
   border-radius: 5px;
   margin: 10px -10px 0 -10px;
   padding: 10px;
@@ -2084,8 +2093,8 @@
 }
 .checkbox:hover,
 .radio:hover {
-  border-color: #cce9dc;
-  background: #f9f9f9;
+  border-color: #f9f9f9;
+  background: #e7f7f0;
   box-shadow: 0 0 50px 30px #e7f7f0 inset;
   cursor: pointer;
 }

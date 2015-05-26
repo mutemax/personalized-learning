@@ -1,6 +1,6 @@
 ﻿.checkbox, .radio {
-    background-color: rgba(200,209,215,.2);
-    border: 1px solid rgba(200,209,215,.2);
+    background-color: @checkbox-radio-background-color;
+    border: @checkbox-radio-border-width  @checkbox-radio-border-color @checkbox-radio-border-style;
     border-radius: 5px;
     margin: 10px -10px 0 -10px;
     padding: 10px;
@@ -9,8 +9,8 @@
 }
 
     .checkbox:hover, .radio:hover {
-        border-color: #cce9dc;
-        background: #f9f9f9;
+        border-color: @checkbox-radio-hover-border-color;
+        background: @checkbox-radio-checked-background-color;
         box-shadow: 0 0 50px 30px #e7f7f0 inset;
         cursor: pointer;
     }
@@ -45,7 +45,7 @@
 }
 
 .checkbox.checked, .radio.checked {
-    background-color: #e7f7f0;
+    background-color: @checkbox-radio-checked-background-color;
 }
 
     .checkbox.checked .checkbox-icon {
@@ -54,7 +54,7 @@
 
 
     .radio.checked .radio-icon,.radio-icon.checked {
-        background-color: #88d8b5;
+        background-color: @radioicon-checked-background-color;
         position: relative;
     }
 
