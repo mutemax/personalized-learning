@@ -1,3 +1,22 @@
+/*xApi page region*/
+/*xApi container border color*/
+/*xApi title color*/
+/*xApi title font size*/
+/*xApi error message font color and input border*/
+/*xApi error message font size*/
+/*xApi placeholder font color*/
+/*xApi inputs border color*/
+/*xApi inputs border style*/
+/*xApi inputs border width*/
+/*xApi inputs font color*/
+/*xApi inputs font size*/
+/*xApi input hover and focus border color*/
+/*do not report button font color*/
+/*xApi agreement border style*/
+/*xApi agreement border width*/
+/*xApi agreement border color*/
+/*xApi agreement font color*/
+/*xApi agreement font size*/
 /*checkbox and radiobutton region*/
 /*checkbox and radiobutton background color*/
 /*checkbox and radiobutton border width*/
@@ -6,8 +25,10 @@
 /*checkbox and radiobutton border color*/
 /*checkbox and radiobutton hover border color*/
 /*checkbox and radiobutton hover background color*/
+/*checkbox and radiobutton background color*/
 /*checkbox and radiobutton checked background color*/
 /*radiobutton checked background color*/
+/*drag and drop region*/
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -193,9 +214,6 @@
 .xApi-login .form-row.form-submit {
   min-height: 0;
 }
-.xApi-login .form-row.error {
-  color: #da0202;
-}
 .xApi-login .form-control {
   display: block;
   padding: 20px 10px 20px 25px;
@@ -219,7 +237,7 @@
   border-color: #f16162;
 }
 .xApi-login .form-row.error .form-control:hover {
-  border-color: #49b8e7;
+  border-color: #f16162;
 }
 .xApi-login .form-row.error .form-control-message {
   color: #f16162;
@@ -2118,14 +2136,13 @@
   display: table-cell;
   width: 40px;
   height: 40px;
+  background-color: #ffffff;
 }
 .checkbox-icon {
-  background-color: #ffffff;
   border-radius: 2px;
 }
 .radio-icon {
   border-radius: 50%;
-  background-color: #ffffff;
 }
 .checkbox.checked,
 .radio.checked {
@@ -2177,6 +2194,9 @@
 .disabled .radio.checked:hover,
 .disabled.radio.checked:hover {
   background-color: #f1f1f1;
+}
+.singleselectimage ul {
+  text-align: center;
 }
 .radio.image {
   display: inline-block;
@@ -2249,9 +2269,6 @@
 .radio.image.checked .preview-thumbnail {
   -ms-border-radius: 0;
   border-radius: 0;
-}
-.singleselectimage ul {
-  text-align: center;
 }
 html,
 body,
