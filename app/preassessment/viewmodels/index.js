@@ -1,23 +1,44 @@
-﻿define(['entities/course', 'viewmodels/factory', 'durandal/app', 'Q'], function (course, factory, app, Q) {
+﻿define(['entities/course', 'viewmodels/factory', 'durandal/app', 'Q', 'preassessment/helpers/alternativeHeader'], function (course, factory, app, Q, alternativeHeader) {
     "use strict";
 
-    var viewModel = {
-        activate: activate,
+    var viewModel = {        
         questions: ko.observableArray([]),
-        submit: submit
+        submit: submit,
+
+        activate: activate,
+        attached: attached,
+        detached: detached
+    };
+
+    var self = {
+        header: null
     };
 
     viewModel.progress = ko.computed(function () {
         var count = 0;
-            _.each(viewModel.questions(), function (question) {
-                if (question.isDirty()) {
-                    count++
-                }
-            })
-            return count;
+        _.each(viewModel.questions(), function (question) {
+            if (question.isDirty()) {
+                count++
+            }
+        })
+        return count;
     });
 
     return viewModel;
+
+    function attached(element) {
+        self.header = alternativeHeader(element);
+        if (_.isObject(self.header) && _.isFunction(self.header.subscribe)) {
+            self.header.subscribe()
+        }
+    }
+
+    function detached() {
+        if (_.isObject(self.header) && _.isFunction(self.header.unsubscribe)) {
+            self.header.unsubscribe()
+        }
+    }
+
 
     function activate() {
         return Q.fcall(function () {

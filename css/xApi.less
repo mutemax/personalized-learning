@@ -27,9 +27,10 @@
     font-size: @xApi-input-font-size;
     width: 100%;
     font-family: 'robotoCondensed-regular','Opensans';
-    position: absolute;
+    position: relative;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAQCAMAAABjhdy+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDI2RUM1NzQwMDgyMTFFNTkwNzNGQjA5NUZFNUM1Q0MiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDI2RUM1NzUwMDgyMTFFNTkwNzNGQjA5NUZFNUM1Q0MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MjZFQzU3MjAwODIxMUU1OTA3M0ZCMDk1RkU1QzVDQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0MjZFQzU3MzAwODIxMUU1OTA3M0ZCMDk1RkU1QzVDQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Puvx9GYAAAB1UExURe3x89Pb4bHAytvi593j6MfS2dzj59/l6fH09dzj6LfFztLa4PP1966+yL/L1L3J0rC/yvr7/OHn6/z9/dPc4dzi5+7x883W3drh5ujs773K0tbe4/H09tLb4fj5+uLo68rU29DZ39vi5q++yL7L06u7xv///8oGqqwAAAAndFJOU///////////////////////////////////////////////////AINWl9kAAAB9SURBVHjalM5JFoJAFEPRskRpRLEBQWzAJtn/Ei2LCTN/3iiTe04cZ13fnwf/5mY7AbCTSHergL1CahRZj0Qgi/CqyAbayU8AKe1kEi/ayT2KJe1ko4hIJtHQTo5RrGknZ7eSRCCjDyanQA5beHehQnL4Z0mJtOmJWl8BBgC8OXG6rLqbLwAAAABJRU5ErkJggg==) no-repeat transparent 0px 50%;
     z-index: 1;
+    margin-bottom:35px;
 }
 
 
@@ -49,9 +50,7 @@
 .xApi-login .form-row.error .form-control-message {
     color: @xApi-error-color;
     font-size: @xApi-error-font-size;
-    bottom: 20px;
-    position: absolute;
-    bottom: -20px;
+
 }
 
 .xApi-login .form-control-wrapper {
@@ -66,10 +65,10 @@
     padding-left: 0px;
     font-size: 16px;
     position: absolute;
+    bottom:40px;
     width: 100%;
     color: @xApi-placeholder-font-color;
     padding-right: 20px;
-    display: table;
     z-index: 0;
     transition: all linear 0.25s;
     -moz-transition: all linear 0.25s;
@@ -83,9 +82,8 @@
     color: @xApi-placeholder-font-color;
     padding-left: 25px;
     padding-right: 20px;
-    display: table;
+    bottom:10px;
     z-index: 0;
-    height: 90px;
 }
 
 .placeholder span {
@@ -136,9 +134,9 @@
     height: 426px;
     background-color: #f9f9fa;
     border-radius: 10px;
-    -webkit-box-shadow: 3px 3px 4px 0px rgba(50, 58, 69, 0.8);
-    -moz-box-shadow: 3px 3px 4px 0px rgba(50, 58, 69, 0.8);
-    box-shadow: 3px 3px 4px 0px rgba(50, 58, 69, 0.8);
+    -webkit-box-shadow: 0 0 8px 1px rgba(0,0,0,.4);
+    -moz-box-shadow: 0 0 8px 1px rgba(0,0,0,.4);
+     box-shadow: 0 0 8px 1px rgba(0,0,0,.4);
 }
 
     .xapi-error-dialog .dialog-image {
@@ -146,29 +144,27 @@
         width: 117px;
         height: 95px;
         position: absolute;
-        top: 60px;
+        top: 30px;
         left: 50%;
         margin-left: -58px;
     }
 
     .xapi-error-dialog .dialog-content {
-        width: 324px;
+        width: 350px;
         position: absolute;
         top: 0px;
         left: 50%;
-        margin-left: -162px;
-        padding-top: 162px;
+        margin-left: -175px;
+        padding-top: 140px;
     }
 
         .xapi-error-dialog .dialog-content hr {
             padding: 0px;
-            margin-top: 15px;
-            margin-bottom: 36px;
+            margin-top: 0;
         }
 
     .xapi-error-dialog .dialog-header {
         font-size: 32px;
-        font-family: 'MyriadWebProRegular';
         text-align: center;
         text-transform: uppercase;
         overflow: hidden;
@@ -178,7 +174,6 @@
 
     .xapi-error-dialog .dialog-text {
         font-size: 13px;
-        font-family: 'OpenSans', Arial, sans-serif;
         text-align: center;
         max-height: 55px;
         overflow: hidden;
@@ -188,17 +183,17 @@
         position: absolute;
         bottom: 0px;
         width: 100%;
-        padding: 30px;
+        padding: 25px 80px;
     }
 
     .xapi-error-dialog .restart-button {
-        float: left;
-        width: 204px;
+        width: 340px;
+        margin-bottom:10px;
     }
 
     .xapi-error-dialog .continue-button {
-        float: right;
-        width: 204px;
+        width: 340px;
+        height:60px;
     }
 
         .xapi-error-dialog .continue-button:after {

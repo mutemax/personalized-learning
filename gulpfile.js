@@ -1,15 +1,20 @@
-﻿var gulp = require('gulp'),
-   del = require('del'),
-   durandal = require('gulp-durandal'),
-   less = require('gulp-less'),
-   minifyCss = require('gulp-minify-css'),
-   csso = require('gulp-csso'),
-   uglify = require('gulp-uglify'),
-   eventStream = require('event-stream'),
-   useref = require('gulp-useref'),
-   gulpif = require('gulp-if'),
-   output = ".output",
-   buildVersion = +new Date();
+var gulp = require('gulp'),
+    del = require('del'),
+    durandal = require('gulp-durandal'),
+    less = require('gulp-less'),
+    minifyCss = require('gulp-minify-css'),
+    csso = require('gulp-csso'),
+    uglify = require('gulp-uglify'),
+    eventStream = require('event-stream'),
+    useref = require('gulp-useref'),
+    gulpif = require('gulp-if'),
+    output = ".output",
+    buildVersion = +new Date();
+
+
+var $ = require('gulp-load-plugins')({
+    lazy: true
+});
 
 function addBuildVersion() {
     return eventStream.map(function (file, callback) {
@@ -35,18 +40,34 @@ function removeDebugBlocks() {
     });
 };
 
-gulp.task('build', ['clean', 'css', 'build-app', 'build-settings'], function () {
-});
+gulp.task('build', ['clean', 'css', 'build-app', 'build-settings'], function () {});
 
 gulp.task('clean', function (cb) {
     del([output], cb);
 });
 
+gulp.task('watch', function () {
+    gulp.watch('./css/*.less', ['css']);
+});
+
 gulp.task('css', function () {
     gulp.src(['./css/styles.less'])
-       .pipe(csso())
-       .pipe(less())
-       .pipe(gulp.dest('./css/'));
+        .pipe($.plumber({
+            errorHandler: function (error) {
+                console.log(error);
+                this.emit('end');
+            }
+        }))
+        .pipe($.less({
+            strictMath: true,
+            strictUnits: true
+        }))
+        .pipe($.csso())
+        .pipe($.autoprefixer({
+            browsers: ['last 1 Chrome version', 'last 1 Firefox version', 'last 1 Explorer version', 'last 1 Safari version', 'last 1 iOS version'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('./css/'));
 });
 
 gulp.task('build-app', ['clean'], function () {
@@ -61,46 +82,45 @@ gulp.task('build-app', ['clean'], function () {
         .pipe(gulp.dest(output));
 
     gulp.src(['settings.js', 'publishSettings.js'])
-       .pipe(gulp.dest(output));
+        .pipe(gulp.dest(output));
 
     gulp.src('css/font/**')
-       .pipe(gulp.dest(output + '/css/font'));
+        .pipe(gulp.dest(output + '/css/font'));
 
     gulp.src('images/**')
-       .pipe(gulp.dest(output + '/images'));
+        .pipe(gulp.dest(output + '/images'));
 
     gulp.src(['js/require/require.js'])
-       .pipe(gulp.dest(output + '/js/require'));
+        .pipe(gulp.dest(output + '/js/require'));
 
     gulp.src('lang/*.json')
-       .pipe(gulp.dest(output + '/lang'));
+        .pipe(gulp.dest(output + '/lang'));
 
     gulp.src('manifest.json')
         .pipe(gulp.dest(output));
 
-    return durandal(
-        {
+    return durandal({
             minify: true
         })
-       .pipe(addBuildVersion())
-       .pipe(gulp.dest(output + '/app'));
+        .pipe(addBuildVersion())
+        .pipe(gulp.dest(output + '/app'));
 });
 
 gulp.task('build-settings', ['build-design-settings', 'build-configure-settings'], function () {
     gulp.src('settings/css/fonts/**')
-      .pipe(gulp.dest(output + '/settings/css/fonts'));
+        .pipe(gulp.dest(output + '/settings/css/fonts'));
 
     gulp.src('settings/css/img/**')
-      .pipe(gulp.dest(output + '/settings/css/img'));
+        .pipe(gulp.dest(output + '/settings/css/img'));
 
     gulp.src('settings/css/settings.css')
-      .pipe(minifyCss())
-      .pipe(gulp.dest(output + '/settings/css'));
+        .pipe(minifyCss())
+        .pipe(gulp.dest(output + '/settings/css'));
 
     gulp.src('settings/api.js')
-      .pipe(removeDebugBlocks())
-      .pipe(uglify())
-      .pipe(gulp.dest(output + '/settings'));
+        .pipe(removeDebugBlocks())
+        .pipe(uglify())
+        .pipe(gulp.dest(output + '/settings'));
 
 });
 
@@ -108,15 +128,15 @@ gulp.task('build-design-settings', ['clean'], function () {
     var assets = useref.assets();
 
     gulp.src(['settings/design/design.html'])
-      .pipe(assets)
-      .pipe(gulpif('*.js', uglify()))
-      .pipe(assets.restore())
-      .pipe(useref())
-      .pipe(addBuildVersion())
-      .pipe(gulp.dest(output + '/settings/design'));
+        .pipe(assets)
+        .pipe(gulpif('*.js', uglify()))
+        .pipe(assets.restore())
+        .pipe(useref())
+        .pipe(addBuildVersion())
+        .pipe(gulp.dest(output + '/settings/design'));
 
     gulp.src('settings/design/img/**')
-      .pipe(gulp.dest(output + '/settings/design/img'));
+        .pipe(gulp.dest(output + '/settings/design/img'));
 
 });
 
@@ -124,14 +144,28 @@ gulp.task('build-configure-settings', ['clean'], function () {
     var assets = useref.assets();
 
     gulp.src(['settings/configure/configure.html'])
-      .pipe(assets)
-      .pipe(gulpif('*.js', uglify()))
-      .pipe(assets.restore())
-      .pipe(useref())
-      .pipe(addBuildVersion())
-      .pipe(gulp.dest(output + '/settings/configure'));
+        .pipe(assets)
+        .pipe(gulpif('*.js', uglify()))
+        .pipe(assets.restore())
+        .pipe(useref())
+        .pipe(addBuildVersion())
+        .pipe(gulp.dest(output + '/settings/configure'));
 
     gulp.src('settings/configure/img/**')
-      .pipe(gulp.dest(output + '/settings/configure/img'));
+        .pipe(gulp.dest(output + '/settings/configure/img'));
 
+});
+
+gulp.task('webserver', function () {
+    gulp.src('.')
+        .pipe($.webserver({
+            livereload: {
+                enable: true,
+                filter: function (fileName) {
+                    return !fileName.match(/.less$/);
+                }
+            },
+            directoryListing: true,
+            open: "index.html"
+        }));
 });

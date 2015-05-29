@@ -7,7 +7,7 @@
     <!-- ko if: objectivesToLearn.length -->
     <ul class="unstyled" data-bind="foreach: objectivesToLearn">
         <li>
-            <div class="container" data-bind="heightAnimation:{isExpanded:isExpanded}">
+            <div class="container" data-bind="toggleVisible:{isExpanded:isExpanded}">
                 <div class="objective-to-learn">
                     <div class="objective-to-learn-content-wrapper">
                         <div class="objective-to-learn-progress-wrapper">

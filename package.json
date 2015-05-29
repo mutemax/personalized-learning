@@ -28,5 +28,11 @@
     "gulp-uglify": "^1.0.1",
     "gulp-useref": "^1.0.2",
     "gulp-util": "^3.0.1"
+  },
+  "devDependencies": {
+    "gulp-autoprefixer": "^2.3.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-webserver": "^0.9.1"
   }
 }
