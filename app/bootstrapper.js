@@ -1,4 +1,4 @@
-﻿define(function (require) {
+define(function (require) {
     "use strict";
 
     return {
@@ -83,6 +83,8 @@
         require('_components/bindingHandlers/toggleVisibleBindingHandler').install();
         require('_components/bindingHandlers/questionProgressBindingHandler').install();
         require('_components/bindingHandlers/circleProgressBindingHandler').install();
+        require('_components/bindingHandlers/learningContentBindingHandler').install();
+
 
         require('viewmodels/bindingHandlers/DragAndDrop').install();
         require('viewmodels/bindingHandlers/Hotspot').install();
