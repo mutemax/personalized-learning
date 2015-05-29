@@ -31,7 +31,7 @@
     return viewModel;
 
     function justStart() {
-        if (reportRequired) {
+        if (viewModel.reportRequired) {
             return;
         }
 
