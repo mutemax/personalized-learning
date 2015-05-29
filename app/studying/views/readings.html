@@ -1,4 +1,4 @@
-﻿<section class="view question">
+<section class="view question">
     <header class="view-header">
         <div class="button-wrapper">
             <button class="button back" data-bind="click: goToStudyAdvice"><span class="button-text" data-translate-text="[study advice]">Study advice</span></button>
@@ -43,12 +43,12 @@
         <div data-bind="with: currentReading">
 
             <!-- ko if: learningContent().length > 0 -->
-            <div class="content container">
+            <div class="content container learning-content-container">
                 <h3 data-translate-text="[learning content]">Learning content</h3>
                 <hr />
                 <div>
                     <!-- ko foreach: learningContent -->
-                    <div data-bind="html: $data"></div>
+                    <div data-bind="learningContent: $data"></div>
                     <!-- /ko -->
                 </div>
             </div>
