@@ -1,26 +1,27 @@
-﻿define(['knockout', 'durandal/app', '../configuration/settings', '../initializer', 'eventManager'], function (ko, app, settingsModule, initializer, eventManager) {
+﻿define(['knockout', 'durandal/app', '../configuration/settings', '../initializer', 'eventManager', 'templateSettings'], function (ko, app, settingsModule, initializer, eventManager, templateSettings) {
     "use strict";
 
     var viewModel = {
-        username: (function () {
+        username: (function() {
             var value = ko.observable();
 
-            value.isValid = ko.computed(function () {
+            value.isValid = ko.computed(function() {
                 return value() && value().length;
             });
 
             return value;
         })(),
-        email: (function () {
+        email: (function() {
             var value = ko.observable();
 
-            value.isValid = ko.computed(function () {
+            value.isValid = ko.computed(function() {
                 return value() && /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/.test(value());
             });
 
             return value;
         })(),
         showError: ko.observable(false),
+        reportRequired: templateSettings.xApi.required,
 
         callback: null,
         justStart: justStart,
@@ -30,6 +31,10 @@
     return viewModel;
 
     function justStart() {
+        if (reportRequired) {
+            return;
+        }
+
         app.trigger('xApi:authentication-skipped');
     }
 
