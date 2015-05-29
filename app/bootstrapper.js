@@ -81,7 +81,7 @@
         require('_components/bindingHandlers/scrollElementBindingHandler').install();
         require('_components/bindingHandlers/thumbnailBindingHandler').install();
         require('_components/bindingHandlers/toggleVisibleBindingHandler').install();
-        require('_components/bindingHandlers/showQuestionProgressBindingHandler').install();
+        require('_components/bindingHandlers/questionProgressBindingHandler').install();
         require('_components/bindingHandlers/circleProgressBindingHandler').install();
 
         require('viewmodels/bindingHandlers/DragAndDrop').install();
