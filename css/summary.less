@@ -1,6 +1,84 @@
 .summary {
     position: relative;
     color: #000;
+
+    .content {
+        border-bottom-color: #9ad3d6;
+        -webkit-box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
+        box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
+    }
+
+    .button {
+        &.close-course {
+            position: absolute;
+            right: 0;
+            bottom: 15px;
+        }
+    }
+
+    .course-progress {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -175px;
+        width: 350px;
+    }
+
+    .objective {
+        display: table;
+        margin-bottom: 60px;
+        width: 100%;
+
+        &:first-child {
+            margin-top: 25px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        & > div {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: justify;
+            margin: auto;
+        }
+    }
+
+    .objective-title {
+        font-size: 18px;
+        font-family: "robotoSlab-regular",'OpenSans';
+        color: #3e3d40;
+        line-height: 36px;
+    }
+
+    .objective-progress {
+        padding-left: 20px;
+        width: 100px;
+        color: #3c3c3c;
+        text-align: center;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    .loader-wrapper {
+        display: none;
+    }
+
+    &.disabled {
+        .loader-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 500;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0.5;
+        }
+    }
 }
 
 .header-progress-text {
@@ -19,82 +97,11 @@
     font-family: 'roboto-regular','OpenSans';
 }
 
-.view-header .progress-text-wrapper {
-    color: white;
-    font-size: 28px;
-}
-
-.summary .content {
-    border-bottom-color: #9ad3d6;
-    -webkit-box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
-    box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
-}
-
-.summary .button.close-course {
-    position: absolute;
-    right: 0;
-    bottom: 15px;
-}
-
-.summary .course-progress {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left: -175px;
-    width: 350px;
-}
-
-.summary .objective {
-    display: table;
-    margin-bottom: 60px;
-    width: 100%;
-}
-
-    .summary .objective:first-child {
-        margin-top: 25px;
+.view-header {
+    .progress-text-wrapper {
+        color: white;
+        font-size: 28px;
     }
-
-    .summary .objective:last-child {
-        margin-bottom: 0;
-    }
-
-    .summary .objective > div {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: justify;
-    }
-
-.summary .objective-title {
-    font-size: 18px;
-    font-family: "robotoSlab-regular",'OpenSans';
-    color: #3e3d40;
-    line-height: 36px;
-}
-
-.summary .objective-progress {
-    padding-left: 20px;
-    width: 100px;
-    color: #3c3c3c;
-    text-align: center;
-    font-size: 14px;
-}
-
-
-.summary .loader-wrapper {
-    display: none;
-}
-
-.summary.disabled .loader-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 500;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    opacity: 0.5;
 }
 
 .empty-div {
@@ -107,9 +114,8 @@
     position: relative;
     height: 100px;
     margin: auto;
-}
 
-    .circle-canvas-wrapper div {
+    div {
         position: absolute;
         top: 50%;
         width: 100%;
@@ -119,34 +125,25 @@
         font-family: 'twcenmt';
     }
 
-    .circle-canvas-wrapper.fail div {
-        color: #f16162;
+    &.fail {
+        div {
+            color: #f16162;
+        }
     }
 
-    .circle-canvas-wrapper.success div {
-        color: #3e9c96;
+    &.success {
+        div {
+            color: #3e9c96;
+        }
     }
+}
 
-
-
-@media (max-width: 640px) {
+@media (max-width:640px) {
     .summary .objective {
         display: block;
     }
-
-        .summary .objective > div {
-            display: block;
-            text-align: center;
-            margin: auto;
-        }
-
-    .summary .objective-progress {
-        margin-top: 20px;
-        padding-left: 0;
-        width: 350px;
-    }
-
-    .circle-canvas-wrapper {
-        margin: auto;
+    .summary .objective>div{
+        display:block;
+        text-align:center;
     }
 }

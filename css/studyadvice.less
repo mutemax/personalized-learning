@@ -1,12 +1,115 @@
-﻿.studyadvice .objective-to-learn {
-    background-color: #ffffff;
-    border-radius: 5px;
-    border-bottom: 4px solid #9ad3d6;
-    margin-top: 10px;
-    display: table;
-    width: 100%;
-    padding-top: 30px;
-    padding-left: 30px;
+﻿.studyadvice {
+    .objective-to-learn {
+        background-color: #ffffff;
+        border-radius: 5px;
+        border-bottom: 4px solid #9ad3d6;
+        margin-top: 10px;
+        display: table;
+        width: 100%;
+        padding-top: 30px;
+        padding-left: 30px;
+    }
+
+    .objective-title {
+        padding: 20px 0 20px 0;
+        color: #3e3d40;
+        font-size: 20px;
+        font-family: 'robotoSlab-regular','OpenSans';
+        line-height: 36px;
+        word-break: break-word;
+    }
+
+    .objective-progress {
+        width: 350px;
+    }
+
+    .objective-action-wrapper {
+        position: relative;
+        right: 0;
+        display: table-cell;
+        min-width: 70px;
+        overflow: hidden;
+    }
+
+    li {
+        margin-bottom: 30px;
+    }
+
+    .objective-recommended-reading-wrapper {
+        background-color: #e9fbff;
+        margin-top: -5px;
+        border-top-left-radius: 0;
+        -webkit-box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
+        -moz-box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
+        box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
+        display: none;
+    }
+
+    .objective-recommended-readings {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .objective-recommended-reading {
+        display: table-row;
+    }
+
+    .objective-recommended-reading-title {
+        display: table-cell;
+        padding: 25px 0;
+        color: #3c3c3c;
+        vertical-align: middle;
+        word-wrap: break-word;
+        font-family: 'robotoSlab-regular','OpenSans';
+        font-size: 18px;
+        line-height: 2;
+        padding-right: 30px;
+    }
+
+    .objective-recommended-reading-start {
+        display: table-cell;
+        width: 100px;
+        vertical-align: middle;
+        text-align: right;
+        width: 180px;
+    }
+
+    .mastered-objective {
+        display: table;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .mastered-objective:last-child {
+        margin-bottom: 0;
+    }
+
+    .mastered-objective-title-with-image {
+        & > div {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .mastered-objective-image-wrapper {
+        width: 45px;
+        float: left;
+        clear: both;
+    }
+
+    .mastered-objective-title {
+        color: #3c3c3c;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .mastered-objective-progress {
+        width: 77px;
+        display: table-cell;
+        vertical-align: middle;
+    }
 }
 
 .objective-to-learn-content-wrapper {
@@ -16,15 +119,6 @@
 
 .objective-to-learn-progress-wrapper {
     display: table;
-}
-
-.studyadvice .objective-title {
-    padding: 20px 0 20px 0;
-    color: #3e3d40;
-    font-size: 20px;
-    font-family: 'robotoSlab-regular','OpenSans';
-    line-height: 36px;
-    word-break: break-word;
 }
 
 .learning-objective {
@@ -38,35 +132,9 @@
     word-break: break-word;
 }
 
-.studyadvice .objective-progress {
-    width: 350px;
-}
-
-.studyadvice .objective-action-wrapper {
-    position: relative;
-    right: 0;
-    display: table-cell;
-    min-width: 70px;
-    overflow: hidden;
-}
-
-.studyadvice li {
-    margin-bottom: 30px;
-}
-
 .objective-action {
     position: absolute;
     right: 0;
-}
-
-.studyadvice .objective-recommended-reading-wrapper {
-    background-color: #e9fbff;
-    margin-top: -5px;
-    border-top-left-radius: 0;
-    -webkit-box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
-    -moz-box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
-    box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
-    display: none;
 }
 
 .reading-title {
@@ -75,75 +143,8 @@
     font-size: 20px;
 }
 
-.studyadvice .objective-recommended-readings {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    table-layout: fixed;
-}
-
-.studyadvice .objective-recommended-reading {
-    display: table-row;
-}
-
-.studyadvice .objective-recommended-reading-title {
-    display: table-cell;
-    padding: 25px 0;
-    color: #3c3c3c;
-    vertical-align: middle;
-    word-wrap: break-word;
-    font-family: 'robotoSlab-regular','OpenSans';
-    font-size: 18px;
-    line-height: 2;
-    padding-right: 30px;
-}
-
-.studyadvice .objective-recommended-reading-start {
-    display: table-cell;
-    width: 100px;
-    vertical-align: middle;
-    text-align: right;
-    width: 180px;
-}
-
-.studyadvice .mastered-objective {
-    display: table;
-    margin-top: 30px;
-    width: 100%;
-}
-
-.studyadvice .mastered-objective:last-child {
-    margin-bottom: 0;
-}
-
-
-.studyadvice .mastered-objective-title-with-image > div {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.studyadvice .mastered-objective-image-wrapper {
-    width: 45px;
-    float: left;
-    clear: both;
-}
-
-
 .mastered-objective-holder {
     border: 3px solid #9ad3d6;
-}
-
-
-.studyadvice .mastered-objective-title {
-    color: #3c3c3c;
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.studyadvice .mastered-objective-progress {
-    width: 77px;
-    display: table-cell;
-    vertical-align: middle;
 }
 
 .objectives {

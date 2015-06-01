@@ -1,60 +1,51 @@
 ﻿.statement {
-    display: table;
-    padding: 0 10px;
-    width: 100%;
-    table-layout: fixed;
-    border-spacing: 0 10px;
+	display: table;
+	padding: 0 10px;
+	width: 100%;
+	table-layout: fixed;
+	border-spacing: 0 10px;
 }
-
 .statement-headers-group {
-    display: table-header-group;
+	display: table-header-group;
 }
-
 .statement-header {
-    display: table-cell;
-    font-size: 18px;
-    font-family: 'robotoSlab-light','OpenSans';
-    font-size: 20px;
-    height: 50px;
-    vertical-align: middle;
-    font-weight: 600;
+	display: table-cell;
+	font-size: 18px;
+	font-family: 'robotoSlab-light','OpenSans';
+	font-size: 20px;
+	height: 50px;
+	vertical-align: middle;
+	font-weight: 600;
 }
-
 .statement-item {
-    display: table-row;
-    height: 60px;
-    background-color: rgba(200,209,215,.2);
+	display: table-row;
+	height: 60px;
+	background-color: rgba(200,209,215,.2);
 }
-
-.statement-option:first-child {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+.statement-option {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100px;
+	padding-left: 10px;
+	overflow: hidden;
+	&:first-child {
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	.radio-icon {
+		vertical-align: middle;
+		cursor: pointer;
+	}
 }
-
 .statement-label {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 10px;
-    word-wrap: break-word;
-    white-space: pre-line;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 10px;
+	word-wrap: break-word;
+	white-space: pre-line;
 }
-
 .statement-label,
 .statement-option {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-    .statement-option .radio-icon {
-        vertical-align: middle;
-        cursor: pointer;
-    }
-
-
-.statement-option {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100px;
-    padding-left: 10px;
-    overflow: hidden;
+	display: table-cell;
+	vertical-align: middle;
 }
