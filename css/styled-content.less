@@ -4,7 +4,7 @@
     text-align: justify;
     word-wrap: break-word;
     font-family: 'robotoSlab-regular','OpenSans';
-    color: #222;
+    color: @styled-content-font-color;
 
     p {
         margin: 0 0 20px;
@@ -12,13 +12,13 @@
     }
 
     a {
-        color: #7dc9cd;
+        color: @styled-content-links-font-color;
         text-decoration: underline;
         cursor: pointer;
         line-height: 30px;
 
         &:hover {
-            color: #50a1d7;
+            color: @styled-content-links-hover-font-color;
         }
     }
 
@@ -62,7 +62,7 @@
             position: absolute;
             font: 50px Helvetica;
             font-weight: 700;
-            color: #76cbe3;
+            color: @styled-content-cite-marker-color;
             line-height: 35px;
             content: "\201C";
             margin-left: -35px;
@@ -81,7 +81,7 @@
     }
 
     mark {
-        background-color: #faaf4a;
+        background-color: @styled-content-mark-background-color;
         border-radius: 5px;
         line-height: 30px;
     }
@@ -95,7 +95,7 @@
             border: none;
             border-collapse: collapse;
             display: inline-table;
-            color: #222;
+            color: @styled-content-font-color;
 
             caption {
                 margin: 15px;
@@ -184,7 +184,7 @@
                 width: 15px;
                 content: "\2022 ";
                 left: -22px;
-                color: #76cbe3;
+                color: @styled-content-ul-marker-color;
             }
         }
     }
@@ -201,7 +201,7 @@
 
     u {
         text-decoration: none;
-        border-bottom: 1px solid #222;
+        border-bottom: 1px solid @styled-content-font-color;
         line-height: 30px;
     }
 

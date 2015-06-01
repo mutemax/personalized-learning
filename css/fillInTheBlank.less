@@ -50,21 +50,21 @@
     width: 175px;
     cursor: pointer;
     padding-left: 6px;
-    border-bottom: 1px solid #9e9e9e;
+    border-bottom: @fib-select-wrapper-border-width @fib-select-wrapper-border-style @fib-select-wrapper-border-color;
     display: inline-block;
-    border-bottom-left-radius: 6px;
+    border-bottom-left-radius: @fib-select-wrapper-border-radius;
     margin-right: 30px;
     position: relative;
     font-family: 'robotoSlab-regular','OpenSans';
     font-size: 18px;
     letter-spacing: 0.2px;
     line-height: 29px;
-    color: #9e9e9e;
+    color:@fib-select-wrapper-border-color;
     vertical-align: middle;
 
 
     &.active, &:hover {
-        border-bottom-color: #7dc9cd;
+        border-bottom-color:@fib-select-wrapper-hover-border-color;
     }
 
     &:after {
@@ -145,7 +145,7 @@
     }
 
     li:hover {
-        background-color: #4da09d;
+        background-color: @fib-select-list-hover-background-color;
     }
 }
 

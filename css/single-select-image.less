@@ -10,15 +10,6 @@
     padding: 0;
     margin: 10px 15px;
 
-    .radio-icon-wrapper {
-        display: block;
-        text-align: center;
-        width: 100%;
-        margin-top: 2px;
-        margin-left: 105px;
-        display: none;
-    }
-
     .radio-icon {
         margin: auto;
         position: absolute;
@@ -26,9 +17,9 @@
     }
 
     .radio-image-wrapper {
-        border: 3px solid #ebebeb;
-        -ms-border-radius: 3px;
-        border-radius: 6px;
+        border: @radio-image-border-width @radio-image-border-style @radio-image-border-color;
+        -ms-border-radius: @radio-image-border-radius;
+        border-radius: @radio-image-border-radius;
     }
 
     .preview-thumbnail {
@@ -61,8 +52,7 @@
             border-style: solid;
             border-width: 65px 65px 0 0;
             border-color: transparent;
-            border-top-color: rgba(33,33,33,.5);
-            z-index: 100;
+            border-top-color:@radio-image-checked-triangle-color;
         }
 
         &:after {
@@ -80,7 +70,7 @@
 
 
     .radio-image-wrapper:hover, &.checked .radio-image-wrapper {
-        border-color: #88d8b5;
-        box-shadow: 0 0 15px 5px rgba(136,216,181,.75);
+        border-color: @radio-image-checked-border-color;
+        box-shadow: 0 0 15px 5px @radio-image-checked-shadow-color;
     }
 }
