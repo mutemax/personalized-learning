@@ -290,8 +290,8 @@ input[type="text"] {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-align-items: center;
-    align-items: center;
+    -webkit-align-items: baseline;
+    align-items: baseline;
 }
 
 .settings-row + .settings-row {
@@ -313,12 +313,14 @@ input[type="text"] {
     display: inline-block;
     -webkit-flex-basis: 35%;
     flex-basis: 35%;
+    padding-left: 5%;
     text-align: center;
 }
 
 .settings-hint {
     color: #42515f;
     font-size: 13px;
+    font-weight: normal;
 }
 
 .advanced-settings-title-container {
@@ -1089,8 +1091,7 @@ input[type="text"] {
 /*#region switcher*/
 
 .switcher {
-    padding-top: 23px;
-}
+ }
 
 .switcher-text {
     display: inline-block;
