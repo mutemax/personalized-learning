@@ -4,11 +4,21 @@
         <div class="dialog-content">
             <hr />
             <p class="dialog-header" data-translate-text="[tracking and tracing error]">Something is wrong</p>
+            <!-- ko if: allowToContinue -->
             <p class="dialog-text" data-translate-text="[tracking and tracing error hint]">If you continue without restarting, your learning progress will not be reported</p>
+            <!-- /ko -->
+            <!-- ko ifnot: allowToContinue -->
+            <p class="dialog-text" data-translate-text="[tracking and tracing error hint without continue]">Restart the course. Contact your course provider if the problem persists.</p>
+            <!-- /ko -->
         </div>
         <div class="dialog-buttons">
+            <!-- ko if: allowToContinue -->
             <button class="button large success emphasize restart-button" data-bind="click: restartCourse"><span class="button-text" data-translate-text="[tracking and tracing restart course]">Restart course</span></button>
             <button class="button large emphasize continue-button start" data-bind="click: continueLearning"><span class="button-text" data-translate-text="[tracking and tracing continue anyway]">Continue anyway</span></button>
+            <!-- /ko -->
+            <!-- ko ifnot: allowToContinue -->
+            <button class="button large success emphasize restart-button center" data-bind="click: restartCourse"><span class="button-text" data-translate-text="[tracking and tracing restart course]">Restart course</span></button>
+            <!-- /ko -->
         </div>
     </div>
 </section>
