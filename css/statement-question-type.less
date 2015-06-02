@@ -16,11 +16,14 @@
 	height: 50px;
 	vertical-align: middle;
 	font-weight: 600;
+    &.statement-option{
+        background-color:transparent;
+    }
 }
 .statement-item {
 	display: table-row;
 	height: 60px;
-	background-color: rgba(200,209,215,.2);
+
 }
 .statement-option {
 	text-overflow: ellipsis;
@@ -28,9 +31,10 @@
 	width: 100px;
 	padding-left: 10px;
 	overflow: hidden;
+    background-color:rgba(200,209,215,.2);
 	&:first-child {
-		border-top-left-radius: 5px;
-		border-bottom-left-radius: 5px;
+		border-top-left-radius: 7px;
+		border-bottom-left-radius: 7px;
 	}
 	.radio-icon {
 		vertical-align: middle;
@@ -43,6 +47,7 @@
 	padding: 10px;
 	word-wrap: break-word;
 	white-space: pre-line;
+    background-color:rgba(200,209,215,.2);
 }
 .statement-label,
 .statement-option {
