@@ -7,10 +7,16 @@
                 Your credentials for progress tracking
             </div>
             <hr />
+            <!-- ko if: reportRequired -->
+            <div class="form-description" data-translate-text="[tracking and tracing hint without skip]">
+                Please enter your credentials and click "Start and report my results" to start the course.
+            </div>
+            <!-- /ko -->
+            <!-- ko ifnot: reportRequired -->
             <div class="form-description" data-translate-text="[tracking and tracing hint]">
                 Please enter your credentials and click "Start and report my progress" to enable progress tracking. Otherwise, click "Do not report, just start".
             </div>
-
+            <!-- /ko -->
             <div class="form-row" data-bind="css: { error: !username.isValid() && showError() }">
                 <label class="form-label" data-translate-text="[tracking and tracing name field]">Your name</label>
                 <div class="form-control-wrapper">
@@ -34,7 +40,9 @@
                             <span class="xapi-start-text" data-translate-text="[tracking and tracing start]">Start and report my progress</span>
                         </div>
                     </button>
+                    <!-- ko ifnot: reportRequired -->
                     <button type="button" class="button unstyled" data-bind="click: justStart"><span class="button-text" data-translate-text="[tracking and tracing skip reporting]">Do not report, just start</span></button>
+                    <!-- /ko -->
                 </div>
             </div>
         </div>

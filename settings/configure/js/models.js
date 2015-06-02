@@ -9,6 +9,8 @@
         that.advancedSettingsExpanded = ko.observable(false);
 
         that.enableXAPI = ko.observable(true);
+        that.allowToSkipTracking = ko.observable(true);
+
         that.lrsOptions = [
             new LrsOption('default', true),
             new LrsOption('custom')
@@ -63,6 +65,7 @@
             }
 
             that.enableXAPI(xApiSettings.enabled);
+            that.allowToSkipTracking(!xApiSettings.required);
 
             if (xApiSettings.selectedLrs) {
                 that.selectLrsByName(xApiSettings.selectedLrs);
@@ -118,6 +121,7 @@
 
             return {
                 enabled: that.enableXAPI(),
+                required: !that.allowToSkipTracking(),
                 selectedLrs: that.selectedLrs(),
                 lrs: {
                     uri: that.lrsUrl(),

@@ -182,11 +182,16 @@ transition: border-color ease-in-out .15s, box-shadow ease-in-out .25s;*/
         bottom: 0px;
         width: 100%;
         padding: 30px;
+        text-align: center;
     }
 
     .xapi-error-dialog .restart-button {
         float: left;
         width: 204px;
+    }
+
+    .xapi-error-dialog .restart-button.center {
+        float: none;
     }
 
     .xapi-error-dialog .continue-button {
