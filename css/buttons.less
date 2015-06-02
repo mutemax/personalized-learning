@@ -189,7 +189,7 @@
         background-color: @expand-button-hover-background-color;
     }
 
-    .expand:hover:after {
+    &:hover:after {
         background-position: 0px 0px;
     }
 }
@@ -215,6 +215,8 @@
         content: "";
         background-position: 0px 0px;
         transition: background-position 0.2s linear;
+        -webkit-transition: background-position 0.2s linear;
+        -moz-transition: background-position 0.2s linear;
     }
 
     &:hover:after {
