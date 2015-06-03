@@ -35,60 +35,73 @@ menu, nav, section, summary, mark, audio, video {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-tap-highlight-color: transparent;
 }
+
 img {
     border: 0;
     -ms-interpolation-mode: bicubic;
     width: auto !important;
     vertical-align: middle;
 }
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
 button::-moz-focus-inner,
 input::-moz-focus-inner {
     padding: 0;
     border: 0;
 }
+
 input, button, select, textarea {
     font-size: inherit;
     font-family: inherit;
     line-height: inherit;
 }
+
 ul {
     &.unstyled {
         padding-left: 0;
         list-style: none;
     }
 }
+
 li {
     list-style-position: inside;
 }
+
 * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 :focus,
 :active {
     outline: none;
 }
+
 a {
     outline: 0;
     text-decoration: none;
+
     &:focus {
         text-decoration: none;
     }
 }
+
 a:hover,
-    a:active {
+a:active {
     outline: 0;
 }
+
 html, body {
     width: 100%;
     height: 100%;
     font-family: 'roboto-regular','OpenSans';
 }
+
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -96,6 +109,7 @@ html {
     overflow-x: auto;
     overflow-y: scroll;
 }
+
 body {
     -moz-user-select: none;
     -ms-user-select: none;
@@ -109,17 +123,21 @@ body {
     cursor: default;
     word-wrap: break-word;
 }
+
 h1, h2, h3 {
     line-height: 1.2;
 }
+
 h1, h2 {
     text-align: center;
     font-weight: 300;
 }
+
 .title {
     display: table;
     width: 100%;
     table-layout: fixed;
+
     h1 {
         vertical-align: bottom;
         padding: 20px 70px 200px 70px;
@@ -134,12 +152,14 @@ h1, h2 {
         word-wrap: break-word;
     }
 }
+
 h2 {
     color: #3c3c3c;
     text-transform: uppercase;
     font-size: 16px;
     font-family: 'robotoSlab-regular';
 }
+
 h3 {
     color: #3c3c3c;
     text-transform: uppercase;
@@ -147,18 +167,22 @@ h3 {
     font-size: 14px;
     font-family: 'robotoSlab-regular';
 }
+
 h4 {
     color: #3c3c3c;
     font-weight: normal;
     font-size: 14px;
     font-family: 'robotoSlab-regular';
 }
+
 img[style*='right'] {
     margin-left: 20px;
 }
+
 img[style*='left'] {
     margin-right: 20px;
 }
+
 hr {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
@@ -169,25 +193,29 @@ hr {
     border-top: 3px solid #9ad3d6;
     border-bottom: 1px solid #fcfdfd;
 }
+
 .title-background {
     background-image: url(../images/header-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     display: table;
-    background-position:0px -75px
+    background-position: 0px 0;
 }
+
 .container {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 15px auto 0;
 }
+
 .introduction {
     .content {
         border-bottom: 3px solid #9ad3d6;
     }
 }
+
 .content {
     padding: 30px 30px;
     border-bottom: 3px solid #9ad3d6;
@@ -203,11 +231,14 @@ hr {
     margin-bottom: 30px;
     word-wrap: break-word;
 }
+
 .pull-right {
     float: right;
 }
+
 .clearfix {
     clear: both;
+
     &:after {
         display: block;
         visibility: hidden;
@@ -216,12 +247,14 @@ hr {
         content: " ";
     }
 }
+
 .progress-bar {
     overflow: hidden;
     -ms-border-radius: 2px;
     border-radius: 5px;
     background-color: #dadada;
 }
+
 .progress-bar-value {
     -moz-user-select: none;
     -ms-user-select: none;
@@ -234,10 +267,12 @@ hr {
     font-weight: bold;
     cursor: default;
     border-radius: 4px;
+
     &:empty {
         content: " ";
     }
 }
+
 .progress-text-wrapper {
     text-align: center;
     font-family: 'robotoSlab-light','OpenSans';
@@ -246,15 +281,18 @@ hr {
     color: #9e9e9e;
     font-size: 18px;
 }
+
 .view {
     margin: -180px 0;
     padding-bottom: 40px;
 }
+
 .view-header {
     position: relative;
     margin: 0 auto 30px;
     height: 180px;
     text-align: center;
+
     h2 {
         position: absolute;
         bottom: 15px;
@@ -271,14 +309,17 @@ hr {
         text-align: left;
     }
 }
+
 .modalBlockout {
     background-color: white !important;
     -ms-opacity: 0.9 !important;
     opacity: 0.9 !important;
 }
+
 .overlay-wrapper {
     position: relative;
 }
+
 .overlay {
     bottom: 0;
     left: 0;
@@ -289,8 +330,14 @@ hr {
 }
 
 /*#region hotspot on an image*/
-.tl-wrapper{
+.tl-wrapper {
     font: 16px 'OpenSans';
     color: #fff;
 }
 /*#endregion hotspot on an image*/
+
+@media (max-width: 700px) {
+    .title h1 {
+        padding: 20px 20px 200px;
+    }
+}

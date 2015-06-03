@@ -4,7 +4,6 @@
     },
     "xApi": {
         "enabled": true,
-        "required":true,
         "lrs": {
             "uri": "http://cloud.scorm.com/ScormEngineInterface/TCAPI/public/statements/",
             "credentials": {

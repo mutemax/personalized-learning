@@ -1,4 +1,4 @@
-define(['durandal/composition'], function (composition) {
+define(['durandal/composition','knockout'], function (composition, ko) {
     'use strict';
     
     return {
@@ -22,8 +22,7 @@ define(['durandal/composition'], function (composition) {
                     default:
                         $element.css('overflow-x', 'auto');
                         $element.html(html);
-                        return wrapElements.init(element, valueAccessor);
-                        break;
+                        return ko.bindingHandlers.wrapElements.init(element, valueAccessor);
                 }
             }
         };
