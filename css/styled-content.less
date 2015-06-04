@@ -177,14 +177,27 @@
 
         li {
             position: relative;
+            list-style-position: outside;
 
             &:before {
                 position: absolute;
                 font-size: 20px;
                 width: 15px;
                 content: "\2022 ";
-                left: -22px;
+                margin-left: -15px;
                 color: @styled-content-ul-marker-color;
+            }
+
+            h1 {
+                display: inline;
+            }
+
+            h2 {
+                display: inline;
+            }
+
+            h3 {
+                display: inline;
             }
         }
     }
@@ -195,7 +208,19 @@
         padding-left: 60px;
 
         li {
-            list-style-position: outside;
+            list-style-position: inside;
+
+            h1 {
+                display: inline;
+            }
+
+            h2 {
+                display: inline;
+            }
+
+            h3 {
+                display: inline;
+            }
         }
     }
 
