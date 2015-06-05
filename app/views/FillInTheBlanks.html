@@ -1,9 +1,6 @@
-﻿<section>
+<section>
     <hr />
     <div class="question-content">
-        <div data-bind="html: content"></div>
+        <div data-bind="html: content, fillInTheBlanks: blanks"></div>
     </div>
-    <!-- ko foreach: blanks -->
-    <div data-bind="blank: $data"></div>
-    <!-- /ko -->
 </section>
