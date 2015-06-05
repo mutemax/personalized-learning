@@ -6,18 +6,7 @@
             <div class="form-caption" data-translate-text="[tracking and tracing header]">
                 Your credentials for progress tracking
             </div>
-            <hr />
-            <!-- ko if: reportRequired -->
-            <div class="form-description" data-translate-text="[tracking and tracing hint without skip]">
-                Please enter your credentials and click "Start and report my results" to start the course.
-            </div>
-            <!-- /ko -->
-            <!-- ko ifnot: reportRequired -->
-            <div class="form-description" data-translate-text="[tracking and tracing hint]">
-                Please enter your credentials and click "Start and report my progress" to enable progress tracking. Otherwise, click "Do not report, just start".
-            </div>
-            <!-- /ko -->
-
+           
             <div class="form-row" data-bind="css: { error: !username.isValid() && showError() }">
                 <div class="form-control-wrapper">
 
