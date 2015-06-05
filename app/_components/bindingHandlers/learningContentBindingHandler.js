@@ -17,7 +17,7 @@ define(['durandal/composition','knockout'], function (composition, ko) {
                     case 'hotspot': 
                         var hotspotOnImage = new HotspotOnImage($(html)[0]);
                         $element.html(hotspotOnImage.element);
-                        $element.css('overflow-x', 'visible');
+                        $element.addClass('hotspot-container');
                         break;
                     default:
                         $element.css('overflow-x', 'auto');
