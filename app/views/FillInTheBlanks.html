@@ -1,10 +1,7 @@
-﻿<section>
-
+<section>
+    <hr />
     <div class="question-content">
-        <div class='fill-in-the-blanks styled-content' data-bind="html: content,wrapElements:content"></div>
+        <div class='fill-in-the-blanks styled-content' data-bind="html: content, fillInTheBlanks: blanks"></div>
     </div>
-    <!-- ko foreach: blanks -->
-    <div  data-bind="blank: $data"></div>
-    <!-- /ko -->
-   
 </section>
+
