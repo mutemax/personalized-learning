@@ -1,4 +1,4 @@
-define(['knockout', 'jquery' 'durandal/composition'], function (ko, $, composition) {
+define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composition) {
 
     return {
         install: install
