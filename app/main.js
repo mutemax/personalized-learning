@@ -34,7 +34,6 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext'
                 } else {
                     browserDetector.isMac ? $body.addClass('mac') : $body.addClass('windows');
                 }
-
                 return Q.fcall(function() {
                     app.setRoot('viewmodels/notSupportedBrowser');
                 });

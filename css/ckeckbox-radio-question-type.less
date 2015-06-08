@@ -1,0 +1,93 @@
+﻿.checkbox, .radio {
+    background-color: @checkbox-radio-background-color;
+    border: @checkbox-radio-border-width @checkbox-radio-border-color @checkbox-radio-border-style;
+    border-radius: 5px;
+    margin: 10px -10px 0 -10px;
+    padding: 10px;
+    display: block;
+    -ms-border-radius: 5px;
+}
+
+.checkbox:hover, .radio:hover {
+    border-color: @checkbox-radio-hover-border-color;
+    background: @checkbox-radio-checked-background-color;
+    box-shadow: 0 0 50px 30px #e7f7f0 inset;
+    cursor: pointer;
+}
+
+.radio:hover .radio-icon, .checkbox:hover .checkbox-icon {
+    box-shadow: 0 0 1px 1px rgba(136,216,181,.75)inset;
+}
+
+.checkbox-icon-wrapper, .checkbox-text, .radio-icon-wrapper, .radio-text {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.checkbox-icon-wrapper, .radio-icon-wrapper {
+    width: 40px;
+}
+
+.checkbox-icon, .radio-icon {
+    display: table-cell;
+    width: 40px;
+    height: 40px;
+    background-color: @checkbox-radio-hover-background-color;
+}
+
+.checkbox-icon {
+    border-radius: 2px;
+}
+
+.radio-icon {
+    border-radius: 50%;
+}
+
+.checkbox.checked, .radio.checked {
+    background-color: @checkbox-radio-checked-background-color;
+}
+
+.checkbox.checked .checkbox-icon {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjNBMDAxQzgwMjE5MTFFNTgxOThEMzA3RjEwOEZERkEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjNBMDAxQzkwMjE5MTFFNTgxOThEMzA3RjEwOEZERkEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2M0EwMDFDNjAyMTkxMUU1ODE5OEQzMDdGMTA4RkRGQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2M0EwMDFDNzAyMTkxMUU1ODE5OEQzMDdGMTA4RkRGQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PoqRvogAAAEsUExURYfWtIfXtJDbuobVs/7//4TSsIbVsvz+/f3+/rvp1YLPrXrCo3e9nnnAobzp1YHNrL/q137IqILOrIPQr3e7nbPizY/Yt4HMq/n7+oTRr4XUsXvEpPb6+Nzw56XNvL3l07vl05fZvN7s5pTEsKvQwOTz7drx5/X59/j8+qrexujy7sjg1pLYun3GppHLsXi6ncTo2IDLquz38o3Xt5jHs4XTsdLl3XW6nIvXtsXe07vZzI7Yt4nIrN7x6PT6+N7x6cXo2X27oKziyq/Sw87r3p/bwPv9/H/KqYfVtOLz7KXfxajPvqHKuHe+n3a6nHa8nsbe1J3JtpDDrXrBorbVyLXWx3i/oHm/oIzXt4nWtNvy6IPQro7Cq8Dbz9fv5XvDo+Pz7PH59f///4jYtf9UinMAAAEeSURBVHja7NVXUwIxEADgzYU7jiaiFAEVG/aCigIWFMGOvXfZ+///wQ0zMgd6lwzP7EMyk3yTh81mA16fZklD83mhz1KKftDUoAaWYvRg95CdTRdVIDucxdNtOWTjZUTcM2SQLTbIzSzrMhhfIzf8vpSSwPUsuaHbtM7c4cuucJNfv84JnnySO8oHksw9PbxGzryxuXb4/HrQ3IGccPW7Qfb/zcS/0YzRAmTIeUZDdmeHxojYHwOIeWieenoDh7vWd+ZJ4v6cSWP10Q9ORWFEKhNC0nn4cNHh7JClIiub2Iyt4AC4lZlxfHkt3MfVH9eRR75auEcsRcMgK1weDp4vRBMgr3DwB0IJrvIUYEPnvU7RgsqtWbnZq34fPwIMANsWPJpWQHAAAAAAAElFTkSuQmCC') no-repeat 50% 50%;
+}
+
+
+.radio.checked .radio-icon, .radio-icon.checked {
+    background-color: @radioicon-checked-background-color;
+    position: relative;
+}
+
+.radio-icon.checked:before, .radio.checked .radio-icon:before {
+    width: 20px;
+    height: 20px;
+    content: '';
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+}
+
+.checkbox-text, .radio-text {
+    padding-left: 10px;
+    white-space: pre-wrap;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    font-family: 'robotoSlab-regular','OpenSans';
+    font-size: 18px;
+    color: #3a4046;
+    vertical-align: middle;
+    cursor: pointer;
+    word-break: break-all;
+}
+
+.disabled .checkbox:hover, .disabled.checkbox:hover, .disabled .radio:hover, .disabled.radio:hover {
+    background-color: #fff;
+}
+
+.disabled .checkbox.checked:hover, .disabled.checkbox.checked:hover, .disabled .radio.checked:hover, .disabled.radio.checked:hover {
+    background-color: #f1f1f1;
+}

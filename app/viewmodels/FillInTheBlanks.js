@@ -6,6 +6,7 @@
         Question.call(that, question);
 
         that.content = question.content;
+        
         that.blanks = _.chain(question.answers)
             .map(function (option) {
                 return {
@@ -13,7 +14,15 @@
                     text: ko.observable()
                 }
             }).value();
-
+        that.isDirty = ko.computed(function () {
+            var count = 0;
+            _.each(that.blanks, function (blank) {
+              if (blank.text()) {
+                    count++
+                }
+            })
+            return count == question.answers.length;
+        });
         that.resetAnswer = function () {
             that.isAnswered(false);
             that.isAnsweredCorrectly(false);

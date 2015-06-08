@@ -1,6 +1,5 @@
 ﻿define(['durandal/app',
     'durandal/system',
-
     './statementsQueue',
     './statementsQueueHandler',
     './configuration/settings',
@@ -34,8 +33,7 @@
             activityUrl: '',
             courseId: null
         },
-            sessionId = system.guid();
-
+        sessionId = system.guid();
         return activityProvider;
 
         function initialize(courseId, actorName, actorEmail, activityName, activityUrl) {

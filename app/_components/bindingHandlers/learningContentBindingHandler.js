@@ -1,4 +1,4 @@
-define(['durandal/composition'], function (composition) {
+define(['durandal/composition','knockout'], function (composition, ko) {
     'use strict';
     
     return {
@@ -17,12 +17,12 @@ define(['durandal/composition'], function (composition) {
                     case 'hotspot': 
                         var hotspotOnImage = new HotspotOnImage($(html)[0]);
                         $element.html(hotspotOnImage.element);
-                        $element.css('overflow-x', 'visible');
+                        $element.addClass('hotspot-container');
                         break;
                     default:
                         $element.css('overflow-x', 'auto');
                         $element.html(html);
-                        break;
+                        return ko.bindingHandlers.wrapElements.init(element, valueAccessor);
                 }
             }
         };

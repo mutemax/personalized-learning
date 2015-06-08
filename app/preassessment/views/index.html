@@ -1,21 +1,43 @@
 ﻿<section class="preassessment view">
     <header class="view-header">
         <h2 data-translate-text="[pre-assessment]">Pre-assessment</h2>
+        <div class="header-progressbar-wrapper" >
+            <span class='progress-text' data-bind="text:progress()"></span>
+            <span data-translate-text="[of]">of</span>
+            <span class='progress-text' data-bind="text:questions().length"></span>
+            <span class="progress-text answered" data-translate-text="[answered]">answered</span>
+            <div data-bind="questionProgress:{progress:progress,questions:questions}"></div>
+        </div>
+    </header>
+    <header class="alternative-header ">
+        <div class="container-content-wrapper">
+            <h2 data-translate-text="[pre-assessment]">Pre-assessment</h2>
+            <div class="header-progressbar-wrapper" data-bind="questionProgress:{progress:progress,questions:questions}">
+                <span class='progress-text' data-bind="text:progress()"></span>
+                <span data-translate-text="[of]">of</span>
+                <span class='progress-text' data-bind="text:questions().length"></span>
+                <span class="progress-text answered" data-translate-text="[answered]">answered</span>
+
+            </div>
+        </div>
     </header>
     <form data-bind="submit: submit">
         <ul class="unstyled">
             <!-- ko foreach: questions -->
-            <li class="content container">
-                <div class="question-title">
-                    <span data-bind="text: $index() + 1"></span>.&nbsp;<span data-bind="text: title"></span>
+            <li >
+                <div class="question-number-wrapper" data-bind="text: $index() + 1"></div>
+                <div class="content container">
+                    <div class="question-title">
+                        <span data-bind="text: title"></span>
+                    </div>
+                    <!-- ko compose: { model: $data, mode: 'templated' } -->
+                    <!-- /ko -->
                 </div>
-                <!-- ko compose: { model: $data, mode: 'templated' } -->
-                <!-- /ko -->
             </li>
             <!-- /ko -->
             <li>
                 <div class="submit-wrapper">
-                    <button class="button info large emphasize"><span class="button-text" data-translate-text="[submit]">Submit</span></button>
+                    <button class="button success large emphasize" ><span class="button-text" data-translate-text="[submit]">submit</span></button>
                 </div>
             </li>
         </ul>

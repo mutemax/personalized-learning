@@ -1,28 +1,32 @@
 ﻿<section>
-    <hr />
+
     <!-- ko if: content -->
     <div class="question-content">
-        <div data-bind="html: content"></div>
+        <div class='styled-content' data-bind="html: content,wrapElements:content"></div>
     </div>
     <!-- /ko -->
 
     <ul class="statement">
         <li class="statement-headers-group">
+            <div class="statement-header statement-option" data-translate-text="[statement question true text]">TRUE</div>
+            <div class="statement-header statement-option" data-translate-text="[statement question false text]">FALSE</div>
             <div class="statement-header"></div>
-            <div class="statement-header statement-option" data-translate-text="[statement question true text]">True</div>
-            <div class="statement-header statement-option" data-translate-text="[statement question false text]">False</div>
         </li>
 
         <!-- ko foreach: statements -->
         <li class="statement-item">
-            <div class="statement-label"><span data-bind="text: text"></span></div>
             <span class="statement-option radio-icon-wrapper">
-                <span class="radio-icon" data-bind="click: markAsTrue, css: { checked: state() === true }"></span>
+                <span class="radio-icon-wrapper">
+                    <span class="radio-icon" data-bind="click: markAsTrue, css: { checked: state() === true }"></span>
+                </span>
             </span>
             <span class="statement-option radio-icon-wrapper">
                 <span class="radio-icon" data-bind="click: markAsFalse, css: { checked: state() === false }"></span>
             </span>
+            <div class="statement-label"><span data-bind="text: text"></span></div>
+
         </li>
         <!-- /ko -->
+
     </ul>
 </section>

@@ -1,13 +1,44 @@
-﻿define(['entities/course', 'viewmodels/factory', 'durandal/app', 'Q'], function (course, factory, app, Q) {
+﻿define(['entities/course', 'viewmodels/factory', 'durandal/app', 'Q', 'preassessment/helpers/alternativeHeader'], function (course, factory, app, Q, alternativeHeader) {
     "use strict";
 
-    var viewModel = {
+    var viewModel = {        
+        questions: ko.observableArray([]),
+        submit: submit,
+
         activate: activate,
-        questions: [],
-        submit: submit
+        attached: attached,
+        detached: detached
     };
 
+    var self = {
+        header: null
+    };
+
+    viewModel.progress = ko.computed(function () {
+        var count = 0;
+        _.each(viewModel.questions(), function (question) {
+            if (question.isDirty()) {
+                count++
+            }
+        })
+        return count;
+    });
+
     return viewModel;
+
+    function attached(element) {
+        self.header = alternativeHeader(element);
+        if (_.isObject(self.header) && _.isFunction(self.header.subscribe)) {
+            self.header.subscribe()
+        }
+    }
+
+    function detached() {
+        if (_.isObject(self.header) && _.isFunction(self.header.unsubscribe)) {
+            self.header.unsubscribe()
+        }
+    }
+
 
     function activate() {
         return Q.fcall(function () {
@@ -16,7 +47,6 @@
                     viewModel.questions.push(factory.createQuestionViewModel(question));
                 });
             });
-
         })
         ["catch"](function (reason) {
             console.error(reason);
@@ -24,7 +54,7 @@
     }
 
     function submit() {
-        _.each(viewModel.questions, function (question) {
+        _.each(viewModel.questions(), function (question) {
             question.submit();
         });
 

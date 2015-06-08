@@ -1,18 +1,17 @@
 ﻿<section class="singleselectimage">
-    <hr />
+
     <!-- ko if: content -->
     <div class="question-content">
-        <div data-bind="html: content"></div>
+        <div class='styled-content' data-bind="html: content,wrapElements:content"></div>
     </div>
     <!-- /ko -->
     <ul>
         <!-- ko foreach: options -->
         <li class="radio image" data-bind="click: $parent.selectOption, css: { checked: $data == $parent.selectedOption() }">
             <div class="radio-image-wrapper" data-bind="thumbnail: image"></div>
-            <div class="radio-icon-wrapper">
-                <span class="radio-icon"></span>
-            </div>
+            
         </li>
         <!-- /ko -->
     </ul>
+
 </section>

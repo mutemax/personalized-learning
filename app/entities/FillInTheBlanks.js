@@ -15,7 +15,7 @@
 
             _.each(that.answers, function (option) {
                 if (_.find(userAnswers, function (answer) {
-                    return option.groupId == answer.groupId && option.text == answer.text;
+                    return option.groupId.toLowerCase() == answer.groupId.toLowerCase() && option.text.toLowerCase() == answer.text.toLowerCase();
                 })) {
                     numOfCorrect++;
                 }
