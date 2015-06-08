@@ -1,8 +1,8 @@
 ﻿.studyadvice {
     .objective-to-learn {
-        background-color: #ffffff;
-        border-radius: 5px;
-        border-bottom: 4px solid #9ad3d6;
+        background-color: @objective-to-learn-background-color;
+        border-radius: @objective-to-learn-border-radius;
+        border-bottom: @objective-to-learn-border-width @objective-to-learn-border-style @objective-to-learn-border-color;
         margin-top: 10px;
         display: table;
         width: 100%;
@@ -12,8 +12,8 @@
 
     .objective-title {
         padding: 20px 0 20px 0;
-        color: #3e3d40;
-        font-size: 20px;
+        color: @studydvice-objective-title-font-color;
+        font-size: @studydvice-objective-title-font-size;
         font-family: 'robotoSlab-regular','OpenSans';
         line-height: 36px;
         word-break: break-word;
@@ -36,7 +36,7 @@
     }
 
     .objective-recommended-reading-wrapper {
-        background-color: #e9fbff;
+        background-color: @studydvice-objective-recomended-reading-background-color;
         margin-top: -5px;
         border-top-left-radius: 0;
         -webkit-box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
@@ -59,11 +59,11 @@
     .objective-recommended-reading-title {
         display: table-cell;
         padding: 25px 0;
-        color: #3c3c3c;
+        color: @studydvice-objective-recomended-reading-font-color;
         vertical-align: middle;
         word-wrap: break-word;
         font-family: 'robotoSlab-regular','OpenSans';
-        font-size: 18px;
+        font-size: @studydvice-objective-recomended-reading-font-size;
         line-height: 2;
         padding-right: 30px;
     }
@@ -138,13 +138,13 @@
 }
 
 .reading-title {
-    color: #ef4535;
+    color: @studydvice-objective-recomended-reading-title-font-color;
     font-family: 'roboto-regular','OpenSans';
-    font-size: 20px;
+    font-size: @studydvice-objective-recomended-reading-title-font-size;
 }
 
 .mastered-objective-holder {
-    border: 3px solid #9ad3d6;
+    border: @mastered-objective-holder-border-width @mastered-objective-holder-border-style @mastered-objective-holder-border-color;
 }
 
 .objectives {
@@ -171,13 +171,13 @@
 .mastered-objective-round {
     width: 77px;
     height: 77px;
-    border: 5px solid #3e9b95;
+    border: 5px solid @mastered-objective-color;
     border-radius: 50%;
     padding-top: 19px;
     font-size: 22px;
     display: inline-block;
     margin-left: 50px;
-    color: #3e9b95;
+    color: @mastered-objective-color;
     text-align: center;
     line-height: 30px;
     font-family: 'twcenmt';

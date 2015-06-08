@@ -10,9 +10,8 @@
 }
 .statement-header {
 	display: table-cell;
-	font-size: 18px;
 	font-family: 'robotoSlab-light','OpenSans';
-	font-size: 20px;
+	font-size: @statement-header-font-size;
 	height: 50px;
 	vertical-align: middle;
 	font-weight: 600;
@@ -31,7 +30,7 @@
 	width: 100px;
 	padding-left: 10px;
 	overflow: hidden;
-    background-color:rgba(200,209,215,.2);
+    background-color:@statement-option-background-colour;
 	&:first-child {
 		border-top-left-radius: 7px;
 		border-bottom-left-radius: 7px;
@@ -47,7 +46,7 @@
 	padding: 10px;
 	word-wrap: break-word;
 	white-space: pre-line;
-    background-color:rgba(200,209,215,.2);
+    background-color:@statement-option-background-colour;
 }
 .statement-label,
 .statement-option {

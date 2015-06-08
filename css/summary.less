@@ -3,7 +3,7 @@
     color: #000;
 
     .content {
-        border-bottom-color: #9ad3d6;
+        border-bottom-color: @summary-content-border-color;
         -webkit-box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
         box-shadow: 0px 50px 74px -60px rgba(0,0,0,0.75);
@@ -47,18 +47,16 @@
     }
 
     .objective-title {
-        font-size: 18px;
+        font-size: @summary-objective-title-font-size;
         font-family: "robotoSlab-regular",'OpenSans';
-        color: #3e3d40;
+        color: @summary-objective-title-color;
         line-height: 36px;
     }
 
     .objective-progress {
         padding-left: 20px;
         width: 100px;
-        color: #3c3c3c;
         text-align: center;
-        font-size: 14px;
         margin-top: 20px;
     }
 
@@ -84,24 +82,17 @@
 .header-progress-text {
     font-family: 'robotoSlab-light';
     font-weight: bold;
-    font-size: 26px;
-    color: #e2e2e2;
+    font-size: @summary-header-progress-font-size;
+    color: @summary-header-progress-font-color;
     padding-top: 10px;
 }
 
 .summary-title {
     padding-bottom: 20px;
-    font-size: 20px;
+    font-size: @summary-title-font-size;
     border-bottom: 3px solid #9ad3d6;
-    color: #61b0b4;
+    color: @summary-title-font-color;
     font-family: 'roboto-regular','OpenSans';
-}
-
-.view-header {
-    .progress-text-wrapper {
-        color: white;
-        font-size: 28px;
-    }
 }
 
 .empty-div {
@@ -120,23 +111,12 @@
         position: absolute;
         top: 50%;
         width: 100%;
-        font-size: 25px;
+        font-size: @circle-progress-font-size;
         margin-top: -12px;
         text-align: center;
         font-family: 'twcenmt';
     }
 
-    &.fail {
-        div {
-            color: #f16162;
-        }
-    }
-
-    &.success {
-        div {
-            color: #3e9c96;
-        }
-    }
 }
 
 @media (max-width:640px) {

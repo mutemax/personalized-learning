@@ -1,10 +1,10 @@
 ﻿.text-matching-caption {
-    color: #7ebdca;
+    color: @text-matching-hint-font-colour;
     margin-bottom: 20px;
     margin-top: 10px;
     margin-left: 80px;
     padding: 10px;
-    background-color: #edfafd;
+    background-color: @text-matching-hint-background-colour;
     position: relative;
     box-shadow: 0 1px 4px 0 rgba(50,50,50,.1);
     display: inline-block;
@@ -16,7 +16,7 @@
         width: 11px;
         height: 11px;
         content: '';
-        background-color: #edfafd;
+        background-color: @text-matching-hint-background-colour;
         left: -5px;
         top: 22px;
         transform: rotate(45deg);
@@ -66,11 +66,11 @@
 }
 
 .text-matching-source {
-    background: none repeat scroll 0 0 #f4f6f7;
-    border: 1px solid #e0e8ec;
-    border-bottom: 3px solid #e0e8ec;
-    border-radius: 7px;
-    color: #333333;
+    background: none repeat scroll 0 0 @text-matching-source-background-color;
+    border: @text-matching-source-border-width @text-matching-source-border-style @text-matching-source-border-colour;
+    border-bottom: @text-matching-source-border-bottom-width @text-matching-source-border-style @text-matching-source-border-colour;
+    border-radius: @text-matching-source-border-radius;
+    color: @text-matching-source-font-colour;
     height: 100%;
     position: relative;
     width: 100%;
@@ -126,11 +126,11 @@
 }
 
 .text-matching-target {
-    background: none repeat scroll 0 0 #e7f7f0;
-    border: 1px solid #b2dbc9;
-    border-bottom: 3px solid #b2dbc9;
+    background: none repeat scroll 0 0 @text-matching-target-background-colour;
+    border:  @text-matching-source-border-width @text-matching-source-border-style @text-matching-target-border-colour;
+    border-bottom: @text-matching-source-border-bottom-width @text-matching-source-border-style @text-matching-target-border-colour;
     border-radius: 7px;
-    font-size: 18px;
+    font-size: @text-matching-target-font-size;
     cursor: move;
     display: block;
     height: 100%;
@@ -207,9 +207,9 @@
 }
 
 .text-matching-target-placeholder-text-wrapper {
-    border: 1px dashed #79C8E6;
+    border: @text-matching-placeholder-border-width @text-matching-placeholder-border-style @text-matching-placeholder-font-color;
     border-left: 0;
-    border-radius: 7px;
+    border-radius: @text-matching-placeholder-border-radius;
     display: table;
     table-layout: fixed;
     height: 100%;
@@ -217,7 +217,7 @@
 }
 
 .text-matching-target-placeholder-wrapper.hover .text-matching-target-placeholder-text-wrapper {
-    border-color: #79C8E6;
+    border-color: @text-matching-placeholder-font-color;
 }
 
 .text-matching-target-placeholder-text {
@@ -235,5 +235,5 @@
 }
 
 .text-matching-target-placeholder-wrapper .text-matching-target-placeholder-text {
-    color: #79C8E6;
+    color: @text-matching-placeholder-font-color;
 }
