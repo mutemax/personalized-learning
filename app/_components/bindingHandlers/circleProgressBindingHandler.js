@@ -15,7 +15,6 @@
                 $element = $(element),
                 $canvas = $(element).children('canvas')[0],
                 ctx = $canvas.getContext('2d'),
-                progressBarcolor='yellow',
                 percentage = (value / 100) * 2 - 0.5;
 
                 if (value < 35) {
