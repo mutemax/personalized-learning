@@ -15,19 +15,17 @@
                 $element = $(element),
                 $canvas = $(element).children('canvas')[0],
                 ctx = $canvas.getContext('2d'),
-                progressBarcolor,
+                progressBarcolor='yellow',
                 percentage = (value / 100) * 2 - 0.5;
 
                 if (value < 35) {
-                    progressBarcolor = "#f16162";
-                }
-                if (34 < value) {
-                    progressBarcolor = "#eda646"
+                    $element.addClass('fail')
                 }
                 if (value === 100) {
-                    progressBarcolor = "#3e9c96";
+                    $element.addClass('success')
                 }
 
+                progressBarcolor = $element.css('color')
                 ctx.lineWidth = 4;
                 ctx.strokeStyle = '#f0f0f0';
 

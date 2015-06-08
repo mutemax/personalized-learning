@@ -105,26 +105,35 @@
     position: relative;
     height: 100px;
     margin: auto;
+    color: @circle-progress-color;
+
+    &.fail {
+        color: @circle-progress-fail-color;
+    }
+
+    &.success {
+        color: @circle-progress-success-color;
+    }
 
     div {
-
         position: absolute;
         top: 50%;
         width: 100%;
         font-size: @circle-progress-font-size;
-        margin-top: -12px;
+        margin-top: -13px;
         text-align: center;
         font-family: 'twcenmt';
-    }
 
+    }
 }
 
 @media (max-width:640px) {
     .summary .objective {
         display: block;
     }
-    .summary .objective>div{
-        display:block;
-        text-align:center;
+
+    .summary .objective > div {
+        display: block;
+        text-align: center;
     }
 }
