@@ -27,8 +27,6 @@
                 if (!objective.isCompleted() && _.isUndefined(objectiveIndex)) {
                     objectiveIndex = index;
                 }
-            });
-            _.each(course.objectives, function (objective, index) {
 
                 var objectiveViewModel = {
                     id: objective.id,
