@@ -21,7 +21,12 @@
             viewModel.learntObjectives = [];
             viewModel.objectivesToLearn = [];
 
-            _.each(course.objectives, function (objective,index) {
+            var objectiveIndex;
+
+            _.each(course.objectives, function (objective, index) {
+                if (!objective.isCompleted() && _.isUndefined(objectiveIndex)) {
+                    objectiveIndex = index;
+                }
 
                 var objectiveViewModel = {
                     id: objective.id,
@@ -38,11 +43,11 @@
                             return { id: question.id, title: question.title };
                         })
                         .value(),
-                    isExpanded: ko.observable(index===0),
-                    toggleExpand: function(){
+                    isExpanded: ko.observable(index === objectiveIndex),
+                    toggleExpand: function () {
                         this.isExpanded(!this.isExpanded());
                     },
-                   
+
                 };
 
                 if (objectiveViewModel.recommended.length) {
