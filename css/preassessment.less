@@ -54,23 +54,34 @@
     height: 0;
     opacity: 0;
     width: 100%;
-    background-image: url(../images/header-bg.jpg);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 251;
-    -webkit-background-size: initial;
     -webkit-background-position: 0 170px;
-    background-size: initial;
-    background-position: 0 296px;
     -webkit-box-shadow: 0px 5px 8px 0px rgba(189,189,190,1);
     -moz-box-shadow: 0px 5px 8px 0px rgba(189,189,190,1);
     box-shadow: 0px 5px 8px 0px rgba(189,189,190,1);
     transition: transform 0.5s;
     transform: translateY(-120px);
 
+    &:after{
+        position:absolute;
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        content:'';
+        background-color:rgba(0,0,0,0.35)
+    }
+    .container-content-wrapper{
+        position:relative;
+        z-index:10;
+    }
+
     .header-progressbar-wrapper {
-        right: 25px;
+        right: 5px;
+        bottom:0;
     }
 
     h2 {
@@ -86,6 +97,7 @@
         white-space: nowrap;
         width: 50%;
         text-align: left;
+        text-transform:capitalize;
     }
 
     &.show {

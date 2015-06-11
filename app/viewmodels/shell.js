@@ -1,4 +1,4 @@
-﻿define(['knockout', 'controller', 'loader', 'templateSettings', 'entities/course', 'modulesInitializer'], function (ko, controller, loader, templateSettings, course, modulesInitializer) {
+﻿define(['knockout', 'controller', 'loader', 'templateSettings', 'background', 'entities/course', 'modulesInitializer'], function (ko, controller, loader, templateSettings, background, course, modulesInitializer) {
     "use strict";
 
     var viewModel = {
@@ -7,7 +7,8 @@
         activate: activate,
         logoUrl: ko.observable(),
 
-        activeItem: controller.activeItem
+        activeItem: controller.activeItem,
+        compositionComplete: compositionComplete
     };
 
 
@@ -19,9 +20,18 @@
 
     function activate() {
         return modulesInitializer.init().then(function () {
+
             viewModel.logoUrl(templateSettings.logoUrl ? templateSettings.logoUrl : '');
+
             return controller.activate();
+
+           
         });
+    }
+
+    function compositionComplete() {
+        background.apply(templateSettings.background)
+
     }
 
 });
