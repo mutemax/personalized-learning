@@ -7,13 +7,14 @@
         var currentBackgroundImage = $('.title-background').css('background-image');
         var currentBackgroundSize = $('.title-background').css('background-size');
         var currentBackgroundRepeat = $('.title-background').css('background-repeat');
+        var firstHeaderHeight = $('.logo-header').outerHeight();
 
         $element.css({
             'background-image': currentBackgroundImage,
             'background-size': currentBackgroundSize,
             '-webkit-background-size': currentBackgroundSize,
             'background-repeat': currentBackgroundRepeat,
-            'background-position': '0' + '-'+ ($headerHeight-70)+'px'
+            'background-position': '0' + '-' + ($headerHeight - firstHeaderHeight) + 'px'
         })
 
         var debounced = _.debounce(scroll, 10);
@@ -28,10 +29,10 @@
 
         function scroll() {
             var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrolled > ($headerHeight+70)) {
+            if (scrolled > ($headerHeight + firstHeaderHeight)) {
                 $element.addClass('show')
             }
-            if (scrolled < ($headerHeight+70)) {
+            if (scrolled < ($headerHeight + firstHeaderHeight)) {
                 $element.removeClass('show')
             }
         };
