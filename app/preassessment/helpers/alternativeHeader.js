@@ -16,7 +16,6 @@
             'background-position': '0' + '-'+ ($headerHeight-70)+'px'
         })
 
-        console.log($('.title-background').css('background-image'))
         var debounced = _.debounce(scroll, 10);
 
         function subscribe() {

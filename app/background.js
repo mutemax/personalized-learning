@@ -5,7 +5,7 @@
     }
 
     function apply(background) {
-
+        debugger
         if (!background || !background.image || !background.image.src) {
             return;
         }
