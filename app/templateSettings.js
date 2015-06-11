@@ -7,7 +7,10 @@
             "url": ""
         },
         "background": {
-            "url": null,
+            "image": {
+                'src': 'images/header-bg.jpg',
+                'type': "fullscreen"
+            }
         },
         "xApi": {
             "enabled": true,
