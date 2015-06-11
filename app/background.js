@@ -1,4 +1,4 @@
-﻿define(['_'], function (_) {
+﻿define([], function () {
 
     return {
         apply: apply
