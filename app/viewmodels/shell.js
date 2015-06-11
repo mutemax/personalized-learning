@@ -1,4 +1,4 @@
-﻿define(['knockout', 'controller', 'loader', 'templateSettings', 'background', 'entities/course', 'modulesInitializer'], function (ko, controller, loader, templateSettings, background, course, modulesInitializer) {
+﻿define(['knockout', 'controller', 'loader', 'templateSettings', 'entities/course', 'modulesInitializer'], function (ko, controller, loader, templateSettings, course, modulesInitializer) {
     "use strict";
 
     var viewModel = {
