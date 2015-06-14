@@ -9,9 +9,8 @@
         $(".title-background")
             .clone()
             .appendTo($element)
-            //10 px is the difference between logo-header height and alternative header height
             .css({ marginTop: "-" + (headerHeight + 10) + "px" });
-       
+        //10 px is the difference between logo-header height and alternative header height
         var debounced = _.debounce(scroll, 10);
 
         function subscribe() {
