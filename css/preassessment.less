@@ -54,23 +54,25 @@
     height: 0;
     opacity: 0;
     width: 100%;
-    background-image: url(../images/header-bg.jpg);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 251;
-    -webkit-background-size: initial;
-    -webkit-background-position: 0 170px;
-    background-size: initial;
-    background-position: 0 296px;
     -webkit-box-shadow: 0px 5px 8px 0px rgba(189,189,190,1);
     -moz-box-shadow: 0px 5px 8px 0px rgba(189,189,190,1);
     box-shadow: 0px 5px 8px 0px rgba(189,189,190,1);
     transition: transform 0.5s;
     transform: translateY(-120px);
 
+    .container-content-wrapper{
+        position:relative;
+        z-index:10;
+        bottom: 17px;
+    }
+
     .header-progressbar-wrapper {
-        right: 25px;
+        right: 5px;
+        bottom:0;
     }
 
     h2 {
@@ -86,11 +88,12 @@
         white-space: nowrap;
         width: 50%;
         text-align: left;
+        text-transform:capitalize;
     }
 
     &.show {
         transform: translateY(0);
-        height: 80px;
+        height: 60px;
         opacity: 1;
         -webkit-transform: translateZ(0);
         transform: translateZ(0);

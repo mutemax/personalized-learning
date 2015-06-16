@@ -6,6 +6,12 @@
         "logo": {
             "url": ""
         },
+        "background": {
+            "image": {
+                'src': 'images/header-bg.jpg',
+                'type': "fullscreen"
+            }
+        },
         "xApi": {
             "enabled": true,
             "selectedLrs": "default",
@@ -35,6 +41,9 @@
     function init(settings) {
         var that = this;
         var fullSettings = _.defaults(settings, defaultTemplateSetting);
+        if (!fullSettings.background.image.src) {
+            fullSettings.background = defaultTemplateSetting.background
+        }
 
         return Q.fcall(function () {
             //Course logo initialization
@@ -43,6 +52,9 @@
             }
 
             that.xApi = fullSettings.xApi;
+
+            that.background = fullSettings.background
+
         });
     }
 
