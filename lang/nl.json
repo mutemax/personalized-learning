@@ -44,5 +44,7 @@
     "[tracking and tracing restart course]": "Herstart cursus",
     "[tracking and tracing continue anyway]": "Ga door",
     "[tracking and tracing hint without skip]": "Vul uw gegevens in en klik op ‘Start en rapporteer mijn resultaten’ om de cursus te beginnen",
-    "[tracking and tracing error hint without continue]": "Herstart de cursus. Neem contact op met uw cursusleider als het probleem niet is opgelost."
+    "[tracking and tracing error hint without continue]": "Herstart de cursus. Neem contact op met uw cursusleider als het probleem niet is opgelost.",
+    "[answered]": "beantwoord",
+    "[overall progress]": "Totale voortgang"
 }
