@@ -198,6 +198,8 @@
                 addLanguage(new LanguageModel(language.code, language.name, language.url));
             });
 
+            that.languages = _.sortBy(that.languages, 'name');
+
             var defaultLanguage = getLanguage(defaultLanguageCode);
             var customLanguage = new LanguageModel(customLanguageCode, app.localize(customLanguageCode), defaultLanguage ? defaultLanguage.resourcesUrl : null, languagesSettings ? languagesSettings.customTranslations : null);
 
