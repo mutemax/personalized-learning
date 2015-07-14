@@ -1,5 +1,5 @@
-define(['entities/course', 'browserDetector', 'knockout', '_', 'translation'],
-    function (course, browserDetector, ko, _, translation) {
+define(['entities/course', 'knockout', '_', 'translation'],
+    function (course, ko, _, translation) {
         "use strict";
 
         var self = {
