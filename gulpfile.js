@@ -87,8 +87,8 @@ gulp.task('build-app', ['clean'], function () {
     gulp.src('css/font/**')
         .pipe(gulp.dest(output + '/css/font'));
 
-    gulp.src('images/**')
-        .pipe(gulp.dest(output + '/images'));
+    gulp.src('css/img/**')
+        .pipe(gulp.dest(output + '/css/img'));
 
     gulp.src(['js/require/require.js'])
         .pipe(gulp.dest(output + '/js/require'));

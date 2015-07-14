@@ -8,7 +8,7 @@
         },
         "background": {
             "image": {
-                'src': 'images/header-bg.jpg',
+                'src': 'css/img/header-bg.jpg',
                 'type': "fullscreen"
             }
         },
