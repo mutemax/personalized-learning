@@ -98,6 +98,9 @@ gulp.task('build-app', ['clean'], function () {
 
     gulp.src('manifest.json')
         .pipe(gulp.dest(output));
+        
+    gulp.src('preview/**')
+        .pipe(gulp.dest(output + '/preview'));
 
     return durandal({
             minify: true
