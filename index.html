@@ -16,6 +16,7 @@
     <meta http-equiv="pragma" content="no-cache" />
 
     <!-- build:css css/vendor.css -->
+    <link href="vendor/easy-supported-browser/css/easy-supported-browser.min.css" rel="stylesheet" />
     <link href="vendor/easygenerator-hotspot-on-an-image-plugin/hotspotOnAnImagePlugin.css" rel="stylesheet" />
     <!-- endbuild -->
 
@@ -41,11 +42,11 @@
             <div class="color-ball green"></div>
             <div class="color-ball blue"></div>
             <div class="color-ball yellow"></div>
-
         </div>
     </div>
 
     <!-- build:js js/vendor.min.js -->
+    <script src="vendor/easy-supported-browser/easy-supported-browser.min.js" ></script>
     <script src="js/jquery/jquery-1.9.1.js"></script>
     <script src="js/jquery-ui/jquery-ui.js"></script>
     <script src="js/jquery-ui-touchpunch/jquery.ui.touch-punch.min.js"></script>
@@ -55,6 +56,57 @@
     <script src="vendor/easygenerator-hotspot-on-an-image-plugin/hotspotOnAnImagePlugin.js"></script>
     <!-- endbuild -->
     <script type="text/javascript">
+        supportedBrowser.configure({
+            browsers: {
+                win: {
+                    chrome: {},
+                    firefox: {},
+                    msie: {}
+                },
+                mac: {
+                    safari: {},
+                    chrome: {}
+                },
+                android: {
+                    native: {
+                        title: 'Android Browser',
+                        image: 'css/img/browsers/android.png'
+                    },
+                    chrome: {}
+                },
+                ios: {
+                    safari: {},
+                    chrome: {}
+                }
+            },
+            mainAppContainerId: 'applicationHost',
+            globalBrowsersInfo: {
+                chrome: {
+                    title: 'Google Chrome',
+                    link: 'http://www.google.com/chrome',
+                    image: 'css/img/browsers/chrome.png',
+                    version: 43
+                },
+                firefox: {
+                    title: 'Mozilla Firefox',
+                    link: 'http://www.mozilla.com/firefox',
+                    image: 'css/img/browsers/firefox.png',
+                    version: 33
+                },
+                msie: {
+                    title: 'Internet Explorer',
+                    link: 'http://windows.microsoft.com/en-US/internet-explorer/download-ie',
+                    image: 'css/img/browsers/ie.png',
+                    version: 11
+                },
+                safari: {
+                    title: 'Apple Safari',
+                    link: 'http://www.apple.com/safari',
+                    image: 'css/img/browsers/safari.png'
+                }
+            }
+        }).init();
+    
         var require = {
             baseUrl: 'app',
             deps: ['main'],
