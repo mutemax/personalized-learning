@@ -1,5 +1,5 @@
-﻿define(['browserDetector', './xDomainRequestTransport', './corsRequestTransport', '../utils/base64', '../configuration/settings', 'jquery'],
-    function (browserDetector, xDomainRequestTransport, corsRequestTransport, base64, settingsModule, $) {
+﻿define(['./xDomainRequestTransport', './corsRequestTransport', '../utils/base64', '../configuration/settings', 'jquery'],
+    function (xDomainRequestTransport, corsRequestTransport, base64, settingsModule, $) {
         "use strict";
 
         var transport;

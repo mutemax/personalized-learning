@@ -40,7 +40,7 @@ function removeDebugBlocks() {
     });
 };
 
-gulp.task('build', ['clean', 'css', 'build-app', 'build-settings'], function () {});
+gulp.task('build', ['clean', 'css', 'build-app', 'build-settings', 'assets'], function () {});
 
 gulp.task('clean', function (cb) {
     del([output], cb);
@@ -87,8 +87,8 @@ gulp.task('build-app', ['clean'], function () {
     gulp.src('css/font/**')
         .pipe(gulp.dest(output + '/css/font'));
 
-    gulp.src('images/**')
-        .pipe(gulp.dest(output + '/images'));
+    gulp.src('css/img/**')
+        .pipe(gulp.dest(output + '/css/img'));
 
     gulp.src(['js/require/require.js'])
         .pipe(gulp.dest(output + '/js/require'));
@@ -98,12 +98,22 @@ gulp.task('build-app', ['clean'], function () {
 
     gulp.src('manifest.json')
         .pipe(gulp.dest(output));
+        
+    gulp.src('preview/**')
+        .pipe(gulp.dest(output + '/preview'));
 
     return durandal({
             minify: true
         })
         .pipe(addBuildVersion())
         .pipe(gulp.dest(output + '/app'));
+});
+
+gulp.task('assets', ['clean'], function () {
+    gulp.src('vendor/easy-supported-browser/css/img/**')
+        .pipe(gulp.dest(output + '/css/img'));
+    gulp.src('vendor/easy-supported-browser/css/font/**')
+        .pipe(gulp.dest(output + '/css/font'));
 });
 
 gulp.task('build-settings', ['build-design-settings', 'build-configure-settings'], function () {

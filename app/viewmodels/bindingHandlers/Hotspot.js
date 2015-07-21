@@ -1,4 +1,4 @@
-﻿define(['knockout', 'browserDetector'], function (ko, browserDetector) {
+﻿define(['knockout'], function (ko) {
 
     return {
         install: install
@@ -26,13 +26,6 @@
                         targetWidth = $(element).width(),
                         targetHeight = $(element).height()
                     ;
-
-                    // workaround for specific version of Chrome with next bug:
-                    // https://code.google.com/p/chromium/issues/detail?id=423802
-                    if (browserDetector.isChromeWithPageCoordsBug) {
-                        x -= window.scrollX;
-                        y -= window.scrollY;
-                    }
 
                     if (typeof (click) == "function") {
                         var point = {

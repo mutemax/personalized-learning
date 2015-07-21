@@ -13,34 +13,15 @@ define('jquery', function () { return window.jQuery; });
 define('Q', function () { return window.Q; });
 define('_', function () { return window._; });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext', 'bootstrapper', 'browserDetector', 'Q', 'modulesInitializer', 'templateSettings', 'settingsReader', 'translation'],
-    function (system, app, viewLocator, dataContext, bootstrapper, browserDetector, Q, modulesInitializer, templateSettings, settingsReader, translation) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext', 'bootstrapper', 'Q', 'modulesInitializer', 'templateSettings', 'settingsReader', 'translation'],
+    function (system, app, viewLocator, dataContext, bootstrapper, Q, modulesInitializer, templateSettings, settingsReader, translation) {
         app.title = '';
 
         app.start().then(function () {
             bootstrapper.run();
-
             viewLocator.useConvention();
-            browserDetector.detect();
-
-            if (!browserDetector.isSupportedMobile && !browserDetector.isSupportedBrowser) {
-                $('html').css('height', '100%');
-
-                var $body = $('body');
-
-                if (browserDetector.isIos || browserDetector.isAndroid) {
-                    $body.addClass('mobile');
-                    browserDetector.isIos ? $body.addClass('ios') : $body.addClass('android');
-                } else {
-                    browserDetector.isMac ? $body.addClass('mac') : $body.addClass('windows');
-                }
-                return Q.fcall(function() {
-                    app.setRoot('viewmodels/notSupportedBrowser');
-                });
-            } 
 
             var modules = {};
-
             return dataContext.initialize().then(function () {
                 return readPublishSettings().then(function () {
                     return readTemplateSettings().then(function (settings) {
