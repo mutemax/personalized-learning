@@ -1,15 +1,18 @@
-﻿define(['eventManager', 'Q'], function (eventManager, Q) {
+﻿define(['eventManager', 'Q', 'constants'], function (eventManager, Q, constants) {
     "use strict";
 
     var course = {
         score: score,
         finish: finish,
         isCompleted: false,
+        isFinished: false,
         isSuccessful: isSuccessful,
+        getStatus: getStatus,
 
         objectives: [],
         title: '',
-        id: ''
+        id: '',
+        createdOn: undefined
     };
 
     return course;
@@ -22,6 +25,7 @@
     }
 
     function finish() {
+        course.isFinished = true;
         course.isCompleted = course.isSuccessful();
         course.result = course.score() / 100;
         return Q.fcall(function () {
@@ -29,6 +33,14 @@
                 eventManager.turnAllEventsOff();
             });
         });
+    }
+
+    function getStatus() {
+        if (!course.isFinished) {
+            return constants.course.statuses.inProgress;
+        }
+
+        return course.isCompleted ? constants.course.statuses.completed : constants.course.statuses.failed;
     }
 
     function isSuccessful() {

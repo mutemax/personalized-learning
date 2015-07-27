@@ -35,6 +35,7 @@
 
                  course.id = response.id;
                  course.title = response.title;
+                 course.createdOn = new Date(response.createdOn);
 
                  _.each(response.objectives, function (dobj) {
                      var objective = new Objective(dobj.id, dobj.title);
