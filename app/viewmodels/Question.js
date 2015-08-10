@@ -51,6 +51,19 @@
 
         }
 
+        this.progress = function (data) {
+
+            debugger
+            //if (!_.isNullOrUndefined(data)) {
+            //    _protected.restoreProgress.call(this, data);
+
+            //    this.isAnswered = true;
+            //    this.isCorrectAnswered = this.score() == 100;
+            //} else {
+            //    return _protected.getProgress.call(this);
+            //}
+        }
+
         this.incorrectFeedback = ko.observable();
         this.incorrectFeedback.load = function () {
             var that = this;

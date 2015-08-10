@@ -19,7 +19,8 @@
                 inProgress: 'inProgress'
             }
         },
-        localStorageResultKey: 'course_result'
+        localStorageResultKey: 'course_result',
+        localStorageProgressKey: 'course_progress'
     };
 
 });

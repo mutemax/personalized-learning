@@ -57,7 +57,6 @@
         _.each(viewModel.questions(), function (question) {
             question.submit();
         });
-
         app.trigger('preassessment:completed');
     }
 

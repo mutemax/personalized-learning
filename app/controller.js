@@ -1,4 +1,4 @@
-﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'templateSettings', 'entities/course', 'durandal/composition'], function (app, activator, ko, loader, templateSettings, course, composition) {
+﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'templateSettings', 'entities/course', 'xApi/activityProvider'], function (app, activator, ko, loader, templateSettings, course, activityProvider) {
     "use strict";
 
     var self = {
@@ -19,14 +19,14 @@
     return controller;
 
     function activate() {
+
         if (course.content) {
             self.lifecycle.unshift('introduction/viewmodels/index');
         }
-
-        if (templateSettings.xApi && templateSettings.xApi.enabled) {
+        debugger
+        if (templateSettings.xApi && templateSettings.xApi.enabled && !activityProvider.actor ) {
             self.lifecycle.unshift('xApi/viewmodels/login');
         }
-
         app.on('xApi:authenticated').then(loadModuleAndActivate);
         app.on('xApi:authentication-skipped').then(loadModuleAndActivate);
         app.on('introduction:completed').then(loadModuleAndActivate);

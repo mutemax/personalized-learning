@@ -16,12 +16,16 @@ define('_', function () { return window._; });
 define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext', 'bootstrapper', 'Q', 'modulesInitializer', 'templateSettings', 'settingsReader', 'translation'],
     function (system, app, viewLocator, dataContext, bootstrapper, Q, modulesInitializer, templateSettings, settingsReader, translation) {
         app.title = '';
+        system.debug(true);
 
         app.start().then(function () {
             bootstrapper.run();
             viewLocator.useConvention();
 
             var modules = {};
+
+            modules['modules/localStorage_progresstracker'] = true;
+
             return dataContext.initialize().then(function () {
                 return readPublishSettings().then(function () {
                     return readTemplateSettings().then(function (settings) {

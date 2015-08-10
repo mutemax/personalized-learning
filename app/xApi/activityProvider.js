@@ -38,8 +38,10 @@
 
         function initialize(courseId, actorName, actorEmail, activityName, activityUrl) {
             rootCourseUrl = activityUrl != undefined ? activityUrl.split("?")[0].split("#")[0] : '';
-            // TODO: Check if undefined activity url is possible
 
+            debugger
+
+            // TODO: Check if undefined activity url is possible
             activityProvider.actor = createActor(actorName, actorEmail);
             activityProvider.activityName = activityName;
             activityProvider.activityUrl = activityUrl;
@@ -66,6 +68,7 @@
         }
 
         function createActor(name, email) {
+            debugger
             var actor = new ActorModel({
                 name: name,
                 mbox: 'mailto:' + email

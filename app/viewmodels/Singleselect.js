@@ -36,6 +36,14 @@
             that.isAnswered(true);
             that.isAnsweredCorrectly(question.score == 100);
         };
+
+        that.getProgress= function() {
+            debugger
+        }
+        that.restoreProgress = function () {
+            debugger
+        }
+
     };
 
     return ctor;
