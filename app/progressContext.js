@@ -5,6 +5,7 @@
            progress: {
                _v: 1,
                answers: {},
+               url:null,
                user: null,
                attemptId: system.guid()
            }
@@ -33,22 +34,11 @@
         setProgressDirty(true);
     }
 
-    function navigated(obj, instruction) {
-        debugger
-        if (instruction.config.moduleId == 'viewmodels/introduction') {
-            return;
-        }
-        if (_.isEmpty(self.progress.url)) {
-            self.progress.url = instruction.fragment;
-        }
-        else if (self.progress.url != instruction.fragment) {
-            self.progress.url = instruction.fragment;
-            setProgressDirty(true);
-        }
+    function navigated() {
+       
     }
 
     function authenticated(user) {
-
         self.progress.user = user;
     }
 
@@ -72,9 +62,14 @@
     }
 
 
-    function save() {
+    function save(url) {
+
         if (!self.storage) {
             return;
+        }
+        if (url && _.isObject(self.progress)) {
+            self.progress.url = url;
+            self.storage.saveProgress(self.progress);
         }
         if (self.storage.saveProgress(self.progress)) {
             self.storage.saveProgress(self.progress);
@@ -83,9 +78,7 @@
         }
     }
 
-    function get() {
-        return self.progress;
-    }
+    
 
     function remove() {
         if (!self.storage) {
@@ -98,7 +91,7 @@
 
     function use(storage) {
         if (_.isFunction(storage.getProgress) && _.isFunction(storage.saveProgress)) {
-            
+            debugger
             self.progress._v = course.createdOn.getTime();
             self.storage = storage;
 
@@ -111,6 +104,12 @@
             eventManager.subscribeForEvent(eventManager.events.courseFinished).then(finish);
             app.on('xApi:authenticated').then(authenticated).then(markAsDirty);
             app.on('xApi:authentication-skipped').then(authenticationSkipped).then(markAsDirty);
+
+            app.on('introduction:completed').then(navigated).then(markAsDirty);
+            app.on('preassessment:completed').then(navigated).then(markAsDirty);
+            app.on('studying:completed').then(navigated).then(markAsDirty);
+            app.on('view:changed').then(save);
+
             //    //app.on('user:set-progress-clear').then(function (callback) {
             //    //    setProgressDirty(false);
             //    //    if (!_.isFunction(callback)) {
@@ -121,17 +120,24 @@
 
             //    //router.on('router:navigation:composition-complete', navigated);
 
-            window.onbeforeunload = function () {
+
+
+            window.onbeforeunload = function() {
                 if (context.isDirty === true) {
                     return translation.getTextByKey('[progress not saved]');
                 }
-            }
+            };
 
             setProgressDirty(false);
 
         } else {
             throw 'Cannot use this storage';
         }
+    }
+
+    function get() {
+        debugger
+        return self.progress;
     }
 
     function ready() {

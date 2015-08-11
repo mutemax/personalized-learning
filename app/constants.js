@@ -20,7 +20,16 @@
             }
         },
         localStorageResultKey: 'course_result',
-        localStorageProgressKey: 'course_progress'
+        localStorageProgressKey: 'course_progress',
+        views: {
+            introduction: "introduction/viewmodels/index",
+            preassessment: "preassessment/viewmodels/index",
+            studyAdvice: "studyAdvice/viewmodels/index",
+            overallProgress: "overallProgress/viewmodels/index",
+            question:"question"
+        }
+
+
     };
 
 });

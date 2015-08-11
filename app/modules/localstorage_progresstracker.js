@@ -30,6 +30,7 @@
     }
 
     function saveProgress(progress) {
+        
         var result = {
             score: course.score(),
             status: course.getStatus()

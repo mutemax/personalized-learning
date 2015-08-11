@@ -52,6 +52,7 @@
                 if (_.isObject(module.progressProvider)) {
                     progressContext.use(module.progressProvider);
                 }
+                
             });
         }
 
