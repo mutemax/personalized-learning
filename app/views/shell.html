@@ -27,7 +27,7 @@
             <div class="loader"></div>
         </div>
          <div data-bind="visible: !activeItem.isComposing() ">
-            <div data-bind="compose: { model: activeItem, compositionComplete: activeItem.compositionComplete }"></div>
+            <div data-bind="compose: { model: activeItem, activationData: activeItem.activationData, compositionComplete: activeItem.compositionComplete }"></div>
         </div>
     </div>
 </section>

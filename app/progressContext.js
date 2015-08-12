@@ -5,7 +5,7 @@
            progress: {
                _v: 1,
                answers: {},
-               url:null,
+               url: null,
                user: null,
                attemptId: system.guid()
            }
@@ -35,15 +35,17 @@
     }
 
     function navigated() {
-       
+
     }
 
     function authenticated(user) {
         self.progress.user = user;
+        save();
     }
 
     function authenticationSkipped() {
         self.progress.user = 0;
+        save();
     }
 
     function questionAnswered(question) {
@@ -78,7 +80,19 @@
         }
     }
 
-    
+    function saveCurrentQuestion(objectiveId, questionId) {
+        if (self.progress) {
+            if (objectiveId && questionId) {
+                self.progress.url = {
+                    objective: objectiveId,
+                    question: questionId
+                }
+            }
+            save();
+        }
+        return;
+    }
+
 
     function remove() {
         if (!self.storage) {
@@ -91,7 +105,6 @@
 
     function use(storage) {
         if (_.isFunction(storage.getProgress) && _.isFunction(storage.saveProgress)) {
-            debugger
             self.progress._v = course.createdOn.getTime();
             self.storage = storage;
 
@@ -109,20 +122,9 @@
             app.on('preassessment:completed').then(navigated).then(markAsDirty);
             app.on('studying:completed').then(navigated).then(markAsDirty);
             app.on('view:changed').then(save);
-
-            //    //app.on('user:set-progress-clear').then(function (callback) {
-            //    //    setProgressDirty(false);
-            //    //    if (!_.isFunction(callback)) {
-            //    //        return;
-            //    //    }
-            //    //    callback();
-            //    //});
-
-            //    //router.on('router:navigation:composition-complete', navigated);
-
-
-
-            window.onbeforeunload = function() {
+            app.on('studying:start-reading').then(saveCurrentQuestion);
+        
+            window.onbeforeunload = function () {
                 if (context.isDirty === true) {
                     return translation.getTextByKey('[progress not saved]');
                 }
@@ -136,7 +138,6 @@
     }
 
     function get() {
-        debugger
         return self.progress;
     }
 

@@ -100,18 +100,26 @@
     function goToPreviousReading() {
         if (viewmodel.previousReading()) {
             apply(viewmodel.previousReading());
+            app.trigger('view:changed', {
+                objective: self.objective.id, question: viewmodel.currentReading().id
+            });
         }
     }
 
     function goToNextReading() {
         if (viewmodel.nextReading()) {
             apply(viewmodel.nextReading());
+            app.trigger('view:changed', {objective:self.objective.id, question:viewmodel.currentReading().id
+        });
         }
     }
 
     function goToNextOrNotCompletedReading() {
         if (viewmodel.nextOrNotCompletedReading()) {
             apply(viewmodel.nextOrNotCompletedReading());
+            app.trigger('view:changed', {
+                objective: self.objective.id, question: viewmodel.currentReading().id
+            });
         }
 
         //var nextQuestionId = viewmodel.currentQuestionPosition() < viewmodel.questionsInObjective() ? viewmodel.nextQuestionId : viewmodel.firstUnansweredQuestionId();
