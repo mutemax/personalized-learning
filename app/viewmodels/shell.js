@@ -30,7 +30,7 @@
     }
 
     function compositionComplete() {
-        background.apply(templateSettings.background)
+        background.apply(templateSettings.background);
 
     }
 

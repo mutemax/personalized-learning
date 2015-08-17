@@ -8,7 +8,12 @@
 
     return initializer;
 
-    function initialize() {
+    function initialize(username, email) {
+        if (username && email) {
+            actor.name = username;
+            actor.email = email;
+        }
+
         return Q.fcall(function() {
             var pageUrl = "";
             if (window != window.top && ('referrer' in document)) {

@@ -13,8 +13,8 @@ define('jquery', function () { return window.jQuery; });
 define('Q', function () { return window.Q; });
 define('_', function () { return window._; });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext', 'bootstrapper', 'Q', 'modulesInitializer', 'templateSettings', 'settingsReader', 'translation'],
-    function (system, app, viewLocator, dataContext, bootstrapper, Q, modulesInitializer, templateSettings, settingsReader, translation) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext', 'userContext', 'bootstrapper', 'Q', 'modulesInitializer', 'templateSettings', 'settingsReader', 'translation'],
+    function (system, app, viewLocator, dataContext, userContext, bootstrapper, Q, modulesInitializer, templateSettings, settingsReader, translation) {
         app.title = '';
 
         app.start().then(function () {
@@ -23,13 +23,15 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext'
 
             var modules = {};
             return dataContext.initialize().then(function () {
-                return readPublishSettings().then(function () {
-                    return readTemplateSettings().then(function (settings) {
-                        return initTemplateSettings(settings).then(function () {
-                            return initTranslations(settings).then(function () {
+                return userContext.initialize().then(function () {
+                    return readPublishSettings().then(function () {
+                        return readTemplateSettings().then(function (settings) {
+                            return initTemplateSettings(settings).then(function () {
+                                return initTranslations(settings).then(function () {
 
-                                modulesInitializer.register(modules);
-                                app.setRoot('viewmodels/shell');
+                                    modulesInitializer.register(modules);
+                                    app.setRoot('viewmodels/shell');
+                                });
                             });
                         });
                     });
