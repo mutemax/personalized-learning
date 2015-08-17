@@ -21,15 +21,18 @@
         }
 
         that.progress = function (data, url) {
+            debugger
             if (data) {
                 _protected.restoreProgress(data);
+                if (_.isObject(url) && url.question == that.id) {
+                    that.isMastered = false;
+                }
+
+            } else {
+                return _protected.getProgress.call(that);
             }
-            if (_.isObject(url) && url.question==that.id) {
-                that.isMastered = false;
-            }
-            return;
         }
-       
+
     }
 
     return ctor;

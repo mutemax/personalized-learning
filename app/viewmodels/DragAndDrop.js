@@ -11,6 +11,7 @@
 
         that.background = question.background;
         that.dropspots = _.map(question.dropspots, function (dropspot) {
+            debugger
             return {
                 x: dropspot.x,
                 y: dropspot.y,

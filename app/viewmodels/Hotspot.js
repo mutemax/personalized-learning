@@ -2,7 +2,7 @@
 
     var ctor = function (question) {
         var that = this;
-
+        debugger
         Question.call(that, question);
 
         that.id = question.id;
@@ -15,13 +15,19 @@
             that.isAnswered(true);
             that.isAnsweredCorrectly(question.score == 100);
         };
-
         that.marks = ko.observableArray([]);
-        that.isDirty = ko.computed(function () {
+        _.each(question.placedMarks, function (mark) {
+            that.marks.push(mark);
+            that.isAnswered(true);
+            that.isAnsweredCorrectly(question.score==100);
+        });
+
+
+        that.isDirty = ko.computed(function() {
             if (that.marks().length) {
-                return true
+                return true;
             }
-        })
+        });
         that.addMark = function (mark) {
             if (!question.isMultiple) {
                 that.marks.removeAll();

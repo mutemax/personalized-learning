@@ -4,7 +4,8 @@
         var that = this,
             _protected = {
                 answer: answer,
-                restoreProgress: restoreProgress
+                restoreProgress: restoreProgress,
+                getProgress: getProgress
             };
 
         Question.call(that, id, title, type, _protected);
@@ -17,7 +18,7 @@
                     return answer.id == statement.id;
                 });
                 return answer.isCorrect === userAnswer.state;
-            }) ? 100 : userAnswers;
+            }) ? 100 : 0;
         };
         function restoreProgress(progress) {
             _.each(that.answers, function(answer) {
@@ -34,6 +35,9 @@
                 }
             });
 
+        }
+        function getProgress() {
+            debugger
         }
     };
 

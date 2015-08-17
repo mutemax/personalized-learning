@@ -50,7 +50,7 @@
 
     function questionAnswered(question) {
         try {
-            self.progress.answers[question.question.shortId] = question.question.score;
+            self.progress.answers[question.question.shortId] = question.question.progress();
             setProgressDirty(true);
             save();
         } catch (e) {

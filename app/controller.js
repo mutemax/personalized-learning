@@ -27,11 +27,11 @@
         app.on('preassessment:completed').then(loadModuleAndActivate).then(viewChanged);;
         app.on('studying:completed').then(loadModuleAndActivate).then(viewChanged);
         app.on('studying:stop-reading').then(stoppedReading);
-
         var progress = progressContext.get();
         if (course.content) {
             self.lifecycle.unshift('introduction/viewmodels/index');
         }
+        
         if (templateSettings.xApi && templateSettings.xApi.enabled && !activityProvider.actor) {
             self.lifecycle.unshift('xApi/viewmodels/login');
         }

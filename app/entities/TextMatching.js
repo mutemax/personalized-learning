@@ -4,7 +4,8 @@
         var that = this,
             _protected = {
                 answer: answer,
-                restoreProgress: restoreProgress
+                restoreProgress: restoreProgress,
+                getProgress: getProgress
             };
 
         Question.call(that, id, title, type, _protected);
@@ -20,7 +21,8 @@
                 }
 
             });
-            that.score = correct == that.answers.length ? 100 : pairs;
+            that.score = correct == that.answers.length ? 100 : 0;
+
         }
 
         function restoreProgress(progress) {
@@ -35,7 +37,11 @@
                 that.answers[index].attemptedValue = progressItem.value;
             });
         }
+        function getProgress() {
+          
+        }
     };
+
 
     return TextMatching;
 

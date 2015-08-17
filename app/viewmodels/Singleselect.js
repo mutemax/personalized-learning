@@ -14,11 +14,15 @@
                 return;
             }
             that.selectedOption(option);
+            var currentOption = _.find(question.answers, function(answer) {
+                return answer.id == option.id;
+            });
+            currentOption.isChecked = true;
         };
         that.options = _.chain(question.answers)
             .sample(question.answers.length)
             .map(function (option) {
-                var obj= {
+                var obj = {
                     id: option.id,
                     text: option.text,
                     isChecked: option.isChecked
@@ -28,9 +32,9 @@
                     that.isAnswered(true);
                     that.isAnsweredCorrectly(question.score == 100);
                 }
-            return obj;
+                return obj;
 
-        }).value();
+            }).value();
 
         that.resetAnswer = function () {
             that.isAnswered(false);

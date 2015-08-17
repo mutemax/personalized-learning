@@ -22,7 +22,6 @@
                 var progress = progressContext.get();
 
                 var actor = settingsModule.settings.actor;
-
                 if (_.isObject(progress)&& !_.isNull(progress.user)) {
 
                     if (_.isObject(progress.user)) {

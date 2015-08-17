@@ -4,7 +4,8 @@
         var that = this,
             _protected = {
                 answer: answer,
-                restoreProgress: restoreProgress
+                restoreProgress: restoreProgress,
+                getProgress: getProgress
             };
 
         Question.call(that, id, title, type, _protected);
@@ -22,11 +23,14 @@
                 }
             });
 
-            that.score = numOfCorrect == that.answers.length ? 100 : userAnswers;
+            that.score = numOfCorrect == that.answers.length ? 100 : 0;
         };
         function restoreProgress(progress) {
 
 
+        }
+        function getProgress() {
+            debugger
         }
     };
 

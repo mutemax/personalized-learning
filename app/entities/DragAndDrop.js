@@ -4,13 +4,15 @@
         var that = this,
             _protected = {
                 answer: answer,
-                restoreProgress: restoreProgress
+                restoreProgress: restoreProgress,
+                getProgress: getProgress
             };
 
         Question.call(that, id, title, type, _protected);
 
         that.background = background;
         that.dropspots = dropspots;
+
 
 
         function answer(answers) {
@@ -24,11 +26,24 @@
                 };
             });
 
-            that.score = correct == that.dropspots.length ? 100 : answers;
+            that.score = correct == that.dropspots.length ? 100 : 0;
         };
         function restoreProgress(progress) {
+            if (progress == 100) {
+                that.score = 100;
+                _.each(that.dropspots, function (dropspot) {
+                    dropspot.submittedAnswer = null;
+                    debugger
 
+                })
 
+            } else {
+
+            }
+
+        }
+        function getProgress() {
+            debugger
         }
     };
 

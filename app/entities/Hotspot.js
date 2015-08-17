@@ -4,7 +4,8 @@
         var that = this,
             _protected = {
                 answer: answer,
-                restoreProgress: restoreProgress
+                restoreProgress: restoreProgress,
+                getProgress: getProgress
             };
 
         Question.call(that, id, title, type, _protected);
@@ -12,6 +13,7 @@
         that.isMultiple = isMultiple;
         that.background = background;
         that.spots = spots;
+        that.placedMarks = [];
 
         function answer(marks) {
             if (!_.isArray(that.spots) || that.spots.length == 0) {
@@ -49,11 +51,23 @@
                 });
             }
 
-            that.score = answerCorrect ? 100 : marks;
+            that.score = answerCorrect ? 100 : 0;
         };
         function restoreProgress(progress) {
 
+            if (progress == 100) {
+                question.score = 100;
 
+            } else {
+                _.each(progress.marks, function (mark) {
+
+                    that.placedMarks.push(mark);
+                });
+            }
+
+        }
+        function getProgress() {
+            debugger
         }
     };
 
