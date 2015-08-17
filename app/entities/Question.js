@@ -9,6 +9,7 @@
         that.title = title;
         that.type = type;
         that.score = 0;
+        that.isMastered = true;
 
         that.answer = function () {
             _protected.answer.apply(that, arguments);
@@ -19,10 +20,16 @@
 
         }
 
-        that.restoreAnswer = function () {
-
-
+        that.progress = function (data, url) {
+            if (data) {
+                _protected.restoreProgress(data);
+            }
+            if (_.isObject(url) && url.question==that.id) {
+                that.isMastered = false;
+            }
+            return;
         }
+       
     }
 
     return ctor;

@@ -3,7 +3,8 @@
     var ctor = function(id, title, type, answers) {
         var that = this,
             _protected = {
-                answer: answer
+                answer: answer,
+                restoreProgress: restoreProgress
             };
 
         Question.call(that, id, title, type, _protected);
@@ -16,8 +17,24 @@
                     return answer.id == statement.id;
                 });
                 return answer.isCorrect === userAnswer.state;
-            }) ? 100 : 0;
+            }) ? 100 : userAnswers;
         };
+        function restoreProgress(progress) {
+            _.each(that.answers, function(answer) {
+                answer.isChecked = null;
+                if(progress!=100){
+                    var progressValue = _.find(progress, function(progressItem) {
+                        return progressItem.id == answer.id;
+                    });
+                    answer.isChecked = progressValue.state;
+                }
+                if (progress == 100) {
+                    answer.isChecked = answer.isCorrect;
+                    that.score = 100;
+                }
+            });
+
+        }
     };
 
     return ctor;

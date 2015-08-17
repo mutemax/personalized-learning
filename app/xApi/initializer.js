@@ -23,13 +23,17 @@
 
                 var actor = settingsModule.settings.actor;
 
-                if (_.isObject(progress)) {
+                if (_.isObject(progress)&& !_.isNull(progress.user)) {
 
                     if (_.isObject(progress.user)) {
-                        return activityProvider.initialize(course.id, progress.user.username, progress.user.email, title, url);
+                        actor = {
+                            name: progress.user.username,
+                            email: progress.user.email
+                        };
                     }
                     if (progress.user === 0) {
                         activityProvider.actor = {};
+                        return;
                     }
 
                 }

@@ -3,7 +3,8 @@
     var ctor = function (id, title, type, answers) {
         var that = this,
             _protected = {
-                answer: answer
+                answer: answer,
+                restoreProgress: restoreProgress
             };
 
         Question.call(that, id, title, type, _protected);
@@ -21,8 +22,12 @@
                 }
             });
 
-            that.score = numOfCorrect == that.answers.length ? 100 : 0;
+            that.score = numOfCorrect == that.answers.length ? 100 : userAnswers;
         };
+        function restoreProgress(progress) {
+
+
+        }
     };
 
     return ctor;

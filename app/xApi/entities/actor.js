@@ -2,6 +2,7 @@
     "use strict";
 
     function Actor(spec) {
+
         spec.objectType = 'Agent';
 
         ObjectEntity.call(this, spec);

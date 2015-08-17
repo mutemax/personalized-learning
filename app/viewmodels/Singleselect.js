@@ -4,7 +4,6 @@
         var that = this;
 
         Question.call(that, question);
-
         that.content = question.content;
         that.selectedOption = ko.observable();
         that.isDirty = ko.computed(function () {
@@ -19,11 +18,19 @@
         that.options = _.chain(question.answers)
             .sample(question.answers.length)
             .map(function (option) {
-                return {
+                var obj= {
                     id: option.id,
-                    text: option.text
+                    text: option.text,
+                    isChecked: option.isChecked
                 }
-            }).value();
+                if (option.isChecked == true) {
+                    that.selectedOption(obj);
+                    that.isAnswered(true);
+                    that.isAnsweredCorrectly(question.score == 100);
+                }
+            return obj;
+
+        }).value();
 
         that.resetAnswer = function () {
             that.isAnswered(false);
@@ -36,14 +43,13 @@
             that.isAnswered(true);
             that.isAnsweredCorrectly(question.score == 100);
         };
-
-        that.getProgress= function() {
-            debugger
-        }
-        that.restoreProgress = function () {
-            debugger
-        }
-
+        _.each(that.options, function (option) {
+            if (option.isChecked == true) {
+                that.selectedOption(option);
+                that.isAnswered(true);
+                that.isAnsweredCorrectly(question.score == 100);
+            }
+        });
     };
 
     return ctor;

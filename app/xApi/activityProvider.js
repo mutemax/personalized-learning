@@ -27,6 +27,7 @@
         var activityProvider = {
             initialize: initialize,
             turnOffSubscriptions: turnOffSubscriptions,
+            createActor: createActor,
 
             actor: null,
             activityName: '',

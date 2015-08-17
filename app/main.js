@@ -24,7 +24,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext'
 
             var modules = {};
 
-            modules['modules/localStorage_progresstracker'] = true;
+            modules['modules/localstorage_progresstracker'] = true;
 
             return dataContext.initialize().then(function () {
                 return readPublishSettings().then(function () {

@@ -54,9 +54,8 @@
         viewmodel.nextOrNotCompletedReading(undefined);
 
         var readings = [];
-
         for (var i = 0; i < self.objective.questions.length; i++) {
-            if (self.objective.questions[i].score < 100) {
+            if (self.objective.questions[i].score < 100 || self.objective.questions[i].isMastered==false) {
                 readings.push(self.objective.questions[i]);
             }
         }
@@ -115,6 +114,7 @@
     }
 
     function goToNextOrNotCompletedReading() {
+        debugger
         if (viewmodel.nextOrNotCompletedReading()) {
             apply(viewmodel.nextOrNotCompletedReading());
             app.trigger('view:changed', {

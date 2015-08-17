@@ -3,11 +3,11 @@
     var TextMatching = function (id, title, type, answers) {
         var that = this,
             _protected = {
-                answer: answer
+                answer: answer,
+                restoreProgress: restoreProgress
             };
 
         Question.call(that, id, title, type, _protected);
-
         that.answers = answers;
 
         function answer(pairs) {
@@ -20,7 +20,20 @@
                 }
 
             });
-            that.score = correct == that.answers.length ? 100 : 0;
+            that.score = correct == that.answers.length ? 100 : pairs;
+        }
+
+        function restoreProgress(progress) {
+            if (progress == 100) {
+                _.each(that.answers, function (answer) {
+                    answer.attemptedValue = answer.value;
+                    that.score = 100;
+                });
+                return;
+            }
+            _.each(progress, function(progressItem, index) {
+                that.answers[index].attemptedValue = progressItem.value;
+            });
         }
     };
 

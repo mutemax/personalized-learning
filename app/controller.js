@@ -21,14 +21,12 @@
     return controller;
 
     function activate() {
-
         app.on('xApi:authenticated').then(loadModuleAndActivate);
         app.on('xApi:authentication-skipped').then(loadModuleAndActivate);
         app.on('introduction:completed').then(loadModuleAndActivate).then(viewChanged);
         app.on('preassessment:completed').then(loadModuleAndActivate).then(viewChanged);;
         app.on('studying:completed').then(loadModuleAndActivate).then(viewChanged);
         app.on('studying:stop-reading').then(stoppedReading);
-
 
         var progress = progressContext.get();
         if (course.content) {
@@ -37,7 +35,6 @@
         if (templateSettings.xApi && templateSettings.xApi.enabled && !activityProvider.actor) {
             self.lifecycle.unshift('xApi/viewmodels/login');
         }
-
         if (_.isObject(progress) && progress.url) {
             if (_.isObject(progress.url)) {
                 self.lifecycle = ['studying/viewmodels/index', 'summary/viewmodels/index'];
@@ -58,7 +55,6 @@
         return loader.loadModule(path).then(function (module) {
             controller.activeItem(module);
             var progress = progressContext.get();
-
             controller.activeItem.activationData.call(null, _.isObject(progress.url) ? _.values(progress.url) : progress.url);
         });
     }

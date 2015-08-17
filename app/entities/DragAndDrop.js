@@ -3,7 +3,8 @@
     var ctor = function (id, title, type, background, dropspots) {
         var that = this,
             _protected = {
-                answer: answer
+                answer: answer,
+                restoreProgress: restoreProgress
             };
 
         Question.call(that, id, title, type, _protected);
@@ -23,8 +24,12 @@
                 };
             });
 
-            that.score = correct == that.dropspots.length ? 100 : 0;
+            that.score = correct == that.dropspots.length ? 100 : answers;
         };
+        function restoreProgress(progress) {
+
+
+        }
     };
 
     return ctor;

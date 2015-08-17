@@ -40,15 +40,14 @@
                     if (_.isObject(progress.answers)) {
                         _.each(course.objectives, function (objective) {
                             _.each(objective.questions, function (question) {
-                                if (progress.answers.length && !_.isNullOrUndefined(progress.answers[question.shortId])) {
-                                    question.progress(progress.answers[question.shortId]);
+                                if (!_.isNull(progress.answers[question.shortId]) && !_.isUndefined(progress.answers[question.shortId])) {
+                                    question.progress(progress.answers[question.shortId], progress.url);
                                 }
                             });
                         });
                     }
                 }
             }
-
 
             return controller.activate();
 
