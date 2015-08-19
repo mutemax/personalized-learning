@@ -11,11 +11,25 @@
 
         that.background = question.background;
         that.dropspots = _.map(question.dropspots, function (dropspot) {
-            debugger
-            return {
-                x: dropspot.x,
-                y: dropspot.y,
-                text: ko.observable()
+            if (dropspot.placed) {
+                var obj = _.find(question.dropspots, function(spot) {
+                    return dropspot.placed.id == spot.id;
+                });
+                that.isAnswered(true);
+                that.isAnsweredCorrectly(question.score == 100);
+                return {
+                    x: dropspot.x,
+                    y: dropspot.y,
+                    text: ko.observable(obj.text)
+
+                }
+
+            } else {
+                return {
+                    x: dropspot.x,
+                    y: dropspot.y,
+                    text: ko.observable()
+                }
             }
         });
         that.texts = _.map(question.dropspots, function (dropspot) {

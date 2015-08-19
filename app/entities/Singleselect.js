@@ -11,8 +11,10 @@
         Question.call(that, id, title, type, _protected);
 
         that.answers = answers;
+        var checkedAnswers = null;
 
         function answer(answerIds) {
+            checkedAnswers = answerIds;
             var correctAnswers = _.filter(that.answers, function (answer) {
                 return answer.isCorrect === true;
             });
@@ -33,24 +35,23 @@
                 if (answer.isCorrect && progress == 100) {
                     that.score = 100;
                     return answer.isChecked = true;
-                    
                 } else {
-
+                    _.each(that.answers, function (answer) {
+                        if (_.find(progress, function(progressItem) {
+                            return progressItem == answer.id;
+                        })) {
+                            return answer.isChecked = true;
+                        };
+                    });
                 }
             });
         }
+
         function getProgress() {
-            debugger
             if (this.score == 100) {
                 return 100;
             } else {
-                return _.chain(that.answers)
-                    .filter(function (answer) {
-                        return answer.isChecked;
-                    })
-                    .map(function (answer) {
-                        return answer.id;
-                    }).value();
+                return checkedAnswers;
             }
         }
     };

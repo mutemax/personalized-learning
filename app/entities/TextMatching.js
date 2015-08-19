@@ -10,8 +10,10 @@
 
         Question.call(that, id, title, type, _protected);
         that.answers = answers;
+        var checkedAnswers = null;
 
         function answer(pairs) {
+            checkedAnswers = pairs;
             var correct = 0;
             _.each(that.answers, function (answer) {
                 if (_.find(pairs, function (pair) {
@@ -38,7 +40,11 @@
             });
         }
         function getProgress() {
-          
+            if (this.score == 100) {
+                return 100;
+            } else {
+                return checkedAnswers;
+            }
         }
     };
 

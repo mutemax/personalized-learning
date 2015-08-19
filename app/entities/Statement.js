@@ -11,8 +11,9 @@
         Question.call(that, id, title, type, _protected);
 
         that.answers = answers;
-        
+        var checkedAnswers = null;
         function answer(userAnswers) {
+            checkedAnswers = userAnswers;
             that.score = _.every(that.answers, function (answer) {
                 var userAnswer = _.find(userAnswers, function(statement) {
                     return answer.id == statement.id;
@@ -37,7 +38,11 @@
 
         }
         function getProgress() {
-            debugger
+            if (this.score == 100) {
+                return 100;
+            } else {
+                return checkedAnswers;
+            }
         }
     };
 

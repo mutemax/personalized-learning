@@ -12,9 +12,8 @@
             .sample(question.answers.length)
             .map(function (statement) {
                 var isChecked = false,
-                    state=null;
+                    state = null;
                 if (!_.isNull(statement.isChecked) && !_.isUndefined(statement.isChecked)) {
-                    debugger
                 isChecked = statement.isChecked;
                 state = statement.isChecked;
                 that.isAnswered(true);

@@ -121,8 +121,16 @@
                 var text = ko.unwrap(value.text);
 
                 if (text) {
+                    var textHolder = _.find($('.drag-and-drop-text-draggable'), function (element) {
+                       return $(element).children().text() == text;
+                    });
+                    $(textHolder)
+                        .clone()
+                        .appendTo($(element));
+
                     // I believe it will be used when we have to restore previously saved answer
                 } else {
+                    debugger
                     $(element).children('.drag-and-drop-text-draggable').css('left', '').css('top', '')
                         .appendTo($('.drag-and-drop-text-draggable-container'));
                     $(element).children('.drag-and-drop-text-draggable-container-message').hide();

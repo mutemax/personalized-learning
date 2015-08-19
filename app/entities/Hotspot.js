@@ -14,8 +14,9 @@
         that.background = background;
         that.spots = spots;
         that.placedMarks = [];
-
+        var placedMarks = null;
         function answer(marks) {
+            placedMarks = marks;
             if (!_.isArray(that.spots) || that.spots.length == 0) {
                 that.score = 100;
                 return;
@@ -54,20 +55,24 @@
             that.score = answerCorrect ? 100 : 0;
         };
         function restoreProgress(progress) {
-
-            if (progress == 100) {
-                question.score = 100;
-
-            } else {
-                _.each(progress.marks, function (mark) {
-
-                    that.placedMarks.push(mark);
-                });
-            }
-
+            _.each(progress.marks, function (mark) {
+                that.placedMarks.push(mark);
+            });
+            if (progress.score) {
+                that.score = 100;
+            } 
         }
         function getProgress() {
-            debugger
+            if (this.score == 100) {
+                return {
+                    marks: placedMarks,
+                    score: 100
+                };
+            } else {
+                return {
+                    marks: placedMarks
+                }
+            }
         }
     };
 

@@ -11,8 +11,10 @@
         Question.call(that, id, title, type, _protected);
 
         that.answers = answers;
+        var checkedAnswers = null;
         
         function answer(answerIds) {
+            checkedAnswers = answerIds;
             var correctAnswers = _.filter(that.answers, function (answer) {
                 return answer.isCorrect === true;
             });
@@ -46,14 +48,7 @@
             if (this.score == 100) {
                 return 100;
             } else {
-                debugger
-                return _.chain(that.answers)
-                    .filter(function (answer) {
-                        return answer.isChecked;
-                    })
-                    .map(function (answer) {
-                        return answer.id;
-                    }).value();
+                return checkedAnswers;
             }
         }
     };

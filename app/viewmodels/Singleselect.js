@@ -14,10 +14,6 @@
                 return;
             }
             that.selectedOption(option);
-            var currentOption = _.find(question.answers, function(answer) {
-                return answer.id == option.id;
-            });
-            currentOption.isChecked = true;
         };
         that.options = _.chain(question.answers)
             .sample(question.answers.length)
