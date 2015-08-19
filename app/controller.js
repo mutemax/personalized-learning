@@ -1,4 +1,4 @@
-﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'templateSettings', 'entities/course', 'durandal/composition'], function (app, activator, ko, loader, templateSettings, course, composition) {
+﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'templateSettings', 'entities/course', 'userContext', 'xApi/initializer', 'eventManager'], function (app, activator, ko, loader, templateSettings, course, userContext, xApiInitializer, eventManager) {
     "use strict";
 
     var self = {
@@ -23,15 +23,24 @@
             self.lifecycle.unshift('introduction/viewmodels/index');
         }
 
-        if (templateSettings.xApi && templateSettings.xApi.enabled) {
-            self.lifecycle.unshift('xApi/viewmodels/login');
-        }
-
         app.on('xApi:authenticated').then(loadModuleAndActivate);
         app.on('xApi:authentication-skipped').then(loadModuleAndActivate);
         app.on('introduction:completed').then(loadModuleAndActivate);
         app.on('preassessment:completed').then(loadModuleAndActivate);
         app.on('studying:completed').then(loadModuleAndActivate);
+
+        if (templateSettings.xApi && templateSettings.xApi.enabled) {
+            var user = userContext.getCurrentUser();
+            if (user && user.username && /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/.test(user.email)) {
+                return xApiInitializer.initialize(user.username, user.email).then(function() {
+                    return eventManager.courseStarted();
+                }).then(function () {
+                    return loadModuleAndActivate();
+                });
+            } else {
+                self.lifecycle.unshift('xApi/viewmodels/login');
+            }
+        }
 
         return loadModuleAndActivate();
     }

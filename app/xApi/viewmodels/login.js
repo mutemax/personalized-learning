@@ -1,20 +1,20 @@
-﻿define(['knockout', 'durandal/app', '../configuration/settings', '../initializer', 'eventManager', 'templateSettings'], function (ko, app, settingsModule, initializer, eventManager, templateSettings) {
+﻿define(['knockout', 'durandal/app', '../configuration/settings', '../initializer', 'eventManager', 'templateSettings', 'userContext'], function (ko, app, settingsModule, initializer, eventManager, templateSettings, userContext) {
     "use strict";
 
     var viewModel = {
-        username: (function() {
+        username: (function () {
             var value = ko.observable();
 
-            value.isValid = ko.computed(function() {
+            value.isValid = ko.computed(function () {
                 return value() && value().length;
             });
 
             return value;
         })(),
-        email: (function() {
+        email: (function () {
             var value = ko.observable();
 
-            value.isValid = ko.computed(function() {
+            value.isValid = ko.computed(function () {
                 return value() && /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/.test(value());
             });
 
@@ -25,10 +25,20 @@
 
         callback: null,
         justStart: justStart,
-        report: report
+        report: report,
+        activate: activate
     };
 
     return viewModel;
+
+    function activate() {
+        var user = userContext.getCurrentUser();
+        if (user) {
+            viewModel.username(user.username);
+            viewModel.email(user.email);
+            viewModel.showError(true);
+        }
+    }
 
     function justStart() {
         if (viewModel.reportRequired) {

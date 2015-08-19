@@ -8,7 +8,7 @@
 
     return initializer;
 
-    function initialize() {
+    function initialize(username, email) {
         return Q.fcall(function() {
             var pageUrl = "";
             if (window != window.top && ('referrer' in document)) {
@@ -20,6 +20,11 @@
             var url = pageUrl + '?course_id=' + course.id;
             var title = course.title;
             var actor = settingsModule.settings.actor;
+
+            if (username && email) {
+                actor.name = username;
+                actor.email = email;
+            }
 
             requestSender.initialize();
             settingsModule.initialize(templateSettings.xApi);
