@@ -1,4 +1,5 @@
-﻿define(['durandal/app', 'knockout', 'loader', 'templateSettings', 'entities/course', 'xApi/activityProvider', 'progressContext'], function (app, ko, loader, templateSettings, course, activityProvider, progressContext) {
+﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'templateSettings', 'entities/course', 'userContext', 'xApi/initializer', 'eventManager','progressContext'], function (app, activator, ko, loader, templateSettings, course, userContext, xApiInitializer, eventManager, progressContext) {
+
     "use strict";
 
     var self = {
@@ -31,9 +32,25 @@
         if (course.content) {
             self.lifecycle.unshift('introduction/viewmodels/index');
         }
+
         
-        if (templateSettings.xApi && templateSettings.xApi.enabled && !activityProvider.actor) {
-            self.lifecycle.unshift('xApi/viewmodels/login');
+        //if (templateSettings.xApi && templateSettings.xApi.enabled && !activityProvider.actor) {
+        //    self.lifecycle.unshift('xApi/viewmodels/login');
+        //}
+        
+
+
+        if (templateSettings.xApi && templateSettings.xApi.enabled) {
+            var user = userContext.getCurrentUser();
+            if (user && user.username && /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/.test(user.email)) {
+                return xApiInitializer.initialize(user.username, user.email).then(function() {
+                    return eventManager.courseStarted();
+                }).then(function () {
+                    return loadModuleAndActivate();
+                });
+            } else {
+                self.lifecycle.unshift('xApi/viewmodels/login');
+            }
         }
         if (_.isObject(progress) && progress.url) {
             if (_.isObject(progress.url)) {
@@ -55,7 +72,7 @@
         return loader.loadModule(path).then(function (module) {
             controller.activeItem(module);
             var progress = progressContext.get();
-            controller.activeItem.activationData.call(null, _.isObject(progress.url) ? _.values(progress.url) : progress.url);
+            controller.activeItem.activationData.call(null, _.isObject(progress.url) ? _.values(progress.url) : null);
         });
     }
 

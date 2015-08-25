@@ -9,10 +9,17 @@
         
         that.blanks = _.chain(question.answers)
             .map(function (option) {
-                return {
+                var obj = {
                     groupId: option.groupId,
                     text: ko.observable()
                 }
+                if (option.submittedAnswer && option.submittedAnswer.length) {
+
+                    obj.text(option.submittedAnswer);
+                    that.isAnswered(true);
+                    that.isAnsweredCorrectly(question.score==100);
+                }
+                return  obj
             }).value();
         that.isDirty = ko.computed(function () {
             var count = 0;

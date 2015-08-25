@@ -8,6 +8,7 @@
             $(this).val(option).trigger('change');
         });
         $(".blankSelect", view).each(function () {
+            debugger
             var self = this,
                 options = [];
             

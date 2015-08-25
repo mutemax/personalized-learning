@@ -1,4 +1,4 @@
-﻿define(['durandal/system', 'durandal/app', 'translation', 'eventManager', 'entities/course'], function (system, app, translation, eventManager, course) {
+﻿define(['durandal/system', 'durandal/app', 'translation', 'eventManager', 'entities/course', 'userContext'], function (system, app, translation, eventManager, course, userContext) {
     var
        self = {
            storage: null,
@@ -104,15 +104,29 @@
     }
 
     function use(storage) {
+
+        var user = userContext.getCurrentUser();
+
         if (_.isFunction(storage.getProgress) && _.isFunction(storage.saveProgress)) {
             self.progress._v = course.createdOn.getTime();
             self.storage = storage;
-
             var progress = storage.getProgress();
-            if (!_.isEmpty(progress) && _.isString(progress.attemptId) && progress._v === self.progress._v) {
-                self.progress = progress;
+            if (_.isObject(user) && user.username && user.email) {
+                if (!_.isEmpty(progress) && !_.isEmpty(progress.user) && progress.user.username == user.username && progress.user.email == user.email) {
+                    self.progress = progress;
+                }
+                else {
+                    self.progress.user = {
+                        username: user.username,
+                        email: user.email
+                    }
+                }
             }
-
+            else {
+                if (!_.isEmpty(progress) && _.isString(progress.attemptId) && progress._v === self.progress._v) {
+                    self.progress = progress;
+                }
+            }
             eventManager.subscribeForEvent(eventManager.events.questionAnswered).then(questionAnswered).then(markAsDirty);
             eventManager.subscribeForEvent(eventManager.events.courseFinished).then(finish);
             app.on('xApi:authenticated').then(authenticated).then(markAsDirty);
@@ -123,16 +137,20 @@
             app.on('studying:completed').then(navigated).then(markAsDirty);
             app.on('view:changed').then(save);
             app.on('studying:start-reading').then(saveCurrentQuestion);
-        
+            app.on('course:finished').then(remove);
+
+
+
             window.onbeforeunload = function () {
                 if (context.isDirty === true) {
-                    return translation.getTextByKey('[progress not saved]');
+                    //return translation.getTextByKey('[progress not saved]');
                 }
             };
 
             setProgressDirty(false);
 
-        } else {
+        }
+        else {
             throw 'Cannot use this storage';
         }
     }
@@ -142,7 +160,6 @@
     }
 
     function ready() {
-
         return !!self.storage;
     }
 });

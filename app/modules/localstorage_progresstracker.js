@@ -47,7 +47,7 @@
 
     function removeProgress() {
         try {
-            localStorage.removeItem(key);
+            localStorage.removeItem(progressKey);
         } catch (e) {
             console.log('Unable to remove progress from localStorage');
         }

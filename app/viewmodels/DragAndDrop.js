@@ -21,7 +21,6 @@
                     x: dropspot.x,
                     y: dropspot.y,
                     text: ko.observable(obj.text)
-
                 }
 
             } else {

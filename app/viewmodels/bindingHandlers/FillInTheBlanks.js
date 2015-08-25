@@ -9,9 +9,8 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
             init: function (element, valueAccessor) {
                 var $element = $(element),
                     value = valueAccessor();
-
-                _.each(value, function(blank){
-                    var source = $('[data-group-id=' + blank.groupId + ']', $element),
+                _.each(value, function (blank) {
+                   var source = $('[data-group-id=' + blank.groupId + ']', $element),
                         handler = function () {
                             if (ko.isWriteableObservable(blank.text)) {
                                 blank.text(source.val().trim());
@@ -21,18 +20,16 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
                     source
                         .val(undefined)
                         .on('blur change', handler);
-
+                    
                     ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
                         source.off('blur change', handler);
                     });
 
-                    handler();
                 });
             },
             update: function (element, valueAccessor) {
                 var $element = $(element),
                     value = valueAccessor();
-
                 _.each(value, function(blank){
                     var source = $('[data-group-id=' + blank.groupId + ']', $element),
                         text = ko.unwrap(blank.text);
@@ -42,10 +39,11 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
                             source.find('option:first').prop('selected', true);
                         } else {
                             source.val(text);
-                        }
+                        debugger}
                     } else {
-                        source.val(text);
+                        $(source).val(text);
                     }
+
                 });
             }
         };

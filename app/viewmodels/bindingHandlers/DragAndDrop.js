@@ -125,12 +125,18 @@
                        return $(element).children().text() == text;
                     });
                     $(textHolder)
+                        .addClass('cloned')
                         .clone()
                         .appendTo($(element));
-
                     // I believe it will be used when we have to restore previously saved answer
+                    // I believe i can fly
                 } else {
-                    debugger
+                    if ($(element).children('.cloned').length) {
+                        $(element).children('.cloned').remove();
+                    }
+                    $.each($('.drag-and-drop-text-draggable-container').children(), function () {
+                        $(this).removeClass('cloned');
+                    })
                     $(element).children('.drag-and-drop-text-draggable').css('left', '').css('top', '')
                         .appendTo($('.drag-and-drop-text-draggable-container'));
                     $(element).children('.drag-and-drop-text-draggable-container-message').hide();
