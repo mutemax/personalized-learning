@@ -2,7 +2,6 @@
 
     var ctor = function (question) {
         var that = this;
-        debugger
         Question.call(that, question);
 
         that.id = question.id;

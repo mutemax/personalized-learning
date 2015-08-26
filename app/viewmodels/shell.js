@@ -1,4 +1,4 @@
-﻿define(['knockout', 'durandal/app', 'controller', 'loader', 'templateSettings', 'background', 'entities/course', 'modulesInitializer', 'progressContext'], function (ko, app, controller, loader, templateSettings, background, course, modulesInitializer, progressContext) {
+﻿define(['knockout', 'durandal/app', 'controller', 'loader', 'templateSettings', 'background', 'entities/course', 'modulesInitializer', 'progressContext', 'translation'], function (ko, app, controller, loader, templateSettings, background, course, modulesInitializer, progressContext, translation) {
     "use strict";
 
     var viewModel = {
@@ -6,6 +6,12 @@
         moduleToInitialize: ko.observable(),
         activate: activate,
         logoUrl: ko.observable(),
+        finishPopupVisibility: ko.observable(false),
+        openFinishPopup: openFinishPopup,
+        closeFinishPopup: closeFinishPopup,
+        finish: finish,
+        close:close,
+        isClosed: ko.observable(false),
 
         activeItem: controller.activeItem,
         compositionComplete: compositionComplete
@@ -15,6 +21,7 @@
     viewModel.hasLogo = ko.computed(function () {
         return !_.isEmpty(viewModel.logoUrl());
     });
+
 
     return viewModel;
 
@@ -48,16 +55,29 @@
                     }
                 }
             }
-
             return controller.activate();
-
-
         });
     }
 
     function compositionComplete() {
         background.apply(templateSettings.background);
+    }
 
+    function openFinishPopup() {
+        viewModel.finishPopupVisibility(true);
+    }
+    function closeFinishPopup() {
+        viewModel.finishPopupVisibility(false);
+    }
+    function close() {
+        window.close();
+        _.delay(function () {
+            viewModel.isClosed(true),
+            window.alert(translation.getTextByKey('[thank you message]'));
+        }, 100);
+    }
+    function finish() {
+        app.trigger('studying:completed');
     }
 
 });

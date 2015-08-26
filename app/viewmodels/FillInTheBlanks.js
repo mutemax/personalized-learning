@@ -14,7 +14,6 @@
                     text: ko.observable()
                 }
                 if (option.submittedAnswer && option.submittedAnswer.length) {
-
                     obj.text(option.submittedAnswer);
                     that.isAnswered(true);
                     that.isAnsweredCorrectly(question.score==100);

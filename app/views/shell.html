@@ -1,14 +1,34 @@
 ﻿<section>
     <div class="logo-header">
         <div class="container-content-wrapper">
-            <!-- ko if: hasLogo -->
-            <img class="logo" data-bind="attr: { src: logoUrl }" />
-            <!-- /ko -->
-            <!-- ko ifnot: hasLogo -->
-            <div class="logo default"></div>
-            <!-- /ko -->
+            <div class="logo-holder">
+                <!-- ko if: hasLogo -->
+                <img class="logo" data-bind="attr: { src: logoUrl }" />
+                <!-- /ko -->
+                <!-- ko ifnot: hasLogo -->
+                <div class="logo default"></div>
+                <!-- /ko -->
+            </div>
+            <div class="save-progress-container">
+                <span></span>
+                <button data-bind="dropDown:{}"></button>
+                <ul >
+                    <li  data-translate-text="[save and continue later]" data-bind="click:close">save and continue later</li>
+                    <li data-translate-text="[finish course]" data-bind="click:openFinishPopup">Finish course</li>
+                </ul>
+            </div>    
         </div>
      </div>
+    
+    <!-- ko if: finishPopupVisibility -->
+    <!-- ko compose: { view: 'dialogs/finishCourse', model: 'dialogs/finishCourse', activationData: {finish:$root.finish, close: $root.closeFinishPopup}} -->
+    <!-- /ko -->
+    <!-- /ko -->
+
+    <!-- ko if: isClosed() -->
+       <div class="screen-blocker"></div>
+    <!-- /ko -->
+
 
 
     <div class="title-background">

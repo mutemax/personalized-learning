@@ -58,6 +58,7 @@ define(['entities/course', './activityProvider', './configuration/settings', './
     return initializer;
 
     function initialize(username, email) {
+
         return Q.fcall(function() {
             var pageUrl = "";
             if (window != window.top && ('referrer' in document)) {

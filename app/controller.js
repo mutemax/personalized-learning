@@ -32,23 +32,21 @@
         if (course.content) {
             self.lifecycle.unshift('introduction/viewmodels/index');
         }
-
-        
-        //if (templateSettings.xApi && templateSettings.xApi.enabled && !activityProvider.actor) {
-        //    self.lifecycle.unshift('xApi/viewmodels/login');
-        //}
-        
-
-
         if (templateSettings.xApi && templateSettings.xApi.enabled) {
-            var user = userContext.getCurrentUser();
+            if (_.isFunction(userContext.getCurrentUser)) { 
+                var user = userContext.getCurrentUser();
+            }
             if (user && user.username && /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/.test(user.email)) {
                 return xApiInitializer.initialize(user.username, user.email).then(function() {
                     return eventManager.courseStarted();
                 }).then(function () {
                     return loadModuleAndActivate();
                 });
-            } else {
+            }
+            if(_.isObject(progress.user)){
+                xApiInitializer.initialize(progress.user.username, progress.user.email)
+            }
+            else {
                 self.lifecycle.unshift('xApi/viewmodels/login');
             }
         }
@@ -59,13 +57,12 @@
             var index = _.indexOf(self.lifecycle, progress.url) + 1;
             self.lifecycle = _.rest(self.lifecycle, index);
         }
-
         return loadModuleAndActivate();
 
     }
 
     function loadModuleAndActivate() {
-
+        debugger
         controller.activeItem.isComposing(true);
 
         var path = self.lifecycle.shift();

@@ -104,14 +104,14 @@
     }
 
     function use(storage) {
-
-        var user = userContext.getCurrentUser();
-
+        if (_.isObject(userContext)&&_.isFunction(userContext.getCurrentUser)) {
+            var user = userContext.getCurrentUser();
+        }
         if (_.isFunction(storage.getProgress) && _.isFunction(storage.saveProgress)) {
             self.progress._v = course.createdOn.getTime();
             self.storage = storage;
             var progress = storage.getProgress();
-            if (_.isObject(user) && user.username && user.email) {
+            if (user && _.isObject(user) && user.username && user.email) {
                 if (!_.isEmpty(progress) && !_.isEmpty(progress.user) && progress.user.username == user.username && progress.user.email == user.email) {
                     self.progress = progress;
                 }
@@ -120,6 +120,7 @@
                         username: user.username,
                         email: user.email
                     }
+                    self.progress.answers = {};
                 }
             }
             else {

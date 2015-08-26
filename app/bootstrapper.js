@@ -84,8 +84,8 @@ define(function (require) {
         require('_components/bindingHandlers/questionProgressBindingHandler').install();
         require('_components/bindingHandlers/circleProgressBindingHandler').install();
         require('_components/bindingHandlers/learningContentBindingHandler').install();
-
-
+        require('_components/bindingHandlers/dropDownBindingHandler').install();
+        
         require('viewmodels/bindingHandlers/DragAndDrop').install();
         require('viewmodels/bindingHandlers/Hotspot').install();
         require('viewmodels/bindingHandlers/FillInTheBlanks').install();

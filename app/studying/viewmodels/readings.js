@@ -114,7 +114,6 @@
     }
 
     function goToNextOrNotCompletedReading() {
-        debugger
         if (viewmodel.nextOrNotCompletedReading()) {
             apply(viewmodel.nextOrNotCompletedReading());
             app.trigger('view:changed', {
