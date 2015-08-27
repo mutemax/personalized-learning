@@ -9,6 +9,8 @@
                 <div class="logo default"></div>
                 <!-- /ko -->
             </div>
+
+            <!-- ko if: closeCourseDropdownVisibility -->
             <div class="save-progress-container">
                 <span></span>
                 <button data-bind="dropDown:{}"></button>
@@ -17,6 +19,7 @@
                     <li data-translate-text="[finish course]" data-bind="click:openFinishPopup">Finish course</li>
                 </ul>
             </div>    
+            <!-- /ko -->
         </div>
      </div>
     

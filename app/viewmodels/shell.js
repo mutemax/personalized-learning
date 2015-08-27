@@ -6,11 +6,13 @@
         moduleToInitialize: ko.observable(),
         activate: activate,
         logoUrl: ko.observable(),
+        closeCourseDropdownVisibility: ko.observable(false),
+        changeCloseCourseDropdownVisibility: changeCloseCourseDropdownVisibility,
         finishPopupVisibility: ko.observable(false),
         openFinishPopup: openFinishPopup,
         closeFinishPopup: closeFinishPopup,
         finish: finish,
-        close:close,
+        close: close,
         isClosed: ko.observable(false),
 
         activeItem: controller.activeItem,
@@ -24,6 +26,7 @@
 
 
     return viewModel;
+
 
     function activate() {
         return modulesInitializer.init().then(function () {
@@ -39,11 +42,14 @@
                 app.on('progressContext:dirty:changed').then(function (isProgressDirty) {
                     viewModel.isProgressDirty(isProgressDirty);
                 });
+                app.on('introduction:completed').then(viewModel.changeCloseCourseDropdownVisibility);
 
                 var progress = progressContext.get();
 
                 if (_.isObject(progress)) {
-
+                    if (!_.isNull(progress.url)) {
+                        viewModel.changeCloseCourseDropdownVisibility();
+                    }
                     if (_.isObject(progress.answers)) {
                         _.each(course.objectives, function (objective) {
                             _.each(objective.questions, function (question) {
@@ -57,6 +63,10 @@
             }
             return controller.activate();
         });
+    }
+
+    function changeCloseCourseDropdownVisibility() {
+        viewModel.closeCourseDropdownVisibility(true);
     }
 
     function compositionComplete() {
