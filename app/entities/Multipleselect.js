@@ -12,7 +12,7 @@
 
         that.answers = answers;
         var checkedAnswers = null;
-        
+
         function answer(answerIds) {
             checkedAnswers = answerIds;
             var correctAnswers = _.filter(that.answers, function (answer) {
@@ -33,13 +33,14 @@
             _.each(that.answers, function (answer) {
                 if (answer.isCorrect && progress == 100) {
                     that.score = 100;
-                    return answer.isChecked = true;
+                    answer.isChecked = true;
 
                 } else {
-                    if (_.find(progress, function (progressItem) { return progressItem == answer.id })) {
+                    if (_.find(progress, function (progressItem) {
+                        return progressItem == answer.id
+                    })) {
                         answer.isChecked = true;
                     }
-
                 }
             });
 

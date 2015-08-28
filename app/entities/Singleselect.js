@@ -34,15 +34,13 @@
             _.each(that.answers, function (answer) {
                 if (answer.isCorrect && progress == 100) {
                     that.score = 100;
-                    return answer.isChecked = true;
+                    answer.isChecked = true;
                 } else {
-                    _.each(that.answers, function (answer) {
-                        if (_.find(progress, function(progressItem) {
-                            return progressItem == answer.id;
-                        })) {
-                            return answer.isChecked = true;
-                        };
-                    });
+                    if (_.find(progress, function (progressItem) {
+                        return progressItem == answer.id;
+                    })) {
+                        answer.isChecked = true;
+                    };
                 }
             });
         }

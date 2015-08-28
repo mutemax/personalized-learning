@@ -120,9 +120,6 @@
                 objective: self.objective.id, question: viewmodel.currentReading().id
             });
         }
-
-        //var nextQuestionId = viewmodel.currentQuestionPosition() < viewmodel.questionsInObjective() ? viewmodel.nextQuestionId : viewmodel.firstUnansweredQuestionId();
-        //navigateToQuestion(nextQuestionId);
     }
 
     function goToStudyAdvice() {

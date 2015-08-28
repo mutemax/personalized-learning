@@ -29,6 +29,7 @@
                 cursor: pointer;
                 overflow: visible;
                 margin-right: 20px;
+                vertical-align: middle;
 
                 &:hover {
                     background-color: rgba(171,187,198,0.2);
@@ -68,6 +69,33 @@
                 }
             }
 
+            span {
+                vertical-align: middle;
+                white-space: nowrap;
+                display: inline-block;
+                max-width: 300px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                position: relative;
+                font-size: 13px;
+                font-family: 'roboto-regular';
+                font-style: italic;
+                color: #43aaa3;
+                padding-left: 25px;
+                padding-right: 10px;
+
+                &:before {
+                    position: absolute;
+                    content: '';
+                    width: 16px;
+                    height: 12px;
+                    top: 50%;
+                    margin-top: -6px;
+                    left: 0;
+                    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAMCAYAAABr5z2BAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkJFMTUxNEQ0Qzk1MTFFNUI5RjlGMjVFNDIwMUZFNUIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkJFMTUxNEU0Qzk1MTFFNUI5RjlGMjVFNDIwMUZFNUIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGQkUxNTE0QjRDOTUxMUU1QjlGOUYyNUU0MjAxRkU1QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGQkUxNTE0QzRDOTUxMUU1QjlGOUYyNUU0MjAxRkU1QiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpDwZS0AAADoSURBVHjanNLPioFRHMZxZIVmJlFyA2JWM6WmpNTcgIUFKTs2cwH2FhYaycJOzUIRTVnMNAhxDy7DDSB/5vurc+rtjZfXqc/qvM9zfm/nON8HHccdy4MeWu47wl78IoWj3QIf/pDECFmXjfADxir8gzS2txY8YoIEhshgJxu6wG8RfsIUb/iWsXVYF1SwQuRMWIrniKOPnDGsCzYIY4moYS+AGV7RRR578wlSUEUZISzwjKAKv0AeSgGHc/+nr7GmPvhUJWvE8IXipbCxQFZdjdhQE7RRwsnqeswPqalOk9M/roVl/QswALiYK8Jehk81AAAAAElFTkSuQmCC') no-repeat;
+                }
+            }
+
             ul {
                 display: none;
                 position: absolute;
@@ -82,7 +110,7 @@
                 border-radius: 8px;
                 text-align: left;
                 right: 25px;
-                top: 65px;
+                top: 70px;
                 box-shadow: 1px 0 4px 0 rgba(0,0,0,0.3);
 
                 li {
@@ -195,10 +223,12 @@
                     padding-bottom: 30px;
                     font-size: 28px;
                     font-weight: 700;
-                    color: black;
+                    color: #333;
                     text-align: center;
                     border-bottom: 1px solid #abbbc6;
                     line-height: 40px;
+                    font-family: 'robotoSlab-regular';
+                    text-transform: none;
 
                     span {
                         display: inline-block;
@@ -225,6 +255,8 @@
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    font-family: 'robotoSlab-regular';
+                    text-transform: none;
                 }
 
                 ul {
@@ -237,6 +269,8 @@
                         color: #333333;
                         line-height: 24px;
                         overflow: hidden;
+                        list-style: none;
+                        font-family: 'robotoSlab-regular';
                     }
                 }
             }
@@ -252,6 +286,43 @@
                     margin-right: 25px;
                     vertical-align: middle;
 
+
+                    button {
+                         text-overflow: ellipsis;
+                            text-transform: uppercase;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            max-width: 100%;
+                            width: 100%;
+                            border-radius: 5px;
+                            padding: 10px;
+                            cursor: pointer;
+                            height: 56px;
+                            font-size: 18px;
+
+                        &.finish-popup-cancel-button {
+                            background-color: transparent;
+                            border: 2px solid #50b2ac;
+                            color: #50b2ac;
+                           
+
+                            &:hover {
+                                background-color: #50b2ac;
+                                color: #fff;
+                            }
+                        }
+
+                        &.finish-popup-finish-button {
+                            background-color: #50b2ac;
+                            border: 2px solid #43aaa3;
+                            color: #fff;
+                           
+                            &:hover {
+                                background-color: #43aaa3;
+                            }
+                        }
+                    }
+
                     &:last-child {
                         margin-right: 0;
                     }
@@ -261,16 +332,16 @@
     }
 }
 
-.screen-blocker{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background-color:rgba(221,249,255,0.9);
-    z-index:1000;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
+.screen-blocker {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(221,249,255,0.9);
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .logo {

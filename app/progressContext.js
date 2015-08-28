@@ -18,25 +18,10 @@
 
            use: use,
            ready: ready,
-           isDirty: null
        }
     ;
 
     return context;
-
-
-    function setProgressDirty(isDirty) {
-        context.isDirty = isDirty;
-        app.trigger('progressContext:dirty:changed', isDirty);
-    }
-
-    function markAsDirty() {
-        setProgressDirty(true);
-    }
-
-    function navigated() {
-
-    }
 
     function authenticated(user) {
         self.progress.user = user;
@@ -51,7 +36,6 @@
     function questionAnswered(question) {
         try {
             self.progress.answers[question.question.shortId] = question.question.progress();
-            setProgressDirty(true);
             save();
         } catch (e) {
             console.error(e);
@@ -60,12 +44,10 @@
 
     function finish() {
         save();
-        context.isDirty = false;
     }
 
 
     function save(url) {
-
         if (!self.storage) {
             return;
         }
@@ -80,20 +62,7 @@
         }
     }
 
-    function saveCurrentQuestion(objectiveId, questionId) {
-        if (self.progress) {
-            if (objectiveId && questionId) {
-                self.progress.url = {
-                    objective: objectiveId,
-                    question: questionId
-                }
-            }
-            save();
-        }
-        return;
-    }
-
-
+    
     function remove() {
         if (!self.storage) {
             return;
@@ -128,27 +97,20 @@
                     self.progress = progress;
                 }
             }
-            eventManager.subscribeForEvent(eventManager.events.questionAnswered).then(questionAnswered).then(markAsDirty);
+            eventManager.subscribeForEvent(eventManager.events.questionAnswered).then(questionAnswered);
             eventManager.subscribeForEvent(eventManager.events.courseFinished).then(finish);
-            app.on('xApi:authenticated').then(authenticated).then(markAsDirty);
-            app.on('xApi:authentication-skipped').then(authenticationSkipped).then(markAsDirty);
+            app.on('xApi:authenticated').then(authenticated);
+            app.on('xApi:authentication-skipped').then(authenticationSkipped);
 
-            app.on('introduction:completed').then(navigated).then(markAsDirty);
-            app.on('preassessment:completed').then(navigated).then(markAsDirty);
-            app.on('studying:completed').then(navigated).then(markAsDirty);
             app.on('view:changed').then(save);
-            app.on('studying:start-reading').then(saveCurrentQuestion);
             app.on('course:finished').then(remove);
 
 
 
             window.onbeforeunload = function () {
-                if (context.isDirty === true) {
-                    //return translation.getTextByKey('[progress not saved]');
-                }
+                console.log('пыщ')
             };
 
-            setProgressDirty(false);
 
         }
         else {

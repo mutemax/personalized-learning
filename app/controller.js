@@ -62,7 +62,6 @@
     }
 
     function loadModuleAndActivate() {
-        debugger
         controller.activeItem.isComposing(true);
 
         var path = self.lifecycle.shift();

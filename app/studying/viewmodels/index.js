@@ -11,6 +11,7 @@
 
     app.on('studying:start-reading').then(function (objectiveId, questionId) {
         viewModel.activeItem.activateItem(readings, [objectiveId, questionId]);
+
     });
 
     app.on('studying:stop-reading').then(function () {

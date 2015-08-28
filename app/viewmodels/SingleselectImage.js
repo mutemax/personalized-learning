@@ -22,7 +22,7 @@
                 var obj = {
                     id: option.id,
                     image: option.image
-                }
+                };
                 if (option.isChecked) {
                     that.selectedOption(obj);
                     that.isAnswered(true);

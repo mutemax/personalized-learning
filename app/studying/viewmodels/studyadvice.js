@@ -34,6 +34,7 @@
                     score: objective.score(),
                     startRecommendedReading: function () {
                         app.trigger('studying:start-reading', objective.id, this.id);
+                        app.trigger('view:changed', { objective: objective.id, question:this.id })
                     },
                     recommended: _.chain(objective.questions)
                         .filter(function (question) {
