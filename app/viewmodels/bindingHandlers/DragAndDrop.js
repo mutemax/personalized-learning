@@ -128,8 +128,7 @@
                         .addClass('cloned')
                         .clone()
                         .appendTo($(element));
-                    // I believe it will be used when we have to restore previously saved answer
-                    // I believe i can fly
+                    // used to load user progress in DnD question type
                 } else {
                     if ($(element).children('.cloned').length) {
                         $(element).children('.cloned').remove();

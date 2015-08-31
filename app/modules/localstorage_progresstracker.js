@@ -39,6 +39,7 @@
             localStorage.setItem(resultKey, JSON.stringify(result));
             localStorage.setItem(progressKey, JSON.stringify(progress));
         } catch (e) {
+            app.trigger("progress:error");
             alert(translation.getTextByKey('[not enough memory to save progress]'));
         }
 
@@ -53,7 +54,4 @@
         }
         return true;
     }
-
-
-
 })

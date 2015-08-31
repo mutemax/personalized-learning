@@ -6,8 +6,7 @@
         moduleToInitialize: ko.observable(),
         activate: activate,
         logoUrl: ko.observable(),
-        closeCourseDropdownVisibility: ko.observable(false),
-        changeCloseCourseDropdownVisibility: changeCloseCourseDropdownVisibility,
+        closeCourseDropdownVisibility:controller.inProgress,
         finishPopupVisibility: ko.observable(false),
         openFinishPopup: openFinishPopup,
         closeFinishPopup: closeFinishPopup,
@@ -19,37 +18,23 @@
         compositionComplete: compositionComplete
     };
 
-
     viewModel.hasLogo = ko.computed(function () {
         return !_.isEmpty(viewModel.logoUrl());
     });
 
+   
 
     return viewModel;
-
 
     function activate() {
         return modulesInitializer.init().then(function () {
             viewModel.logoUrl(templateSettings.logoUrl ? templateSettings.logoUrl : '');
             if (progressContext.ready()) {
-                viewModel.isProgressDirty = ko.observable(true);
 
-                viewModel.saveProgress = function () {
-                    if (viewModel.isProgressDirty()) {
-                        progressContext.save();
-                    }
-                }
-                app.on('progressContext:dirty:changed').then(function (isProgressDirty) {
-                    viewModel.isProgressDirty(isProgressDirty);
-                });
-                app.on('introduction:completed').then(viewModel.changeCloseCourseDropdownVisibility);
-
+                
                 var progress = progressContext.get();
 
                 if (_.isObject(progress)) {
-                    if (!_.isNull(progress.url)) {
-                        viewModel.changeCloseCourseDropdownVisibility();
-                    }
                     if (_.isObject(progress.answers)) {
                         _.each(course.objectives, function (objective) {
                             _.each(objective.questions, function (question) {
@@ -63,10 +48,6 @@
             }
             return controller.activate();
         });
-    }
-
-    function changeCloseCourseDropdownVisibility() {
-        viewModel.closeCourseDropdownVisibility(true);
     }
 
     function compositionComplete() {
@@ -87,7 +68,7 @@
         }, 100);
     }
     function finish() {
-        app.trigger('studying:completed');
+        controller.finish();
     }
 
 });

@@ -15,7 +15,6 @@
            get: get,
            remove: remove,
 
-
            use: use,
            ready: ready,
        }
@@ -42,11 +41,6 @@
         }
     }
 
-    function finish() {
-        save();
-    }
-
-
     function save(url) {
         if (!self.storage) {
             return;
@@ -62,7 +56,6 @@
         }
     }
 
-    
     function remove() {
         if (!self.storage) {
             return;
@@ -73,7 +66,7 @@
     }
 
     function use(storage) {
-        if (_.isObject(userContext)&&_.isFunction(userContext.getCurrentUser)) {
+        if (_.isObject(userContext) && _.isFunction(userContext.getCurrentUser)) {
             var user = userContext.getCurrentUser();
         }
         if (_.isFunction(storage.getProgress) && _.isFunction(storage.saveProgress)) {
@@ -98,24 +91,22 @@
                 }
             }
             eventManager.subscribeForEvent(eventManager.events.questionAnswered).then(questionAnswered);
-            eventManager.subscribeForEvent(eventManager.events.courseFinished).then(finish);
             app.on('xApi:authenticated').then(authenticated);
             app.on('xApi:authentication-skipped').then(authenticationSkipped);
-
             app.on('view:changed').then(save);
             app.on('course:finished').then(remove);
-
-
-
-            window.onbeforeunload = function () {
-                console.log('пыщ')
-            };
-
+            app.on('progress:error').then(showStorageError);
 
         }
         else {
             throw 'Cannot use this storage';
         }
+    }
+
+    function showStorageError() {
+        window.onbeforeunload = function () {
+            return translation.getTextByKey('[course progress cannot be saved]')
+        };
     }
 
     function get() {

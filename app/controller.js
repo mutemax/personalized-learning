@@ -7,17 +7,27 @@
     };
 
     var controller = {
-        activate: activate,
+        activate: activate
 
     };
 
     controller.activeItem = ko.observable();
     controller.activeItem.activationData = ko.observable();
     controller.activeItem.isComposing = ko.observable(true);
+    controller.activeItem.id = ko.observable();
 
     controller.activeItem.compositionComplete = function () {
         controller.activeItem.isComposing(false);
     };
+    controller.finish = function () {
+        if (controller.activeItem() && controller.activeItem().__moduleId__ == 'preassessment/viewmodels/index') {
+            controller.activeItem().answerQuestions();
+        }
+        self.lifecycle = ['summary/viewmodels/index'];
+        return loadModuleAndActivate();
+    }
+
+    controller.inProgress = ko.observable(false);
 
     return controller;
 
@@ -43,8 +53,8 @@
                     return loadModuleAndActivate();
                 });
             }
-            if(_.isObject(progress.user)){
-                xApiInitializer.initialize(progress.user.username, progress.user.email)
+            if(_.isObject(progress.user)) {
+                xApiInitializer.initialize(progress.user.username, progress.user.email);
             }
             else {
                 self.lifecycle.unshift('xApi/viewmodels/login');
@@ -67,6 +77,12 @@
         var path = self.lifecycle.shift();
         return loader.loadModule(path).then(function (module) {
             controller.activeItem(module);
+
+            controller.inProgress([
+                'preassessment/viewmodels/index',
+                'studying/viewmodels/index'
+            ].indexOf(module.__moduleId__) > -1);
+
             var progress = progressContext.get();
             controller.activeItem.activationData.call(null, _.isObject(progress.url) ? _.values(progress.url) : null);
         });

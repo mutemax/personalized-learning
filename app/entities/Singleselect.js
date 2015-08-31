@@ -14,6 +14,7 @@
         var checkedAnswers = null;
 
         function answer(answerIds) {
+            debugger
             checkedAnswers = answerIds;
             var correctAnswers = _.filter(that.answers, function (answer) {
                 return answer.isCorrect === true;

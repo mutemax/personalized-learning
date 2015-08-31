@@ -21,6 +21,7 @@
         }
 
         that.progress = function (data, url) {
+
             if (data) {
                 _protected.restoreProgress(data);
                 if (_.isObject(url) && url.question == that.id) {

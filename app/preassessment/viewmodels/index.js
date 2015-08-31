@@ -4,10 +4,11 @@
     var viewModel = {        
         questions: ko.observableArray([]),
         submit: submit,
+        answerQuestions:answerQuestions,
 
         activate: activate,
         attached: attached,
-        detached: detached
+        detached: detached,
     };
 
     var self = {
@@ -53,11 +54,14 @@
         });
     }
 
-    function submit() {
+    function answerQuestions() {
         _.each(viewModel.questions(), function (question) {
             question.submit();
         });
-        app.trigger('preassessment:completed');
+    }
+
+    function submit() {
+       app.trigger('preassessment:completed');
     }
 
 })
