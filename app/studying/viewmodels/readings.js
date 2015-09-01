@@ -97,6 +97,11 @@
     }
 
     function goToPreviousReading() {
+        _.each(self.objective.questions, function(question) {
+            return question.isMastered = true;
+        });
+        
+
         if (viewmodel.previousReading()) {
             apply(viewmodel.previousReading());
             app.trigger('view:changed', {
@@ -106,6 +111,10 @@
     }
 
     function goToNextReading() {
+        _.each(self.objective.questions, function (question) {
+            return question.isMastered = true;
+        });
+        self.objective.questions[viewmodel.currentReadingIndex()].isMastered = true;
         if (viewmodel.nextReading()) {
             apply(viewmodel.nextReading());
             app.trigger('view:changed', {objective:self.objective.id, question:viewmodel.currentReading().id
@@ -114,6 +123,10 @@
     }
 
     function goToNextOrNotCompletedReading() {
+        _.each(self.objective.questions, function (question) {
+            return question.isMastered = true;
+        });
+        self.objective.questions[viewmodel.currentReadingIndex()].isMastered = true;
         if (viewmodel.nextOrNotCompletedReading()) {
             apply(viewmodel.nextOrNotCompletedReading());
             app.trigger('view:changed', {
@@ -123,6 +136,9 @@
     }
 
     function goToStudyAdvice() {
+        _.each(self.objective.questions, function (question) {
+            return question.isMastered = true;
+        });
         app.trigger('studying:stop-reading');
     }
 

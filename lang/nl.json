@@ -53,5 +53,7 @@
   "[finish course popup first remark]": "- De uiteindelijke score zal worden gerapporteerd",
   "[finish course popup second remark]": "- Jouw voortgang wodt niet bewaard. Als je de cursus opnieuw start, moet je opnieuw beginnen",
   "[progress is saved]": "Voortgang is opgeslagen",
-  "[progress is not saved]": "Progress is not saved"
+  "[progress is not saved]": "Progress is not saved",
+  "[not enough memory to save progress]": "Er is niet genoeg geheugen om de voortgang op te slaan",
+  "[progress cannot be saved]": "De cursus voortgang kan niet worden opgeslagen. Probeer het opnieuw of neem contact op met de docent als het probleem blijft bestaan."
 }

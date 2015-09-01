@@ -6,7 +6,8 @@
         moduleToInitialize: ko.observable(),
         activate: activate,
         logoUrl: ko.observable(),
-        closeCourseDropdownVisibility:controller.inProgress,
+        closeCourseDropdownVisibility: controller.inProgress,
+        progressError:ko.observable(false),
         finishPopupVisibility: ko.observable(false),
         openFinishPopup: openFinishPopup,
         closeFinishPopup: closeFinishPopup,
@@ -31,7 +32,7 @@
             viewModel.logoUrl(templateSettings.logoUrl ? templateSettings.logoUrl : '');
             if (progressContext.ready()) {
 
-                
+                app.on('progress:error').then(showProgressError);
                 var progress = progressContext.get();
 
                 if (_.isObject(progress)) {
@@ -71,4 +72,7 @@
         controller.finish();
     }
 
+    function showProgressError() {
+        viewModel.progressError(true);
+    }
 });

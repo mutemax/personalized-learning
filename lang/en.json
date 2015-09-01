@@ -54,5 +54,8 @@
   "[finish course popup first remark]": "- your final score will be reported",
   "[finish course popup second remark]": "- your current progress will NOT be\nrestored when you open the course\nnext time",
   "[progress is saved]": "Progress is saved",
-  "[progress is not saved]": "Progress is not saved"
+  "[progress is not saved]": "Progress is not saved",
+  "[not enough memory to save progress]": "Not enough browser memory to save your progress",
+  "[progress cannot be saved]": "Course progress cannot be saved. Please try again or contact your teacher if the problem persists." 
+
 }

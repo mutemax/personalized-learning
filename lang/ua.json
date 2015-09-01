@@ -54,5 +54,7 @@
   "[finish course popup first remark]": "- ваш результат буде відправлений",
   "[finish course popup second remark]": "- ваш поточний прогрес не буде відновлено коли ви відкриєте курс знову",
   "[progress is saved]": "Прогрес збережено",
-  "[progress is not saved]": "Progress is not saved"
+  "[progress is not saved]": "Progress is not saved",
+  "[not enough memory to save progress]": "Не достатньо браузерної пам'яті для збереження вашого прогресу",
+  "[progress cannot be saved]": "Прогрес по курсу не може бути збережено. Будь-ласка, зверніться до свого вчителя, якщо проблема не зникне."
 }

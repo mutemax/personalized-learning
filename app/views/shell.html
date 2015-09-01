@@ -12,10 +12,16 @@
             
             <!-- ko if: closeCourseDropdownVisibility -->
             <div class="save-progress-container">
+
+                <!--ko ifnot: progressError -->
                 <span data-translate-text="[progress is saved]"></span>
+                <!-- /ko -->
+                <!--ko if: progressError -->
+                <span class="progressError" data-translate-text= "[progress is not saved]"></span>
+                <!-- /ko -->
                 <button data-bind="dropDown:{}"></button>
                 <ul >
-                    <li  data-translate-text="[save and continue later]" data-bind="click:close">save and continue later</li>
+                    <li data-translate-text="[save and continue later]" data-bind="click:close">save and continue later</li>
                     <li data-translate-text="[finish course]" data-bind="click:openFinishPopup">Finish course</li>
                 </ul>
             </div>    

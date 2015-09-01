@@ -61,6 +61,7 @@
     }
 
     function submit() {
+        answerQuestions();
        app.trigger('preassessment:completed');
     }
 

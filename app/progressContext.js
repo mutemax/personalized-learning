@@ -99,13 +99,14 @@
 
         }
         else {
+            app.trigger('progress:error');
             throw 'Cannot use this storage';
         }
     }
 
     function showStorageError() {
         window.onbeforeunload = function () {
-            return translation.getTextByKey('[course progress cannot be saved]')
+            return translation.getTextByKey('[progress cannot be saved]');
         };
     }
 

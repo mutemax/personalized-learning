@@ -1,7 +1,10 @@
-﻿define(['entities/course', 'constants', 'translation'], function (course, constants, translation) {
+﻿define(['entities/course', 'durandal/app', 'constants', 'translation'], function (course, app, constants, translation) {
     var progressKey = constants.localStorageProgressKey + course.id + course.createdOn,
-        resultKey = constants.localStorageResultKey + course.id + course.createdOn;
-    
+        resultKey = constants.localStorageResultKey + course.id + course.createdOn,
+        errorCatched = false;
+
+
+
     var module = {
         initialize: initialize,
 
@@ -15,11 +18,11 @@
     return module;
 
     function initialize() {
-        
+
     }
 
     function getProgress() {
-        
+
         var progress = {};
         try {
             progress = JSON.parse(localStorage.getItem(progressKey));
@@ -30,20 +33,23 @@
     }
 
     function saveProgress(progress) {
-        
-        var result = {
-            score: course.score(),
-            status: course.getStatus()
-        };
-        try {
-            localStorage.setItem(resultKey, JSON.stringify(result));
-            localStorage.setItem(progressKey, JSON.stringify(progress));
-        } catch (e) {
-            app.trigger("progress:error");
-            alert(translation.getTextByKey('[not enough memory to save progress]'));
-        }
+        if (!errorCatched) {
 
-        return true;
+            var result = {
+                score: course.score(),
+                status: course.getStatus()
+            };
+            try {
+                localStorage.setItem(resultKey, JSON.stringify(result));
+                localStorage.setItem(progressKey, JSON.stringify(progress));
+            } catch (e) {
+                errorCatched = true;
+                app.trigger("progress:error");
+                alert(translation.getTextByKey('[not enough memory to save progress]'));
+            }
+
+            return true;
+        }
     }
 
     function removeProgress() {

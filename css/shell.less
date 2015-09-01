@@ -84,6 +84,7 @@
                 padding-left: 25px;
                 padding-right: 10px;
 
+
                 &:before {
                     position: absolute;
                     content: '';
@@ -93,6 +94,14 @@
                     margin-top: -6px;
                     left: 0;
                     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAMCAYAAABr5z2BAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkJFMTUxNEQ0Qzk1MTFFNUI5RjlGMjVFNDIwMUZFNUIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkJFMTUxNEU0Qzk1MTFFNUI5RjlGMjVFNDIwMUZFNUIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGQkUxNTE0QjRDOTUxMUU1QjlGOUYyNUU0MjAxRkU1QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGQkUxNTE0QzRDOTUxMUU1QjlGOUYyNUU0MjAxRkU1QiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpDwZS0AAADoSURBVHjanNLPioFRHMZxZIVmJlFyA2JWM6WmpNTcgIUFKTs2cwH2FhYaycJOzUIRTVnMNAhxDy7DDSB/5vurc+rtjZfXqc/qvM9zfm/nON8HHccdy4MeWu47wl78IoWj3QIf/pDECFmXjfADxir8gzS2txY8YoIEhshgJxu6wG8RfsIUb/iWsXVYF1SwQuRMWIrniKOPnDGsCzYIY4moYS+AGV7RRR578wlSUEUZISzwjKAKv0AeSgGHc/+nr7GmPvhUJWvE8IXipbCxQFZdjdhQE7RRwsnqeswPqalOk9M/roVl/QswALiYK8Jehk81AAAAAElFTkSuQmCC') no-repeat;
+                }
+
+                &.progressError {
+                    color: #f16162;
+
+                    &:before {
+                        background-image: none;
+                    }
                 }
             }
 
@@ -288,23 +297,23 @@
 
 
                     button {
-                         text-overflow: ellipsis;
-                            text-transform: uppercase;
-                            white-space: nowrap;
-                            overflow: hidden;
-                            max-width: 100%;
-                            width: 100%;
-                            border-radius: 5px;
-                            padding: 10px;
-                            cursor: pointer;
-                            height: 56px;
-                            font-size: 18px;
+                        text-overflow: ellipsis;
+                        text-transform: uppercase;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        max-width: 100%;
+                        width: 100%;
+                        border-radius: 5px;
+                        padding: 10px;
+                        cursor: pointer;
+                        height: 56px;
+                        font-size: 18px;
 
                         &.finish-popup-cancel-button {
                             background-color: transparent;
                             border: 2px solid #50b2ac;
                             color: #50b2ac;
-                           
+
 
                             &:hover {
                                 background-color: #50b2ac;
@@ -316,7 +325,7 @@
                             background-color: #50b2ac;
                             border: 2px solid #43aaa3;
                             color: #fff;
-                           
+
                             &:hover {
                                 background-color: #43aaa3;
                             }

@@ -81,11 +81,13 @@
     }
 
     function loadModuleAndActivate() {
+ 
         controller.activeItem.isComposing(true);
 
         var path = self.lifecycle.shift();
         return loader.loadModule(path).then(function (module) {
             controller.activeItem(module);
+            
 
             controller.inProgress([
                 'preassessment/viewmodels/index',
