@@ -9,6 +9,7 @@
         
         that.blanks = _.chain(question.answers)
             .map(function (option) {
+
                 var obj = {
                     groupId: option.groupId,
                     text: ko.observable()
@@ -23,7 +24,7 @@
         that.isDirty = ko.computed(function () {
             var count = 0;
             _.each(that.blanks, function (blank) {
-              if (blank.text()) {
+              if (blank.text()&&blank.text().length) {
                     count++
                 }
             })

@@ -70,7 +70,6 @@ define(function (require) {
             return f;
 
         })();
-        binder.bindingComplete.addHandler('views/FillInTheBlanks', require('views/helpers/FillInTheBlanks'));
         binder.bindingComplete.addHandler('views/TextMatching', require('views/helpers/TextMatching'));
 
         require('_components/bindingHandlers/backgroundBindingHandler').install();

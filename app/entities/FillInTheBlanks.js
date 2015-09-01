@@ -46,7 +46,7 @@
 
         function getProgress() {
             if (that.score == 100) {
-                return 100
+                return 100;
             }
             return submittedAnswers;
         }

@@ -1,4 +1,4 @@
-﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'templateSettings', 'entities/course', 'userContext', 'xApi/initializer', 'eventManager','progressContext'], function (app, activator, ko, loader, templateSettings, course, userContext, xApiInitializer, eventManager, progressContext) {
+﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'templateSettings', 'entities/course', 'userContext', 'xApi/initializer', 'eventManager', 'progressContext'], function (app, activator, ko, loader, templateSettings, course, userContext, xApiInitializer, eventManager, progressContext) {
 
     "use strict";
 
@@ -43,17 +43,26 @@
             self.lifecycle.unshift('introduction/viewmodels/index');
         }
         if (templateSettings.xApi && templateSettings.xApi.enabled) {
-            if (_.isFunction(userContext.getCurrentUser)) { 
+            if (_.isFunction(userContext.getCurrentUser)) {
                 var user = userContext.getCurrentUser();
             }
             if (user && user.username && /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/.test(user.email)) {
-                return xApiInitializer.initialize(user.username, user.email).then(function() {
-                    return eventManager.courseStarted();
-                }).then(function () {
-                    return loadModuleAndActivate();
-                });
+                if (_.isObject(progress) && progress.url && progress.user.username == user.username && progress.user.email == user.email) {
+                    if (_.isObject(progress.url)) {
+                        self.lifecycle = ['studying/viewmodels/index', 'summary/viewmodels/index'];
+                    }
+                    var index = _.indexOf(self.lifecycle, progress.url) + 1;
+                    self.lifecycle = _.rest(self.lifecycle, index);
+                }
+                else {
+                    return xApiInitializer.initialize(user.username, user.email).then(function () {
+                        return eventManager.courseStarted();
+                    }).then(function () {
+                        return loadModuleAndActivate();
+                    });
+                }
             }
-            if(_.isObject(progress.user)) {
+            if (_.isObject(progress.user)) {
                 xApiInitializer.initialize(progress.user.username, progress.user.email);
             }
             else {

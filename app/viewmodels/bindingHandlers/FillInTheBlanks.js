@@ -1,4 +1,4 @@
-define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composition) {
+define(['knockout', 'jquery', 'durandal/composition', 'translation'], function (ko, $, composition, translation) {
 
     return {
         install: install
@@ -9,38 +9,47 @@ define(['knockout', 'jquery', 'durandal/composition'], function (ko, $, composit
             init: function (element, valueAccessor) {
                 var $element = $(element),
                     value = valueAccessor();
+                $(".blankSelect").select({
+                    defaultText: translation.getTextByKey('[fill in the blank choose answer]')
+                });
+
                 _.each(value, function (blank) {
-                   var source = $('[data-group-id=' + blank.groupId + ']', $element),
-                        handler = function () {
-                            if (ko.isWriteableObservable(blank.text)) {
-                                blank.text(source.val().trim());
-                            }
-                        };
-                    source
-                        .on('blur change', handler);
                     
+                    var source = $('[data-group-id=' + blank.groupId + ']', $element),
+                        handler = function () {
+                            blank.text (source.val().trim());
+                        };
+
+                    source.val(undefined)
+                        .on('blur change', handler);
+
                     ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
                         source.off('blur change', handler);
                     });
-                });
-            },
-            update: function (element, valueAccessor) {
-                var $element = $(element),
-                    value = valueAccessor();
-                _.each(value, function(blank){
-                    var source = $('[data-group-id=' + blank.groupId + ']', $element),
-                        text = ko.unwrap(blank.text);
-                    if (source.is('select')) {
-                        if (typeof text == typeof undefined) {
-                            source.find('option:first').prop('selected', true);
-                        } else {
-                            source.val(text);
-                        }
-                    } else {
-                        $(source).val(text);
-                    }
 
                 });
+            },
+            update: function (element, valueAccessor, allBindings, viewModel) {
+                var value = valueAccessor();
+                var $element = $(element);
+                var isAnswered = viewModel.isAnswered();
+                if (!isAnswered) {
+                    $('.blankSelect').select('refresh');
+                    $('.blankInput').each(function () {
+                        $(this).val('');
+                    });
+                }
+                else {
+                    _.each(value, function (blank) {
+                        var $source = $('[data-group-id=' + blank.groupId + ']', $element);
+
+                        if ($source.is('input')) {
+                            $source.val(blank.text());
+                        } else if ($source.is('select')) {
+                            $source.select('updateValue', blank.text());
+                        }
+                    });
+                }
             }
         };
         composition.addBindingHandler('fillInTheBlanks');
