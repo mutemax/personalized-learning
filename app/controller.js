@@ -32,6 +32,7 @@
     return controller;
 
     function activate() {
+
         app.on('xApi:authenticated').then(loadModuleAndActivate);
         app.on('xApi:authentication-skipped').then(loadModuleAndActivate);
         app.on('introduction:completed').then(loadModuleAndActivate).then(viewChanged);
