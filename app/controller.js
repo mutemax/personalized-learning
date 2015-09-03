@@ -82,21 +82,20 @@
     }
 
     function loadModuleAndActivate() {
- 
+
         controller.activeItem.isComposing(true);
 
         var path = self.lifecycle.shift();
+
+        var progress = progressContext.get();
+        controller.activeItem.activationData.call(null, _.isObject(progress.url) ? _.values(progress.url) : progress.url);
+
         return loader.loadModule(path).then(function (module) {
             controller.activeItem(module);
-            
-
             controller.inProgress([
                 'preassessment/viewmodels/index',
                 'studying/viewmodels/index'
             ].indexOf(module.__moduleId__) > -1);
-
-            var progress = progressContext.get();
-            controller.activeItem.activationData.call(null, _.isObject(progress.url) ? _.values(progress.url) : null);
         });
     }
 
