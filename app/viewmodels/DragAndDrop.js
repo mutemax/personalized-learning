@@ -7,7 +7,7 @@
 
         that.id = question.id;
         that.title = question.title;
-        that.content = null;
+        that.content = question.content;
 
         that.background = question.background;
         that.dropspots = _.map(question.dropspots, function (dropspot) {
@@ -25,12 +25,12 @@
         });
         that.isDirty = ko.computed(function () {
             var count = 0;
-            _.each(that.dropspots, function (dropspot) {
+            _.each(that.dropspots, function(dropspot) {
                 if (dropspot.text()) {
-                    count++
+                    count++;
                 }
-            })
-            return count == question.dropspots.length;
+            });
+            return count === question.dropspots.length;
         });
 
 
@@ -52,7 +52,7 @@
             question.answer(answer);
 
             that.isAnswered(true);
-            that.isAnsweredCorrectly(question.score == 100);
+            that.isAnsweredCorrectly(question.score === 100);
         };
 
         that.resetAnswer = function () {
