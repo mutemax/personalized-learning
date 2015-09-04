@@ -3,14 +3,18 @@
     var ctor = function (id, title, type, answers) {
         var that = this,
             _protected = {
-                answer: answer
+                answer: answer,
+                restoreProgress: restoreProgress,
+                getProgress: getProgress
             };
 
         Question.call(that, id, title, type, _protected);
 
         that.answers = answers;
+        var checkedAnswers = null;
 
         function answer(answerIds) {
+            checkedAnswers = answerIds;
             var correctAnswers = _.filter(that.answers, function (answer) {
                 return answer.isCorrect === true;
             });
@@ -25,6 +29,29 @@
                 that.score = 0;
             }
         };
+
+        function restoreProgress(progress) {
+            _.each(that.answers, function (answer) {
+                if (answer.isCorrect && progress == 100) {
+                    that.score = 100;
+                    answer.isChecked = true;
+                } else {
+                    if (_.find(progress, function (progressItem) {
+                        return progressItem == answer.id;
+                    })) {
+                        answer.isChecked = true;
+                    };
+                }
+            });
+        }
+
+        function getProgress() {
+            if (this.score == 100) {
+                return 100;
+            } else {
+                return checkedAnswers;
+            }
+        }
     };
 
     return ctor;

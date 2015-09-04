@@ -1,5 +1,5 @@
-﻿define(['loader', 'eventManager', 'Q', '_'],
-    function (loader, eventManager, Q, _) {
+﻿define(['loader', 'eventManager', 'Q', '_', 'progressContext'],
+    function (loader, eventManager, Q, _, progressContext) {
 
         "use strict";
 
@@ -29,8 +29,10 @@
             var moduleId;
             var promises = [];
 
+            
             for (var i = 0; i < modulesCount; i++) {
                 moduleId = moduleIds[i];
+                
                 if (_moduleHasToBeLoaded(moduleId, modulesConfigs[moduleId])) {
                     promises.push(loader.loadModule(moduleId).then(onModuleLoaded).fail(onModuleLoadingFailed));
                 }
@@ -47,11 +49,15 @@
                 if (_.isFunction(module.courseFinished)) {
                     eventManager.subscribeForEvent(eventManager.events.courseFinished).then(module.courseFinished);
                 }
+                if (_.isObject(module.progressProvider)) {
+                    progressContext.use(module.progressProvider);
+                }
+                
             });
         }
 
         function onModuleLoadingFailed(error) {
-            throw 'Cannot load module"' + error.modulePath + '". because of next error "' + error.message + '".';
+            console.error('Cannot load module"' + error.modulePath + '". because of next error "' + error.message + '".');
         }
 
         function _moduleHasToBeLoaded(moduleId, moduleConfig) {

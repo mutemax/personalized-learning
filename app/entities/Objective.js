@@ -8,7 +8,10 @@
 
         this.score = function () {
             var sum = _.reduce(this.questions, function (memo, question) {
-                return memo + question.score;
+                if (question.score == 100) {
+                    return memo + question.score;
+                } else return memo;
+
             }, 0);
             return Math.ceil(sum / this.questions.length);
         };

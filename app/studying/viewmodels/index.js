@@ -19,8 +19,15 @@
 
     return viewModel;
 
-    function activate() {
-        return viewModel.activeItem.activateItem(studyadvice);
+    function activate(objectiveId, questionId) {
+        if (objectiveId && questionId) {
+            viewModel.activeItem.activateItem(readings, [objectiveId, questionId]);
+        }
+        else {
+            return viewModel.activeItem.activateItem(studyadvice);
+        }
+
+
     }
 
 
