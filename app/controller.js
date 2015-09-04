@@ -20,7 +20,7 @@
         controller.activeItem.isComposing(false);
     };
     controller.finish = function () {
-        if (controller.activeItem() && controller.activeItem().__moduleId__ == 'preassessment/viewmodels/index') {
+        if (controller.activeItem() && controller.activeItem().__moduleId__ === 'preassessment/viewmodels/index') {
             controller.activeItem().answerQuestions();
         }
         self.lifecycle = ['summary/viewmodels/index'];
@@ -44,11 +44,12 @@
             self.lifecycle.unshift('introduction/viewmodels/index');
         }
         if (templateSettings.xApi && templateSettings.xApi.enabled) {
+            var user;
             if (_.isFunction(userContext.getCurrentUser)) {
-                var user = userContext.getCurrentUser();
+                user  = userContext.getCurrentUser();
             }
             if (user && user.username && /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/.test(user.email)) {
-                if (_.isObject(progress) && progress.url && progress.user.username == user.username && progress.user.email == user.email) {
+                if (_.isObject(progress) && progress.url && progress.user.username === user.username && progress.user.email === user.email) {
                     if (_.isObject(progress.url)) {
                         self.lifecycle = ['studying/viewmodels/index', 'summary/viewmodels/index'];
                     }

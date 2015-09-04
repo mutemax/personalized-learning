@@ -6,9 +6,9 @@
         moduleToInitialize: ko.observable(),
         activate: activate,
         logoUrl: ko.observable(),
-        closeCourseDropdownVisibility: controller.inProgress,
+        isCloseCoursePopupVisible: controller.inProgress,
         progressError:ko.observable(false),
-        finishPopupVisibility: ko.observable(false),
+        isFinishPopupVisible: ko.observable(false),
         openFinishPopup: openFinishPopup,
         closeFinishPopup: closeFinishPopup,
         finish: finish,
@@ -56,10 +56,10 @@
     }
 
     function openFinishPopup() {
-        viewModel.finishPopupVisibility(true);
+        viewModel.isFinishPopupVisible(true);
     }
     function closeFinishPopup() {
-        viewModel.finishPopupVisibility(false);
+        viewModel.isFinishPopupVisible(false);
     }
     function close() {
         window.close();

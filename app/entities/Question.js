@@ -9,7 +9,7 @@
         that.title = title;
         that.type = type;
         that.score = 0;
-        that.isMastered = true;
+        that.isCompleted = false;
 
         that.answer = function () {
             _protected.answer.apply(that, arguments);
@@ -24,8 +24,8 @@
 
             if (data) {
                 _protected.restoreProgress(data);
-                if (_.isObject(url) && url.question == that.id) {
-                    that.isMastered = false;
+                if (_.isObject(url) && url.question === that.id) {
+                    that.isCompleted = true;
                 }
 
             } else {

@@ -33,23 +33,26 @@
     }
 
     function saveProgress(progress) {
-        if (!errorCatched) {
 
-            var result = {
-                score: course.score(),
-                status: course.getStatus()
-            };
-            try {
-                localStorage.setItem(resultKey, JSON.stringify(result));
-                localStorage.setItem(progressKey, JSON.stringify(progress));
-            } catch (e) {
-                errorCatched = true;
-                app.trigger("progress:error");
+
+        var result = {
+            score: course.score(),
+            status: course.getStatus()
+        };
+        try {
+            localStorage.setItem(resultKey, JSON.stringify(result));
+            localStorage.setItem(progressKey, JSON.stringify(progress));
+        } catch (e) {
+
+            app.trigger("progress:error");
+            if (!errorCatched) {
                 alert(translation.getTextByKey('[not enough memory to save progress]'));
             }
-
-            return true;
+            errorCatched = true;
         }
+
+        return true;
+
     }
 
     function removeProgress() {

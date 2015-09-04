@@ -42,18 +42,13 @@
     }
 
     function save(url) {
-        if (!self.storage) {
+        if (!self.storage || !_.isObject(self.progress)) {
             return;
         }
-        if (url && _.isObject(self.progress)) {
+        if (url) {
             self.progress.url = url;
-            self.storage.saveProgress(self.progress);
         }
-        if (self.storage.saveProgress(self.progress)) {
-            self.storage.saveProgress(self.progress);
-        } else {
-            alert(translation.getTextByKey('[course progress cannot be saved]'));
-        }
+        self.storage.saveProgress(self.progress);
     }
 
     function remove() {
@@ -66,42 +61,41 @@
     }
 
     function use(storage) {
-        if (_.isObject(userContext) && _.isFunction(userContext.getCurrentUser)) {
-            var user = userContext.getCurrentUser();
-        }
-        if (_.isFunction(storage.getProgress) && _.isFunction(storage.saveProgress)) {
-            self.progress._v = course.createdOn.getTime();
-            self.storage = storage;
-            var progress = storage.getProgress();
-            if (user && _.isObject(user) && user.username && user.email) {
-                if (!_.isEmpty(progress) && !_.isEmpty(progress.user) && progress.user.username == user.username && progress.user.email == user.email) {
-                    self.progress = progress;
-                }
-                else {
-                    self.progress.user = {
-                        username: user.username,
-                        email: user.email
-                    }
-                    self.progress.answers = {};
-                }
-            }
-            else {
-                if (!_.isEmpty(progress) && _.isString(progress.attemptId) && progress._v === self.progress._v) {
-                    self.progress = progress;
-                }
-            }
-            eventManager.subscribeForEvent(eventManager.events.questionAnswered).then(questionAnswered);
-            app.on('xApi:authenticated').then(authenticated);
-            app.on('xApi:authentication-skipped').then(authenticationSkipped);
-            app.on('view:changed').then(save);
-            app.on('course:finished').then(remove);
-            app.on('progress:error').then(showStorageError);
-
-        }
-        else {
-            app.trigger('progress:error');
+        if (!_.isFunction(storage.getProgress) || !_.isFunction(storage.saveProgress)) {
             throw 'Cannot use this storage';
         }
+
+        var user = null;
+        if (_.isObject(userContext) && _.isFunction(userContext.getCurrentUser)) {
+            user = userContext.getCurrentUser();
+        }
+        self.progress._v = course.createdOn.getTime();
+        self.storage = storage;
+        var progress = storage.getProgress();
+        if (_.isObject(user) && user.username && user.email) {
+            if (!_.isEmpty(progress) && !_.isEmpty(progress.user) && progress.user.username === user.username && progress.user.email === user.email) {
+                self.progress = progress;
+            }
+            else {
+                self.progress.user = {
+                    username: user.username,
+                    email: user.email
+                }
+                self.progress.answers = {};
+            }
+        }
+        else {
+            if (!_.isEmpty(progress) && _.isString(progress.attemptId) && progress._v === self.progress._v) {
+                self.progress = progress;
+            }
+        }
+        eventManager.subscribeForEvent(eventManager.events.questionAnswered).then(questionAnswered);
+        app.on('xApi:authenticated').then(authenticated);
+        app.on('xApi:authentication-skipped').then(authenticationSkipped);
+        app.on('view:changed').then(save);
+        app.on('course:finished').then(remove);
+        app.on('progress:error').then(showStorageError);
+
     }
 
     function showStorageError() {

@@ -55,7 +55,7 @@
 
         var readings = [];
         for (var i = 0; i < self.objective.questions.length; i++) {
-            if (self.objective.questions[i].score < 100 || self.objective.questions[i].isMastered==false) {
+            if (self.objective.questions[i].score < 100 || self.objective.questions[i].isCompleted===true) {
                 readings.push(self.objective.questions[i]);
             }
         }
@@ -98,7 +98,7 @@
 
     function goToPreviousReading() {
         _.each(self.objective.questions, function(question) {
-            return question.isMastered = true;
+            return question.isCompleted = false;
         });
         
 
@@ -112,9 +112,9 @@
 
     function goToNextReading() {
         _.each(self.objective.questions, function (question) {
-            return question.isMastered = true;
+            return question.isCompleted = false;
         });
-        self.objective.questions[viewmodel.currentReadingIndex()].isMastered = true;
+       
         if (viewmodel.nextReading()) {
             apply(viewmodel.nextReading());
             app.trigger('view:changed', {objective:self.objective.id, question:viewmodel.currentReading().id
@@ -124,9 +124,9 @@
 
     function goToNextOrNotCompletedReading() {
         _.each(self.objective.questions, function (question) {
-            return question.isMastered = true;
+            return question.isCompleted = false;
         });
-        self.objective.questions[viewmodel.currentReadingIndex()].isMastered = true;
+        
         if (viewmodel.nextOrNotCompletedReading()) {
             apply(viewmodel.nextOrNotCompletedReading());
             app.trigger('view:changed', {
@@ -137,7 +137,7 @@
 
     function goToStudyAdvice() {
         _.each(self.objective.questions, function (question) {
-            return question.isMastered = true;
+            return question.isCompleted = false;
         });
         app.trigger('studying:stop-reading');
     }
@@ -151,7 +151,7 @@
     function getObjectiveById(objectiveId) {
         var result = null;
         _.each(course.objectives, function (objective) {
-            if (objective.id == objectiveId) {
+            if (objective.id === objectiveId) {
                 result = objective;
             }
 

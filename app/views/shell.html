@@ -10,7 +10,7 @@
                 <!-- /ko -->
             </div>
             
-            <!-- ko if: closeCourseDropdownVisibility -->
+            <!-- ko if: isCloseCoursePopupVisible -->
             <div class="save-progress-container">
 
                 <!--ko ifnot: progressError -->
@@ -29,7 +29,7 @@
         </div>
      </div>
     
-    <!-- ko if: finishPopupVisibility -->
+    <!-- ko if: isFinishPopupVisible -->
     <!-- ko compose: { view: 'dialogs/finishCourse', model: 'dialogs/finishCourse', activationData: {finish:$root.finish, close: $root.closeFinishPopup}} -->
     <!-- /ko -->
     <!-- /ko -->
