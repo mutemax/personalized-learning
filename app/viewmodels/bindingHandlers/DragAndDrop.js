@@ -121,8 +121,21 @@
                 var text = ko.unwrap(value.text);
 
                 if (text) {
-                    // I believe it will be used when we have to restore previously saved answer
+                    var textHolder = _.find($('.drag-and-drop-text-draggable'), function (element) {
+                       return $(element).children().text() == text;
+                    });
+                    $(textHolder)
+                        .addClass('cloned')
+                        .clone()
+                        .appendTo($(element));
+                    // used to load user progress in DnD question type
                 } else {
+                    if ($(element).children('.cloned').length) {
+                        $(element).children('.cloned').remove();
+                    }
+                    $.each($('.drag-and-drop-text-draggable-container').children(), function () {
+                        $(this).removeClass('cloned');
+                    })
                     $(element).children('.drag-and-drop-text-draggable').css('left', '').css('top', '')
                         .appendTo($('.drag-and-drop-text-draggable-container'));
                     $(element).children('.drag-and-drop-text-draggable-container-message').hide();

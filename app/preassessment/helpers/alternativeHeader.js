@@ -1,7 +1,6 @@
 ﻿define(['jquery'], function ($) {
 
     return function (view) {
-
         var $element = $('.alternative-header', view);
         var headerHeight = $('.title-background').height();
         var firstHeaderHeight = $('.logo-header').outerHeight();

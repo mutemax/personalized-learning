@@ -1,13 +1,14 @@
 ﻿define(['entities/course', 'viewmodels/factory', 'durandal/app', 'Q', 'preassessment/helpers/alternativeHeader'], function (course, factory, app, Q, alternativeHeader) {
     "use strict";
 
-    var viewModel = {        
+    var viewModel = {
         questions: ko.observableArray([]),
         submit: submit,
+        answerQuestions: answerQuestions,
 
         activate: activate,
         attached: attached,
-        detached: detached
+        detached: detached,
     };
 
     var self = {
@@ -53,11 +54,14 @@
         });
     }
 
-    function submit() {
+    function answerQuestions() {
         _.each(viewModel.questions(), function (question) {
             question.submit();
         });
+    }
 
+    function submit() {
+        answerQuestions();
         app.trigger('preassessment:completed');
     }
 

@@ -30,7 +30,6 @@
                  dataType: 'json',
                  cache: false
              }).done(function (response) {
-
                  var promises = [];
 
                  course.id = response.id;

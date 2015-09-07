@@ -13,10 +13,14 @@
         that.options = _.chain(question.answers)
             .sample(question.answers.length)
             .map(function (option) {
-                return {
+            if (option.isChecked) {
+                that.isAnswered(true);
+                that.isAnsweredCorrectly(question.score == 100);
+            }
+            return {
                     id: option.id,
                     text: option.text,
-                    checked: ko.observable(false),
+                    checked: ko.observable(option.isChecked),
                     toggleCheck: function () {
                         if (that.isAnswered()) {
                             return;
