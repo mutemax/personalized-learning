@@ -1,6 +1,7 @@
 ﻿define(['entities/course', 'constants', 'eventManager'], function (course, constants, eventManager) {
     return {
-        initialize: initialize
+        initialize: initialize,
+        saveResult: saveResult
     };
 
     function initialize() {
@@ -11,7 +12,6 @@
 
     function saveResult() {
         var resultKey = constants.localStorageResultKey + course.id + course.createdOn;
-
         var result = {
             score: course.score(),
             status: course.getStatus()
@@ -26,4 +26,5 @@
             return false;
         }
     }
+
 });

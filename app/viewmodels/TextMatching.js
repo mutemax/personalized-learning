@@ -3,7 +3,6 @@
     var ctor = function (question) {
 
         Question.call(this, question);
-
         var
             that = this,
             values = _.chain(question.answers)
@@ -15,12 +14,29 @@
         ;
 
         that.content = question.content;
-        that.sources = ko.observableArray(_.map(question.answers, function (answer) {
-            return new Source(answer.id, answer.key);
-        }));
         that.targets = ko.observableArray(_.map(values, function (value) {
             return new Target(value);
         }));
+        that.sources = ko.observableArray();
+        var sources = _.map(question.answers, function (answer) {
+            var source = new Source(answer.id, answer.key);
+            var target = _.find(that.targets(), function (target) {
+                return target.value() == answer.attemptedValue;
+            });
+            if (target) {
+                source.acceptValue(target.value());
+                target.rejectValue();
+                that.isAnswered(true);
+                that.isAnsweredCorrectly(question.score == 100);
+            }
+            else {
+                source.value(null);
+            }
+            return source;
+
+        });
+        that.sources(sources);
+
         that.isDirty = ko.computed(function () {
             var count = 0;
             _.each(that.targets(), function (blank) {

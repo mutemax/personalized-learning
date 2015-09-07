@@ -57,7 +57,11 @@
             initializer.initialize().then(function () {
                 return eventManager.courseStarted();
             }).then(function () {
-                app.trigger('xApi:authenticated');
+                app.trigger('xApi:authenticated',
+                {
+                    username:viewModel.username(),
+                    email:viewModel.email()
+                });
             });
         } else {
             viewModel.showError(true);

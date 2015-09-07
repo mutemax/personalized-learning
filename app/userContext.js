@@ -1,4 +1,4 @@
-﻿define([], function() {
+﻿define([], function () {
     var self = {
         currentUser: null
     },

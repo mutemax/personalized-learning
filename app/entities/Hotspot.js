@@ -3,7 +3,9 @@
     var ctor = function (id, title, type, isMultiple, background, spots) {
         var that = this,
             _protected = {
-                answer: answer
+                answer: answer,
+                restoreProgress: restoreProgress,
+                getProgress: getProgress
             };
 
         Question.call(that, id, title, type, _protected);
@@ -11,8 +13,10 @@
         that.isMultiple = isMultiple;
         that.background = background;
         that.spots = spots;
-
+        that.placedMarks = [];
+        var placedMarks = null;
         function answer(marks) {
+            placedMarks = marks;
             if (!_.isArray(that.spots) || that.spots.length == 0) {
                 that.score = 100;
                 return;
@@ -50,6 +54,26 @@
 
             that.score = answerCorrect ? 100 : 0;
         };
+        function restoreProgress(progress) {
+            _.each(progress.marks, function (mark) {
+                that.placedMarks.push(mark);
+            });
+            if (progress.score) {
+                that.score = 100;
+            } 
+        }
+        function getProgress() {
+            if (this.score == 100) {
+                return {
+                    marks: placedMarks,
+                    score: 100
+                };
+            } else {
+                return {
+                    marks: placedMarks
+                }
+            }
+        }
     };
 
     return ctor;

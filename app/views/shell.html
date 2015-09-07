@@ -1,14 +1,43 @@
 ﻿<section>
     <div class="logo-header">
         <div class="container-content-wrapper">
-            <!-- ko if: hasLogo -->
-            <img class="logo" data-bind="attr: { src: logoUrl }" />
-            <!-- /ko -->
-            <!-- ko ifnot: hasLogo -->
-            <div class="logo default"></div>
+            <div class="logo-holder">
+                <!-- ko if: hasLogo -->
+                <img class="logo" data-bind="attr: { src: logoUrl }" />
+                <!-- /ko -->
+                <!-- ko ifnot: hasLogo -->
+                <div class="logo default"></div>
+                <!-- /ko -->
+            </div>
+            
+            <!-- ko if: isCloseCoursePopupVisible -->
+            <div class="save-progress-container">
+
+                <!--ko ifnot: progressError -->
+                <span data-translate-text="[progress is saved]"></span>
+                <!-- /ko -->
+                <!--ko if: progressError -->
+                <span class="progressError" data-translate-text= "[progress is not saved]"></span>
+                <!-- /ko -->
+                <button data-bind="dropDown:{}"></button>
+                <ul >
+                    <li data-translate-text="[save and continue later]" data-bind="click:close">save and continue later</li>
+                    <li data-translate-text="[finish course]" data-bind="click:openFinishPopup">Finish course</li>
+                </ul>
+            </div>    
             <!-- /ko -->
         </div>
      </div>
+    
+    <!-- ko if: isFinishPopupVisible -->
+    <!-- ko compose: { view: 'dialogs/finishCourse', model: 'dialogs/finishCourse', activationData: {finish:$root.finish, close: $root.closeFinishPopup}} -->
+    <!-- /ko -->
+    <!-- /ko -->
+
+    <!-- ko if: isClosed() -->
+       <div class="screen-blocker"></div>
+    <!-- /ko -->
+
 
 
     <div class="title-background">
@@ -27,7 +56,7 @@
             <div class="loader"></div>
         </div>
          <div data-bind="visible: !activeItem.isComposing() ">
-            <div data-bind="compose: { model: activeItem, compositionComplete: activeItem.compositionComplete }"></div>
+            <div data-bind="compose: { model: activeItem, activationData: activeItem.activationData, compositionComplete: activeItem.compositionComplete }"></div>
         </div>
     </div>
 </section>

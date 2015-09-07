@@ -1,37 +1,40 @@
-﻿define(['entities/course', './activityProvider', './configuration/settings', './requestsTransport/requestSender', 'templateSettings', './statementsQueueHandler', 'Q'],
+define(['entities/course', './activityProvider', './configuration/settings', './requestsTransport/requestSender', 'templateSettings', './statementsQueueHandler', 'Q'],
     function (course, activityProvider, settingsModule, requestSender, templateSettings, statementsQueueHandler, Q) {
-    "use strict";
+        "use strict";
 
-    var initializer = {
-        initialize: initialize
-    };
+        var initializer = {
+            initialize: initialize
+        };
 
-    return initializer;
+        return initializer;
 
-    function initialize(username, email) {
-        return Q.fcall(function() {
-            var pageUrl = "";
-            if (window != window.top && ('referrer' in document)) {
-                pageUrl = document.referrer;
-            } else {
-                pageUrl = window.location.toString();
-            }
+        function initialize(username, email) {
 
-            var url = pageUrl + '?course_id=' + course.id;
-            var title = course.title;
-            var actor = settingsModule.settings.actor;
+            return Q.fcall(function () {
+                var pageUrl = "";
+                if (window != window.top && ('referrer' in document)) {
+                    pageUrl = document.referrer;
+                } else {
+                    pageUrl = window.location.toString();
+                }
 
-            if (username && email) {
-                actor.name = username;
-                actor.email = email;
-            }
+                var url = pageUrl + '?course_id=' + course.id;
+                var title = course.title;
+                var actor = settingsModule.settings.actor;
 
-            requestSender.initialize();
-            settingsModule.initialize(templateSettings.xApi);
-            statementsQueueHandler.handle();
+                if (username && email) {
+                    actor.name = username;
+                    actor.email = email;
+                }
+                if (actor.name.length && actor.email.length) {
 
-            activityProvider.initialize(course.id, actor.name, actor.email, title, url);
-        });
-    }
+                    requestSender.initialize();
+                    settingsModule.initialize(templateSettings.xApi);
+                    statementsQueueHandler.handle();
 
-});
+                    activityProvider.initialize(course.id, actor.name, actor.email, title, url);
+                }
+            });
+        }
+
+    });

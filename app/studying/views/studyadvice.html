@@ -1,7 +1,7 @@
 ﻿<section class="studyadvice view">
     <header class="view-header">
         <h2 data-translate-text="[study advice]">Study advice</h2>
-        <a href="#summary" class="button finish  " data-translate-text="[finish course]" data-bind="click: finish">Finish course</a>
+        <a href="#summary" class="button finish  " data-translate-text="[finish course]" data-bind="click: finish, visible:!objectivesToLearn.length">Finish course</a>
     </header>
 
     <!-- ko if: objectivesToLearn.length -->

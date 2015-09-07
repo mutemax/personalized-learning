@@ -17,8 +17,9 @@
     'eventManager',
     'constants',
     'queries/objectiveQueries',
-    'Q'],
-    function (app, system, statementsQueue, statementsQueueHandler, settingsModule, ActorModel, ActivityModel, StatementModel, ResultModel, ScoreModel, ContextActivitiesModel, InteractionDefinitionModel, LanguageMapModel, verbs, interactionTypes, eventManager, globalConstants, objectiveQueries, Q) {
+    'Q',
+    'progressContext'],
+    function (app, system, statementsQueue, statementsQueueHandler, settingsModule, ActorModel, ActivityModel, StatementModel, ResultModel, ScoreModel, ContextActivitiesModel, InteractionDefinitionModel, LanguageMapModel, verbs, interactionTypes, eventManager, globalConstants, objectiveQueries, Q, progressContext) {
         "use strict";
 
         var subscriptions = [],
@@ -27,19 +28,22 @@
         var activityProvider = {
             initialize: initialize,
             turnOffSubscriptions: turnOffSubscriptions,
+            createActor: createActor,
 
             actor: null,
             activityName: '',
             activityUrl: '',
             courseId: null
         },
-        sessionId = system.guid();
+        sessionId = null;
         return activityProvider;
 
-        function initialize(courseId, actorName, actorEmail, activityName, activityUrl) {
+        function initialize(courseId, actorName, actorEmail, activityName, activityUrl, attemptId) {
             rootCourseUrl = activityUrl != undefined ? activityUrl.split("?")[0].split("#")[0] : '';
-            // TODO: Check if undefined activity url is possible
+            sessionId = progressContext.get().attemptId;
 
+
+            // TODO: Check if undefined activity url is possible
             activityProvider.actor = createActor(actorName, actorEmail);
             activityProvider.activityName = activityName;
             activityProvider.activityUrl = activityUrl;
