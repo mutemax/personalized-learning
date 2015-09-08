@@ -34,10 +34,6 @@
                     margin-right: 20px;
                     vertical-align: middle;
 
-                    &:hover {
-                        background-color: rgba(171,187,198,0.2);
-                    }
-
                     &:before {
                         position: absolute;
                         height: 44px;
@@ -61,21 +57,27 @@
                         margin-top: -3px;
                     }
                 }
-            }
 
-            .expanded {
-                + ul {
-                    display: block;
+                &:hover {
+                    button {
+                        background-color: rgba(171,187,198,0.2);
+                    }
                 }
 
-                button {
-                    background-color: rgba(171,187,198,1);
-                    &:hover {
+                &.expanded {
+                    + ul {
+                        display: block;
+                    }
+
+                    button {
                         background-color: rgba(171,187,198,1);
+
+                        &:hover {
+                            background-color: rgba(171,187,198,1);
+                        }
                     }
                 }
             }
-
             .progress-status {
                 vertical-align: middle;
                 white-space: nowrap;
