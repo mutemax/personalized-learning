@@ -82,7 +82,7 @@ gulp.task('assets', ['clean', 'bower'], function () {
         .pipe(gulp.dest(output + '/css/font'));
 });
 
-gulp.task('pre-build', ['clean', 'bower', 'assets'], function () {
+gulp.task('pre-build', ['clean', 'bower', 'assets', 'css'], function () {
 });
 
 gulp.task('build-app', ['pre-build'], function () {
