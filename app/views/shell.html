@@ -14,12 +14,14 @@
             <div class="save-progress-container">
 
                 <!--ko ifnot: progressError -->
-                <span data-translate-text="[progress is saved]"></span>
+                <div class="progress-status" data-translate-text="[progress is saved]"></div>
                 <!-- /ko -->
                 <!--ko if: progressError -->
                 <span class="progressError" data-translate-text= "[progress is not saved]"></span>
                 <!-- /ko -->
-                <button data-bind="dropDown:{}"></button>
+                <span data-bind="dropDown:{}">
+                    <button ></button>
+                </span>
                 <ul >
                     <li data-translate-text="[save and continue later]" data-bind="click:close">save and continue later</li>
                     <li data-translate-text="[finish course]" data-bind="click:openFinishPopup">Finish course</li>
