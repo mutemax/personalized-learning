@@ -5,8 +5,6 @@
 
         Question.call(that, question);
 
-        that.id = question.id;
-        that.title = question.title;
         that.content = question.content;
         that.statements = _.chain(question.answers)
             .sample(question.answers.length)

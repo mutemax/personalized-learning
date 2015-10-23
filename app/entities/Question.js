@@ -17,8 +17,7 @@
                 question: that,
                 answer: arguments[0]
             });
-
-        }
+        };
 
         that.progress = function (data, url) {
 
@@ -31,7 +30,7 @@
             } else {
                 return _protected.getProgress.call(that);
             }
-        }
+        };
 
     }
 
