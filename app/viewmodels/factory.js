@@ -16,7 +16,7 @@
     './TextMatching',
     './Statement',
     './Hotspot',
-    './ScenarioQuestion'
+    './scenarioquestion/ScenarioQuestion'
 ], function (Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, Hotspot, ScenarioQuestion, MultipleselectViewModel, FillInTheBlanksViewModel, DragAndDropViewModel, SingleselectViewModel, SingleselectImageViewModel, TextMatchingViewModel, StatementViewModel, HotspotViewModel, ScenarioQuestionViewModel) {
 
     return {

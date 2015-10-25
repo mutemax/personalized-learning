@@ -1,12 +1,17 @@
-﻿define(['knockout', './Question'], function (ko, Question) {
+﻿define(['knockout', 'viewmodels/Question'], function (ko, Question) {
 
     var ctor = function (question) {
         var that = this,
             branchTrackInstance = Branchtrack.create(question.projectId);
+        
         Question.call(that, question);
-
+        
         that.content = question.content;
         that.embedCode = ko.observable(question.embedCode);
+        that.customSubmitButton = 'viewmodels/scenarioquestion/submitQuestion';
+        that.customSumbitData = {
+            branchtrackInstance: branchTrackInstance
+        };
 
         that.isDirty = ko.computed(function () {
             if (that.projectId) {
@@ -26,6 +31,7 @@
             that.embedCode.valueHasMutated();
             branchTrackInstance.reset();
         };
+        
     };
 
     return ctor;

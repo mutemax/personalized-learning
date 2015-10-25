@@ -16,6 +16,7 @@ define('_', function () { return window._; });
 define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext', 'userContext', 'bootstrapper', 'Q', 'modulesInitializer', 'templateSettings', 'settingsReader', 'translation'],
     function (system, app, viewLocator, dataContext, userContext, bootstrapper, Q, modulesInitializer, templateSettings, settingsReader, translation) {
         app.title = '';
+        system.debug(true);
         app.start().then(function () {
             bootstrapper.run();
             viewLocator.useConvention();
