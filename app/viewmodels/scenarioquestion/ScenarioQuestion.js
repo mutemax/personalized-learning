@@ -1,4 +1,4 @@
-﻿define(['knockout', 'viewmodels/Question'], function (ko, Question) {
+﻿define(['knockout', '_', 'durandal/app', 'viewmodels/Question'], function (ko, _, app, Question) {
 
     var ctor = function (question) {
         var that = this,
@@ -31,7 +31,15 @@
             that.embedCode.valueHasMutated();
             branchTrackInstance.reset();
         };
+        app.on('view:changed', destroyBranchtrackInstance);
+        app.on('studying:stop-reading', destroyBranchtrackInstance);
+        app.on('preassessment:completed', destroyBranchtrackInstance);
         
+        function destroyBranchtrackInstance(){
+            if(!_.isNull(branchTrackInstance) || !_.isUndefined(branchTrackInstance)){
+                branchTrackInstance.destroy();
+            }
+        }
     };
 
     return ctor;
