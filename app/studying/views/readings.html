@@ -66,13 +66,13 @@
                             <!-- /ko -->
                         </div>
                         <!-- ko ifnot: isAnswered -->
-                        <!-- ko ifnot: customSubmitButton -->
+                        <!-- ko ifnot: $data.customSubmitButton -->
                         <div class="question-submit-wrapper">
                             <button class="button success emphasize" data-bind="click: $root.submit"><span data-translate-text="[submit]" class="button-text">Submit</span></button>
                         </div>
                         <!-- /ko -->
-                        <!-- ko if: customSubmitButton -->
-                        <!-- ko compose: { model: customSubmitButton, activationData: { submit: $root.submit, customSumbitData: customSumbitData } } --><!-- /ko -->
+                        <!-- ko if: $data.customSubmitButton -->
+                        <!-- ko compose: { model: $data.customSubmitButton, activationData: { submit: $root.submit, customSumbitData: customSumbitData } } --><!-- /ko -->
                         <!-- /ko -->
                         <!-- /ko -->
                         <!-- ko if: isAnswered -->
