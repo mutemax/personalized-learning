@@ -31,11 +31,11 @@
             that.embedCode.valueHasMutated();
             branchTrackInstance.reset();
         };
-        app.on('view:changed', destroyBranchtrackInstance);
         app.on('studying:stop-reading', destroyBranchtrackInstance);
         app.on('preassessment:completed', destroyBranchtrackInstance);
         
-        function destroyBranchtrackInstance(){
+        function destroyBranchtrackInstance() {
+            debugger;
             if(!_.isNull(branchTrackInstance) || !_.isUndefined(branchTrackInstance)){
                 branchTrackInstance.destroy();
             }
