@@ -35,7 +35,6 @@
         app.on('preassessment:completed', destroyBranchtrackInstance);
         
         function destroyBranchtrackInstance() {
-            debugger;
             if(!_.isNull(branchTrackInstance) || !_.isUndefined(branchTrackInstance)){
                 branchTrackInstance.destroy();
             }
