@@ -17,7 +17,7 @@
         that.masteryScore = masteryScore;
 
         function answer(score) {
-            that.score = score >= that.masteryScore ? 100 : score;
+            that.score = score >= that.masteryScore ? 100 : 0;
         }
 
         function restoreProgress(progress) {
