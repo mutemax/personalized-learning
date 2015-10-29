@@ -69,7 +69,6 @@
             }
         });
 
-
         var vm = factory.createQuestionViewModel(question);
 
         viewmodel.currentReading(vm);

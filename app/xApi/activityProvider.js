@@ -205,6 +205,8 @@
                     return getMatchingQuestionActivityAndResult(data.question, data.answer, objective);
                 case globalConstants.questionTypes.hotspot:
                     return getHotSpotQuestionActivityAndResult(data.question, data.answer, objective);
+                case globalConstants.questionTypes.scenario:
+                    return getScenarioQuestionActivityAndResult(data.question, objective);
             }
 
             return null;
@@ -398,6 +400,21 @@
                 })
             };
 
+        }
+
+        function getScenarioQuestionActivityAndResult(question, objective) {
+            return {
+                result: new ResultModel({
+                    score: new ScoreModel(question.score / 100)
+                }),
+                object: new ActivityModel({
+                    id: rootCourseUrl + '#objective/' + objective.id+ '/question/' + question.id,
+                    definition: new InteractionDefinitionModel({
+                        name: new LanguageMapModel(question.title),
+                        interactionType: interactionTypes.other
+                    })
+                })
+            };
         }
     }
 );

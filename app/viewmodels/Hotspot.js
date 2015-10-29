@@ -4,8 +4,6 @@
         var that = this;
         Question.call(that, question);
 
-        that.id = question.id;
-        that.title = question.title;
         that.content = question.content;
         that.background = question.background;
         that.isMultiple = question.isMultiple;

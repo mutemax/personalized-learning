@@ -56,7 +56,7 @@ gulp.task('bower', ['clean'], function () {
 });
 
 gulp.task('css', ['clean', 'bower'], function () {
-    gulp.src(['./css/styles.less'])
+    return gulp.src(['./css/styles.less'])
         .pipe($.plumber({
             errorHandler: function (error) {
                 console.log(error);
@@ -125,7 +125,7 @@ gulp.task('build-app', ['pre-build'], function () {
 });
 
 gulp.task('build-settings', ['build-design-settings', 'build-configure-settings'], function () {
-    gulp.src('settings/api.js')
+    return gulp.src('settings/api.js')
         .pipe(removeDebugBlocks())
         .pipe(uglify())
         .pipe(gulp.dest(output + '/settings'));
@@ -179,7 +179,7 @@ gulp.task('build-configure-settings', ['pre-build'], function () {
 });
 
 gulp.task('webserver', function () {
-    gulp.src('.')
+    return gulp.src('.')
         .pipe($.webserver({
             livereload: {
                 enable: true,

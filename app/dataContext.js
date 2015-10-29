@@ -8,14 +8,15 @@
     'entities/TextMatching',
     'entities/Statement',
     'entities/Hotspot',
+    'entities/ScenarioQuestion',
     'constants',
 
      'Q',
      '_',
      'plugins/http'],
 
-     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, Hotspot, constants, Q, _, http) {
-         "use strict";
+     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, Hotspot, ScenarioQuestion, constants, Q, _, http) {
+         'use strict';
 
          return {
              initialize: initialize
@@ -79,6 +80,9 @@
                              case constants.questionTypes.hotspot:
                                  question = new Hotspot(dq.id, dq.title, dq.type, dq.isMultiple, dq.background, dq.spots);
                                  break;
+                             case constants.questionTypes.scenario:
+                                 question = new ScenarioQuestion(dq.id, dq.title, dq.type, dq.projectId, dq.embedCode, dq.masteryScore);
+                                 break;
                              default:
                                  return undefined;
                          }
@@ -118,7 +122,7 @@
                  Q.allSettled(promises).then(function () {
                      dfd.resolve();
                  })
-                 ["catch"](function (reason) {
+                 ['catch'](function (reason) {
                      dfd.reject(reason);
                  });
 
