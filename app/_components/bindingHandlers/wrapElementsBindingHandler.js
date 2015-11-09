@@ -17,6 +17,7 @@
                 $("img", element).each(function () {
                     var $self = $(this);
                     $self.wrap('<div class="image-wrapper">');
+                    $self.height('auto');
                     var $wrapper = $self.parent();
                     var float = $self.css('float');
                     $wrapper.css('float', float);
