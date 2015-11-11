@@ -12,6 +12,8 @@
         that.customSumbitData = {
             branchtrackInstance: branchTrackInstance
         };
+        
+        that.customFeedbackView = 'scenarioquestion/feedback.html';
 
         that.isDirty = ko.computed(function () {
             if (that.projectId) {
