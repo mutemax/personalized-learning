@@ -55,7 +55,8 @@
                                              answers.push({
                                                  id: answer.id,
                                                  groupId: group.id,
-                                                 text: answer.text
+                                                 text: answer.text,
+                                                 matchCase: answer.matchCase
                                              });
                                          }
                                      });
