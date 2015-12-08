@@ -1,4 +1,4 @@
-﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'templateSettings', 'entities/course', 'userContext', 'xApi/initializer', 'eventManager', 'progressContext'], function (app, activator, ko, loader, templateSettings, course, userContext, xApiInitializer, eventManager, progressContext) {
+﻿define(['durandal/app', 'durandal/activator', 'knockout', 'loader', 'templateSettings', 'entities/course', 'userContext', 'xApi/initializer', 'eventManager', 'progressContext', 'constants'], function (app, activator, ko, loader, templateSettings, course, userContext, xApiInitializer, eventManager, progressContext, constants) {
 
     "use strict";
 
@@ -48,7 +48,7 @@
             if (_.isFunction(userContext.getCurrentUser)) {
                 user  = userContext.getCurrentUser();
             }
-            if (user && user.username && /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/.test(user.email)) {
+            if (user && user.username && constants.patterns.email.test(user.email)) {
                 if (_.isObject(progress) && progress.url && progress.user.username === user.username && progress.user.email === user.email) {
                     if (_.isObject(progress.url)) {
                         self.lifecycle = ['studying/viewmodels/index', 'summary/viewmodels/index'];

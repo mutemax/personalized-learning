@@ -28,8 +28,12 @@
             studyAdvice: 'studyAdvice/viewmodels/index',
             overallProgress: 'overallProgress/viewmodels/index',
             question:'question'
-        }
+        },
 
+        patterns: {
+            email: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,63})+)$/,
+            isoDuration: /^PT[0-9]{1,2}H[0-9]{1,2}M[0-9]{1,2}S$/
+        }
 
     };
 

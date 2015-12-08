@@ -1,4 +1,4 @@
-﻿define(['knockout', 'durandal/app', '../configuration/settings', '../initializer', 'eventManager', 'templateSettings', 'userContext'], function (ko, app, settingsModule, initializer, eventManager, templateSettings, userContext) {
+﻿define(['knockout', 'durandal/app', '../configuration/settings', '../initializer', 'eventManager', 'templateSettings', 'userContext', 'constants'], function (ko, app, settingsModule, initializer, eventManager, templateSettings, userContext, constants) {
     "use strict";
 
     var viewModel = {
@@ -15,7 +15,7 @@
             var value = ko.observable();
 
             value.isValid = ko.computed(function () {
-                return value() && /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/.test(value());
+                return value() && constants.patterns.email.test(value());
             });
 
             return value;
