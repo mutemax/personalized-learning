@@ -14,17 +14,14 @@
 
         function answer(userAnswers) {
             submittedAnswers = userAnswers;
-            var numOfCorrect = 0;
-
-            _.each(that.answers, function (option) {
-                if (_.find(userAnswers, function (answer) {
-                    return option.groupId.toLowerCase() == answer.groupId.toLowerCase() && option.text.toLowerCase() == answer.text.toLowerCase();
-                })) {
-                    numOfCorrect++;
-                }
+            var hasMistakes = _.some(userAnswers, function (answer) {
+                return !_.some(that.answers, function (option) {
+                    return option.groupId.toLowerCase() === answer.groupId.toLowerCase() &&
+                        (option.matchCase ? option.text === answer.text : option.text.toLowerCase() === answer.text.toLowerCase());
+                });
             });
 
-            that.score = numOfCorrect == that.answers.length ? 100 : 0;
+            that.score = hasMistakes ? 0 : 100;
         };
         function restoreProgress(progress) {
             if (progress == 100) {
@@ -37,7 +34,7 @@
             else {
                 _.each(that.answers, function (answer) {
                     answer.submittedAnswer = _.find(progress, function (progressItem) {
-                        return answer.groupId==progressItem.groupId
+                        return answer.groupId == progressItem.groupId
                     }).text;
 
                 });
