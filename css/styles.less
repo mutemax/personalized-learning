@@ -344,6 +344,39 @@ hr {
     z-index: 1000;
 }
 
+@-moz-keyframes bounce {
+    0%, 100% {
+        -moz-transform: translate(0, -7px);
+        transform: translate(0, -7px);
+    }
+
+    50% {
+        -moz-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@-webkit-keyframes bounce {
+    0%, 100% {
+        -webkit-transform: translate(0, -7px);
+        transform: translate(0, -7px);
+    }
+
+    50% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translate(0, -7px);
+    }
+
+    50% {
+        transform: translate(0, 0);
+    }
+}
 
 @media (max-width: 700px) {
     .title h1 {
