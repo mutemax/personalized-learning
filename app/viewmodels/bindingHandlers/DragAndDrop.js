@@ -51,7 +51,6 @@
                     revert: 'invalid',
                     appendTo: 'body',
                     helper: 'clone',
-                    cursorAt: { left: 10, top: 15 },
                     scroll: false,
                     start: function () {
                         $element.css({ visibility: 'hidden' });
@@ -100,7 +99,7 @@
 
                         return $(element).find('.drag-and-drop-text-draggable').length == 0;
                     },
-                    tolerance: 'pointer',
+                    tolerance: 'intersect',
                     scope: scope,
                     drop: function (e, ui) {
                         var text = ko.dataFor(ui.draggable.get(0));
