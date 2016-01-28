@@ -11,7 +11,7 @@
     }
 
     function saveResult() {
-        var resultKey = constants.localStorageResultKey + course.id + course.createdOn;
+        var resultKey = constants.localStorageResultKey + course.id;
         var result = {
             score: course.score(),
             status: course.getStatus()
