@@ -85,7 +85,7 @@
             }
         }
         else {
-            if (!_.isEmpty(progress) && _.isString(progress.attemptId) && progress._v === self.progress._v) {
+            if (!_.isEmpty(progress) && _.isString(progress.attemptId)) {
                 self.progress = progress;
             }
         }

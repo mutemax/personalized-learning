@@ -1,6 +1,6 @@
 ﻿define(['entities/course', 'durandal/app', 'constants', 'translation'], function (course, app, constants, translation) {
-    var progressKey = constants.localStorageProgressKey + course.id + course.createdOn,
-        resultKey = constants.localStorageResultKey + course.id + course.createdOn,
+    var progressKey = constants.localStorageProgressKey + course.id,
+        resultKey = constants.localStorageResultKey + course.id,
         errorCatched = false;
 
 
