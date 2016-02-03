@@ -85,7 +85,7 @@
         border-radius: 5px;
         line-height: 30px;
     }
-    
+
     iframe {
         max-width: 100%;
     }
@@ -203,10 +203,10 @@
             h3 {
                 display: inline;
             }
-			
-			p {
+
+            p {
                 display: inline;
-			}
+            }
         }
     }
 
@@ -229,10 +229,10 @@
             h3 {
                 display: inline;
             }
-			
-			p {
+
+            p {
                 display: inline;
-			}
+            }
         }
     }
 
@@ -244,11 +244,17 @@
 
     .image-wrapper {
         max-width: 100%;
+        clear: both;
+
         img {
             border-radius: 10px;
             max-width: 100%;
         }
     }
+
+        .image-wrapper ~ .image-wrapper {
+            clear: none;
+        }
 }
 
 .question-content {
