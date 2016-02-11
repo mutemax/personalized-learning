@@ -34,6 +34,7 @@
                  var promises = [];
 
                  course.id = response.id;
+                 course.templateId = response.templateId,
                  course.title = response.title;
                  course.createdOn = new Date(response.createdOn);
 
