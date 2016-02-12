@@ -1,4 +1,4 @@
-﻿define(['knockout', 'durandal/app', 'controller', 'loader', 'templateSettings', 'background', 'entities/course', 'modulesInitializer', 'progressContext', 'translation'], function (ko, app, controller, loader, templateSettings, background, course, modulesInitializer, progressContext, translation) {
+﻿define(['knockout', 'durandal/app', 'controller', 'loader', 'templateSettings', 'background', 'entities/course', 'modulesInitializer', 'progressContext', 'windowOperations'], function (ko, app, controller, loader, templateSettings, background, course, modulesInitializer, progressContext, windowOperations) {
     "use strict";
 
     var viewModel = {
@@ -62,11 +62,7 @@
         viewModel.isFinishPopupVisible(false);
     }
     function close() {
-        window.close();
-        _.delay(function () {
-            viewModel.isClosed(true),
-            window.alert(translation.getTextByKey('[thank you message]'));
-        }, 100);
+        windowOperations.close(function() { viewModel.isClosed(true); });
     }
     function finish() {
         controller.finish();

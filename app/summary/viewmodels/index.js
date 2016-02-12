@@ -1,5 +1,5 @@
-define(['entities/course', 'knockout', '_', 'translation'],
-    function (course, ko, _, translation) {
+define(['entities/course', 'knockout', '_', 'windowOperations'],
+    function (course, ko, _, windowOperations) {
         "use strict";
 
         var self = {
@@ -37,13 +37,9 @@ define(['entities/course', 'knockout', '_', 'translation'],
 
             viewModel.isClosing(true);
 
-            if (self.isCourseFinished) {
+            if (self.isCourseFinished) {                
                 viewModel.isClosing(false);
-                window.close();
-                _.delay(function () {
-                    viewModel.isClosed(true);
-                    window.alert(translation.getTextByKey('[thank you message]'));
-                }, 100);
+                windowOperations.close(function() { viewModel.isClosed(true); });
             } else {
                 setTimeout(close, 100);
             }
