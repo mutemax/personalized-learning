@@ -10,16 +10,16 @@ define(['translation'],
 
         return windowOperations;
 
-        function close(callback) {
+        function close(onClosed) {
             window.close();
-            if (!inIframe()) {
-                _.delay(function () {
-                    if (callback) {
-                        callback();
-                    }
+            _.delay(function () {
+                if (onClosed) {
+                    onClosed();
+                }
+                if (!inIframe()) {
                     window.alert(translation.getTextByKey('[thank you message]'));
-                }, 100);
-            }
+                }
+            }, 100);
         }
         
         function inIframe() {
