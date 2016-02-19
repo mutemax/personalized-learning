@@ -9,13 +9,15 @@
     'entities/Statement',
     'entities/Hotspot',
     'entities/ScenarioQuestion',
+    'entities/RankingText',
     'constants',
 
      'Q',
      '_',
      'plugins/http'],
 
-     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, Hotspot, ScenarioQuestion, constants, Q, _, http) {
+     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage,
+         TextMatching, Statement, Hotspot, ScenarioQuestion, RankingText, constants, Q, _, http) {
          'use strict';
 
          return {
@@ -43,7 +45,6 @@
 
                      _.each(dobj.questions, function (dq) {
                          var question;
-
                          switch (dq.type) {
                              case constants.questionTypes.multipleSelect:
                                  question = new Multipleselect(dq.id, dq.title, dq.type, dq.answers);
@@ -84,6 +85,9 @@
                                  break;
                              case constants.questionTypes.scenario:
                                  question = new ScenarioQuestion(dq.id, dq.title, dq.type, dq.projectId, dq.embedCode, dq.masteryScore);
+                                 break;
+                             case constants.questionTypes.rankingText:
+                                 question = new RankingText(dq.id, dq.title, dq.type, dq.answers);
                                  break;
                              default:
                                  return undefined;

@@ -207,6 +207,8 @@
                     return getHotSpotQuestionActivityAndResult(data.question, data.answer, objective);
                 case globalConstants.questionTypes.scenario:
                     return getScenarioQuestionActivityAndResult(data.question, objective);
+                case globalConstants.questionTypes.rankingText:
+                    return getRankingTextQuestionActivityAndResult(data.question, data.answer, objective);
             }
 
             return null;
@@ -415,6 +417,31 @@
                     })
                 })
             };
+        }
+
+        function getRankingTextQuestionActivityAndResult(question, answer, objective) {
+            return {
+                result: new ResultModel({
+                    score: new ScoreModel(question.score / 100),
+                    response: _.map(question.answer, function (item) {
+                        return item.text.toLowerCase();
+                    }).join("[,]")
+                }),
+                object: new ActivityModel({
+                    id: rootCourseUrl + '#objective/' + objective.id + '/question/' + question.id,
+                    definition: new InteractionDefinitionModel({
+                        name: new LanguageMapModel(question.title),
+                        interactionType: interactionTypes.sequencing,
+                        correctResponsesPattern: [_.map(question.correctOrder, function (item) {
+                            return item.text.toLowerCase();
+                        }).join("[,]")],
+                        choices: _.map(question.rankingItems, function (item) {
+                            return { id: item.text.toLowerCase(), description: new LanguageMapModel(item.text) }
+                        })
+                    })
+                })
+            };
+
         }
     }
 );
