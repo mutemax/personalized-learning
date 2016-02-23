@@ -11,7 +11,8 @@
             textMatching: 'textMatching',
             hotspot: 'hotspot',
             statement: 'statement',
-            scenario: 'scenario'
+            scenario: 'scenario',
+            rankingText: 'rankingText'
         },
         course: {
             statuses: {

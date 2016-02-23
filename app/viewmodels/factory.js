@@ -7,6 +7,7 @@
     'entities/Statement',
     'entities/Hotspot',
     'entities/ScenarioQuestion',
+    'entities/RankingText',
 
     './Multipleselect',
     './FillInTheBlanks',
@@ -16,8 +17,12 @@
     './TextMatching',
     './Statement',
     './Hotspot',
-    './scenarioquestion/ScenarioQuestion'
-], function (Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement, Hotspot, ScenarioQuestion, MultipleselectViewModel, FillInTheBlanksViewModel, DragAndDropViewModel, SingleselectViewModel, SingleselectImageViewModel, TextMatchingViewModel, StatementViewModel, HotspotViewModel, ScenarioQuestionViewModel) {
+    './scenarioquestion/ScenarioQuestion',
+    './RankingText',
+], function (Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage, TextMatching, Statement,
+    Hotspot, ScenarioQuestion, RankingText, MultipleselectViewModel, FillInTheBlanksViewModel, DragAndDropViewModel,
+    SingleselectViewModel, SingleselectImageViewModel, TextMatchingViewModel, StatementViewModel,
+    HotspotViewModel, ScenarioQuestionViewModel, RankingTextViewModel) {
 
     return {
         createQuestionViewModel: function (question) {
@@ -55,6 +60,10 @@
 
             if (question instanceof ScenarioQuestion) {
                 return new ScenarioQuestionViewModel(question);
+            }
+
+            if (question instanceof RankingText) {
+                return new RankingTextViewModel(question);
             }
 
             throw 'Unknown question type';
