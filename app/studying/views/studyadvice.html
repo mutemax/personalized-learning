@@ -1,36 +1,36 @@
 ﻿<section class="studyadvice view">
     <header class="view-header">
         <h2 data-translate-text="[study advice]">Study advice</h2>
-        <a href="#summary" class="button finish  " data-translate-text="[finish course]" data-bind="click: finish, visible:!objectivesToLearn.length">Finish course</a>
+        <a href="#summary" class="button finish  " data-translate-text="[finish course]" data-bind="click: finish, visible:!sectionsToLearn.length">Finish course</a>
     </header>
 
-    <!-- ko if: objectivesToLearn.length -->
-    <ul class="unstyled" data-bind="foreach: objectivesToLearn">
+    <!-- ko if: sectionsToLearn.length -->
+    <ul class="unstyled" data-bind="foreach: sectionsToLearn">
         <li>
             <div class="container" data-bind="toggleVisible:{isExpanded:isExpanded}">
-                <div class="objective-to-learn">
-                    <div class="objective-to-learn-content-wrapper">
-                        <div class="objective-to-learn-progress-wrapper">
-                            <div class="learning-objective" data-translate-text="[learning objective]">Learning objective</div>
-                            <div class="objective-progress learning-objective">
+                <div class="section-to-learn">
+                    <div class="section-to-learn-content-wrapper">
+                        <div class="section-to-learn-progress-wrapper">
+                            <div class="learning-section" data-translate-text="[learning section]">Learning section</div>
+                            <div class="section-progress learning-section">
                                 <div data-bind="progress: score"></div>
                             </div>
                             <div class="progress-text-wrapper" data-bind="text:score+'%'"></div>
                         </div>
-                        <div class="objective-title" data-bind="text: title"></div>
+                        <div class="section-title" data-bind="text: title"></div>
                     </div>
-                    <div class="objective-action-wrapper">
+                    <div class="section-action-wrapper">
                         <button class="button" data-bind="click: toggleExpand, css: { expand: !isExpanded(), collapse: isExpanded }"> </button>
                     </div>
                 </div>
-                <div class="content objective-recommended-reading-wrapper" data-animate="">
+                <div class="content section-recommended-reading-wrapper" data-animate="">
                     <div class="reading-title" data-translate-text="[recommended reading]">Recommended reading</div>
-                    <ul class="objective-recommended-readings" data-bind="foreach: recommended">
-                        <li class="objective-recommended-reading">
-                            <div class="objective-recommended-reading-title">
+                    <ul class="section-recommended-readings" data-bind="foreach: recommended">
+                        <li class="section-recommended-reading">
+                            <div class="section-recommended-reading-title">
                                 <span data-bind="text: title"></span>
                             </div>
-                            <div class="objective-recommended-reading-start">
+                            <div class="section-recommended-reading-start">
                                 <button class="button start" data-bind="click: $parent.startRecommendedReading">
                                     <span class='button-text' data-translate-text="[start]">Start</span>
 
@@ -45,15 +45,15 @@
         </li>
     </ul>
     <!-- /ko -->
-    <!-- ko if: learntObjectives.length -->
-    <div class="container mastered-objective-holder content">
-        <div class="objectives" data-translate-text="[mastered objectives]">You have already mastered the following learning objectives:</div>
+    <!-- ko if: learntSections.length -->
+    <div class="container mastered-section-holder content">
+        <div class="sections" data-translate-text="[mastered sections]">You have already mastered the following learning sections:</div>
         <hr>
-        <ul class="unstyled" data-bind="foreach: learntObjectives">
-            <li class="mastered-objective">
-                <div class="mastered-objective-title" data-bind="text: title"></div>
-                <div class="mastered-objective-progress">
-                    <div class="mastered-objective-round" data-bind="text: score+'%'"></div>
+        <ul class="unstyled" data-bind="foreach: learntSections">
+            <li class="mastered-section">
+                <div class="mastered-section-title" data-bind="text: title"></div>
+                <div class="mastered-section-progress">
+                    <div class="mastered-section-round" data-bind="text: score+'%'"></div>
                 </div>
             </li>
         </ul>

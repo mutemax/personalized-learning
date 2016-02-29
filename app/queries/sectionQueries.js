@@ -6,8 +6,8 @@
     };
 
     function getByQuestionId(questionId) {
-        var result = _.find(course.objectives, function(objective) {
-            return _.some(objective.questions, function(question) {
+        var result = _.find(course.sections, function(section) {
+            return _.some(section.questions, function(question) {
                 return question.id === questionId;
             });
         });

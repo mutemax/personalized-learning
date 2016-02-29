@@ -3,7 +3,7 @@
 
     var
         self = {
-            objective: undefined
+            section: undefined
         }
     ;
 
@@ -34,12 +34,12 @@
 
     return viewmodel;
 
-    function activate(objectiveId, questionId) {
+    function activate(sectionId, questionId) {
         return Q.fcall(function () {
-            self.objective = getObjectiveById(objectiveId);
+            self.section = getSectionById(sectionId);
 
-            viewmodel.title = self.objective.title;
-            viewmodel.score(self.objective.score());
+            viewmodel.title = self.section.title;
+            viewmodel.score(self.section.score());
 
             apply(questionId);
         });
@@ -54,9 +54,9 @@
         viewmodel.nextOrNotCompletedReading(undefined);
 
         var readings = [];
-        for (var i = 0; i < self.objective.questions.length; i++) {
-            if (self.objective.questions[i].score < 100 || self.objective.questions[i].isCompleted===true) {
-                readings.push(self.objective.questions[i]);
+        for (var i = 0; i < self.section.questions.length; i++) {
+            if (self.section.questions[i].score < 100 || self.section.questions[i].isCompleted===true) {
+                readings.push(self.section.questions[i]);
             }
         }
 
@@ -96,7 +96,7 @@
     }
 
     function goToPreviousReading() {
-        _.each(self.objective.questions, function(question) {
+        _.each(self.section.questions, function(question) {
             return question.isCompleted = false;
         });
         
@@ -104,38 +104,38 @@
         if (viewmodel.previousReading()) {
             apply(viewmodel.previousReading());
             app.trigger('view:changed', {
-                objective: self.objective.id, question: viewmodel.currentReading().id
+                section: self.section.id, question: viewmodel.currentReading().id
             });
         }
     }
 
     function goToNextReading() {
-        _.each(self.objective.questions, function (question) {
+        _.each(self.section.questions, function (question) {
             return question.isCompleted = false;
         });
        
         if (viewmodel.nextReading()) {
             apply(viewmodel.nextReading());
-            app.trigger('view:changed', {objective:self.objective.id, question:viewmodel.currentReading().id
+            app.trigger('view:changed', {section:self.section.id, question:viewmodel.currentReading().id
         });
         }
     }
 
     function goToNextOrNotCompletedReading() {
-        _.each(self.objective.questions, function (question) {
+        _.each(self.section.questions, function (question) {
             return question.isCompleted = false;
         });
         
         if (viewmodel.nextOrNotCompletedReading()) {
             apply(viewmodel.nextOrNotCompletedReading());
             app.trigger('view:changed', {
-                objective: self.objective.id, question: viewmodel.currentReading().id
+                section: self.section.id, question: viewmodel.currentReading().id
             });
         }
     }
 
     function goToStudyAdvice() {
-        _.each(self.objective.questions, function (question) {
+        _.each(self.section.questions, function (question) {
             return question.isCompleted = false;
         });
         app.trigger('studying:stop-reading');
@@ -143,15 +143,15 @@
 
     function submit() {        
         viewmodel.currentReading().submit();
-        viewmodel.score(self.objective.score());
+        viewmodel.score(self.section.score());
     }
 
 
-    function getObjectiveById(objectiveId) {
+    function getSectionById(sectionId) {
         var result = null;
-        _.each(course.objectives, function (objective) {
-            if (objective.id === objectiveId) {
-                result = objective;
+        _.each(course.sections, function (section) {
+            if (section.id === sectionId) {
+                result = section;
             }
 
         });

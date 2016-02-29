@@ -37,8 +37,8 @@
 
                 if (_.isObject(progress)) {
                     if (_.isObject(progress.answers)) {
-                        _.each(course.objectives, function (objective) {
-                            _.each(objective.questions, function (question) {
+                        _.each(course.sections, function (section) {
+                            _.each(section.questions, function (question) {
                                 if (!_.isNull(progress.answers[question.shortId]) && !_.isUndefined(progress.answers[question.shortId])) {
                                     question.progress(progress.answers[question.shortId], progress.url);
                                 }

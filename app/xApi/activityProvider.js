@@ -16,10 +16,10 @@
 
     'eventManager',
     'constants',
-    'queries/objectiveQueries',
+    'queries/sectionQueries',
     'Q',
     'progressContext'],
-    function (app, system, statementsQueue, statementsQueueHandler, settingsModule, ActorModel, ActivityModel, StatementModel, ResultModel, ScoreModel, ContextActivitiesModel, InteractionDefinitionModel, LanguageMapModel, verbs, interactionTypes, eventManager, globalConstants, objectiveQueries, Q, progressContext) {
+    function (app, system, statementsQueue, statementsQueueHandler, settingsModule, ActorModel, ActivityModel, StatementModel, ResultModel, ScoreModel, ContextActivitiesModel, InteractionDefinitionModel, LanguageMapModel, verbs, interactionTypes, eventManager, globalConstants, sectionQueries, Q, progressContext) {
         "use strict";
 
         var subscriptions = [],
@@ -123,15 +123,15 @@
                 throw 'Request failed: Not enough data in the settings';
             }
 
-            if (_.isArray(course.objectives)) {
-                _.each(course.objectives, function (objective) {
-                    var objectiveUrl = rootCourseUrl + '#objectives?objective_id=' + objective.id;
+            if (_.isArray(course.sections)) {
+                _.each(course.sections, function (section) {
+                    var sectionUrl = rootCourseUrl + '#sections?section_id=' + section.id;
 
                     var resultData = {
-                        score: new ScoreModel(objective.score() / 100)
+                        score: new ScoreModel(section.score() / 100)
                     };
 
-                    var statement = createStatement(verbs.mastered, new ResultModel(resultData), createActivity(objectiveUrl, objective.title));
+                    var statement = createStatement(verbs.mastered, new ResultModel(resultData), createActivity(sectionUrl, section.title));
                     pushStatementIfSupported(statement);
                 });
             }
@@ -164,18 +164,18 @@
                 throw 'Request failed: Not enough data in the settings';
             }
 
-            var objective = objectiveQueries.getByQuestionId(data.question.id);
-            if (_.isUndefined(objective)) {
-                throw 'Objective is not found';
+            var section = sectionQueries.getByQuestionId(data.question.id);
+            if (_.isUndefined(section)) {
+                throw 'Section is not found';
             }
 
-            var parts = getQuestionParts(data, objective);
+            var parts = getQuestionParts(data, section);
 
-            var parentUrl = rootCourseUrl + '#objectives?objective_id=' + objective.id;
+            var parentUrl = rootCourseUrl + '#sections?section_id=' + section.id;
 
             var context = createContext({
                 contextActivities: new ContextActivitiesModel({
-                    parent: [createActivity(parentUrl, objective.title)]
+                    parent: [createActivity(parentUrl, section.title)]
                 })
             });
 
@@ -188,40 +188,40 @@
 
         }
 
-        function getQuestionParts(data, objective) {
+        function getQuestionParts(data, section) {
             switch (data.question.type) {
                 case globalConstants.questionTypes.multipleSelect:
                 case globalConstants.questionTypes.singleSelectText:
-                    return getSelectTextQuestionActivityAndResult(data.question, data.answer, objective);
+                    return getSelectTextQuestionActivityAndResult(data.question, data.answer, section);
                 case globalConstants.questionTypes.fillInTheBlank:
-                    return getFillInQuestionActivityAndResult(data.question, data.answer, objective);
+                    return getFillInQuestionActivityAndResult(data.question, data.answer, section);
                 case globalConstants.questionTypes.singleSelectImage:
-                    return getSingleSelectImageQuestionAcitivityAndResult(data.question, data.answer, objective);
+                    return getSingleSelectImageQuestionAcitivityAndResult(data.question, data.answer, section);
                 case globalConstants.questionTypes.statement:
-                    return getStatementQuestionActivityAndResult(data.question, data.answer, objective);
+                    return getStatementQuestionActivityAndResult(data.question, data.answer, section);
                 case globalConstants.questionTypes.dragAndDrop:
-                    return getDragAndDropTextQuestionActivityAndResult(data.question, data.answer, objective);
+                    return getDragAndDropTextQuestionActivityAndResult(data.question, data.answer, section);
                 case globalConstants.questionTypes.textMatching:
-                    return getMatchingQuestionActivityAndResult(data.question, data.answer, objective);
+                    return getMatchingQuestionActivityAndResult(data.question, data.answer, section);
                 case globalConstants.questionTypes.hotspot:
-                    return getHotSpotQuestionActivityAndResult(data.question, data.answer, objective);
+                    return getHotSpotQuestionActivityAndResult(data.question, data.answer, section);
                 case globalConstants.questionTypes.scenario:
-                    return getScenarioQuestionActivityAndResult(data.question, objective);
+                    return getScenarioQuestionActivityAndResult(data.question, section);
                 case globalConstants.questionTypes.rankingText:
-                    return getRankingTextQuestionActivityAndResult(data.question, data.answer, objective);
+                    return getRankingTextQuestionActivityAndResult(data.question, data.answer, section);
             }
 
             return null;
         }
 
-        function getSelectTextQuestionActivityAndResult(question, answer, objective) {
+        function getSelectTextQuestionActivityAndResult(question, answer, section) {
             return {
                 result: new ResultModel({
                     score: new ScoreModel(question.score / 100),
                     response: answer.join("[,]")
                 }),
                 object: new ActivityModel({
-                    id: rootCourseUrl + '#objective/' + objective.id + '/question/' + question.id,
+                    id: rootCourseUrl + '#section/' + section.id + '/question/' + question.id,
                     definition: new InteractionDefinitionModel({
                         name: new LanguageMapModel(question.title),
                         interactionType: interactionTypes.choice,
@@ -245,7 +245,7 @@
             };
         }
 
-        function getStatementQuestionActivityAndResult(question, answer, objective) {
+        function getStatementQuestionActivityAndResult(question, answer, section) {
             return {
                 result: new ResultModel({
                     score: new ScoreModel(question.score / 100),
@@ -254,7 +254,7 @@
                     }).join("[,]")
                 }),
                 object: new ActivityModel({
-                    id: rootCourseUrl + '#objective/' + objective.id + '/question/' + question.id,
+                    id: rootCourseUrl + '#section/' + section.id + '/question/' + question.id,
                     definition: new InteractionDefinitionModel({
                         name: new LanguageMapModel(question.title),
                         interactionType: interactionTypes.choice,
@@ -274,7 +274,7 @@
             };
         }
 
-        function getSingleSelectImageQuestionAcitivityAndResult(question, answer, objective) {
+        function getSingleSelectImageQuestionAcitivityAndResult(question, answer, section) {
 
             return {
                 result: new ResultModel({
@@ -282,7 +282,7 @@
                     response: answer.toString()
                 }),
                 object: new ActivityModel({
-                    id: rootCourseUrl + '#objective/' + objective.id + '/question/' + question.id,
+                    id: rootCourseUrl + '#section/' + section.id + '/question/' + question.id,
                     definition: new InteractionDefinitionModel({
                         name: new LanguageMapModel(question.title),
                         interactionType: interactionTypes.choice,
@@ -299,7 +299,7 @@
 
         }
 
-        function getFillInQuestionActivityAndResult(question, answer, objective) {
+        function getFillInQuestionActivityAndResult(question, answer, section) {
             return {
                 result: new ResultModel({
                     score: new ScoreModel(question.score / 100),
@@ -308,7 +308,7 @@
                     }).join("[,]")
                 }),
                 object: new ActivityModel({
-                    id: rootCourseUrl + '#objective/' + objective.id + '/question/' + question.id,
+                    id: rootCourseUrl + '#section/' + section.id + '/question/' + question.id,
                     definition: new InteractionDefinitionModel({
                         name: new LanguageMapModel(question.title),
                         interactionType: interactionTypes.fillIn,
@@ -322,7 +322,7 @@
             };
         }
 
-        function getHotSpotQuestionActivityAndResult(question, answer, objective) {
+        function getHotSpotQuestionActivityAndResult(question, answer, section) {
             return {
                 result: new ResultModel({
                     score: new ScoreModel(question.score / 100),
@@ -331,7 +331,7 @@
                     }).join("[,]")
                 }),
                 object: new ActivityModel({
-                    id: rootCourseUrl + '#objective/' + objective.id + '/question/' + question.id,
+                    id: rootCourseUrl + '#section/' + section.id + '/question/' + question.id,
                     definition: new InteractionDefinitionModel({
                         name: new LanguageMapModel(question.title),
                         interactionType: interactionTypes.other,
@@ -346,7 +346,7 @@
             }
         }
 
-        function getDragAndDropTextQuestionActivityAndResult(question, answer, objective) {
+        function getDragAndDropTextQuestionActivityAndResult(question, answer, section) {
             return {
                 result: new ResultModel({
                     score: new ScoreModel(question.score / 100),
@@ -356,7 +356,7 @@
                 }),
 
                 object: new ActivityModel({
-                    id: rootCourseUrl + '#objective/' + objective.id + '/question/' + question.id,
+                    id: rootCourseUrl + '#section/' + section.id + '/question/' + question.id,
                     definition: new InteractionDefinitionModel({
                         name: new LanguageMapModel(question.title),
                         interactionType: interactionTypes.other,
@@ -368,7 +368,7 @@
             }
         }
 
-        function getMatchingQuestionActivityAndResult(question, answer, objective) {
+        function getMatchingQuestionActivityAndResult(question, answer, section) {
             var formattedAnswer = _.map(question.answers, function (pair) {
                 var answerPair = _.find(answer, function (a) {
                     return a.id === pair.id;
@@ -385,7 +385,7 @@
                     }).join("[,]")
                 }),
                 object: new ActivityModel({
-                    id: rootCourseUrl + '#objective/' + objective.id + '/question/' + question.id,
+                    id: rootCourseUrl + '#section/' + section.id + '/question/' + question.id,
                     definition: new InteractionDefinitionModel({
                         name: new LanguageMapModel(question.title),
                         interactionType: interactionTypes.matching,
@@ -404,13 +404,13 @@
 
         }
 
-        function getScenarioQuestionActivityAndResult(question, objective) {
+        function getScenarioQuestionActivityAndResult(question, section) {
             return {
                 result: new ResultModel({
                     score: new ScoreModel(question.score / 100)
                 }),
                 object: new ActivityModel({
-                    id: rootCourseUrl + '#objective/' + objective.id+ '/question/' + question.id,
+                    id: rootCourseUrl + '#section/' + section.id+ '/question/' + question.id,
                     definition: new InteractionDefinitionModel({
                         name: new LanguageMapModel(question.title),
                         interactionType: interactionTypes.other
@@ -419,7 +419,7 @@
             };
         }
 
-        function getRankingTextQuestionActivityAndResult(question, answer, objective) {
+        function getRankingTextQuestionActivityAndResult(question, answer, section) {
             return {
                 result: new ResultModel({
                     score: new ScoreModel(question.score / 100),
@@ -428,7 +428,7 @@
                     }).join("[,]")
                 }),
                 object: new ActivityModel({
-                    id: rootCourseUrl + '#objective/' + objective.id + '/question/' + question.id,
+                    id: rootCourseUrl + '#section/' + section.id + '/question/' + question.id,
                     definition: new InteractionDefinitionModel({
                         name: new LanguageMapModel(question.title),
                         interactionType: interactionTypes.sequencing,

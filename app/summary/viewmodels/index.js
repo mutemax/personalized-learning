@@ -9,7 +9,7 @@ define(['entities/course', 'knockout', '_', 'windowOperations'],
         var viewModel = {
             activate: activate,
 
-            objectives: [],
+            sections: [],
             progress: 0,
 
             isClosing: ko.observable(false),
@@ -20,8 +20,8 @@ define(['entities/course', 'knockout', '_', 'windowOperations'],
         return viewModel;
 
         function activate() {
-            viewModel.objectives = _.map(course.objectives, function (objective) {
-                return { title: objective.title, score: objective.score() };
+            viewModel.sections = _.map(course.sections, function (section) {
+                return { title: section.title, score: section.score() };
             });
             viewModel.progress = course.score();
 
