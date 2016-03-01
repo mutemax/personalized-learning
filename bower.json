@@ -17,9 +17,8 @@
     "tests"
   ],
   "dependencies": {
-    "branchtrack-provider": "*",
-    "easy-supported-browser": "~1.0.0",
-    "easygenerator-hotspot-on-an-image-plugin": "*",
+    "components-webfontloader": "~1.6.3",
+    "easygenerator-plugins": "*",
     "knockout-dragula": "~0.2.2"
   }
 }
