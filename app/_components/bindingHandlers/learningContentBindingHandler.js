@@ -15,9 +15,14 @@ define(['durandal/composition','knockout'], function (composition, ko) {
 
                 switch(dataType){
                     case 'hotspot': 
-                        var hotspotOnImage = new HotspotOnImage($(html)[0]);
-                        $element.html(hotspotOnImage.element);
+                        var hotspotOnImage = HotspotStorage.create($(html)[0]);
+                        
+						$element.html(hotspotOnImage.element);
                         $element.addClass('hotspot-container');
+
+						ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
+							HotspotStorage.remove(hotspotOnImage);
+						});
                         break;
                     default:
                         $element.css('overflow-x', 'auto');
