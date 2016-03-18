@@ -1,5 +1,5 @@
 ﻿define(['entities/course',
-    'entities/Objective',
+    'entities/Section',
     'entities/Multipleselect',
     'entities/FillInTheBlanks',
     'entities/DragAndDrop',
@@ -16,7 +16,7 @@
      '_',
      'plugins/http'],
 
-     function (course, Objective, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage,
+     function (course, Section, Multipleselect, FillInTheBlanks, DragAndDrop, Singleselect, SingleselectImage,
          TextMatching, Statement, Hotspot, ScenarioQuestion, RankingText, constants, Q, _, http) {
          'use strict';
 
@@ -40,8 +40,8 @@
                  course.title = response.title;
                  course.createdOn = new Date(response.createdOn);
 
-                 _.each(response.objectives, function (dobj) {
-                     var objective = new Objective(dobj.id, dobj.title);
+                 _.each(response.sections, function (dobj) {
+                     var section = new Section(dobj.id, dobj.title);
 
                      _.each(dobj.questions, function (dq) {
                          var question;
@@ -111,11 +111,11 @@
                              return 'content/' + dobj.id + '/' + dq.id + '/' + item.id + '.html';
                          });
 
-                         objective.questions.push(question);
+                         section.questions.push(question);
                      });
 
-                     if (objective.questions && objective.questions.length) {
-                         course.objectives.push(objective);
+                     if (section.questions && section.questions.length) {
+                         course.sections.push(section);
                      }
                  });
 

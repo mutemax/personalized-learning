@@ -9,8 +9,8 @@
     };
 
 
-    app.on('studying:start-reading').then(function (objectiveId, questionId) {
-        viewModel.activeItem.activateItem(readings, [objectiveId, questionId]);
+    app.on('studying:start-reading').then(function (sectionId, questionId) {
+        viewModel.activeItem.activateItem(readings, [sectionId, questionId]);
     });
 
     app.on('studying:stop-reading').then(function () {
@@ -19,9 +19,9 @@
 
     return viewModel;
 
-    function activate(objectiveId, questionId) {
-        if (objectiveId && questionId) {
-            viewModel.activeItem.activateItem(readings, [objectiveId, questionId]);
+    function activate(sectionId, questionId) {
+        if (sectionId && questionId) {
+            viewModel.activeItem.activateItem(readings, [sectionId, questionId]);
         }
         else {
             return viewModel.activeItem.activateItem(studyadvice);
