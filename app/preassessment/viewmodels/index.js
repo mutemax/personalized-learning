@@ -43,8 +43,8 @@
 
     function activate() {
         return Q.fcall(function () {
-            _.each(course.objectives, function (objective) {
-                _.each(objective.questions, function (question) {
+            _.each(course.sections, function (section) {
+                _.each(section.questions, function (question) {
                     viewModel.questions.push(factory.createQuestionViewModel(question));
                 });
             });

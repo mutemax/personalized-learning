@@ -9,7 +9,7 @@
         isSuccessful: isSuccessful,
         getStatus: getStatus,
 
-        objectives: [],
+        sections: [],
         title: '',
         id: '',
         createdOn: undefined
@@ -18,10 +18,10 @@
     return course;
 
     function score() {
-        var totalPercents = _.reduce(course.objectives, function (memo, objective) {
-            return memo + objective.score();
+        var totalPercents = _.reduce(course.sections, function (memo, section) {
+            return memo + section.score();
         }, 0);
-        return Math.ceil(totalPercents / course.objectives.length);
+        return Math.ceil(totalPercents / course.sections.length);
     }
 
     function finish() {
@@ -44,8 +44,8 @@
     }
 
     function isSuccessful() {
-        return !_.some(course.objectives, function (objective) {
-            return !objective.isCompleted();
+        return !_.some(course.sections, function (section) {
+            return !section.isCompleted();
         });
     }
 });

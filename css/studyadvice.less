@@ -1,8 +1,8 @@
 ﻿.studyadvice {
-    .objective-to-learn {
-        background-color: @objective-to-learn-background-color;
-        border-radius: @objective-to-learn-border-radius;
-        border-bottom: @objective-to-learn-border-width @objective-to-learn-border-style @objective-to-learn-border-color;
+    .section-to-learn {
+        background-color: @section-to-learn-background-color;
+        border-radius: @section-to-learn-border-radius;
+        border-bottom: @section-to-learn-border-width @section-to-learn-border-style @section-to-learn-border-color;
         margin-top: 10px;
         display: table;
         width: 100%;
@@ -10,20 +10,20 @@
         padding-left: 30px;
     }
 
-    .objective-title {
+    .section-title {
         padding: 20px 0 20px 0;
-        color: @studydvice-objective-title-font-color;
-        font-size: @studydvice-objective-title-font-size;
+        color: @studydvice-section-title-font-color;
+        font-size: @studydvice-section-title-font-size;
         font-family: 'robotoSlab-regular','OpenSans';
         line-height: 36px;
         word-break: break-word;
     }
 
-    .objective-progress {
+    .section-progress {
         width: 350px;
     }
 
-    .objective-action-wrapper {
+    .section-action-wrapper {
         position: relative;
         right: 0;
         display: table-cell;
@@ -35,8 +35,8 @@
         margin-bottom: 30px;
     }
 
-    .objective-recommended-reading-wrapper {
-        background-color: @studydvice-objective-recomended-reading-background-color;
+    .section-recommended-reading-wrapper {
+        background-color: @studydvice-section-recomended-reading-background-color;
         margin-top: -5px;
         border-top-left-radius: 0;
         -webkit-box-shadow: inset 0px 4px 5px 0px rgba(216,232,236,1);
@@ -45,30 +45,30 @@
         display: none;
     }
 
-    .objective-recommended-readings {
+    .section-recommended-readings {
         display: table;
         table-layout: fixed;
         width: 100%;
         table-layout: fixed;
     }
 
-    .objective-recommended-reading {
+    .section-recommended-reading {
         display: table-row;
     }
 
-    .objective-recommended-reading-title {
+    .section-recommended-reading-title {
         display: table-cell;
         padding: 25px 0;
-        color: @studydvice-objective-recomended-reading-font-color;
+        color: @studydvice-section-recomended-reading-font-color;
         vertical-align: middle;
         word-wrap: break-word;
         font-family: 'robotoSlab-regular','OpenSans';
-        font-size: @studydvice-objective-recomended-reading-font-size;
+        font-size: @studydvice-section-recomended-reading-font-size;
         line-height: 2;
         padding-right: 30px;
     }
 
-    .objective-recommended-reading-start {
+    .section-recommended-reading-start {
         display: table-cell;
         width: 100px;
         vertical-align: middle;
@@ -76,52 +76,52 @@
         width: 180px;
     }
 
-    .mastered-objective {
+    .mastered-section {
         display: table;
         margin-top: 30px;
         width: 100%;
     }
 
-    .mastered-objective:last-child {
+    .mastered-section:last-child {
         margin-bottom: 0;
     }
 
-    .mastered-objective-title-with-image {
+    .mastered-section-title-with-image {
         & > div {
             display: inline-block;
             vertical-align: middle;
         }
     }
 
-    .mastered-objective-image-wrapper {
+    .mastered-section-image-wrapper {
         width: 45px;
         float: left;
         clear: both;
     }
 
-    .mastered-objective-title {
+    .mastered-section-title {
         color: #3c3c3c;
         display: table-cell;
         vertical-align: middle;
     }
 
-    .mastered-objective-progress {
+    .mastered-section-progress {
         width: 77px;
         display: table-cell;
         vertical-align: middle;
     }
 }
 
-.objective-to-learn-content-wrapper {
+.section-to-learn-content-wrapper {
     display: table-cell;
     width: 85%;
 }
 
-.objective-to-learn-progress-wrapper {
+.section-to-learn-progress-wrapper {
     display: table;
 }
 
-.learning-objective {
+.learning-section {
     margin-top: 30px;
     font-family: 'roboto-regular', 'OpenSans';
     font-size: 18px;
@@ -132,22 +132,22 @@
     word-break: break-word;
 }
 
-.objective-action {
+.section-action {
     position: absolute;
     right: 0;
 }
 
 .reading-title {
-    color: @studydvice-objective-recomended-reading-title-font-color;
+    color: @studydvice-section-recomended-reading-title-font-color;
     font-family: 'roboto-regular','OpenSans';
-    font-size: @studydvice-objective-recomended-reading-title-font-size;
+    font-size: @studydvice-section-recomended-reading-title-font-size;
 }
 
-.mastered-objective-holder {
-    border: @mastered-objective-holder-border-width @mastered-objective-holder-border-style @mastered-objective-holder-border-color;
+.mastered-section-holder {
+    border: @mastered-section-holder-border-width @mastered-section-holder-border-style @mastered-section-holder-border-color;
 }
 
-.objectives {
+.sections {
     margin-left: 60px;
     margin-top: 3px;
     clear: both;
@@ -158,7 +158,7 @@
     word-break: break-all;
 }
 
-.objectives:before {
+.sections:before {
     width: 45px;
     height: 45px;
     background: url(img/newSprite.png) 0 -202px no-repeat;
@@ -168,16 +168,16 @@
     top: -10px;
 }
 
-.mastered-objective-round {
+.mastered-section-round {
     width: 77px;
     height: 77px;
-    border: 5px solid @mastered-objective-color;
+    border: 5px solid @mastered-section-color;
     border-radius: 50%;
     padding-top: 19px;
     font-size: 22px;
     display: inline-block;
     margin-left: 50px;
-    color: @mastered-objective-color;
+    color: @mastered-section-color;
     text-align: center;
     line-height: 30px;
     font-family: 'twcenmt';

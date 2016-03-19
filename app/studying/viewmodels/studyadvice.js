@@ -2,8 +2,8 @@
     "use strict";
 
     var viewModel = {
-        learntObjectives: [],
-        objectivesToLearn: [],
+        learntSections: [],
+        sectionsToLearn: [],
 
         finish: finish,
 
@@ -18,25 +18,25 @@
 
     function activate() {
         return Q.fcall(function () {
-            viewModel.learntObjectives = [];
-            viewModel.objectivesToLearn = [];
+            viewModel.learntSections = [];
+            viewModel.sectionsToLearn = [];
 
-            var objectiveIndex;
+            var sectionIndex;
 
-            _.each(course.objectives, function (objective, index) {
-                if (!objective.isCompleted() && _.isUndefined(objectiveIndex)) {
-                    objectiveIndex = index;
+            _.each(course.sections, function (section, index) {
+                if (!section.isCompleted() && _.isUndefined(sectionIndex)) {
+                    sectionIndex = index;
                 }
 
-                var objectiveViewModel = {
-                    id: objective.id,
-                    title: objective.title,
-                    score: objective.score(),
+                var sectionViewModel = {
+                    id: section.id,
+                    title: section.title,
+                    score: section.score(),
                     startRecommendedReading: function () {
-                        app.trigger('studying:start-reading', objective.id, this.id);
-                        app.trigger('view:changed', { objective: objective.id, question:this.id })
+                        app.trigger('studying:start-reading', section.id, this.id);
+                        app.trigger('view:changed', { section: section.id, question:this.id })
                     },
-                    recommended: _.chain(objective.questions)
+                    recommended: _.chain(section.questions)
                         .filter(function (question) {
                             return question.score != 100;
                         })
@@ -44,17 +44,17 @@
                             return { id: question.id, title: question.title };
                         })
                         .value(),
-                    isExpanded: ko.observable(index === objectiveIndex),
+                    isExpanded: ko.observable(index === sectionIndex),
                     toggleExpand: function () {
                         this.isExpanded(!this.isExpanded());
                     },
 
                 };
 
-                if (objectiveViewModel.recommended.length) {
-                    viewModel.objectivesToLearn.push(objectiveViewModel);
+                if (sectionViewModel.recommended.length) {
+                    viewModel.sectionsToLearn.push(sectionViewModel);
                 } else {
-                    viewModel.learntObjectives.push(objectiveViewModel);
+                    viewModel.learntSections.push(sectionViewModel);
                 }
 
             });

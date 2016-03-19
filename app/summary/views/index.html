@@ -11,13 +11,13 @@
             <div class="summary-title">
                 <span data-translate-text="[learning objective]">Learning objectives</span>
             </div>
-            <ul class="unstyled" data-bind="foreach: objectives">
-                <li class="objective">
-                    <div class="objective-title">
+            <ul class="unstyled" data-bind="foreach: sections">
+                <li class="section">
+                    <div class="section-title">
                         <span data-bind="text: title"></span>
                     </div>
                     <div class="empty-div "></div>
-                    <div class="objective-progress">
+                    <div class="section-progress">
                         <div class="circle-canvas-wrapper" data-bind="circleProgress: score">
                             <div data-bind=" text:score+'%'"></div>
                         </div>
