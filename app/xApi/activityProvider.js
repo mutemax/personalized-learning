@@ -13,13 +13,15 @@
     './entities/languageMap',
     './verbs',
     './interactionTypes',
-
+    './activityTypes',
     'eventManager',
     'constants',
     'queries/objectiveQueries',
     'Q',
-    'progressContext'],
-    function (app, system, statementsQueue, statementsQueueHandler, settingsModule, ActorModel, ActivityModel, StatementModel, ResultModel, ScoreModel, ContextActivitiesModel, InteractionDefinitionModel, LanguageMapModel, verbs, interactionTypes, eventManager, globalConstants, objectiveQueries, Q, progressContext) {
+    'progressContext',
+    '../entities/course'
+],
+    function (app, system, statementsQueue, statementsQueueHandler, settingsModule, ActorModel, ActivityModel, StatementModel, ResultModel, ScoreModel, ContextActivitiesModel, InteractionDefinitionModel, LanguageMapModel, verbs, interactionTypes, activityTypes, eventManager, globalConstants, objectiveQueries, Q, progressContext, courseContext) {
         "use strict";
 
         var subscriptions = [],
@@ -78,7 +80,7 @@
             return actor;
         }
 
-        function createActivity(id, name) {
+        function createActivity(id, name, type) {
             var displayName = {};
             displayName[settingsModule.settings.defaultLanguage] = name;
 
@@ -86,6 +88,9 @@
                 id: id,
                 definition: { name: displayName }
             });
+            if (typeof type != typeof undefined) {
+                activity.definition.type = type;
+            }
 
             return activity;
         }
@@ -159,7 +164,33 @@
             return dfd.promise;
         }
 
-        function questionAnsweredHandler(data) {
+        function courseProgressedHandler(course) {
+            if (_.isUndefined(course)) {
+                throw 'Request failed: Not enough data in the settings';
+            }
+            
+            var courseResultData = {
+                score: new ScoreModel(course.score() / 100)
+            };
+            var courseResult = new ResultModel(courseResultData);
+
+            pushStatementIfSupported(createStatement(verbs.progressed, courseResult, createActivity(activityProvider.activityUrl, activityProvider.activityName, activityTypes.course)));
+        }
+
+        function objectiveProgressedHandler(objective) {
+            if (_.isUndefined(objective)) {
+                throw 'Request failed: Not enough data in the settings';
+            }
+
+            var objectiveUrl = rootCourseUrl + '#objectives?objective_id=' + objective.id;
+            var resultData = {
+                score: new ScoreModel(objective.score() / 100)
+            };
+            var statement = createStatement(verbs.progressed, new ResultModel(resultData), createActivity(objectiveUrl, objective.title, activityTypes.objective));
+            pushStatementIfSupported(statement);
+        }
+
+        function questionAnsweredHandler(data, preventSendingParentProgress) {
             if (_.isUndefined(data)) {
                 throw 'Request failed: Not enough data in the settings';
             }
@@ -183,6 +214,10 @@
                 var statement = createStatement(verbs.answered, parts.result, parts.object, context);
                 if (statement) {
                     pushStatementIfSupported(statement);
+                    if (!preventSendingParentProgress) {
+                        objectiveProgressedHandler(objective);
+                        courseProgressedHandler(courseContext);
+                    }
                 }
             }
 

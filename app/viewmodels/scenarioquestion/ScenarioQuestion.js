@@ -21,8 +21,8 @@
             }
         });
 
-        that.submit = function () {
-            question.answer(branchTrackInstance.score);
+        that.submit = function (preventSendingParentProgress) {
+            question.answer(preventSendingParentProgress, branchTrackInstance.score);
             that.isAnswered(true);
             that.isAnsweredCorrectly(question.score == 100);
         };

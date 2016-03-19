@@ -46,7 +46,7 @@
         });
 
 
-        that.submit = function () {
+        that.submit = function (preventSendingParentProgress) {
             var answer = [];
 
             _.each(that.dropspots, function (dropspot) {
@@ -61,7 +61,7 @@
 
             });
 
-            question.answer(answer);
+            question.answer(preventSendingParentProgress, answer);
 
             that.isAnswered(true);
             that.isAnsweredCorrectly(question.score === 100);

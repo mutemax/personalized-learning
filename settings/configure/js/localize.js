@@ -37,6 +37,7 @@
         'answered': 'Answered',
         'mastered': 'Mastered',
         'failed': 'Failed',
+        'progressed': 'Progressed',
 
         //template language
         'template language': 'Template language',

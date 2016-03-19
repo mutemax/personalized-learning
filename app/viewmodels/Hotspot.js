@@ -7,8 +7,8 @@
         that.content = question.content;
         that.background = question.background;
         that.isMultiple = question.isMultiple;
-        that.submit = function () {
-            question.answer(that.marks());
+        that.submit = function (preventSendingParentProgress) {
+            question.answer(preventSendingParentProgress, that.marks());
             that.isAnswered(true);
             that.isAnsweredCorrectly(question.score == 100);
         };

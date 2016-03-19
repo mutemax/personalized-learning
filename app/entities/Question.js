@@ -12,11 +12,12 @@
         that.isCompleted = false;
 
         that.answer = function () {
+            var preventSendingParentProgress = [].splice.call(arguments, 0, 1)[0];
             _protected.answer.apply(that, arguments);
             eventManager.questionAnswered({
                 question: that,
                 answer: arguments[0]
-            });
+            }, preventSendingParentProgress);
         };
 
         that.progress = function (data, url) {
