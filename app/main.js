@@ -13,8 +13,8 @@ define('jquery', function () { return window.jQuery; });
 define('Q', function () { return window.Q; });
 define('_', function () { return window._; });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext', 'userContext', 'bootstrapper', 'Q', 'modulesInitializer', 'templateSettings', 'settingsReader', 'translation'],
-    function (system, app, viewLocator, dataContext, userContext, bootstrapper, Q, modulesInitializer, templateSettings, settingsReader, translation) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'urlUtils', 'dataContext', 'userContext', 'bootstrapper', 'Q', 'modulesInitializer', 'templateSettings', 'settingsReader', 'translation'],
+    function (system, app, viewLocator, urlUtils, dataContext, userContext, bootstrapper, Q, modulesInitializer, templateSettings, settingsReader, translation) {
         app.title = '';
         app.start().then(function () {
             bootstrapper.run();
@@ -57,8 +57,17 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'dataContext'
 
             function initTemplateSettings(settings) {
                 return templateSettings.init(settings).then(function () {
+                    if (isXapiDisabled()) {
+                        templateSettings.xApi.enabled = false;
+                    }
+
                     modules['xApi/initializer'] = templateSettings.xApi;
                 });
+            }
+
+            function isXapiDisabled() {
+                var xapi = urlUtils.getQueryStringValue('xapi');
+                return !templateSettings.xApi.required && !_.isNull(xapi) && !_.isUndefined(xapi) && xapi.toLowerCase() === 'false';
             }
 
             function initTranslations(settings) {
