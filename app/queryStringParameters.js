@@ -1,10 +1,10 @@
 ﻿define([''], function () {
 
     return {
-        getQueryStringValue: getQueryStringValue
+        get: get
     };
 
-    function getQueryStringValue(key) {
+    function get(key) {
         var urlParams = window.location.search;
         var regex = new RegExp("[\\?&]" + key + "=([^&#]*)");
         var results = regex.exec(urlParams);
