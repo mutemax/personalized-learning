@@ -18,8 +18,8 @@
             that.isAnsweredCorrectly(false);
         }
 
-        that.submit = function () {
-            question.answer(that.rankingItems());
+        that.submit = function (preventSendingParentProgress) {
+            question.answer(preventSendingParentProgress, that.rankingItems());
 
             that.isAnswered(true);
             that.isAnsweredCorrectly(question.score == 100);

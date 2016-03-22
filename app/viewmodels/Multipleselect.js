@@ -31,7 +31,7 @@
             var count = 0;
             _.each(that.options, function (option) {
                 if (option.checked()) {
-                    count++
+                    count++;
                 }
             });
             return count > 0;
@@ -44,8 +44,8 @@
             });
         }
 
-        that.submit = function () {
-            question.answer(_.chain(that.options)
+        that.submit = function (preventSendingParentProgress) {
+            question.answer(preventSendingParentProgress, _.chain(that.options)
                 .filter(function (answer) {
                     return answer.checked();
                 })

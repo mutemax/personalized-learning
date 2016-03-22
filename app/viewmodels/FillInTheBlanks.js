@@ -39,8 +39,8 @@
 
         }
 
-        that.submit = function () {
-            question.answer(_.map(that.blanks, function (blank) {
+        that.submit = function (preventSendingParentProgress) {
+            question.answer(preventSendingParentProgress, _.map(that.blanks, function (blank) {
                 return {
                     groupId: ko.unwrap(blank.groupId),
                     text: ko.unwrap(blank.text) || ''

@@ -8,6 +8,11 @@
         display: { "en-US": "started" }
     };
 
+    verbs.progressed = {
+        id: "http://adlnet.gov/expapi/verbs/progressed",
+        display: { "en-US": "progressed" }
+    };
+
     verbs.stopped = {
         id: "http://adlnet.gov/expapi/verbs/exited",
         display: { "en-US": "stopped" }

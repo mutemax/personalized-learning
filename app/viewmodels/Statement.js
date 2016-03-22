@@ -40,13 +40,13 @@
             }).value();
         that.isDirty = ko.computed(function () {
             var count = 0;
-            _.each(that.statements, function (statement) {
+            _.each(that.statements, function(statement) {
                 if (statement.isChecked()) {
-                    count++
+                    count++;
                 }
-            })
+            });
             return count === question.answers.length;
-        })
+        });
         that.resetAnswer = function () {
             that.isAnswered(false);
             that.isAnsweredCorrectly(false);
@@ -55,8 +55,8 @@
             });
         };
 
-        that.submit = function () {
-            question.answer(
+        that.submit = function (preventSendingParentProgress) {
+            question.answer(preventSendingParentProgress,
                 _.map(that.statements, function (statement) {
                     return {
                         id: statement.id,

@@ -54,14 +54,14 @@
         });
     }
 
-    function answerQuestions() {
-        _.each(viewModel.questions(), function (question) {
-            question.submit();
+    function answerQuestions(sendParentProgress) {
+        _.each(viewModel.questions(), function(question) {
+            question.submit(!sendParentProgress);
         });
     }
 
     function submit() {
-        answerQuestions();
+        answerQuestions(true);
         app.trigger('preassessment:completed');
     }
 

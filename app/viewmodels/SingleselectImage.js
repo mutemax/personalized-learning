@@ -38,8 +38,8 @@
             that.selectedOption(undefined);
         }
 
-        that.submit = function () {
-            question.answer([that.selectedOption() ? that.selectedOption().id : undefined]);
+        that.submit = function (preventSendingParentProgress) {
+            question.answer(preventSendingParentProgress, [that.selectedOption() ? that.selectedOption().id : undefined]);
             that.isAnswered(true);
             that.isAnsweredCorrectly(question.score == 100);
         };

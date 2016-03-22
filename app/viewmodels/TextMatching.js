@@ -39,12 +39,12 @@
 
         that.isDirty = ko.computed(function () {
             var count = 0;
-            _.each(that.targets(), function (blank) {
+            _.each(that.targets(), function(blank) {
                 if (!blank.value()) {
-                    count++
+                    count++;
                 }
-            })
-            return count == question.answers.length;
+            });
+            return count === question.answers.length;
         });
         that.resetAnswer = function () {
             that.isAnswered(false);
@@ -57,8 +57,8 @@
             }
         }
 
-        that.submit = function () {
-            question.answer(_.map(that.sources(), function (source) {
+        that.submit = function (preventSendingParentProgress) {
+            question.answer(preventSendingParentProgress, _.map(that.sources(), function (source) {
                 return { id: source.id, value: ko.unwrap(source.value) };
             }));
             that.isAnswered(true);
