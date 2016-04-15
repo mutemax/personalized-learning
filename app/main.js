@@ -8,27 +8,30 @@
     urlArgs: 'v=' + Math.random()
 });
 
-define('knockout', function () { return window.ko; });
-define('jquery', function () { return window.jQuery; });
-define('Q', function () { return window.Q; });
-define('_', function () { return window._; });
+define('knockout', function() { return window.ko; });
+define('jquery', function() { return window.jQuery; });
+define('Q', function() { return window.Q; });
+define('_', function() { return window._; });
 
 define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'queryStringParameters', 'dataContext', 'userContext', 'bootstrapper', 'Q', 'modulesInitializer', 'templateSettings', 'settingsReader', 'translation'],
-    function (system, app, viewLocator, queryStringParameters, dataContext, userContext, bootstrapper, Q, modulesInitializer, templateSettings, settingsReader, translation) {
+    function(system, app, viewLocator, queryStringParameters, dataContext, userContext, bootstrapper, Q, modulesInitializer, templateSettings, settingsReader, translation) {
         app.title = '';
-        app.start().then(function () {
+        app.start().then(function() {
             bootstrapper.run();
             viewLocator.useConvention();
 
             var modules = {};
 
-            modules['modules/localstorage_progresstracker'] = true;
-            return dataContext.initialize().then(function () {
-                return userContext.initialize().then(function () {
-                    return readPublishSettings().then(function () {
-                        return readTemplateSettings().then(function (settings) {
-                            return initTemplateSettings(settings).then(function () {
-                                return initTranslations(settings).then(function () {
+            if (location.href.indexOf('/preview/') === -1) {
+                modules['modules/localstorage_progresstracker'] = true;
+            }
+
+            return dataContext.initialize().then(function() {
+                return userContext.initialize().then(function() {
+                    return readPublishSettings().then(function() {
+                        return readTemplateSettings().then(function(settings) {
+                            return initTemplateSettings(settings).then(function() {
+                                return initTranslations(settings).then(function() {
 
                                     modulesInitializer.register(modules);
                                     app.setRoot('viewmodels/shell');
@@ -37,13 +40,13 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'queryStringP
                         });
                     });
                 });
-            })["catch"](function (e) {
+            })["catch"](function(e) {
                 console.error(e);
             });
 
             function readPublishSettings() {
-                return settingsReader.readPublishSettings().then(function (settings) {
-                    _.each(settings.modules, function (module) {
+                return settingsReader.readPublishSettings().then(function(settings) {
+                    _.each(settings.modules, function(module) {
                         modules['../includedModules/' + module.name] = true;
                     });
 
@@ -56,7 +59,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'queryStringP
             }
 
             function initTemplateSettings(settings) {
-                return templateSettings.init(settings).then(function () {
+                return templateSettings.init(settings).then(function() {
                     if (isXapiDisabled()) {
                         templateSettings.xApi.enabled = false;
                     }
@@ -81,7 +84,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'queryStringP
 
                 function isLmsInitizlized() {
                     if (publishSettings && publishSettings.modules) {
-                        return _.some(publishSettings.modules, function (module) {
+                        return _.some(publishSettings.modules, function(module) {
                             return module.name === 'lms';
                         });
                     }
