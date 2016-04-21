@@ -44,25 +44,28 @@
 }
 
 .blankSelect {
-    display: none;
+    display: block;
+    height: 0;
+    border: none;
+    visibility: hidden;
 }
 
 .select-wrapper {
-    width: 175px;
+    max-width: 300px;
+    min-width: 195px;
     cursor: pointer;
     padding-left: 6px;
     border-bottom: @fib-select-wrapper-border-width @fib-select-wrapper-border-style @fib-select-wrapper-border-color;
     display: inline-block;
     border-bottom-left-radius: @fib-select-wrapper-border-radius;
     margin-right: 30px;
+    margin-top: -1px;
     position: relative;
     font-family: 'robotoSlab-regular','OpenSans';
     font-size: 18px;
     letter-spacing: 0.2px;
     line-height: 29px;
-    color: @fib-select-wrapper-border-color;
     vertical-align: middle;
-    max-width: 100%;
 
     &.active, &:hover {
         border-bottom-color: @fib-select-wrapper-hover-border-color;
@@ -153,8 +156,13 @@
 
 .value {
     text-overflow: ellipsis;
-    padding-right: 5px;
+    padding-right: 10px;
     white-space: nowrap;
     overflow: hidden;
     display: block;
+    
+    &.default {
+        font-size: 14px;
+        opacity: 0.7;
+    }
 }
