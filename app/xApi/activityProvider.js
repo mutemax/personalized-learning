@@ -39,13 +39,13 @@
         sessionId = null;
         return activityProvider;
 
-        function initialize(courseId, actorName, actorEmail, activityName, activityUrl, attemptId) {
+        function initialize(courseId, actorName, actorEmail, actorAccount, activityName, activityUrl, attemptId) {
             rootCourseUrl = activityUrl != undefined ? activityUrl.split("?")[0].split("#")[0] : '';
             sessionId = progressContext.get().attemptId;
 
 
             // TODO: Check if undefined activity url is possible
-            activityProvider.actor = createActor(actorName, actorEmail);
+            activityProvider.actor = createActor(actorName, actorEmail, actorAccount);
             activityProvider.activityName = activityName;
             activityProvider.activityUrl = activityUrl;
             activityProvider.courseId = courseId;
@@ -70,10 +70,11 @@
             }
         }
 
-        function createActor(name, email) {
+        function createActor(name, email, account) {
             var actor = new ActorModel({
                 name: name,
-                mbox: 'mailto:' + email
+                mbox: 'mailto:' + email,
+                account: account
             });
 
             return actor;

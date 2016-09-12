@@ -81,6 +81,9 @@
                     username: user.username,
                     email: user.email
                 }
+                if(user.account) {
+                    self.progress.user.account = user.account;
+                }
                 self.progress.answers = {};
             }
         }

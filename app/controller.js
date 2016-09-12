@@ -32,7 +32,6 @@
     return controller;
 
     function activate() {
-
         app.on('xApi:authenticated').then(loadModuleAndActivate);
         app.on('xApi:authentication-skipped').then(loadModuleAndActivate);
         app.on('introduction:completed').then(loadModuleAndActivate).then(viewChanged);
@@ -48,7 +47,7 @@
             if (_.isFunction(userContext.getCurrentUser)) {
                 user  = userContext.getCurrentUser();
             }
-            if (user && user.username && constants.patterns.email.test(user.email)) {
+            if (user && user.username && (constants.patterns.email.test(user.email) || user.account)) {
                 if (_.isObject(progress) && progress.url && progress.user.username === user.username && progress.user.email === user.email) {
                     if (_.isObject(progress.url)) {
                         self.lifecycle = ['studying/viewmodels/index', 'summary/viewmodels/index'];
@@ -57,7 +56,7 @@
                     self.lifecycle = _.rest(self.lifecycle, index);
                 }
                 else {
-                    return xApiInitializer.initialize(user.username, user.email).then(function () {
+                    return xApiInitializer.initialize(user.username, user.email, user.account).then(function () {
                         return eventManager.courseStarted();
                     }).then(function () {
                         return loadModuleAndActivate();
@@ -65,7 +64,7 @@
                 }
             }
             if (_.isObject(progress.user)) {
-                xApiInitializer.initialize(progress.user.username, progress.user.email);
+                xApiInitializer.initialize(progress.user.username, progress.user.email, progress.user.account);
             }
             else {
                 self.lifecycle.unshift('xApi/viewmodels/login');
