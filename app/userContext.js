@@ -1,20 +1,28 @@
 ﻿define(['queryStringParameters'], function (queryStringParameters) {
-    var self = {
-        currentUser: null
-    },
-        context = {
-            use: use,
-            initialize: initialize,
-            getCurrentUser: getCurrentUser
-        }
-    ;
+        var context = {
+        initialize: initialize,
+        getCurrentUser: getCurrentUser,
+        user: new UserContext(),
+        clear: clear,
+		use: use
+    };
 
     return context;
 
-    function getCurrentUser() {
-        return self.currentUser;
+    function UserContext() {
+        this.email = null;
+        this.username = null;
+		this.account = null;
     }
 
+    function getCurrentUser() {
+        return context.user.email && context.user.username ? context.user : null;
+    }
+
+    function clear() {
+        context.user = new UserContext();
+    }
+	
     function use(userInfoProvider) {
         if(!userInfoProvider) {
             return;
@@ -25,13 +33,12 @@
         if(!accountId || !accountHomePage || !username) {
             return;
         }
-        self.currentUser = {
-            email: accountId,
-            username: username,
-            account: {
+		
+		context.user.username = username;
+        context.user.email = accountId;
+        context.user.account = {
                 homePage: accountHomePage,
                 name: accountId
-            }
         };
     }
 
@@ -41,7 +48,8 @@
                 email = queryStringParameters.get('email');
 
             if (username || email) {
-                self.currentUser = { username: username, email: email };
+                context.user.username = username;
+                context.user.email = email;
             }
         });
     }
