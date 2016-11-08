@@ -49,6 +49,9 @@
                 if (_.isFunction(module.courseFinished)) {
                     eventManager.subscribeForEvent(eventManager.events.courseFinished).then(module.courseFinished);
                 }
+                if (_.isFunction(module.courseFinalized)) {
+                    eventManager.subscribeForEvent(eventManager.events.courseFinalized).then(module.courseFinalized);
+                }
                 if (_.isObject(module.userInfoProvider)) {
                     userContext.use(module.userInfoProvider);
                 }

@@ -4,6 +4,7 @@
     var course = {
         score: score,
         finish: finish,
+        close: close,
         isCompleted: false,
         isFinished: false,
         isSuccessful: isSuccessful,
@@ -29,7 +30,13 @@
         course.isCompleted = course.isSuccessful();
         course.result = course.score() / 100;
         return Q.fcall(function () {
-            return eventManager.courseFinished(course, function () {
+            return eventManager.courseFinished(course);
+        });
+    }
+
+    function close() {
+        return Q.fcall(function() {
+            return eventManager.courseFinalized(function() {
                 eventManager.turnAllEventsOff();
             });
         });
