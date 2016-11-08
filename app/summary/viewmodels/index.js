@@ -39,7 +39,9 @@ define(['entities/course', 'knockout', '_', 'windowOperations'],
 
             if (self.isCourseFinished) {                
                 viewModel.isClosing(false);
-                windowOperations.close(function() { viewModel.isClosed(true); });
+                course.close().then(function() {
+                    windowOperations.close(function() { viewModel.isClosed(true); });
+                });
             } else {
                 setTimeout(close, 100);
             }

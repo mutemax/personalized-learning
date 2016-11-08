@@ -5,5 +5,5 @@
 /vendor/
 Web.config
 /.vs/config/applicationhost.config
-/.vs/personalized/v14/.suo
-/personalized.sln
+*.suo
+*.sln
