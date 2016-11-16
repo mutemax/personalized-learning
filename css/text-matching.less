@@ -7,6 +7,8 @@
     background-color: @text-matching-hint-background-colour;
     position: relative;
     box-shadow: 0 1px 4px 0 rgba(50,50,50,.1);
+    font-size: @text-matching-hint-font-size;
+    font-family: 'robotoSlab-light','OpenSans';
     display: inline-block;
     word-wrap: break-word;
 
@@ -74,7 +76,8 @@
     height: 100%;
     position: relative;
     width: 100%;
-
+    font-size: @text-matching-source-font-size;
+    font-family: 'robotoSlab-regular','OpenSans';
 
     &:after {
         background-color: transparent;
@@ -131,6 +134,7 @@
     border-bottom: @text-matching-source-border-bottom-width @text-matching-source-border-style @text-matching-target-border-colour;
     border-radius: 7px;
     font-size: @text-matching-target-font-size;
+    font-family: 'robotoSlab-regular','OpenSans';
     display: block;
     height: 100%;
     position: relative;
@@ -224,6 +228,8 @@
     display: table-cell;
     height: 100%;
     text-align: center;
+    font-family: 'robotoSlab-regular', 'OpenSans';
+    font-size: 16px;
     padding: 0 20px;
     vertical-align: middle;
     width: 100%;
