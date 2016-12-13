@@ -1,4 +1,5 @@
-﻿define(['knockout', 'durandal/app', 'durandal/activator', './studyadvice', './readings'], function (ko, app, activator, studyadvice, readings) {
+﻿define(['knockout', 'durandal/app', 'durandal/activator', './studyadvice', './readings', 'entities/course'],
+function (ko, app, activator, studyadvice, readings, course) {
     "use strict";
 
     var viewModel = {
@@ -20,15 +21,20 @@
     return viewModel;
 
     function activate(sectionId, questionId) {
-        if (sectionId && questionId) {
+        if (sectionId && questionId && isQuestionInSection(sectionId, questionId)) {
             viewModel.activeItem.activateItem(readings, [sectionId, questionId]);
         }
         else {
             return viewModel.activeItem.activateItem(studyadvice);
         }
-
-
     }
 
-
+    function isQuestionInSection(sectionId, questionId) {
+        for (var i = 0; i < course.sections.length; i++) {
+            if (course.sections[i].id === sectionId) {
+                return !!_.find(course.sections[i].questions, function(question) { return question.id === questionId; });
+            }
+        }
+        return false;
+    }
 });
